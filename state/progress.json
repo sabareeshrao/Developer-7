@@ -5,18 +5,29 @@
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
   "status": "1/387+",
+  "completed": {
+    "sets": 1,
+    "jobExperienceAnchors": 1,
+    "learningItems": 19,
+    "masterTechnicalQuestions": 18,
+    "syntheticTechnicalQuestions": 0
+  },
   "current": {
     "set": 1,
     "anchorMasterQuestion": 4,
     "anchor": "What's your preferred development environment and tool set for Spring Boot application?",
     "anchorType": "original",
-    "covered": false
+    "covered": true,
+    "evidence": "docs/sets/SET-001-DEVELOPMENT-ENVIRONMENT.md"
   },
+  "nextAction": "derive Set 2 around exactly one next logical job-experience anchor; mark any reused Set 1 technical concepts with ✅",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
+    "maxRelatedQuestionsPerPart": 7,
     "syntheticAnchorIncreasesDenominator": true,
-    "plusMeansExpandableSyntheticWorld": true,
-    "technicalQuestionsMustDirectlySurroundAnchor": true
+    "syntheticTechnicalMarker": "💡",
+    "previouslyCoveredTechnicalMarker": "✅",
+    "plusMeansExpandableSyntheticWorld": true
   },
   "tracker": "state/LEARNING_TRACKER.md"
 }
