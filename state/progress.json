@@ -4,29 +4,30 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "7/387+",
+  "status": "8/387+",
   "completed": {
-    "sets": 7,
-    "jobExperienceAnchors": 7,
-    "uniqueMasterTechnicalQuestions": 46,
+    "sets": 8,
+    "jobExperienceAnchors": 8,
+    "uniqueMasterTechnicalQuestions": 52,
     "syntheticTechnicalQuestions": 8
   },
   "current": {
-    "set": 7,
-    "anchorMasterQuestion": 151,
-    "anchor": "Can you tell me a real-world or real-time use case of the final keyword?",
+    "set": 8,
+    "anchorMasterQuestion": 152,
+    "anchor": "Have you written any static methods?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-007-FINAL-REAL-WORLD.md"
+    "evidence": "docs/sets/SET-008-STATIC-METHODS.md"
   },
-  "nextAction": "derive Set 8 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅",
+  "nextAction": "derive Set 9 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
     "syntheticAnchorIncreasesDenominator": true,
     "syntheticTechnicalMarker": "💡",
     "previouslyCoveredTechnicalMarker": "✅",
-    "plusMeansExpandableSyntheticWorld": true
+    "plusMeansExpandableSyntheticWorld": true,
+    "experienceAnswerRequiredAtEnd": true
   },
   "tracker": "state/LEARNING_TRACKER.md"
 }
