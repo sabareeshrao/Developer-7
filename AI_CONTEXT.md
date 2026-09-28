@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 8/387+**
+**Status: 9/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -31,6 +31,7 @@ Completed:
 6. Set 6 — intentional final-keyword design for validation standards and concrete rules.
 7. Set 7 — real-world final reference versus object mutability in ProjectService.
 8. Set 8 — stateless static GIS validation helpers.
+9. Set 9 — custom ProjectIdentity equality/hashCode and HashSet duplicate detection.
 
 Read in this order:
 1. `CONTINUATION_PROTOCOL.md`
@@ -171,3 +172,21 @@ static isValidCrsIdentifier(...)
 ```
 
 Static is used only when behavior does not depend on object state or injected services. Spring services and polymorphic validation components remain instance-based.
+
+
+## Set 9 equality / hash-based identity flow
+
+```text
+POST /api/projects
+        ↓
+new ProjectIdentity(projectCode)
+        ↓
+HashSet<ProjectIdentity>.add(...)
+        ↓
+hashCode() + equals()
+        ↓
+new identity → create
+duplicate identity → HTTP 409
+```
+
+Project code is the current logical uniqueness key. Database uniqueness has not yet been established.
