@@ -112,6 +112,28 @@ Implementation evidence:
 - `ProjectValidationStandardsTest.java`
 - Set 8 evidence document
 
+### Story GEO-9 — Enforce logical project identity with equals/hashCode
+
+**Outcome:** GeoOps prevents duplicate logical project intake by defining value equality for project identity and using it in a hash-based collection.
+
+Acceptance criteria:
+- A dedicated `ProjectIdentity` custom class defines logical equality by project code.
+- `equals()` and `hashCode()` are overridden together.
+- Equal project identities produce equal hash codes.
+- A `HashSet<ProjectIdentity>` detects duplicate logical project codes.
+- A duplicate create request is rejected with HTTP 409.
+- Tests prove separate objects with the same project code compare equal.
+- Tests prove HashSet duplicate detection.
+- Existing project behavior and CI remain green.
+
+Implementation evidence:
+- `ProjectIdentity.java`
+- `ProjectService.java`
+- `DuplicateProjectException.java`
+- `ProjectIdentityTest.java`
+- `ProjectServiceDuplicateTest.java`
+- Set 9 evidence document
+
 ## Sprint Review demo
 
 1. Run `mvn clean verify`.
