@@ -20,12 +20,13 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 3/387+**
+**Status: 4/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
 2. Set 2 — controlled System.exit usage and JVM process boundaries.
 3. Set 3 — Agile/Scrum project methodology and repository delivery workflow.
+4. Set 4 — StringBuilder/StringBuffer decisions and GIS project manifest generation.
 
 Read in this order:
 1. `CONTINUATION_PROTOCOL.md`
@@ -37,6 +38,22 @@ Read in this order:
 7. `docs/process/`
 8. `pom.xml`
 9. `src/main/java/com/atlasgrid/geoops/`
+
+## Set 4 text-generation flow
+
+```text
+GET /api/projects/manifest
+        ↓
+ProjectService.findAll()
+        ↓
+ProjectManifestFormatter
+        ↓
+method-local StringBuilder
+        ↓
+text/plain response
+```
+
+StringBuilder is local to each formatting call. StringBuffer is not used because the manifest does not share one mutable text buffer across requests.
 
 ## Runtime architecture currently established
 
