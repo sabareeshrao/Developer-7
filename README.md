@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 9 — Status: 9/387+ — COMPLETE**
+**Set 10 — Status: 10/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -18,6 +18,7 @@ Set 6: intentional final-keyword design for stable validation standards
 Set 7: real-world final reference versus object mutability in ProjectService
 Set 8: stateless static GIS validation helpers
 Set 9: custom equals/hashCode project identity with HashSet duplicate detection
+Set 10: reference versus value equality for project-code lookup
 ```
 
 ## Current project workflow
@@ -53,6 +54,7 @@ Useful endpoints:
 - `POST /api/projects`
 - `GET /api/projects/manifest`
 - `POST /api/projects/validate`
+- `GET /api/projects/exists/{projectCode}`
 
 ## Learning model
 
