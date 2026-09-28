@@ -97,8 +97,36 @@ Set 2 learning items completed: 8 / 8
 
 ---
 
-Completed job-experience anchors: 2
+# Set 3
+
+**Status: 3/387+**
+
+- [x] ⭐ [Master 40] Can you tell me your project methodology? Is it based on Agile or Waterfall model?
+
+## Part A
+- [x] 💡 What is Agile and why would a software team choose it over Waterfall?
+- [x] 💡 What is Scrum and how does it organize Agile work into sprints?
+- [x] 💡 What is a user story and how is it different from a task?
+- [x] 💡 What are acceptance criteria and why do they matter before development starts?
+- [x] 💡 What happens during Sprint Planning, Daily Stand-up, Sprint Review, and Retrospective?
+- [x] 💡 What are Definition of Ready and Definition of Done?
+- [x] 💡 How does GitHub issue → branch → pull request → CI map to an Agile sprint in GeoOps?
+
+## Set 3 completion evidence
+- docs/sets/SET-003-PROJECT-METHODOLOGY.md
+- docs/process/AGILE-WORKFLOW.md
+- docs/process/DEFINITION-OF-DONE.md
+- docs/process/SPRINT-001.md
+- .github/ISSUE_TEMPLATE/feature.yml
+- .github/pull_request_template.md
+- .github/workflows/ci.yml
+
+Set 3 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 3
 Synthetic job-experience anchors created so far: 0
 Unique master technical questions covered: 23
-Synthetic technical questions covered: 1
+Synthetic technical questions covered: 8
 Current denominator: 387+
