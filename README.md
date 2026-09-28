@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 3 — Status: 3/387+ — COMPLETE**
+**Set 4 — Status: 4/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -12,6 +12,7 @@ Completed world growth:
 Set 1: runnable GeoOps Spring Boot foundation
 Set 2: controlled GIS preflight CLI and process-lifecycle policy
 Set 3: Agile/Scrum delivery workflow encoded in repository artifacts
+Set 4: GIS project manifest generation using method-local StringBuilder
 ```
 
 ## Current project workflow
@@ -45,6 +46,7 @@ Useful endpoints:
 - `GET /actuator/health`
 - `GET /api/projects`
 - `POST /api/projects`
+- `GET /api/projects/manifest`
 
 ## Learning model
 
