@@ -1,64 +1,38 @@
 # Developer-7 — GIS Job Experience World
 
-This repository is a fictional interview-simulation world built progressively around a geographic / GIS enterprise.
+This repository builds one fictional GIS developer world around job-experience interview anchors.
 
-## Purpose
+## Critical learning rule
 
-The goal is to build one internally consistent GIS job-experience world while learning the technical knowledge in a natural ground-zero sequence.
+Each chat/turn is centered on exactly ONE job-experience anchor.
 
-The source banks contain:
-- 387 job-experience questions
-- 2,308 total interview questions
+The flow is:
 
-The original job-experience questions are anchors. The larger bank supplies related technical questions. New synthetic experience anchors may be created when the GIS developer flow needs experience that the source bank does not contain.
+⭐ one original job-experience anchor
+→ only the technical questions directly surrounding that anchor
+→ GIS code/world implementation for that anchor
+→ finish that anchor cluster
+→ next chat begins the next job-experience anchor
 
-## Question notation
+Never place multiple original job-experience anchors in the same chat cluster.
 
-- ⭐ = original job-experience question from the supplied question bank
-- ⭐⭐ = synthetic GIS job-experience question created for the developer/codebase flow and not present in the original bank
-- no star = technical/theory/coding question from the 2,308-question master bank
+⭐⭐ synthetic job-experience anchors are allowed only when the GIS codebase needs an experience scenario missing from the original 387-question bank. A synthetic anchor also gets its own separate chat cluster.
 
-## Coverage tracker
+## Legend
+- ⭐ original job-experience anchor
+- ⭐⭐ synthetic GIS job-experience anchor
+- no star = related technical question from the 2,308-question bank
+- [ ] not covered
+- [x] covered
 
-The canonical checklist is state/LEARNING_TRACKER.md.
-
-- [ ] means the question has not been covered.
-- [x] means its 80/20 lesson has been completed and any required GIS-world/codebase change has been committed.
-- Every learning item must appear in the tracker before it is studied.
-- Every completed item must be checked off immediately.
-
-## Learning sequence
-
-We do not simply walk through all 387 job-experience questions in source order.
-
-For each job-experience anchor:
-1. Start with the job-experience question.
-2. Identify the minimum prerequisite concepts needed to understand it.
-3. Pull in related non-job technical questions from the larger interview bank.
-4. Arrange those technical questions from ground zero → practical understanding → project implementation.
-5. Apply the knowledge inside the same fictional GIS world.
-6. Persist any new world facts, architecture, code, data models, incidents, or processes.
-7. If the GIS codebase introduces an important real-world responsibility or scenario that has no matching source job-experience question, create a ⭐⭐ synthetic GIS job-experience anchor.
-8. Track every item with a GitHub checkbox.
-9. Only then move to the next logical anchor.
-
-## Chat contract
-
-For every study question:
+## Chat answer contract
 
 I want to learn about [question]. Show me only the most important 20% that will help me understand the other 80%.
 
-## World continuity
+## Current cluster
 
-The fictional company is AtlasGrid Geospatial Systems and the core platform is GeoOps.
+Chat Cluster 001
 
-No later answer may casually contradict established world canon.
+⭐ What's your preferred development environment and tool set for Spring Boot application?
 
-## Current state
-
-- 387 original job-experience questions loaded
-- 2,308-question master bank recorded
-- Learning mode: natural topic clusters
-- Tracker: active
-- Current cluster: 001
-- Current question: Master 4
+Only technical questions surrounding this single anchor belong in this cluster.
