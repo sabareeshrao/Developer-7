@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "3/387+",
+  "status": "4/387+",
   "completed": {
-    "sets": 3,
-    "jobExperienceAnchors": 3,
-    "uniqueMasterTechnicalQuestions": 23,
+    "sets": 4,
+    "jobExperienceAnchors": 4,
+    "uniqueMasterTechnicalQuestions": 28,
     "syntheticTechnicalQuestions": 8
   },
   "current": {
-    "set": 3,
-    "anchorMasterQuestion": 40,
-    "anchor": "Can you tell me your project methodology? Is it based on Agile or Waterfall model?",
+    "set": 4,
+    "anchorMasterQuestion": 62,
+    "anchor": "Have you worked with StringBuilder and StringBuffer?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-003-PROJECT-METHODOLOGY.md"
+    "evidence": "docs/sets/SET-004-STRINGBUILDER-STRINGBUFFER.md"
   },
-  "nextAction": "derive Set 4 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅",
+  "nextAction": "derive Set 5 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
