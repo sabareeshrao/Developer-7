@@ -91,6 +91,27 @@ Implementation evidence:
 - `CoordinateReferenceSystemValidationRule.java`
 - Set 7 evidence document
 
+### Story GEO-8 — Extract stateless validation helpers as static methods
+
+**Outcome:** Reusable validation operations that require no object state or injected dependency can be called directly through the validation-standards class.
+
+Acceptance criteria:
+- Project-code matching is exposed through a static method.
+- CRS normalization is exposed through a static method.
+- CRS-format validation is exposed through a static method.
+- Callers invoke the helpers through `ProjectValidationStandards`, not through an object instance.
+- The utility class remains non-instantiable.
+- Stateful/orchestrating Spring components remain instance-based.
+- Static-helper behavior is unit tested.
+- Existing validation behavior remains green.
+
+Implementation evidence:
+- `ProjectValidationStandards.java`
+- `ProjectCodeValidationRule.java`
+- `CoordinateReferenceSystemValidationRule.java`
+- `ProjectValidationStandardsTest.java`
+- Set 8 evidence document
+
 ## Sprint Review demo
 
 1. Run `mvn clean verify`.
