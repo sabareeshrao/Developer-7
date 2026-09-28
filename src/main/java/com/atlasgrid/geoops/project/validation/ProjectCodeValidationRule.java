@@ -4,16 +4,15 @@ import com.atlasgrid.geoops.project.api.CreateProjectRequest;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.regex.Pattern;
 
 /**
  * Encapsulates the GeoOps project-code format rule.
+ *
+ * <p>This concrete rule is final because extension should happen by creating a
+ * new ProjectValidationRule implementation, not by subclassing this rule.</p>
  */
 @Component
-public class ProjectCodeValidationRule implements ProjectValidationRule {
-
-    private static final Pattern PROJECT_CODE =
-            Pattern.compile("[A-Z]{2,5}-[A-Z]{2,5}-\\d{3}");
+public final class ProjectCodeValidationRule implements ProjectValidationRule {
 
     @Override
     public String code() {
@@ -22,13 +21,16 @@ public class ProjectCodeValidationRule implements ProjectValidationRule {
 
     @Override
     public List<ValidationIssue> validate(CreateProjectRequest request) {
-        if (PROJECT_CODE.matcher(request.projectCode()).matches()) {
+        if (ProjectValidationStandards.PROJECT_CODE_PATTERN
+                .matcher(request.projectCode())
+                .matches()) {
             return List.of();
         }
 
         return List.of(new ValidationIssue(
                 code(),
-                "Project code must follow a pattern such as TX-AUS-001"
+                "Project code must follow a pattern such as "
+                        + ProjectValidationStandards.PROJECT_CODE_EXAMPLE
         ));
     }
 }
