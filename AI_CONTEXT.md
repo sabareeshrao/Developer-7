@@ -20,13 +20,14 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 4/387+**
+**Status: 5/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
 2. Set 2 — controlled System.exit usage and JVM process boundaries.
 3. Set 3 — Agile/Scrum project methodology and repository delivery workflow.
 4. Set 4 — StringBuilder/StringBuffer decisions and GIS project manifest generation.
+5. Set 5 — enterprise OOP through pluggable GIS project-intake validation.
 
 Read in this order:
 1. `CONTINUATION_PROTOCOL.md`
@@ -95,3 +96,21 @@ mvn spring-boot:run
 Do not mature the entire GIS system prematurely. Extend only when the next anchor and its technical questions justify a capability. Preserve all canon and mark previously taught concepts ✅ rather than duplicating them.
 
 For a new chat with no usable conversation context, the repository alone must be sufficient to recover state and continue.
+
+
+## Set 5 OOP validation flow
+
+```text
+POST /api/projects/validate
+        ↓
+ProjectValidationService
+        ↓
+List<ProjectValidationRule>
+        ↓
+ProjectCodeValidationRule
+CoordinateReferenceSystemValidationRule
+```
+
+The service depends on the interface and executes rules polymorphically. Each rule encapsulates one business concern. Spring composes the implementations through constructor injection.
+
+The current validation scope is intentionally narrow: project-code shape and EPSG identifier shape only.
