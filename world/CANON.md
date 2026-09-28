@@ -132,6 +132,35 @@ text/plain manifest
 
 No file-export subsystem has been established yet; the manifest is currently an HTTP text response.
 
+## Set 5 established facts — enterprise OOP validation design
+
+GeoOps now has an extensible GIS project-intake validation layer.
+
+```text
+POST /api/projects/validate
+        ↓
+ProjectValidationService
+        ↓
+List<ProjectValidationRule>
+        ↓ polymorphic dispatch
+ ┌───────────────┴────────────────┐
+ ↓                                ↓
+ProjectCodeValidationRule    CoordinateReferenceSystemValidationRule
+```
+
+Established design rules:
+- `ProjectValidationRule` is the common abstraction.
+- Each concrete rule encapsulates one validation responsibility.
+- `ProjectValidationService` uses constructor composition and depends on the interface, not concrete rule classes.
+- Spring injects all `ProjectValidationRule` implementations as a collection.
+- The service executes each implementation polymorphically through the same `validate(...)` method.
+- `ProjectValidationReport` and `ValidationIssue` are immutable records.
+- The report defensively copies the issue list.
+- GeoOps favors composition over a deep validation inheritance hierarchy.
+- Current rules validate project-code format and EPSG identifier shape only.
+- No EPSG registry lookup or coordinate transformation has been established yet.
+- Sprint 002 includes GEO-5 for this validation architecture.
+
 ## Grounding boundaries
 
 The fictional premise is inspired by the supplied resume's real technology/domain themes: Java backend development, Spring Boot services, REST/SOAP integrations, geospatial project intake, survey-data processing, file tracking, validation/transformation, scheduled jobs, database workflows, production support, Jenkins/Git/Linux tooling, and testing.
