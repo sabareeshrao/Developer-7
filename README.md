@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 7 — Status: 7/387+ — COMPLETE**
+**Set 8 — Status: 8/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -16,6 +16,7 @@ Set 4: GIS project manifest generation using method-local StringBuilder
 Set 5: enterprise OOP through pluggable GIS project-intake validation
 Set 6: intentional final-keyword design for stable validation standards
 Set 7: real-world final reference versus object mutability in ProjectService
+Set 8: stateless static GIS validation helpers
 ```
 
 ## Current project workflow
