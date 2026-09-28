@@ -185,8 +185,34 @@ Set 5 learning items completed: 11 / 11
 
 ---
 
-Completed job-experience anchors: 5
+# Set 6
+
+**Status: 6/387+**
+
+- [x] ⭐ [Master 150] Have you used the final keyword in your project ever?
+
+## Part A
+- [x] [Master 121] What is the difference between final, Effectively Final and Immutable?
+- [x] [Master 124] Can we modify a final object reference?
+- [x] [Master 127] Can you explain the final keyword for a final variable, final method and final class?
+- [x] [Master 129] What happens when we use final with a method?
+- [x] [Master 130] Discuss a scenario where the final keyword significantly impacts the design of a Java program.
+- [x] [Master 160] What's the impact of declaring a method as final on inheritance?
+
+## Set 6 completion evidence
+- docs/sets/SET-006-FINAL-KEYWORD.md
+- docs/process/SPRINT-002.md
+- src/main/java/com/atlasgrid/geoops/project/validation/ProjectValidationStandards.java
+- src/main/java/com/atlasgrid/geoops/project/validation/ProjectCodeValidationRule.java
+- src/main/java/com/atlasgrid/geoops/project/validation/CoordinateReferenceSystemValidationRule.java
+- src/main/java/com/atlasgrid/geoops/project/validation/ProjectValidationService.java
+
+Set 6 learning items completed: 7 / 7
+
+---
+
+Completed job-experience anchors: 6
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 38
+Unique master technical questions covered: 44
 Synthetic technical questions covered: 8
 Current denominator: 387+
