@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 9/387+**
+**Status: 10/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -32,6 +32,7 @@ Completed:
 7. Set 7 — real-world final reference versus object mutability in ProjectService.
 8. Set 8 — stateless static GIS validation helpers.
 9. Set 9 — custom ProjectIdentity equality/hashCode and HashSet duplicate detection.
+10. Set 10 — reference equality versus value equality for project-code lookup.
 
 Read in this order:
 1. `CONTINUATION_PROTOCOL.md`
@@ -190,3 +191,22 @@ duplicate identity → HTTP 409
 ```
 
 Project code is the current logical uniqueness key. Database uniqueness has not yet been established.
+
+
+## Set 10 equality-operator flow
+
+```text
+ProjectIdentity.equals(...)
+        ↓
+this == other
+        ↓
+same-reference fast path
+
+ProjectService.containsProjectCode(...)
+        ↓
+String.equals(...)
+        ↓
+business-value comparison
+```
+
+Use `==` only for intentional reference identity; use `.equals()` for project-code content.
