@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "9/387+",
+  "status": "10/387+",
   "completed": {
-    "sets": 9,
-    "jobExperienceAnchors": 9,
-    "uniqueMasterTechnicalQuestions": 59,
+    "sets": 10,
+    "jobExperienceAnchors": 10,
+    "uniqueMasterTechnicalQuestions": 65,
     "syntheticTechnicalQuestions": 8
   },
   "current": {
-    "set": 9,
-    "anchorMasterQuestion": 269,
-    "anchor": "Have you overridden hashCode() and equals() before?",
+    "set": 10,
+    "anchorMasterQuestion": 270,
+    "anchor": "Have you used == and .equals() operators in your project?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-009-EQUALS-HASHCODE.md"
+    "evidence": "docs/sets/SET-010-EQUALITY-OPERATORS.md"
   },
-  "nextAction": "derive Set 10 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; end with Experience Answer",
+  "nextAction": "derive Set 11 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
