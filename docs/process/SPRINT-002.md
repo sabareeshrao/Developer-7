@@ -70,6 +70,27 @@ Implementation evidence:
 - `ProjectValidationService.java`
 - Set 6 evidence document
 
+### Story GEO-7 — Make final-reference semantics explicit in project storage
+
+**Outcome:** GeoOps demonstrates a real production-style use of `final`: the service keeps a stable collection reference while still allowing controlled mutation internally and preventing callers from mutating the collection through the read API.
+
+Acceptance criteria:
+- `ProjectService.projects` remains a `final` reference.
+- The internal list can still accept newly created projects.
+- `findAll()` returns an immutable snapshot.
+- Tests prove that `final` does not make the referenced object immutable.
+- Tests prove callers cannot mutate the service's internal collection through the returned snapshot.
+- The Set 6 design rule for final concrete validation classes remains unchanged.
+- Existing CI remains green.
+
+Implementation evidence:
+- `ProjectService.java`
+- `ProjectServiceFinalReferenceTest.java`
+- `ProjectValidationStandards.java`
+- `ProjectCodeValidationRule.java`
+- `CoordinateReferenceSystemValidationRule.java`
+- Set 7 evidence document
+
 ## Sprint Review demo
 
 1. Run `mvn clean verify`.
