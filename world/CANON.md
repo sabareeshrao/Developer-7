@@ -61,44 +61,42 @@ Persistence remains intentionally in-memory. PostgreSQL/PostGIS has not yet been
 
 ## Set 2 established facts — process exit policy
 
-GeoOps now distinguishes between two JVM process types:
+GeoOps distinguishes between two JVM process types.
 
 ### Long-running Spring Boot service
-
-The web service must not call `System.exit()` from controller/service/business logic.
-
-Normal service termination uses Spring Boot lifecycle handling and graceful shutdown:
-
-```yaml
-server:
-  shutdown: graceful
-
-spring:
-  lifecycle:
-    timeout-per-shutdown-phase: 20s
-```
+- No `System.exit()` in controllers/services/business logic.
+- Graceful shutdown configured in `application.yml`.
 
 ### Short-lived operational CLI
+- `GeoOpsPreflightCli` validates inbound GIS files before submission.
+- Non-zero exit codes communicate failure to batch/Jenkins-style callers.
+- Supported starter formats: .csv, .json, .geojson.
+- `DatasetPreflightValidator` returns `PreflightResult`; only the CLI boundary can terminate the JVM.
 
-`GeoOpsPreflightCli` is a standalone utility used before submitting an inbound GIS dataset into the main service workflow.
+## Set 3 established facts — project methodology
 
-Its responsibility is to run lightweight file preflight checks and communicate success/failure to an external batch/Jenkins-style caller using operating-system exit codes.
+GeoOps uses an **Agile/Scrum-style delivery model**.
 
-Established exit codes:
-- 0 = success
-- 2 = invalid CLI usage
-- 3 = dataset does not exist
-- 4 = path is not a regular file
-- 5 = unsupported dataset type
+Established process facts:
+- Sprint length: 2 weeks.
+- Backlog refinement happens before Sprint Planning.
+- Stories require an understandable outcome, acceptance criteria, known dependencies, and required sample GIS data before they are treated as Ready.
+- Development uses short-lived feature branches.
+- Pull requests are reviewed before merge.
+- GitHub Actions must pass before merge.
+- Sprint Review demonstrates working behavior.
+- Retrospective records concrete process improvements.
+- The repository has a shared Definition of Done.
+- Agile artifacts are stored alongside code so the project methodology is inspectable by developers and AIs.
 
-Supported file extensions at this stage:
-- .csv
-- .json
-- .geojson
+### First recorded sprint
 
-`System.exit()` is intentionally present only in the CLI outer boundary. `DatasetPreflightValidator` returns `PreflightResult` instead of terminating the JVM itself.
+`docs/process/SPRINT-001.md` establishes three stories:
+1. GEO-1 — Bootstrap GeoOps.
+2. GEO-2 — Preflight inbound GIS datasets.
+3. GEO-3 — Establish the delivery workflow.
 
-This preserves testability and prevents reusable logic from owning process lifecycle.
+This makes Sets 1–3 part of one coherent development history instead of disconnected interview answers.
 
 ## Grounding boundaries
 
