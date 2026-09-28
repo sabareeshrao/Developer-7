@@ -1,9 +1,12 @@
 spring:
   application:
     name: geoops
+  lifecycle:
+    timeout-per-shutdown-phase: 20s
 
 server:
   port: 8080
+  shutdown: graceful
 
 management:
   endpoints:
