@@ -296,8 +296,36 @@ Set 9 learning items completed: 8 / 8
 
 ---
 
-Completed job-experience anchors: 9
+# Set 10
+
+**Status: 10/387+**
+
+- [x] ⭐ [Master 270] Have you used == and .equals() operators in your project?
+
+## Part A
+- [x] ✅ [Master 246] How would you handle a situation where you need to compare the content equality of two custom object instances?
+- [x] [Master 262] What's the difference between == and .equals() in Java?
+- [x] [Master 266] How does the equals() method in String work, and how is it different from the == operator?
+- [x] [Master 267] In a user-authentication module, what issues could arise if we use == instead of equals() to compare credentials?
+- [x] [Master 302] Two Integer variables, A and B, both contain 200. What will A == B return, true or false?
+- [x] [Master 2500] Let's say Integer A = 127 and Integer B = 127. If you do A == B, will it return true or false?
+- [x] [Master 2501] If Integer C = 128 and Integer D = 128, will C == D print true or false?
+
+## Set 10 completion evidence
+- docs/sets/SET-010-EQUALITY-OPERATORS.md
+- docs/process/SPRINT-002.md
+- src/main/java/com/atlasgrid/geoops/project/domain/ProjectIdentity.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectService.java
+- src/main/java/com/atlasgrid/geoops/project/api/ProjectController.java
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectServiceEqualityOperatorTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 10 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 10
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 59
+Unique master technical questions covered: 65
 Synthetic technical questions covered: 8
 Current denominator: 387+
