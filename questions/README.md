@@ -1,74 +1,40 @@
 # Question Banks
 
+## Legend
+
+- ⭐ original job-experience question from the supplied source bank
+- ⭐⭐ synthetic GIS job-experience question created to complete the developer flow
+- no star = technical/theory/coding question from the master bank
+
+Coverage is maintained in ../state/LEARNING_TRACKER.md.
+
 ## Source banks
 
 ### Job-experience anchors
-The repository contains the dedicated **387-question Job Experience bank**:
 
-- [Questions 001–100](job-experience-001-100.md)
-- [Questions 101–200](job-experience-101-200.md)
-- [Questions 201–300](job-experience-201-300.md)
-- [Questions 301–387](job-experience-301-387.md)
+The repository contains the dedicated 387-question Job Experience bank:
 
-These files remain immutable.
+- Questions 001–100
+- Questions 101–200
+- Questions 201–300
+- Questions 301–387
+
+These source files remain immutable.
 
 ### Master interview bank
-The supplied workbook contains **2,308 total interview questions** spanning Java, Spring, testing, databases, architecture, DevOps, cloud, production support, leadership, and related areas.
 
-## Sequencing rule
+The supplied workbook contains 2,308 total interview questions spanning Java, Spring, testing, databases, architecture, DevOps, cloud, production support, leadership, and related areas.
 
-The source numbering stays immutable, but **learning order is logical rather than flat**.
+## Sequencing
 
-A job-experience question acts as an **anchor**. Before moving to the next anchor, the system may study multiple related non-job technical questions from the larger bank.
+The source numbering stays immutable, but the learning order is logical:
 
-The ordering rule is:
+⭐ original job-experience anchor → ground-zero technical questions → intermediate/project technical questions → GIS codebase implementation → ⭐⭐ synthetic GIS job-experience anchor when a genuine gap exists → next logical cluster
 
-```text
-Anchor Job-Experience Question
-→ prerequisite concepts
-→ basic technical questions
-→ intermediate technical questions
-→ project-level technical questions
-→ GIS implementation/story
-→ synthetic GIS job-experience anchor when a genuine coverage gap appears
-→ next logical anchor
-```
+## Tracking rule
 
-## Synthetic GIS job-experience questions
+Before study, every selected question is added to the GitHub tracker as [ ].
 
-If the evolving GIS codebase creates a meaningful experience that is not represented by the original 387 job-experience questions, a new synthetic anchor may be added.
+After its 80/20 lesson and required repository work are complete, it becomes [x].
 
-Rules:
-- label it clearly as **Synthetic**
-- do not renumber or modify the original 387 questions
-- avoid duplicates
-- derive it from an actual component, workflow, problem, or decision in the fictional GIS codebase
-- place it at the natural point in the learning sequence
-- track its dependencies on previous canon
-
-Synthetic questions extend the world; they do not modify the source bank.
-
-## Ground-zero rule
-
-When a technical topic appears, begin from the lowest useful prerequisite that makes the anchor understandable. Do not assume advanced knowledge merely because the interview question is advanced.
-
-## Brain-sync rule
-
-Questions should be grouped by **concept continuity**. Avoid jumping from unrelated topics just because their source numbers are adjacent.
-
-Examples:
-- Development environment anchor → IDE → JDK → Maven → Spring Boot project structure → debugging/build workflow.
-- Data import/export anchor → files/data formats → serialization/deserialization → validation → batch processing → database persistence → GIS ingestion workflow.
-- Multithreading anchor → process/thread basics → executors/thread pools → synchronization → concurrent collections → async GIS processing.
-- Production issue anchor → logging → metrics → JVM/database/API diagnosis → deployment environment → incident/RCA story.
-- Spatial-data feature → coordinate systems → geometry → PostGIS → spatial indexes → repository/query implementation → synthetic GIS performance experience if no matching source anchor exists.
-
-## Advancement
-
-When the user says **Next**, continue from the current logical position:
-- next technical prerequisite if the current anchor is not yet complete;
-- otherwise the next related technical question;
-- create a synthetic GIS job-experience anchor if the codebase exposes a meaningful uncovered experience;
-- once the cluster is complete, advance to the next logical job-experience anchor.
-
-The system processes **one learning item at a time** unless the user explicitly requests more.
+Synthetic questions must always use their own Synthetic GIS JE-xxx identifier and can never be represented as source-bank questions.
