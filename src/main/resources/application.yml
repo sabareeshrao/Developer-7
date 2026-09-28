@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: geoops
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+info:
+  app:
+    name: GeoOps
+    domain: GIS operations
+    company: AtlasGrid Geospatial Systems
