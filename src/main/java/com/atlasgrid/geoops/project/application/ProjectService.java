@@ -25,6 +25,10 @@ import java.util.UUID;
  * hashCode() to detect a duplicate logical project code before creating a new
  * project record.</p>
  *
+ * <p>Project-code lookup uses String.equals(...) because an incoming request or
+ * path value can be a different String object with the same text. Reference
+ * equality with == would not be a valid business comparison.</p>
+ *
  * <p>Storage is intentionally in-memory. A later database-focused anchor will
  * replace this implementation with persistence when the learning sequence
  * reaches database integration.</p>
@@ -38,6 +42,11 @@ public class ProjectService {
 
     public List<GeoProject> findAll() {
         return List.copyOf(projects);
+    }
+
+    public boolean containsProjectCode(String projectCode) {
+        return projects.stream()
+                .anyMatch(project -> project.projectCode().equals(projectCode));
     }
 
     public GeoProject create(CreateProjectRequest request) {
