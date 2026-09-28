@@ -8,50 +8,56 @@ Developer-7 is a progressively built, runnable Java/Spring Boot GIS project plus
 
 The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoOps**, an enterprise workflow platform for geospatial project intake, file/data validation, processing, quality review and delivery.
 
-## Rules for interpreting questions
+## Question markers
 
-- ⭐ = original job-experience anchor from the source question bank.
-- ⭐⭐ = synthetic job-experience anchor added only when the evolving GIS project needs an experience not present in the original bank.
-- 💡 = synthetic technical question added only when the codebase requires knowledge not present in the 2,308-question master bank.
-- ✅ = technical question already completed in a previous anchor and reused by a later anchor.
-- `[ ]` / `[x]` in `state/LEARNING_TRACKER.md` are the canonical completion states.
+- ⭐ = original job-experience anchor.
+- ⭐⭐ = synthetic job-experience anchor added only when the GIS project exposes a missing experience.
+- 💡 = synthetic technical question added only when necessary knowledge is absent from the 2,308-question master bank.
+- ✅ = technical question already completed in a previous anchor and reused later.
+- `[ ]` / `[x]` in `state/LEARNING_TRACKER.md` are canonical coverage states.
 
 ## Current build state
 
-**Status: 1/387+**
+**Status: 2/387+**
 
-Set 1 establishes the developer environment and initial Spring Boot application.
+Completed:
+1. Set 1 — development environment / Spring Boot bootstrap
+2. Set 2 — controlled System.exit usage and JVM process boundaries
 
-Read these files first:
+Read in this order:
 1. `state/LEARNING_TRACKER.md`
 2. `world/CANON.md`
 3. `docs/sets/SET-001-DEVELOPMENT-ENVIRONMENT.md`
-4. `pom.xml`
-5. `src/main/java/com/atlasgrid/geoops/GeoOpsApplication.java`
+4. `docs/sets/SET-002-SYSTEM-EXIT.md`
+5. `pom.xml`
+6. `src/main/java/com/atlasgrid/geoops/`
 
-## Current executable vertical slice
-
-`POST /api/projects` creates an in-memory GIS project intake record.
-
-`GET /api/projects` returns the current in-memory records.
-
-`GET /actuator/health` verifies the application is running.
-
-Storage is intentionally in memory for Set 1. A database is not to be invented retroactively; it will enter the codebase only when a later anchor introduces the database portion of the world.
-
-## Architecture currently established
+## Current runtime architecture
 
 ```text
-HTTP
- ↓
-ProjectController
- ↓
-ProjectService
- ↓
-in-memory GeoProject collection
+                    GeoOps Web Service
+HTTP → ProjectController → ProjectService → in-memory GeoProject records
+                    │
+                    └─ graceful Spring shutdown policy
+
+Inbound GIS file
+       ↓
+GeoOpsPreflightCli
+       ↓
+DatasetPreflightValidator
+       ↓
+PreflightResult
+       ↓
+non-zero System.exit only at CLI boundary when validation fails
 ```
 
-The domain already carries a coordinate reference system string because the application is explicitly GIS-oriented, but no spatial database or geometry engine has yet been established.
+## Important process-lifecycle rule
+
+Never introduce `System.exit()` inside a controller, Spring service, repository, or reusable validator.
+
+The established fictional project experience is that System.exit is used only by the short-lived preflight CLI to return a process status to batch/Jenkins-style callers.
+
+The long-running Spring Boot service uses graceful shutdown configuration.
 
 ## Build
 
@@ -62,6 +68,6 @@ mvn clean test
 mvn spring-boot:run
 ```
 
-## Continuity rule for future AI work
+## Continuity rule
 
-Do not rewrite the project into a fully mature GIS platform all at once. Extend the existing code only when the next job-experience anchor or its surrounding technical questions justify the new capability. Preserve previously established facts and record changes in the tracker and canon.
+Do not mature the entire GIS system prematurely. Extend only when the next anchor and its technical questions justify a capability. Preserve all canon and mark previously taught concepts ✅ rather than duplicating them.
