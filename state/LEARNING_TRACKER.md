@@ -239,8 +239,36 @@ Set 7 learning items completed: 8 / 8
 
 ---
 
-Completed job-experience anchors: 7
+# Set 8
+
+**Status: 8/387+**
+
+- [x] ⭐ [Master 152] Have you written any static methods?
+
+## Part A
+- [x] ✅ [Master 18] Can you explain public static void main(String[] args) and why each term is used?
+- [x] [Master 140] Are you aware of the static keyword in Java?
+- [x] [Master 145] What's the use of a static method? Why do we use it?
+- [x] [Master 144] Can we call a non-static instance variable or method from a static method? Why can't we call it directly?
+- [x] [Master 141] Can you override static methods in Java?
+- [x] [Master 148] What happens if you call a Static Method using a null Object Reference?
+- [x] [Master 149] What happens when a static main() method directly calls a non-static method without creating an Object?
+
+## Set 8 completion evidence
+- docs/sets/SET-008-STATIC-METHODS.md
+- docs/process/SPRINT-002.md
+- src/main/java/com/atlasgrid/geoops/project/validation/ProjectValidationStandards.java
+- src/main/java/com/atlasgrid/geoops/project/validation/ProjectCodeValidationRule.java
+- src/main/java/com/atlasgrid/geoops/project/validation/CoordinateReferenceSystemValidationRule.java
+- src/test/java/com/atlasgrid/geoops/project/validation/ProjectValidationStandardsTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 8 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 8
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 46
+Unique master technical questions covered: 52
 Synthetic technical questions covered: 8
 Current denominator: 387+
