@@ -134,6 +134,26 @@ Implementation evidence:
 - `ProjectServiceDuplicateTest.java`
 - Set 9 evidence document
 
+### Story GEO-10 — Distinguish reference equality from value equality
+
+**Outcome:** GeoOps compares project-code business values by content instead of accidentally relying on Java object-reference identity.
+
+Acceptance criteria:
+- Project-code lookup compares `String` values with `.equals()`.
+- A separately allocated String containing the same project code still matches.
+- `ProjectIdentity.equals()` retains `this == other` only as a same-reference fast path.
+- A REST endpoint exposes project-code existence lookup.
+- Tests prove that `==` can be false while `.equals()` is true for two String objects containing the same project code.
+- Tests prove different project-code content does not match.
+- Existing duplicate detection and CI remain green.
+
+Implementation evidence:
+- `ProjectService.java`
+- `ProjectController.java`
+- `ProjectIdentity.java`
+- `ProjectServiceEqualityOperatorTest.java`
+- Set 10 evidence document
+
 ## Sprint Review demo
 
 1. Run `mvn clean verify`.
