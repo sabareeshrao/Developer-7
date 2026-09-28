@@ -1,30 +1,21 @@
 {
-  "mode": "natural-topic-clusters",
+  "mode": "one-anchor-per-chat",
   "sourceBanks": {
     "jobExperienceQuestions": 387,
     "masterInterviewQuestions": 2308
   },
-  "tracker": {
-    "path": "state/LEARNING_TRACKER.md",
-    "coveredMarker": "[x]",
-    "notCoveredMarker": "[ ]",
-    "originalJobExperienceMarker": "⭐",
-    "syntheticJobExperienceMarker": "⭐⭐"
+  "rules": {
+    "exactlyOneJobExperienceAnchorPerChat": true,
+    "multipleAnchorsInSameChat": false,
+    "relatedTechnicalQuestionsOnly": true,
+    "syntheticAnchorGetsSeparateChat": true
   },
-  "progress": {
-    "currentCluster": 1,
-    "completedLearningItems": 0,
-    "clusterLearningItems": 32,
-    "completedJobExperienceAnchors": 0,
-    "currentMasterQuestion": 4,
-    "currentPhase": "job-experience-anchor",
-    "nextAction": "cover Master 4"
+  "current": {
+    "chatCluster": 1,
+    "anchorMasterQuestion": 4,
+    "anchor": "What's your preferred development environment and tool set for Spring Boot application?",
+    "anchorType": "original",
+    "covered": false
   },
-  "world": {
-    "company": "AtlasGrid Geospatial Systems",
-    "product": "GeoOps",
-    "domain": "GIS / geospatial operations"
-  },
-  "chatAnswerContract": "I want to learn about [question]. Show me only the most important 20% that will help me understand the other 80%.",
-  "repoUpdateRequiredAfterEachLearningItem": true
+  "tracker": "state/LEARNING_TRACKER.md"
 }
