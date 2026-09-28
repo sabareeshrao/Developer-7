@@ -13,8 +13,14 @@ import java.util.UUID;
 /**
  * Application/service layer for the first GeoOps vertical slice.
  *
- * Storage is intentionally in-memory in Set 1. A later database-focused
- * anchor will replace it with a repository backed by PostgreSQL/PostGIS.
+ * <p>The {@code projects} field is a final reference: the service cannot
+ * reassign it to a different List after construction. The ArrayList itself is
+ * still mutable, so create(...) can add projects. findAll() returns a defensive
+ * immutable snapshot so callers cannot mutate the service's internal list.</p>
+ *
+ * <p>Storage is intentionally in-memory. A later database-focused anchor will
+ * replace this implementation with persistence when the learning sequence
+ * reaches database integration.</p>
  */
 @Slf4j
 @Service
