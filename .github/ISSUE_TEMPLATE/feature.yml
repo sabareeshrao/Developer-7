@@ -1,0 +1,42 @@
+name: GeoOps Feature
+description: Propose a product or engineering increment for the GeoOps GIS platform.
+title: "[Feature] "
+labels: ["feature"]
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Business outcome
+      description: What user or operational outcome should this change deliver?
+    validations:
+      required: true
+
+  - type: textarea
+    id: gis_context
+    attributes:
+      label: GIS / domain context
+      description: Describe relevant datasets, coordinate systems, validation rules, client workflow, or integration context.
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: List observable conditions that must be true for the story to be accepted.
+      placeholder: |
+        - [ ] Given ...
+        - [ ] When ...
+        - [ ] Then ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies and risks
+      description: Note APIs, files, services, environments, data samples, or blockers.
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Validation evidence
+      description: How should a reviewer or QA verify the result?
