@@ -1,15 +1,34 @@
 {
-  "mode": "one-question-at-a-time",
-  "questionBank": "job-experience",
-  "totalJobExperienceQuestions": 387,
-  "totalMasterInterviewQuestions": 2308,
-  "lastCompletedQuestion": 0,
-  "nextQuestion": 1,
+  "mode": "natural-topic-clusters",
+  "sourceBanks": {
+    "jobExperienceQuestions": 387,
+    "masterInterviewQuestions": 2308
+  },
+  "progress": {
+    "completedLearningItems": 0,
+    "completedJobExperienceAnchors": 0,
+    "currentAnchorQuestion": 1,
+    "currentPhase": "ground-zero-sequencing",
+    "nextAction": "derive the prerequisite and related technical sequence for anchor question 1"
+  },
+  "sequencing": {
+    "jobExperienceQuestionsAreAnchors": true,
+    "technicalQuestionsInsertedAroundAnchors": true,
+    "order": [
+      "job-experience-anchor",
+      "ground-zero-prerequisites",
+      "related-technical-questions",
+      "project-implementation",
+      "interview-ready-experience",
+      "next-logical-anchor"
+    ],
+    "optimizeFor": "concept continuity and brain synchronization"
+  },
   "world": {
     "company": "AtlasGrid Geospatial Systems",
     "product": "GeoOps",
     "domain": "GIS / geospatial operations"
   },
   "chatAnswerContract": "I want to learn about [question]. Show me only the most important 20% that will help me understand the other 80%.",
-  "repoUpdateRequiredAfterEachQuestion": true
+  "repoUpdateRequiredAfterEachLearningItem": true
 }
