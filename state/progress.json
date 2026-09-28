@@ -4,25 +4,21 @@
     "jobExperienceQuestions": 387,
     "masterInterviewQuestions": 2308
   },
-  "progress": {
-    "completedLearningItems": 0,
-    "completedJobExperienceAnchors": 0,
-    "currentAnchorQuestion": 1,
-    "currentPhase": "ground-zero-sequencing",
-    "nextAction": "derive the prerequisite and related technical sequence for anchor question 1"
+  "tracker": {
+    "path": "state/LEARNING_TRACKER.md",
+    "coveredMarker": "[x]",
+    "notCoveredMarker": "[ ]",
+    "originalJobExperienceMarker": "⭐",
+    "syntheticJobExperienceMarker": "⭐⭐"
   },
-  "sequencing": {
-    "jobExperienceQuestionsAreAnchors": true,
-    "technicalQuestionsInsertedAroundAnchors": true,
-    "order": [
-      "job-experience-anchor",
-      "ground-zero-prerequisites",
-      "related-technical-questions",
-      "project-implementation",
-      "interview-ready-experience",
-      "next-logical-anchor"
-    ],
-    "optimizeFor": "concept continuity and brain synchronization"
+  "progress": {
+    "currentCluster": 1,
+    "completedLearningItems": 0,
+    "clusterLearningItems": 32,
+    "completedJobExperienceAnchors": 0,
+    "currentMasterQuestion": 4,
+    "currentPhase": "job-experience-anchor",
+    "nextAction": "cover Master 4"
   },
   "world": {
     "company": "AtlasGrid Geospatial Systems",
