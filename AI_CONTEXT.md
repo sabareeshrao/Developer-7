@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 6/387+**
+**Status: 7/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -29,6 +29,7 @@ Completed:
 4. Set 4 — StringBuilder/StringBuffer decisions and GIS project manifest generation.
 5. Set 5 — enterprise OOP through pluggable GIS project-intake validation.
 6. Set 6 — intentional final-keyword design for validation standards and concrete rules.
+7. Set 7 — real-world final reference versus object mutability in ProjectService.
 
 Read in this order:
 1. `CONTINUATION_PROTOCOL.md`
@@ -130,3 +131,20 @@ final concrete rule classes
 ```
 
 New validation behavior extends the interface contract rather than subclassing existing concrete rules. Constructor-injected dependencies remain final references.
+
+
+## Set 7 final-reference example
+
+```text
+private final List<GeoProject> projects = new ArrayList<>()
+        ↓
+reference cannot be reassigned
+        ↓
+list contents can still change internally
+        ↓
+findAll() returns List.copyOf(...)
+        ↓
+callers receive an immutable snapshot
+```
+
+This is the canonical GeoOps example for explaining why `final` does not automatically make an object immutable.
