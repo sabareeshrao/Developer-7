@@ -267,8 +267,37 @@ Set 8 learning items completed: 8 / 8
 
 ---
 
-Completed job-experience anchors: 8
+# Set 9
+
+**Status: 9/387+**
+
+- [x] ⭐ [Master 269] Have you overridden hashCode() and equals() before?
+
+## Part A
+- [x] [Master 244] What methods are available in the Java Object class, and how are they used?
+- [x] [Master 246] How would you handle a situation where you need to compare the content equality of two custom object instances?
+- [x] [Master 248] Why is it important to override hashCode() when you are overriding equals()?
+- [x] [Master 249] Can you describe how hashCode() and equals() work together in Collections?
+- [x] [Master 256] Can you tell me a scenario where we should override hashCode() and equals()?
+- [x] [Master 257] How can we override hashCode() and equals()? Can you tell me the steps?
+- [x] [Master 260] Do you know the contract between hashCode() and equals()?
+
+## Set 9 completion evidence
+- docs/sets/SET-009-EQUALS-HASHCODE.md
+- docs/process/SPRINT-002.md
+- src/main/java/com/atlasgrid/geoops/project/domain/ProjectIdentity.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectService.java
+- src/main/java/com/atlasgrid/geoops/project/application/DuplicateProjectException.java
+- src/test/java/com/atlasgrid/geoops/project/domain/ProjectIdentityTest.java
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectServiceDuplicateTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 9 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 9
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 52
+Unique master technical questions covered: 59
 Synthetic technical questions covered: 8
 Current denominator: 387+
