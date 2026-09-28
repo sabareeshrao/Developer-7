@@ -4,7 +4,6 @@ import com.atlasgrid.geoops.project.api.CreateProjectRequest;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.Locale;
 
 /**
  * Encapsulates the starter coordinate-reference-system rule.
@@ -26,13 +25,8 @@ public final class CoordinateReferenceSystemValidationRule implements ProjectVal
 
     @Override
     public List<ValidationIssue> validate(CreateProjectRequest request) {
-        final String normalized = request.coordinateReferenceSystem()
-                .trim()
-                .toUpperCase(Locale.ROOT);
-
-        if (ProjectValidationStandards.EPSG_CODE_PATTERN
-                .matcher(normalized)
-                .matches()) {
+        if (ProjectValidationStandards
+                .isValidCrsIdentifier(request.coordinateReferenceSystem())) {
             return List.of();
         }
 
