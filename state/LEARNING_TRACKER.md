@@ -125,8 +125,32 @@ Set 3 learning items completed: 8 / 8
 
 ---
 
-Completed job-experience anchors: 3
+# Set 4
+
+**Status: 4/387+**
+
+- [x] ⭐ [Master 62] Have you worked with StringBuilder and StringBuffer?
+
+## Part A
+- [x] [Master 50] Can you discuss a scenario where StringBuilder is preferable over StringBuffer?
+- [x] [Master 51] If you want a mutable version of String, what would you use?
+- [x] [Master 52] Why are you not using StringBuffer?
+- [x] [Master 55] What happens internally when you concatenate two String objects using the + operator?
+- [x] [Master 2184] A web server handles thousands of requests involving String manipulation. What would you choose among String, StringBuilder and StringBuffer, and which would perform better?
+
+## Set 4 completion evidence
+- docs/sets/SET-004-STRINGBUILDER-STRINGBUFFER.md
+- docs/process/SPRINT-002.md
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectManifestFormatter.java
+- src/main/java/com/atlasgrid/geoops/project/api/ProjectController.java
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectManifestFormatterTest.java
+
+Set 4 learning items completed: 6 / 6
+
+---
+
+Completed job-experience anchors: 4
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 23
+Unique master technical questions covered: 28
 Synthetic technical questions covered: 8
 Current denominator: 387+
