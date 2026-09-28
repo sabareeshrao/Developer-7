@@ -1,6 +1,8 @@
 # AI Context — Developer-7 / GeoOps
 
-This file is the first entry point for any AI inspecting this repository.
+> **Fresh chat / branch startup:** Read `CONTINUATION_PROTOCOL.md` first, then inspect recent Git history and the canonical state files before continuing. A reusable paste-in instruction is available in `NEW_CHAT_PROMPT.md`.
+
+This file is the first architecture/context summary for any AI inspecting this repository.
 
 ## What this repository is
 
@@ -26,12 +28,15 @@ Completed:
 3. Set 3 — Agile/Scrum project methodology and repository delivery workflow.
 
 Read in this order:
-1. `state/LEARNING_TRACKER.md`
-2. `world/CANON.md`
-3. `docs/sets/`
-4. `docs/process/`
-5. `pom.xml`
-6. `src/main/java/com/atlasgrid/geoops/`
+1. `CONTINUATION_PROTOCOL.md`
+2. recent Git commit history
+3. `state/progress.json`
+4. `state/LEARNING_TRACKER.md`
+5. `world/CANON.md`
+6. `docs/sets/`
+7. `docs/process/`
+8. `pom.xml`
+9. `src/main/java/com/atlasgrid/geoops/`
 
 ## Runtime architecture currently established
 
@@ -71,3 +76,5 @@ mvn spring-boot:run
 ## Continuity rule
 
 Do not mature the entire GIS system prematurely. Extend only when the next anchor and its technical questions justify a capability. Preserve all canon and mark previously taught concepts ✅ rather than duplicating them.
+
+For a new chat with no usable conversation context, the repository alone must be sufficient to recover state and continue.
