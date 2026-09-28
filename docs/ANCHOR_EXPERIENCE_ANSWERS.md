@@ -101,3 +101,14 @@ I made those methods static because they are stateless operations—they only de
 Yes, I have overridden `equals()` and `hashCode()` in the GeoOps project. We had a project-intake requirement where two different request objects could represent the same logical GIS project if they carried the same project code. I created a `ProjectIdentity` class and defined equality based on that business key.
 
 I overrode both methods together and used `ProjectIdentity` inside a `HashSet`. That lets the service detect a duplicate project code even when the incoming request creates a completely new Java object. If the same logical project is submitted again, the set recognizes it through the `hashCode()` and `equals()` contract and GeoOps rejects the duplicate with a 409 Conflict. That is the practical project scenario where I used custom equality rather than relying on default reference equality.
+
+
+---
+
+## Set 10 — Status: 10/387+
+
+### ⭐ Have you used == and .equals() operators in your project?
+
+Yes, I have used both `==` and `.equals()` in the GeoOps project, but for different purposes. In our `ProjectIdentity.equals()` implementation, I use `this == other` as a quick check to see whether both references point to the exact same object.
+
+For business-value comparison, such as matching a project code coming from an API request against a stored project code, I use `.equals()`. An HTTP value can be a completely different String object even when it contains the same text, so using `==` there could incorrectly report that the project does not exist. We added a project-code existence lookup and a test with a separately created `String` to prove that reference equality can be false while content equality is true. So in the project I use `==` for identity and `.equals()` for logical/value comparison.
