@@ -3,6 +3,8 @@ package com.atlasgrid.geoops.project.api;
 import com.atlasgrid.geoops.project.application.ProjectManifestFormatter;
 import com.atlasgrid.geoops.project.application.ProjectService;
 import com.atlasgrid.geoops.project.domain.GeoProject;
+import com.atlasgrid.geoops.project.validation.ProjectValidationReport;
+import com.atlasgrid.geoops.project.validation.ProjectValidationService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -19,13 +21,16 @@ public class ProjectController {
 
     private final ProjectService projectService;
     private final ProjectManifestFormatter projectManifestFormatter;
+    private final ProjectValidationService projectValidationService;
 
     public ProjectController(
             ProjectService projectService,
-            ProjectManifestFormatter projectManifestFormatter
+            ProjectManifestFormatter projectManifestFormatter,
+            ProjectValidationService projectValidationService
     ) {
         this.projectService = projectService;
         this.projectManifestFormatter = projectManifestFormatter;
+        this.projectValidationService = projectValidationService;
     }
 
     @GetMapping
@@ -36,6 +41,13 @@ public class ProjectController {
     @GetMapping(value = "/manifest", produces = MediaType.TEXT_PLAIN_VALUE)
     public String getProjectManifest() {
         return projectManifestFormatter.format(projectService.findAll());
+    }
+
+    @PostMapping("/validate")
+    public ProjectValidationReport validateProject(
+            @Valid @RequestBody CreateProjectRequest request
+    ) {
+        return projectValidationService.validate(request);
     }
 
     @PostMapping
