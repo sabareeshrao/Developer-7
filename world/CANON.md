@@ -204,6 +204,20 @@ Established rules:
 - Static methods are not used as polymorphic extension points; `ProjectValidationRule` remains the extension mechanism for new rule behavior.
 - Sprint 002 includes GEO-8 for this static-method design.
 
+## Set 9 established facts — logical equality and duplicate project identity
+
+GeoOps now defines logical project identity explicitly.
+
+Established rules:
+- `ProjectIdentity` is a custom immutable class whose business identity is the project code.
+- `ProjectIdentity.equals(...)` and `hashCode()` are overridden together using the same equality-relevant field.
+- `ProjectService` owns a `HashSet<ProjectIdentity>` for in-memory duplicate detection.
+- Separate Java objects carrying the same project code are considered the same logical project identity.
+- Duplicate project intake is rejected with `DuplicateProjectException` and HTTP 409 Conflict.
+- Full `GeoProject` record equality is not used for duplicate detection because generated UUID/timestamp and descriptive fields are not the current uniqueness key.
+- Database-level unique constraints have not yet been introduced.
+- Sprint 002 includes GEO-9 for this equality/hash-based collection behavior.
+
 ## Grounding boundaries
 
 The fictional premise is inspired by the supplied resume's real technology/domain themes: Java backend development, Spring Boot services, REST/SOAP integrations, geospatial project intake, survey-data processing, file tracking, validation/transformation, scheduled jobs, database workflows, production support, Jenkins/Git/Linux tooling, and testing.
