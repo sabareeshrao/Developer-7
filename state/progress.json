@@ -1,0 +1,15 @@
+{
+  "mode": "one-question-at-a-time",
+  "questionBank": "job-experience",
+  "totalJobExperienceQuestions": 387,
+  "totalMasterInterviewQuestions": 2308,
+  "lastCompletedQuestion": 0,
+  "nextQuestion": 1,
+  "world": {
+    "company": "AtlasGrid Geospatial Systems",
+    "product": "GeoOps",
+    "domain": "GIS / geospatial operations"
+  },
+  "chatAnswerContract": "I want to learn about [question]. Show me only the most important 20% that will help me understand the other 80%.",
+  "repoUpdateRequiredAfterEachQuestion": true
+}
