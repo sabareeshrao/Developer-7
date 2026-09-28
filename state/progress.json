@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "5/387+",
+  "status": "6/387+",
   "completed": {
-    "sets": 5,
-    "jobExperienceAnchors": 5,
-    "uniqueMasterTechnicalQuestions": 38,
+    "sets": 6,
+    "jobExperienceAnchors": 6,
+    "uniqueMasterTechnicalQuestions": 44,
     "syntheticTechnicalQuestions": 8
   },
   "current": {
-    "set": 5,
-    "anchorMasterQuestion": 85,
-    "anchor": "What's the use of object-oriented programming in enterprise projects?",
+    "set": 6,
+    "anchorMasterQuestion": 150,
+    "anchor": "Have you used the final keyword in your project ever?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-005-OOP-ENTERPRISE.md"
+    "evidence": "docs/sets/SET-006-FINAL-KEYWORD.md"
   },
-  "nextAction": "derive Set 6 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅",
+  "nextAction": "derive Set 7 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
