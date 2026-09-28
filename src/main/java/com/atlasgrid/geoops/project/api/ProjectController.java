@@ -43,6 +43,11 @@ public class ProjectController {
         return projectManifestFormatter.format(projectService.findAll());
     }
 
+    @GetMapping("/exists/{projectCode}")
+    public boolean projectCodeExists(@PathVariable String projectCode) {
+        return projectService.containsProjectCode(projectCode);
+    }
+
     @PostMapping("/validate")
     public ProjectValidationReport validateProject(
             @Valid @RequestBody CreateProjectRequest request
