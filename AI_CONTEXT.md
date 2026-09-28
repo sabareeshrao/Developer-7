@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 5/387+**
+**Status: 6/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -28,6 +28,7 @@ Completed:
 3. Set 3 — Agile/Scrum project methodology and repository delivery workflow.
 4. Set 4 — StringBuilder/StringBuffer decisions and GIS project manifest generation.
 5. Set 5 — enterprise OOP through pluggable GIS project-intake validation.
+6. Set 6 — intentional final-keyword design for validation standards and concrete rules.
 
 Read in this order:
 1. `CONTINUATION_PROTOCOL.md`
@@ -114,3 +115,18 @@ CoordinateReferenceSystemValidationRule
 The service depends on the interface and executes rules polymorphically. Each rule encapsulates one business concern. Spring composes the implementations through constructor injection.
 
 The current validation scope is intentionally narrow: project-code shape and EPSG identifier shape only.
+
+
+## Set 6 final-keyword policy
+
+```text
+ProjectValidationStandards
+        ↓ final class
+static final examples/patterns
+
+ProjectValidationRule
+        ↓
+final concrete rule classes
+```
+
+New validation behavior extends the interface contract rather than subclassing existing concrete rules. Constructor-injected dependencies remain final references.
