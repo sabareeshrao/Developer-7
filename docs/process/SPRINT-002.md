@@ -50,6 +50,26 @@ Implementation evidence:
 - `ProjectController.java`
 - Set 5 evidence document
 
+### Story GEO-6 — Make validation standards explicit and non-extensible
+
+**Outcome:** Stable GeoOps validation standards are represented with intentional `final` semantics so callers cannot accidentally reassign constants or extend concrete rule implementations.
+
+Acceptance criteria:
+- Shared validation examples and regex patterns are centralized.
+- The standards holder is a `final` class with a private constructor.
+- Stable references are `static final`.
+- Concrete validation-rule classes are `final`.
+- New validation behavior continues to be added by implementing `ProjectValidationRule`, not by subclassing existing concrete rules.
+- Local normalized CRS text is declared `final` because the reference should not be reassigned.
+- Existing validation tests and CI remain green.
+
+Implementation evidence:
+- `ProjectValidationStandards.java`
+- `ProjectCodeValidationRule.java`
+- `CoordinateReferenceSystemValidationRule.java`
+- `ProjectValidationService.java`
+- Set 6 evidence document
+
 ## Sprint Review demo
 
 1. Run `mvn clean verify`.
