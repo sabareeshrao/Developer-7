@@ -161,6 +161,20 @@ Established design rules:
 - No EPSG registry lookup or coordinate transformation has been established yet.
 - Sprint 002 includes GEO-5 for this validation architecture.
 
+## Set 6 established facts — final keyword design
+
+GeoOps now makes stable validation intent explicit with `final`.
+
+Established rules:
+- `ProjectValidationStandards` is a `final` utility/policy class with a private constructor.
+- Stable examples and regex references are `static final`.
+- `ProjectCodeValidationRule` and `CoordinateReferenceSystemValidationRule` are final concrete classes.
+- New validation behavior is added by implementing `ProjectValidationRule`, not by subclassing existing concrete rules.
+- Constructor-injected dependencies such as the validation-rule list remain final references.
+- Local references that should not be reassigned may be declared final, as with normalized CRS text.
+- GeoOps does not introduce final methods merely for demonstration; the current validation design favors interface composition instead of a subclass template hierarchy.
+- Sprint 002 includes GEO-6 for this explicit final-keyword policy.
+
 ## Grounding boundaries
 
 The fictional premise is inspired by the supplied resume's real technology/domain themes: Java backend development, Spring Boot services, REST/SOAP integrations, geospatial project intake, survey-data processing, file tracking, validation/transformation, scheduled jobs, database workflows, production support, Jenkins/Git/Linux tooling, and testing.
