@@ -66,8 +66,39 @@ Each part may contain at most 7 related technical questions.
 - src/test/java/com/atlasgrid/geoops/GeoOpsApplicationTests.java
 - .github/workflows/ci.yml
 
-Set 1 anchor count: 1
 Set 1 learning items completed: 19 / 19
+
+---
+
+# Set 2
+
+**Status: 2/387+**
+
+- [x] ⭐ [Master 39] Did you get a chance to use System.exit() in your project?
+
+## Part A
+- [x] ✅ [Master 15] Can you tell me what JVM is and how it works?
+- [x] [Master 18] Can you explain public static void main(String[] args) and why each term is used?
+- [x] [Master 37] Do you know about System.exit() in Java?
+- [x] [Master 38] What happens internally when System.exit() is called?
+- [x] [Master 323] What is finally block?
+- [x] [Master 342] Can you tell me a condition where the finally block will not be executed?
+- [x] 💡 Why should normal Spring Boot request/service code prefer graceful shutdown over calling System.exit() directly?
+
+## Set 2 completion evidence
+- docs/sets/SET-002-SYSTEM-EXIT.md
+- src/main/java/com/atlasgrid/geoops/tools/preflight/GeoOpsPreflightCli.java
+- src/main/java/com/atlasgrid/geoops/tools/preflight/DatasetPreflightValidator.java
+- src/main/java/com/atlasgrid/geoops/tools/preflight/PreflightResult.java
+- src/test/java/com/atlasgrid/geoops/tools/preflight/DatasetPreflightValidatorTest.java
+- src/main/resources/application.yml
+
+Set 2 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 2
 Synthetic job-experience anchors created so far: 0
-Synthetic technical questions created so far: 0
+Unique master technical questions covered: 23
+Synthetic technical questions covered: 1
 Current denominator: 387+
