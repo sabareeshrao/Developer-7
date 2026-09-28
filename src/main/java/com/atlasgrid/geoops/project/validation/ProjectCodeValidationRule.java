@@ -21,9 +21,7 @@ public final class ProjectCodeValidationRule implements ProjectValidationRule {
 
     @Override
     public List<ValidationIssue> validate(CreateProjectRequest request) {
-        if (ProjectValidationStandards.PROJECT_CODE_PATTERN
-                .matcher(request.projectCode())
-                .matches()) {
+        if (ProjectValidationStandards.isValidProjectCode(request.projectCode())) {
             return List.of();
         }
 
