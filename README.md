@@ -10,7 +10,7 @@ The source banks contain:
 - **387 job-experience questions**
 - **2,308 total interview questions**
 
-The 387 job-experience questions are the **anchors**. The larger bank supplies the related technical questions that explain each anchor from fundamentals upward.
+The 387 job-experience questions are the initial **anchors**. The larger bank supplies the related technical questions that explain each anchor from fundamentals upward.
 
 ## Learning sequence
 
@@ -24,7 +24,8 @@ For each job-experience anchor:
 4. Arrange those technical questions from **ground zero → practical understanding → project implementation**.
 5. Apply the knowledge inside the same fictional GIS world.
 6. Persist any new world facts, architecture, code, data models, incidents, or processes.
-7. Only then move to the next logical job-experience anchor.
+7. If the GIS codebase introduces an important real-world responsibility or scenario that has **no matching job-experience question**, create a new **synthetic GIS job-experience anchor** for it.
+8. Only then move to the next logical anchor.
 
 Conceptually:
 
@@ -39,10 +40,32 @@ Java / Spring / Database / DevOps Understanding
         ↓
 GIS Project Implementation
         ↓
+Synthetic GIS Job-Experience Anchor if needed
+        ↓
 Interview-Ready Experience Story
         ↓
 Next Logical Anchor
 ```
+
+## Synthetic-anchor rule
+
+New synthetic job-experience questions are allowed when the evolving GIS world requires experience that the original 387-question bank does not cover.
+
+They must:
+- be clearly marked as **synthetic / generated**
+- be technically justified by the GIS codebase
+- reuse existing world canon
+- avoid duplicating an existing source question
+- be inserted where they naturally belong in the learning flow
+- never alter the numbering or wording of the original 387 questions
+
+Example:
+
+If we build a PostGIS spatial-query feature but no source question asks about spatial indexing, we can add a synthetic experience question such as:
+
+> How did you improve the performance of spatial queries in your GIS application?
+
+That new question becomes part of the fictional world while the original question bank remains unchanged.
 
 ## Chat contract
 
@@ -66,8 +89,9 @@ The fictional world is inspired by the supplied resume's Java/Spring Boot and ge
 ## Current state
 
 - Repository initialized
-- 387 job-experience questions loaded
+- 387 source job-experience questions loaded
 - Master bank count recorded: 2,308
+- Synthetic GIS job-experience anchors: allowed when needed
 - Learning mode: **natural topic clusters**
 - Current anchor: **Job Experience Question 1**
 - Current phase: **ground-zero sequencing before progressing**
