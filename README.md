@@ -4,15 +4,23 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 1 — Status: 1/387+ — COMPLETE**
+**Set 2 — Status: 2/387+ — COMPLETE**
 
-The current executable slice supports basic GIS project intake:
+Completed world growth:
 
 ```text
+Set 1
 HTTP → ProjectController → ProjectService → in-memory GeoProject records
+
+Set 2
+Inbound GIS file → GeoOpsPreflightCli → DatasetPreflightValidator
+                                   ↓ failure
+                             process exit code
 ```
 
-Run it with Java 17 and Maven:
+The long-running web service uses graceful Spring Boot shutdown; `System.exit()` is restricted to the standalone CLI boundary.
+
+## Run
 
 ```bash
 mvn clean test
@@ -20,7 +28,6 @@ mvn spring-boot:run
 ```
 
 Useful endpoints:
-
 - `GET /actuator/health`
 - `GET /api/projects`
 - `POST /api/projects`
@@ -29,25 +36,23 @@ Useful endpoints:
 
 Each set contains exactly one job-experience anchor.
 
-- ⭐ = original job-experience anchor
-- ⭐⭐ = synthetic GIS job-experience anchor not present in the original 387
-- 💡 = synthetic technical question not present in the 2,308 master bank
-- ✅ = technical question already completed in an earlier anchor and reused later
-- `[ ]` = not covered
-- `[x]` = covered
+- ⭐ original job-experience anchor
+- ⭐⭐ synthetic GIS job-experience anchor
+- 💡 synthetic technical question absent from the 2,308 master bank
+- ✅ already-covered technical question reused from an earlier anchor
+- `[ ]` not covered
+- `[x]` covered
 
-If an anchor has more than 7 surrounding technical questions, they are divided into Part A, Part B, Part C, etc., with at most 7 per part.
+At most 7 surrounding technical questions appear in one Part.
 
-The denominator starts at `387+`. Every ⭐⭐ synthetic job-experience anchor increases it permanently. 💡 technical questions do not change the denominator.
+The denominator starts at `387+`. Every ⭐⭐ synthetic job-experience anchor increases it permanently. 💡 questions do not alter the denominator.
 
 ## Repository navigation
-
-For another AI or developer, read in this order:
 
 1. `AI_CONTEXT.md`
 2. `state/LEARNING_TRACKER.md`
 3. `world/CANON.md`
-4. `docs/sets/SET-001-DEVELOPMENT-ENVIRONMENT.md`
+4. `docs/sets/`
 5. `pom.xml`
 6. `src/main/java/com/atlasgrid/geoops/`
 
@@ -55,7 +60,7 @@ For another AI or developer, read in this order:
 
 Java 17 · Maven · Spring Boot · Spring MVC · Bean Validation · Actuator · Lombok · JUnit 5 · GitHub Actions
 
-The project intentionally does **not** add future technologies early. PostgreSQL/PostGIS, persistence, security, messaging, Docker, Kubernetes, monitoring and other capabilities will be introduced only when their relevant anchors appear.
+PostgreSQL/PostGIS, persistence, security, messaging, Docker, Kubernetes, monitoring and other future capabilities have not yet been introduced.
 
 ## World
 
