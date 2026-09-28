@@ -1,45 +1,66 @@
-# Developer-7 — GIS Job Experience World
+# Developer-7 — GeoOps GIS Job Experience World
 
-This repository builds one fictional GIS developer world around job-experience interview anchors.
+Developer-7 is a progressively built **working Java/Spring Boot GIS project** plus a question-by-question learning tracker.
 
-## Critical learning rule
+## Current status
 
-Each set/chat is centered on exactly ONE job-experience anchor.
+**Set 1 — Status: 1/387+ — COMPLETE**
 
-⭐ one original job-experience anchor
-→ technical questions directly surrounding that anchor
-→ GIS code/world implementation
-→ finish that anchor
-→ next set starts the next anchor
+The current executable slice supports basic GIS project intake:
 
-Never place multiple job-experience anchors in the same set.
+```text
+HTTP → ProjectController → ProjectService → in-memory GeoProject records
+```
 
-## Part rule
+Run it with Java 17 and Maven:
 
-If an anchor has more than 7 related technical questions, divide the questions into Part A, Part B, Part C, and so on.
-Each part may contain at most 7 related technical questions.
-The anchor itself stays the same across all parts.
+```bash
+mvn clean test
+mvn spring-boot:run
+```
 
-## Legend
-- ⭐ original job-experience anchor
-- ⭐⭐ synthetic GIS job-experience anchor not present in the original 387
-- 💡 synthetic technical question not present in the 2,308 master bank, added because the codebase/learning flow requires it
-- no emoji = technical question from the 2,308 master bank
-- [ ] not covered
-- [x] covered
+Useful endpoints:
 
-## Counter
+- `GET /actuator/health`
+- `GET /api/projects`
+- `POST /api/projects`
 
-Status begins at 1/387+.
-Each synthetic job-experience anchor increases the denominator permanently.
-Example: one synthetic anchor makes the pool 388+, so a later fifth anchor is shown as 5/388+.
-Technical synthetic questions marked 💡 do not increase the denominator.
+## Learning model
 
-## Chat answer contract
+Each set contains exactly one job-experience anchor.
 
-I want to learn about [question]. Show me only the most important 20% that will help me understand the other 80%.
+- ⭐ = original job-experience anchor
+- ⭐⭐ = synthetic GIS job-experience anchor not present in the original 387
+- 💡 = synthetic technical question not present in the 2,308 master bank
+- ✅ = technical question already completed in an earlier anchor and reused later
+- `[ ]` = not covered
+- `[x]` = covered
 
-## Current set
+If an anchor has more than 7 surrounding technical questions, they are divided into Part A, Part B, Part C, etc., with at most 7 per part.
 
-Set 1 — Status: 1/387+
-⭐ What's your preferred development environment and tool set for Spring Boot application?
+The denominator starts at `387+`. Every ⭐⭐ synthetic job-experience anchor increases it permanently. 💡 technical questions do not change the denominator.
+
+## Repository navigation
+
+For another AI or developer, read in this order:
+
+1. `AI_CONTEXT.md`
+2. `state/LEARNING_TRACKER.md`
+3. `world/CANON.md`
+4. `docs/sets/SET-001-DEVELOPMENT-ENVIRONMENT.md`
+5. `pom.xml`
+6. `src/main/java/com/atlasgrid/geoops/`
+
+## Current technology baseline
+
+Java 17 · Maven · Spring Boot · Spring MVC · Bean Validation · Actuator · Lombok · JUnit 5 · GitHub Actions
+
+The project intentionally does **not** add future technologies early. PostgreSQL/PostGIS, persistence, security, messaging, Docker, Kubernetes, monitoring and other capabilities will be introduced only when their relevant anchors appear.
+
+## World
+
+**Company:** AtlasGrid Geospatial Systems  
+**Product:** GeoOps  
+**Domain:** GIS / geospatial operations
+
+The project is a fictional interview-simulation environment and should not be presented as factual employment history.
