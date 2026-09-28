@@ -4,21 +4,35 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 2 — Status: 2/387+ — COMPLETE**
+**Set 3 — Status: 3/387+ — COMPLETE**
 
 Completed world growth:
 
 ```text
-Set 1
-HTTP → ProjectController → ProjectService → in-memory GeoProject records
-
-Set 2
-Inbound GIS file → GeoOpsPreflightCli → DatasetPreflightValidator
-                                   ↓ failure
-                             process exit code
+Set 1: runnable GeoOps Spring Boot foundation
+Set 2: controlled GIS preflight CLI and process-lifecycle policy
+Set 3: Agile/Scrum delivery workflow encoded in repository artifacts
 ```
 
-The long-running web service uses graceful Spring Boot shutdown; `System.exit()` is restricted to the standalone CLI boundary.
+## Current project workflow
+
+```text
+Backlog
+  ↓
+Ready
+  ↓
+2-week Sprint
+  ↓
+feature branch
+  ↓
+Pull Request
+  ↓
+review + GitHub Actions
+  ↓
+Done
+  ↓
+Sprint Review / Retrospective
+```
 
 ## Run
 
@@ -38,14 +52,14 @@ Each set contains exactly one job-experience anchor.
 
 - ⭐ original job-experience anchor
 - ⭐⭐ synthetic GIS job-experience anchor
-- 💡 synthetic technical question absent from the 2,308 master bank
+- 💡 synthetic technical question absent from the master bank
 - ✅ already-covered technical question reused from an earlier anchor
 - `[ ]` not covered
 - `[x]` covered
 
 At most 7 surrounding technical questions appear in one Part.
 
-The denominator starts at `387+`. Every ⭐⭐ synthetic job-experience anchor increases it permanently. 💡 questions do not alter the denominator.
+The denominator starts at `387+`. Every ⭐⭐ synthetic job-experience anchor increases it permanently.
 
 ## Repository navigation
 
@@ -53,12 +67,16 @@ The denominator starts at `387+`. Every ⭐⭐ synthetic job-experience anchor i
 2. `state/LEARNING_TRACKER.md`
 3. `world/CANON.md`
 4. `docs/sets/`
-5. `pom.xml`
+5. `docs/process/`
 6. `src/main/java/com/atlasgrid/geoops/`
 
 ## Current technology baseline
 
 Java 17 · Maven · Spring Boot · Spring MVC · Bean Validation · Actuator · Lombok · JUnit 5 · GitHub Actions
+
+## Current process baseline
+
+Agile/Scrum-style delivery · 2-week sprints · backlog refinement · Definition of Ready · Definition of Done · feature branches · PR review · CI · Sprint Review · Retrospective
 
 PostgreSQL/PostGIS, persistence, security, messaging, Docker, Kubernetes, monitoring and other future capabilities have not yet been introduced.
 
