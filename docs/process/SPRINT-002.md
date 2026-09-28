@@ -1,9 +1,9 @@
-# Sprint 002 — Project Output Foundation
+# Sprint 002 — Project Output and Intake Validation Foundation
 
 **Sprint length:** 2 weeks  
-**Goal:** Begin turning GeoOps project data into useful downstream-readable outputs.
+**Goal:** Turn GeoOps project data into useful downstream-readable outputs and establish extensible intake validation.
 
-## Committed story
+## Committed stories
 
 ### Story GEO-4 — Generate a plain-text GIS project manifest
 
@@ -24,14 +24,60 @@ Implementation evidence:
 - `ProjectManifestFormatterTest.java`
 - Set 4 evidence document
 
+### Story GEO-5 — Add extensible GIS project-intake validation
+
+**Outcome:** GeoOps can validate project-intake metadata through independent business rules without coupling the orchestration service to concrete rule classes.
+
+Acceptance criteria:
+- A common validation-rule abstraction exists.
+- Project-code validation is implemented independently.
+- Coordinate-reference-system identifier validation is implemented independently.
+- Spring composes all rule implementations into one validation service.
+- The validation service executes rules polymorphically.
+- Adding another rule does not require changing the validation loop.
+- Validation results are immutable.
+- A REST endpoint exposes the validation report.
+- Unit tests prove multiple rules are executed and their issues are combined.
+
+Implementation evidence:
+- `ProjectValidationRule.java`
+- `ProjectCodeValidationRule.java`
+- `CoordinateReferenceSystemValidationRule.java`
+- `ProjectValidationService.java`
+- `ProjectValidationReport.java`
+- `ValidationIssue.java`
+- `ProjectValidationServiceTest.java`
+- `ProjectController.java`
+- Set 5 evidence document
+
 ## Sprint Review demo
 
-1. Start GeoOps.
-2. Create two GIS project records with `POST /api/projects`.
-3. Call `GET /api/projects/manifest`.
-4. Verify both records are returned in one text manifest.
-5. Run `mvn clean verify`.
+1. Run `mvn clean verify`.
+2. Start GeoOps.
+3. Create two GIS project records with `POST /api/projects`.
+4. Call `GET /api/projects/manifest`.
+5. Call `POST /api/projects/validate` with valid metadata.
+6. Call the same endpoint with an invalid project code and invalid CRS identifier.
+7. Verify independent rule failures are returned together.
 
-## Design note
+## Design notes
 
-GeoOps uses `StringBuilder` as a **method-local mutable accumulator** for this output. It does not use one shared `StringBuilder` bean, and it does not use `StringBuffer` because this formatter does not need synchronization around one shared mutable buffer.
+### Text assembly
+
+GeoOps uses `StringBuilder` as a method-local mutable accumulator for manifest output. It does not share one mutable builder across requests.
+
+### OOP validation design
+
+GeoOps favors **composition around an interface** instead of building a deep inheritance hierarchy.
+
+```text
+ProjectValidationService
+        ↓ contains
+List<ProjectValidationRule>
+        ↓
+ ┌───────────────┴────────────────┐
+ ↓                                ↓
+ProjectCodeValidationRule    CoordinateReferenceSystemValidationRule
+```
+
+The service knows only the `ProjectValidationRule` abstraction. Spring supplies the concrete implementations. Calling `rule.validate(...)` invokes the correct implementation polymorphically.
