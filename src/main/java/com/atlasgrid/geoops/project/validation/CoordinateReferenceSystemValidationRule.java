@@ -5,18 +5,19 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Locale;
-import java.util.regex.Pattern;
 
 /**
  * Encapsulates the starter coordinate-reference-system rule.
  *
  * <p>Set 5 validates only the identifier shape. It does not yet query an EPSG
  * registry or perform coordinate transformations.</p>
+ *
+ * <p>This concrete rule is final because GeoOps extends validation by adding a
+ * new ProjectValidationRule implementation rather than subclassing an existing
+ * focused rule.</p>
  */
 @Component
-public class CoordinateReferenceSystemValidationRule implements ProjectValidationRule {
-
-    private static final Pattern EPSG_CODE = Pattern.compile("EPSG:\\d+");
+public final class CoordinateReferenceSystemValidationRule implements ProjectValidationRule {
 
     @Override
     public String code() {
@@ -25,17 +26,20 @@ public class CoordinateReferenceSystemValidationRule implements ProjectValidatio
 
     @Override
     public List<ValidationIssue> validate(CreateProjectRequest request) {
-        String normalized = request.coordinateReferenceSystem()
+        final String normalized = request.coordinateReferenceSystem()
                 .trim()
                 .toUpperCase(Locale.ROOT);
 
-        if (EPSG_CODE.matcher(normalized).matches()) {
+        if (ProjectValidationStandards.EPSG_CODE_PATTERN
+                .matcher(normalized)
+                .matches()) {
             return List.of();
         }
 
         return List.of(new ValidationIssue(
                 code(),
-                "Coordinate reference system must use an EPSG identifier such as EPSG:4326"
+                "Coordinate reference system must use an EPSG identifier such as "
+                        + ProjectValidationStandards.CRS_EXAMPLE
         ));
     }
 }
