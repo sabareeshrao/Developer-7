@@ -189,6 +189,21 @@ Established rules:
 - Concrete focused validation rules may remain final when subclassing is not part of the design.
 - Sprint 002 includes GEO-7 for this real-world final-reference use case.
 
+## Set 8 established facts — static method usage
+
+GeoOps now uses static methods for stateless deterministic validation helpers.
+
+Established rules:
+- `ProjectValidationStandards.isValidProjectCode(...)` is static.
+- `ProjectValidationStandards.normalizeCrsIdentifier(...)` is static.
+- `ProjectValidationStandards.isValidCrsIdentifier(...)` is static.
+- These helpers require no object state and no Spring-injected dependency.
+- Static helpers are invoked through the class name.
+- `ProjectValidationStandards` remains non-instantiable through its private constructor.
+- Stateful/orchestrating components such as `ProjectValidationService` remain instance-based Spring beans.
+- Static methods are not used as polymorphic extension points; `ProjectValidationRule` remains the extension mechanism for new rule behavior.
+- Sprint 002 includes GEO-8 for this static-method design.
+
 ## Grounding boundaries
 
 The fictional premise is inspired by the supplied resume's real technology/domain themes: Java backend development, Spring Boot services, REST/SOAP integrations, geospatial project intake, survey-data processing, file tracking, validation/transformation, scheduled jobs, database workflows, production support, Jenkins/Git/Linux tooling, and testing.
