@@ -149,8 +149,44 @@ Set 4 learning items completed: 6 / 6
 
 ---
 
-Completed job-experience anchors: 4
+# Set 5
+
+**Status: 5/387+**
+
+- [x] ⭐ [Master 85] What's the use of object-oriented programming in enterprise projects?
+
+## Part A
+- [x] [Master 69] Can you explain the concepts of classes and objects?
+- [x] [Master 75] Why was OOP introduced in Java? Don't tell me the four pillars, just tell me why OOP was introduced and what benefits it provides.
+- [x] [Master 66] What is meant by Code Reusability in OOP?
+- [x] [Master 78] How does abstraction differ from encapsulation?
+- [x] [Master 83] What is the difference between Association, Aggregation and Composition?
+- [x] [Master 111] How does encapsulation enhance software security and integrity?
+- [x] [Master 169] Can you explain inheritance and composition in Java?
+
+## Part B
+- [x] [Master 186] How does Java achieve polymorphism?
+- [x] [Master 221] How does abstraction help in achieving loose coupling in a software application?
+- [x] [Master 1711] Can you tell me how OOP is helpful in Spring Boot projects?
+
+## Set 5 completion evidence
+- docs/sets/SET-005-OOP-ENTERPRISE.md
+- docs/process/SPRINT-002.md
+- src/main/java/com/atlasgrid/geoops/project/validation/ProjectValidationRule.java
+- src/main/java/com/atlasgrid/geoops/project/validation/ProjectCodeValidationRule.java
+- src/main/java/com/atlasgrid/geoops/project/validation/CoordinateReferenceSystemValidationRule.java
+- src/main/java/com/atlasgrid/geoops/project/validation/ProjectValidationService.java
+- src/main/java/com/atlasgrid/geoops/project/validation/ProjectValidationReport.java
+- src/main/java/com/atlasgrid/geoops/project/validation/ValidationIssue.java
+- src/main/java/com/atlasgrid/geoops/project/api/ProjectController.java
+- src/test/java/com/atlasgrid/geoops/project/validation/ProjectValidationServiceTest.java
+
+Set 5 learning items completed: 11 / 11
+
+---
+
+Completed job-experience anchors: 5
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 28
+Unique master technical questions covered: 38
 Synthetic technical questions covered: 8
 Current denominator: 387+
