@@ -4,23 +4,23 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "1/387+",
+  "status": "2/387+",
   "completed": {
-    "sets": 1,
-    "jobExperienceAnchors": 1,
-    "learningItems": 19,
-    "masterTechnicalQuestions": 18,
-    "syntheticTechnicalQuestions": 0
+    "sets": 2,
+    "jobExperienceAnchors": 2,
+    "displayedLearningItems": 27,
+    "uniqueMasterTechnicalQuestions": 23,
+    "syntheticTechnicalQuestions": 1
   },
   "current": {
-    "set": 1,
-    "anchorMasterQuestion": 4,
-    "anchor": "What's your preferred development environment and tool set for Spring Boot application?",
+    "set": 2,
+    "anchorMasterQuestion": 39,
+    "anchor": "Did you get a chance to use System.exit() in your project?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-001-DEVELOPMENT-ENVIRONMENT.md"
+    "evidence": "docs/sets/SET-002-SYSTEM-EXIT.md"
   },
-  "nextAction": "derive Set 2 around exactly one next logical job-experience anchor; mark any reused Set 1 technical concepts with ✅",
+  "nextAction": "derive Set 3 around exactly one next logical job-experience anchor; reuse completed concepts with ✅",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
