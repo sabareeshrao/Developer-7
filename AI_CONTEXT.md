@@ -148,3 +148,12 @@ callers receive an immutable snapshot
 ```
 
 This is the canonical GeoOps example for explaining why `final` does not automatically make an object immutable.
+
+
+## Experience-answer rule
+
+Every future Set must end with a concise first-person **Experience Answer** for its ⭐ / ⭐⭐ anchor, grounded only in repository-established GeoOps facts.
+
+Historical completed answers are consolidated in:
+
+`docs/ANCHOR_EXPERIENCE_ANSWERS.md`
