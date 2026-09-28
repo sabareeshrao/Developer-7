@@ -18,46 +18,46 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 2/387+**
+**Status: 3/387+**
 
 Completed:
-1. Set 1 — development environment / Spring Boot bootstrap
-2. Set 2 — controlled System.exit usage and JVM process boundaries
+1. Set 1 — development environment / Spring Boot bootstrap.
+2. Set 2 — controlled System.exit usage and JVM process boundaries.
+3. Set 3 — Agile/Scrum project methodology and repository delivery workflow.
 
 Read in this order:
 1. `state/LEARNING_TRACKER.md`
 2. `world/CANON.md`
-3. `docs/sets/SET-001-DEVELOPMENT-ENVIRONMENT.md`
-4. `docs/sets/SET-002-SYSTEM-EXIT.md`
+3. `docs/sets/`
+4. `docs/process/`
 5. `pom.xml`
 6. `src/main/java/com/atlasgrid/geoops/`
 
-## Current runtime architecture
+## Runtime architecture currently established
 
 ```text
-                    GeoOps Web Service
 HTTP → ProjectController → ProjectService → in-memory GeoProject records
-                    │
-                    └─ graceful Spring shutdown policy
 
-Inbound GIS file
-       ↓
-GeoOpsPreflightCli
-       ↓
-DatasetPreflightValidator
-       ↓
-PreflightResult
-       ↓
-non-zero System.exit only at CLI boundary when validation fails
+Inbound GIS file → GeoOpsPreflightCli → DatasetPreflightValidator
+                                   ↓ failure
+                             process exit code
 ```
 
-## Important process-lifecycle rule
+## Delivery process currently established
 
-Never introduce `System.exit()` inside a controller, Spring service, repository, or reusable validator.
+```text
+Backlog → Ready → Sprint Planning → Development → Pull Request
+       → Review + CI → Done → Sprint Review → Retrospective
+```
 
-The established fictional project experience is that System.exit is used only by the short-lived preflight CLI to return a process status to batch/Jenkins-style callers.
+Sprint cadence: 2 weeks.
 
-The long-running Spring Boot service uses graceful shutdown configuration.
+The repository includes:
+- feature issue template,
+- pull-request template,
+- Definition of Ready in Agile workflow docs,
+- Definition of Done,
+- Sprint 001 record.
 
 ## Build
 
