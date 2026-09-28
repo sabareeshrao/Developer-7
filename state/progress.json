@@ -4,23 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "2/387+",
+  "status": "3/387+",
   "completed": {
-    "sets": 2,
-    "jobExperienceAnchors": 2,
-    "displayedLearningItems": 27,
+    "sets": 3,
+    "jobExperienceAnchors": 3,
     "uniqueMasterTechnicalQuestions": 23,
-    "syntheticTechnicalQuestions": 1
+    "syntheticTechnicalQuestions": 8
   },
   "current": {
-    "set": 2,
-    "anchorMasterQuestion": 39,
-    "anchor": "Did you get a chance to use System.exit() in your project?",
+    "set": 3,
+    "anchorMasterQuestion": 40,
+    "anchor": "Can you tell me your project methodology? Is it based on Agile or Waterfall model?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-002-SYSTEM-EXIT.md"
+    "evidence": "docs/sets/SET-003-PROJECT-METHODOLOGY.md"
   },
-  "nextAction": "derive Set 3 around exactly one next logical job-experience anchor; reuse completed concepts with ✅",
+  "nextAction": "derive Set 4 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
