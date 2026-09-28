@@ -351,7 +351,30 @@ For example, PostgreSQL/PostGIS, Docker, Kubernetes, Kafka, Redis, security, clo
 
 ---
 
-## 9. Evidence requirement
+## 9. Experience-answer rule
+
+Every Set must end with an **Experience Answer** for its single ⭐ / ⭐⭐ anchor.
+
+The Experience Answer must:
+- appear at the END of the Set output and the end of the Set evidence document,
+- answer the anchor directly in first-person interview style,
+- be grounded only in facts already established by the GeoOps repository,
+- mention concrete project classes/components/workflows where useful,
+- avoid inventing metrics, clients, incidents, scale, technologies, or responsibilities not present in canon/code,
+- reuse prior established facts rather than creating a second conflicting story,
+- be concise enough to speak in an interview, normally about 1–3 short paragraphs,
+- explain what was done, why it was done, and the concrete project example,
+- clearly remain part of the fictional GeoOps interview-simulation world.
+
+A Set is not complete until its Experience Answer exists.
+
+For historical anchor answers, read:
+
+```text
+docs/ANCHOR_EXPERIENCE_ANSWERS.md
+```
+
+## 10. Evidence requirement
 
 Another AI inspecting the repository must be able to answer every completed set from GitHub evidence.
 
@@ -375,7 +398,7 @@ Do not mark a question complete if there is no repository evidence supporting it
 
 ---
 
-## 10. Required state updates after every completed set
+## 11. Required state updates after every completed set
 
 Before declaring a set complete, update all applicable sources:
 
@@ -403,7 +426,7 @@ deployment/configuration files
 
 ---
 
-## 11. Tracker rules
+## 12. Tracker rules
 
 `state/LEARNING_TRACKER.md` is the question-coverage ledger.
 
@@ -424,7 +447,7 @@ Never mark an item complete only because it appeared in chat.
 
 ---
 
-## 12. Commit-history rules
+## 13. Commit-history rules
 
 Commit history is part of the handover system.
 
@@ -444,7 +467,7 @@ If the chat stops midway, the next AI must inspect commits and finish/reconcile 
 
 ---
 
-## 13. Git branch safety
+## 14. Git branch safety
 
 If the user creates an actual Git branch:
 
@@ -459,7 +482,7 @@ If the user means a new ChatGPT conversation branch rather than a Git branch, co
 
 ---
 
-## 14. Build/test rule
+## 15. Build/test rule
 
 Whenever executable code changes:
 
@@ -474,7 +497,7 @@ For documentation/process-only sets, existing application CI should still remain
 
 ---
 
-## 15. Fiction boundary
+## 16. Fiction boundary
 
 AtlasGrid Geospatial Systems and GeoOps are a fictional interview-simulation world.
 
@@ -484,7 +507,7 @@ The goal is a technically coherent practice project and interview experience wor
 
 ---
 
-## 16. Current checkpoint at creation of this protocol
+## 17. Current checkpoint at creation of this protocol
 
 At the time this protocol was created:
 
