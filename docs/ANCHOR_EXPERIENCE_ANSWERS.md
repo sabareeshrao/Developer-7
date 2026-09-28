@@ -79,3 +79,14 @@ private final List<GeoProject> projects = new ArrayList<>();
 The final reference means the service cannot later point `projects` to a completely different list, so ownership of that dependency stays stable. But the `ArrayList` itself is still mutable, which lets the service add new projects. To protect the internal state from callers, `findAll()` returns `List.copyOf(projects)`, which gives callers an immutable snapshot.
 
 That example is useful because it shows the real distinction between a final reference and an immutable object rather than treating `final` as only an interview definition.
+
+
+---
+
+## Set 8 — Status: 8/387+
+
+### ⭐ Have you written any static methods?
+
+Yes, I have written static methods in the GeoOps project. A good example is our `ProjectValidationStandards` utility class, where we have static methods for validating project-code format, normalizing a CRS identifier, and checking whether the CRS follows the expected EPSG format.
+
+I made those methods static because they are stateless operations—they only depend on their input and class-level validation patterns, and they don't require any injected Spring dependency or object-specific state. We call them directly through `ProjectValidationStandards`. On the other hand, I keep services like `ProjectValidationService` as normal instance-based Spring components because they depend on injected validation-rule objects. That distinction helps us avoid unnecessary global/static application design while still using static methods where they are appropriate.
