@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "4/387+",
+  "status": "5/387+",
   "completed": {
-    "sets": 4,
-    "jobExperienceAnchors": 4,
-    "uniqueMasterTechnicalQuestions": 28,
+    "sets": 5,
+    "jobExperienceAnchors": 5,
+    "uniqueMasterTechnicalQuestions": 38,
     "syntheticTechnicalQuestions": 8
   },
   "current": {
-    "set": 4,
-    "anchorMasterQuestion": 62,
-    "anchor": "Have you worked with StringBuilder and StringBuffer?",
+    "set": 5,
+    "anchorMasterQuestion": 85,
+    "anchor": "What's the use of object-oriented programming in enterprise projects?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-004-STRINGBUILDER-STRINGBUFFER.md"
+    "evidence": "docs/sets/SET-005-OOP-ENTERPRISE.md"
   },
-  "nextAction": "derive Set 5 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅",
+  "nextAction": "derive Set 6 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
