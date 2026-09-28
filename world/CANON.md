@@ -175,6 +175,20 @@ Established rules:
 - GeoOps does not introduce final methods merely for demonstration; the current validation design favors interface composition instead of a subclass template hierarchy.
 - Sprint 002 includes GEO-6 for this explicit final-keyword policy.
 
+## Set 7 established facts — real-world final reference semantics
+
+GeoOps now explicitly documents and tests the difference between a final reference and an immutable object.
+
+Established rules:
+- `ProjectService.projects` is a final reference to the service-owned in-memory collection.
+- The final reference cannot be reassigned after initialization.
+- The referenced `ArrayList` remains mutable, so the service can add projects.
+- `findAll()` returns `List.copyOf(projects)`, preventing callers from mutating the service-owned collection through the read API.
+- Tests verify both controlled internal mutation and immutable external snapshots.
+- Interfaces remain extension contracts; they are not final.
+- Concrete focused validation rules may remain final when subclassing is not part of the design.
+- Sprint 002 includes GEO-7 for this real-world final-reference use case.
+
 ## Grounding boundaries
 
 The fictional premise is inspired by the supplied resume's real technology/domain themes: Java backend development, Spring Boot services, REST/SOAP integrations, geospatial project intake, survey-data processing, file tracking, validation/transformation, scheduled jobs, database workflows, production support, Jenkins/Git/Linux tooling, and testing.
