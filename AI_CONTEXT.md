@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 7/387+**
+**Status: 8/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -30,6 +30,7 @@ Completed:
 5. Set 5 — enterprise OOP through pluggable GIS project-intake validation.
 6. Set 6 — intentional final-keyword design for validation standards and concrete rules.
 7. Set 7 — real-world final reference versus object mutability in ProjectService.
+8. Set 8 — stateless static GIS validation helpers.
 
 Read in this order:
 1. `CONTINUATION_PROTOCOL.md`
@@ -157,3 +158,16 @@ Every future Set must end with a concise first-person **Experience Answer** for 
 Historical completed answers are consolidated in:
 
 `docs/ANCHOR_EXPERIENCE_ANSWERS.md`
+
+
+## Set 8 static-method policy
+
+```text
+ProjectValidationStandards
+        ↓
+static isValidProjectCode(...)
+static normalizeCrsIdentifier(...)
+static isValidCrsIdentifier(...)
+```
+
+Static is used only when behavior does not depend on object state or injected services. Spring services and polymorphic validation components remain instance-based.
