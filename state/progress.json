@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "6/387+",
+  "status": "7/387+",
   "completed": {
-    "sets": 6,
-    "jobExperienceAnchors": 6,
-    "uniqueMasterTechnicalQuestions": 44,
+    "sets": 7,
+    "jobExperienceAnchors": 7,
+    "uniqueMasterTechnicalQuestions": 46,
     "syntheticTechnicalQuestions": 8
   },
   "current": {
-    "set": 6,
-    "anchorMasterQuestion": 150,
-    "anchor": "Have you used the final keyword in your project ever?",
+    "set": 7,
+    "anchorMasterQuestion": 151,
+    "anchor": "Can you tell me a real-world or real-time use case of the final keyword?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-006-FINAL-KEYWORD.md"
+    "evidence": "docs/sets/SET-007-FINAL-REAL-WORLD.md"
   },
-  "nextAction": "derive Set 7 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅",
+  "nextAction": "derive Set 8 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
