@@ -218,6 +218,20 @@ Established rules:
 - Database-level unique constraints have not yet been introduced.
 - Sprint 002 includes GEO-9 for this equality/hash-based collection behavior.
 
+## Set 10 established facts — reference vs value equality
+
+GeoOps now has an explicit equality-operator policy.
+
+Established rules:
+- `==` is used only when reference identity is the actual question, such as `this == other` inside `ProjectIdentity.equals(...)`.
+- Project-code business comparison uses `String.equals(...)`.
+- `ProjectService.containsProjectCode(...)` compares stored and incoming project-code text by value.
+- GeoOps exposes `GET /api/projects/exists/{projectCode}` for in-memory existence lookup.
+- Tests prove that a separately allocated String can be `== false` but `.equals() true`.
+- HTTP/path String values must never depend on String-pool/reference identity.
+- Wrapper-object cache behavior is treated as a Java language/runtime concept, not as a business-equality mechanism.
+- Sprint 002 includes GEO-10 for this reference-vs-value equality behavior.
+
 ## Grounding boundaries
 
 The fictional premise is inspired by the supplied resume's real technology/domain themes: Java backend development, Spring Boot services, REST/SOAP integrations, geospatial project intake, survey-data processing, file tracking, validation/transformation, scheduled jobs, database workflows, production support, Jenkins/Git/Linux tooling, and testing.
