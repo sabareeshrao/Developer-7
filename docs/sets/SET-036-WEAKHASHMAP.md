@@ -107,23 +107,6 @@ If that state depended on a weak key, the application would be coupling workflow
 
 Authoritative state should disappear because the business workflow explicitly removes it—not because the JVM decides a weak key can be reclaimed.
 
-### ✅ What's the usage of Map in your project?
-
-Already covered.
-
-GeoOps currently uses:
-
-~~~text
-HashMap
-→ claimed review tasks
-
-LinkedHashMap
-→ CRS counts
-→ batch reconciliation
-~~~
-
-All three current uses require deterministic retention while their operation is active.
-
 ---
 
 ## When WeakHashMap would be appropriate
