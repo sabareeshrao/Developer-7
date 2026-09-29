@@ -23,10 +23,10 @@ public final class ProjectValidationStandards {
     public static final String CRS_EXAMPLE = "EPSG:4326";
 
     private static final Pattern PROJECT_CODE_PATTERN =
-            Pattern.compile("[A-Z]{2,5}-[A-Z]{2,5}-\d{3}");
+            Pattern.compile("[A-Z]{2,5}-[A-Z]{2,5}-\\d{3}");
 
     private static final Pattern EPSG_CODE_PATTERN =
-            Pattern.compile("EPSG:\d+");
+            Pattern.compile("EPSG:\\d+");
 
     private ProjectValidationStandards() {
         throw new IllegalStateException("Utility class");
