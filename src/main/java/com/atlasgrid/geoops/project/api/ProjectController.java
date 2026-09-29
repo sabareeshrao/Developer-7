@@ -65,6 +65,15 @@ public class ProjectController {
         return projectService.containsProjectCode(projectCode);
     }
 
+    @GetMapping("/by-position/{intakePosition}")
+    public ResponseEntity<GeoProject> getProjectByIntakePosition(
+            @PathVariable int intakePosition
+    ) {
+        return ResponseEntity.of(
+                projectService.findByIntakePosition(intakePosition)
+        );
+    }
+
     @GetMapping("/by-code/{projectCode}")
     public ResponseEntity<GeoProject> getProjectByCode(
             @PathVariable String projectCode
