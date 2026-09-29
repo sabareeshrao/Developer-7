@@ -50,6 +50,22 @@ public class ProjectCatalog {
     }
 
     /**
+     * Returns the most recently accepted projects while preserving their
+     * original intake order within the returned window.
+     */
+    public List<GeoProject> findRecent(int limit) {
+        if (limit <= 0 || projects.isEmpty()) {
+            return List.of();
+        }
+
+        int fromIndex = Math.max(0, projects.size() - limit);
+
+        return List.copyOf(
+                projects.subList(fromIndex, projects.size())
+        );
+    }
+
+    /**
      * Returns a project using a human-friendly, 1-based intake position.
      */
     public Optional<GeoProject> findByIntakePosition(int intakePosition) {
