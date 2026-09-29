@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 18 — Status: 18/387+ — COMPLETE**
+**Set 19 — Status: 19/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -27,6 +27,7 @@ Set 15: project-wide exception handling boundaries across REST and CLI flows
 Set 16: exception-handling strategies with Optional-based normal lookup flow
 Set 17: basic error prevention through null guards and null-safe validation
 Set 18: typed GeoOpsErrorCode registry for maintainable exception contracts
+Set 19: finally-block side-effect regression tests and try-with-resources cleanup policy
 ```
 
 ## Current project workflow
