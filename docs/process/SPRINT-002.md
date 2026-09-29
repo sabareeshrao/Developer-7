@@ -154,6 +154,29 @@ Implementation evidence:
 - `ProjectServiceEqualityOperatorTest.java`
 - Set 10 evidence document
 
+### Story GEO-11 — Provide an immutable project catalog snapshot
+
+**Outcome:** GeoOps can expose a point-in-time project catalog object whose state cannot be changed after construction.
+
+Acceptance criteria:
+- `ProjectCatalogSnapshot` is a final class.
+- All snapshot fields are private and final.
+- No setter methods exist.
+- Constructor arguments are validated.
+- The mutable project-list input is defensively copied.
+- Callers cannot mutate the snapshot's project list.
+- Later mutations to the source list do not change an existing snapshot.
+- The snapshot is exposed through the project service and REST API.
+- Automated tests prove the defensive-copy behavior.
+- Existing CI remains green.
+
+Implementation evidence:
+- `ProjectCatalogSnapshot.java`
+- `ProjectService.java`
+- `ProjectController.java`
+- `ProjectCatalogSnapshotTest.java`
+- Set 11 evidence document
+
 ## Sprint Review demo
 
 1. Run `mvn clean verify`.
