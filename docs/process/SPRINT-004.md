@@ -510,3 +510,41 @@ Evidence:
 - ProjectReviewQueueTest.java
 - ProjectReviewQueueIntegrationTest.java
 - Set 31 evidence document
+
+---
+
+### Story GEO-32 — Defer queued review work to the LinkedList tail
+
+**Outcome:** GeoOps can move an already-queued GIS review task to the tail when review must wait on upstream data, without creating a duplicate task.
+
+Acceptance criteria:
+- Keep ProjectReviewQueue declared as Deque<ProjectReviewTask> backed by LinkedList.
+- Add defer(projectCode).
+- Traverse to the matching task with Iterator.
+- Remove the matching task through Iterator.remove().
+- Reinsert that same task at the tail with addLast().
+- Keep queue size unchanged after a successful defer.
+- Preserve the relative order of all non-deferred tasks.
+- Return false and leave order unchanged when the project code is not queued.
+- Expose POST /api/review-queue/{projectCode}/defer.
+- Verify the next claim skips the deferred item and returns the next eligible task.
+
+~~~text
+[A, B, C]
+defer A
+    ↓
+Iterator.remove(A)
+    ↓
+addLast(A)
+    ↓
+[B, C, A]
+    ↓
+claim-next → B
+~~~
+
+Evidence:
+- ProjectReviewQueue.java
+- ProjectReviewQueueController.java
+- ProjectReviewQueueTest.java
+- ProjectReviewQueueIntegrationTest.java
+- Set 32 evidence document
