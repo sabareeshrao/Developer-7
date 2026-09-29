@@ -60,6 +60,14 @@ public class ProjectCatalog {
         return Optional.of(projects.get(intakePosition - 1));
     }
 
+    public boolean containsProjectCode(String projectCode) {
+        Objects.requireNonNull(projectCode, "projectCode");
+
+        return projectIdentities.contains(
+                new ProjectIdentity(projectCode)
+        );
+    }
+
     public Optional<GeoProject> findByProjectCode(String projectCode) {
         return projects.stream()
                 .filter(project -> project.projectCode().equals(projectCode))
