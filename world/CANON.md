@@ -729,3 +729,21 @@ Established rules:
 - ProjectReviewQueue remains intentionally in-memory and non-concurrent.
 - Set 34 adds three new master technical questions and reuses four completed questions with ✅.
 - Sprint 004 continues the Collections/Map sequence.
+
+
+## Set 35 established facts — project-wide Map usage
+
+GeoOps now has cross-component regression evidence for its current Map choices.
+
+Established Map roles:
+- HashMap<String, ProjectReviewTask> tracks claimed review tasks by projectCode; ordering is not required.
+- LinkedHashMap<String, Integer> aggregates CRS counts while preserving first-seen CRS order.
+- LinkedHashMap<ProjectIdentity, MutableBatchEntry> reconciles duplicate batch submissions while preserving first-seen project order.
+- HashMap is selected when key lookup/removal matters and iteration order does not.
+- LinkedHashMap is selected when hash-based lookup and predictable insertion-order iteration are both required.
+- Batch-reconciliation ProjectIdentity keys are immutable.
+- Claimed-review String keys are immutable.
+- ProjectMapUsageIntegrationTest verifies all three current Map roles together.
+- Set 35 introduces no new production Map implementation because the existing design already answers the anchor.
+- Set 35 adds one new master technical question and reuses six completed questions with ✅.
+- Sprint 004 continues the Collections/Map sequence.
