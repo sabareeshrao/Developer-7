@@ -62,6 +62,26 @@ class ProjectReviewQueueIntegrationTest {
     }
 
     @Test
+    void queuedProjectCanBeDeferredToTail() throws Exception {
+        createProject("TX-AUS-032");
+        createProject("TX-DAL-032");
+        createProject("TX-HOU-032");
+
+        mockMvc.perform(post("/api/review-queue/TX-AUS-032/defer"))
+                .andExpect(status().isNoContent());
+
+        mockMvc.perform(get("/api/review-queue"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].projectCode").value("TX-DAL-032"))
+                .andExpect(jsonPath("$[1].projectCode").value("TX-HOU-032"))
+                .andExpect(jsonPath("$[2].projectCode").value("TX-AUS-032"));
+
+        mockMvc.perform(post("/api/review-queue/claim-next"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.projectCode").value("TX-DAL-032"));
+    }
+
+    @Test
     void queuedProjectCanBeCancelledWithoutBreakingOrder() throws Exception {
         createProject("TX-HOU-024");
         createProject("TX-SAT-024");
