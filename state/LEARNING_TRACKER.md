@@ -704,10 +704,41 @@ Set 22 learning items completed: 8 / 8
 
 Set 23 learning items completed: 8 / 8
 
+
 ---
 
-Completed job-experience anchors: 23
+# Set 24
+
+**Status: 24/387+**
+
+- [x] ⭐ [Master 407] Have you used LinkedList in your project?
+
+## Part A
+- [x] ✅ [Master 379] What are the main implementations of the List interface?
+- [x] [Master 386] Can you tell me the difference between ArrayList and LinkedList?
+- [x] ✅ [Master 420] In which scenarios is LinkedList preferred over ArrayList?
+- [x] ✅ [Master 2136] How is ArrayList different from LinkedList in terms of performance?
+- [x] [Master 538] What is the difference between Iterator and ListIterator?
+- [x] [Master 385] You are given ArrayList, LinkedList and HashSet. Can you tell me when we should use each one and give a real-world example?
+- [x] 💡 Why can LinkedList be used as a Deque, and how do addLast(), pollFirst(), and addFirst() map to the GeoOps review workflow?
+
+## Set 24 completion evidence
+- docs/sets/SET-024-LINKEDLIST.md
+- docs/process/SPRINT-004.md
+- src/main/java/com/atlasgrid/geoops/review/ProjectReviewTask.java
+- src/main/java/com/atlasgrid/geoops/review/ProjectReviewQueue.java
+- src/main/java/com/atlasgrid/geoops/review/ProjectReviewQueueController.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectService.java
+- src/test/java/com/atlasgrid/geoops/review/ProjectReviewQueueTest.java
+- src/test/java/com/atlasgrid/geoops/review/ProjectReviewQueueIntegrationTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 24 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 24
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 130
-Synthetic technical questions covered: 8
+Unique master technical questions covered: 133
+Synthetic technical questions covered: 9
 Current denominator: 387+
