@@ -222,3 +222,14 @@ Because of that, I keep finally limited to cleanup behavior and avoid returning 
 Yes. I use Java Collections throughout the GeoOps project. For the in-memory project catalog, I use a `List<GeoProject>` backed by an `ArrayList` because we append project records and preserve their intake order. For duplicate project-code detection, I use a `Set<ProjectIdentity>` backed by a `HashSet`, where our custom `equals()` and `hashCode()` define logical project identity.
 
 I also added a collection-summary service that accepts the general `Collection<GeoProject>` interface. It uses an `ArrayList` to retain project-code order and a `HashSet` to calculate distinct CRS values. I choose the collection based on the behavior I need—ordering, uniqueness, lookup characteristics, or a general interface boundary.
+
+
+---
+
+## Set 21 — Status: 21/387+
+
+### ⭐ What type of collections have you incorporated in your projects?
+
+In GeoOps, I have mainly incorporated List, Set and Map collections. We use a List backed by ArrayList for the in-memory project catalog because we append projects and preserve their intake order. We use HashSet for uniqueness—for example, duplicate project-code detection through ProjectIdentity, and distinct CRS calculation in the collection summary.
+
+I also use a Map backed by LinkedHashMap in the summary flow to maintain a CRS-to-project-count mapping. I chose LinkedHashMap there because I need normal key/value lookup plus predictable first-seen key order in the API output. I have not used LinkedList in the current GeoOps implementation because our access pattern does not justify it.
