@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 32 — Status: 32/387+ — COMPLETE**
+**Set 33 — Status: 33/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -41,6 +41,7 @@ Set 29: Arrays.sort and Collections.sort sorting preview with custom Comparator
 Set 30: ArrayList-backed recent intake windows with immutable range copies
 Set 31: LinkedList-backed review-task expedite operation with iterator-safe reordering
 Set 32: LinkedList-backed defer-to-tail review workflow for blocked tasks
+Set 33: TreeSet-backed sorted unique CRS catalog
 ```
 
 ## Current project workflow
@@ -75,6 +76,7 @@ Useful endpoints:
 - `GET /api/projects`
 - `GET /api/projects/collection-summary`
 - `GET /api/projects/sorting-preview`
+- `GET /api/projects/crs-catalog`
 - `GET /api/projects/recent?limit=N`
 - `POST /api/projects`
 - `POST /api/projects/batch-plan`
