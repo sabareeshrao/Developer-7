@@ -498,8 +498,36 @@ Set 16 learning items completed: 8 / 8
 
 ---
 
-Completed job-experience anchors: 16
+# Set 17
+
+**Status: 17/387+**
+
+- [x] ⭐ [Master 371] What were your basic approaches to error handling and what were the basic things that you were doing in error handling?
+
+## Part A
+- [x] ✅ [Master 338] How do you handle exceptions globally in a Spring Boot application?
+- [x] ✅ [Master 339] Can you explain the role of try, catch and finally blocks?
+- [x] ✅ [Master 344] How would you handle multiple Exceptions in a single catch block?
+- [x] [Master 321] What is NullPointerException, and how can we avoid it?
+- [x] [Master 340] If a return statement executes inside the try or catch block, does the finally block still execute?
+- [x] [Master 341] Is it possible to execute a program with a try block but without a catch block?
+- [x] [Master 356] While designing a File Handling module, how would you decide which Exceptions should be Checked and which should be Unchecked?
+
+## Set 17 completion evidence
+- docs/sets/SET-017-BASIC-ERROR-HANDLING.md
+- docs/process/SPRINT-003.md
+- src/main/java/com/atlasgrid/geoops/tools/preflight/DatasetPreflightValidator.java
+- src/main/java/com/atlasgrid/geoops/project/validation/ProjectValidationStandards.java
+- src/test/java/com/atlasgrid/geoops/tools/preflight/DatasetPreflightValidatorTest.java
+- src/test/java/com/atlasgrid/geoops/project/validation/ProjectValidationStandardsTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 17 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 17
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 97
+Unique master technical questions covered: 101
 Synthetic technical questions covered: 8
 Current denominator: 387+
