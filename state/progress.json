@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "12/387+",
+  "status": "13/387+",
   "completed": {
-    "sets": 12,
-    "jobExperienceAnchors": 12,
-    "uniqueMasterTechnicalQuestions": 78,
+    "sets": 13,
+    "jobExperienceAnchors": 13,
+    "uniqueMasterTechnicalQuestions": 85,
     "syntheticTechnicalQuestions": 8
   },
   "current": {
-    "set": 12,
-    "anchorMasterQuestion": 319,
-    "anchor": "Have you worked with Enum in your project?",
+    "set": 13,
+    "anchorMasterQuestion": 366,
+    "anchor": "Can you share some custom exception names that you guys are throwing in your current project?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-012-ENUM.md"
+    "evidence": "docs/sets/SET-013-CUSTOM-EXCEPTIONS.md"
   },
-  "nextAction": "derive Set 13 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; end with Experience Answer",
+  "nextAction": "derive Set 14 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
