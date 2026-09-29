@@ -189,3 +189,14 @@ I also avoid using exceptions for normal control flow. For example, when we look
 My basic approach to error handling in GeoOps is to prevent predictable errors first, validate inputs before changing state, and use exceptions only for real failures.
 
 For example, in the GIS preflight flow we validate the command-line argument before parsing the path, including checking for a null or blank value, so invalid input returns a controlled usage result instead of causing a `NullPointerException`. Our reusable project-validation helpers also treat null project codes or CRS values as invalid rather than throwing. For business failures like duplicate project intake or failed domain validation, we use custom runtime exceptions and handle them centrally with `@RestControllerAdvice`. For unexpected server failures, we log the full exception internally and return a safe generic response to the client.
+
+
+---
+
+## Set 18 — Status: 18/387+
+
+### ⭐ Can you tell me how you guys are maintaining or handling exceptions?
+
+In GeoOps, we maintain exceptions in a centralized and consistent way rather than handling them differently in every controller or service. We have a common `GeoOpsProjectException` hierarchy for project-domain failures, and the REST layer uses `@RestControllerAdvice` to map those failures to one `ApiError` response structure.
+
+We also maintain stable machine-readable error codes. I moved those codes into a shared `GeoOpsErrorCode` enum instead of keeping raw String literals across multiple exception and handler classes. That gives us compile-time checking and one place to add or review error identifiers. Specific exceptions still have specific HTTP mappings, the generic handler is only a fallback, unexpected errors are logged without exposing internals, and tests verify that status codes and error codes remain stable when the exception code evolves.
