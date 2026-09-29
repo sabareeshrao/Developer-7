@@ -437,3 +437,21 @@ Established rules:
 - TreeSet, LinkedList, Map, Queue and concurrent collections are not introduced without a real requirement.
 - Database persistence remains intentionally absent.
 - Sprint 004 begins the Collections and in-memory data-structure sequence.
+
+
+## Set 21 established facts — collection types incorporated
+
+GeoOps now explicitly incorporates List, Set and Map collection families in current project behavior.
+
+Established rules:
+- List/ArrayList remains the ordered in-memory project/catalog representation.
+- Set/HashSet remains the uniqueness mechanism for ProjectIdentity.
+- HashSet is also used for distinct CRS calculation.
+- ProjectCollectionSummary now exposes an immutable CRS count Map.
+- ProjectCollectionSummaryService uses Map<String,Integer> backed by LinkedHashMap.
+- LinkedHashMap preserves first-seen CRS key order while supporting key/value counting.
+- HashMap concepts are understood as the underlying hash-map family behavior, but GeoOps chooses LinkedHashMap where predictable iteration order matters.
+- LinkedList is not currently claimed as project usage because the current workload does not justify it over ArrayList.
+- Returned collection views from ProjectCollectionSummary are immutable.
+- Database persistence remains intentionally absent.
+- Sprint 004 continues the Collections and in-memory data-structure sequence.
