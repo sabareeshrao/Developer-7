@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "20/387+",
+  "status": "21/387+",
   "completed": {
-    "sets": 20,
-    "jobExperienceAnchors": 20,
-    "uniqueMasterTechnicalQuestions": 116,
+    "sets": 21,
+    "jobExperienceAnchors": 21,
+    "uniqueMasterTechnicalQuestions": 120,
     "syntheticTechnicalQuestions": 8
   },
   "current": {
-    "set": 20,
-    "anchorMasterQuestion": 403,
-    "anchor": "Have you worked with collections in Java?",
+    "set": 21,
+    "anchorMasterQuestion": 404,
+    "anchor": "What type of collections have you incorporated in your projects?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-020-JAVA-COLLECTIONS.md"
+    "evidence": "docs/sets/SET-021-COLLECTION-TYPES.md"
   },
-  "nextAction": "derive Set 21 around exactly one next logical original job-experience anchor in Collections; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
+  "nextAction": "derive Set 22 around exactly one next logical original job-experience anchor in Collections; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
