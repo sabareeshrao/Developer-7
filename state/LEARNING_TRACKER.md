@@ -913,10 +913,39 @@ Set 29 learning items completed: 8 / 8
 
 Set 30 learning items completed: 8 / 8
 
+
 ---
 
-Completed job-experience anchors: 30
+# Set 31
+
+**Status: 31/387+**
+
+- [x] ⭐ [Master 421] Can you tell me the use case of LinkedList in your project?
+
+## Part A
+- [x] ✅ [Master 420] In which scenarios is LinkedList preferred over ArrayList?
+- [x] ✅ [Master 386] Can you tell me the difference between ArrayList and LinkedList?
+- [x] ✅ [Master 2136] How is ArrayList different from LinkedList in terms of performance?
+- [x] ✅ [Master 538] What is the difference between Iterator and ListIterator?
+- [x] [Master 393] Can you tell me a scenario that causes a ConcurrentModificationException?
+- [x] ✅ [Master 413] What will happen if you remove an element from an ArrayList while iterating over it using an enhanced for loop?
+- [x] ✅ [Master 539] Do you know the difference between Fail-Fast and Fail-Safe Iterators?
+
+## Set 31 completion evidence
+- docs/sets/SET-031-LINKEDLIST-USE-CASE.md
+- docs/process/SPRINT-004.md
+- src/main/java/com/atlasgrid/geoops/review/ProjectReviewQueue.java
+- src/main/java/com/atlasgrid/geoops/review/ProjectReviewQueueController.java
+- src/test/java/com/atlasgrid/geoops/review/ProjectReviewQueueTest.java
+- src/test/java/com/atlasgrid/geoops/review/ProjectReviewQueueIntegrationTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 31 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 31
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 151
+Unique master technical questions covered: 152
 Synthetic technical questions covered: 9
 Current denominator: 387+
