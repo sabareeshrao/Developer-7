@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "26/387+",
+  "status": "27/387+",
   "completed": {
-    "sets": 26,
-    "jobExperienceAnchors": 26,
+    "sets": 27,
+    "jobExperienceAnchors": 27,
     "uniqueMasterTechnicalQuestions": 142,
     "syntheticTechnicalQuestions": 9
   },
   "current": {
-    "set": 26,
-    "anchorMasterQuestion": 409,
-    "anchor": "Can you tell me a few Collection names that you are using in your project?",
+    "set": 27,
+    "anchorMasterQuestion": 410,
+    "anchor": "Have you used List, LinkedList and HashSet in your project?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-026-COLLECTION-INVENTORY.md"
+    "evidence": "docs/sets/SET-027-LIST-LINKEDLIST-HASHSET.md"
   },
-  "nextAction": "derive Set 27 around exactly one next logical original job-experience anchor in Collections; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
+  "nextAction": "derive Set 28 around exactly one next logical original job-experience anchor in Collections; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
