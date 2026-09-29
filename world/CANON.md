@@ -492,3 +492,26 @@ Established rules:
 - remove(int) versus remove(Object) overload behavior is covered by regression tests.
 - LinkedList remains absent from production code because current GeoOps access patterns favor ArrayList.
 - Sprint 004 continues the Collections and in-memory data-structure sequence.
+
+
+## Set 24 established facts — LinkedList quality-review worklist
+
+GeoOps now uses LinkedList in a real quality-review workflow.
+
+Established rules:
+- ProjectReviewTask represents one project waiting for quality review.
+- ProjectReviewQueue owns a Deque<ProjectReviewTask> backed by LinkedList.
+- Successful project creation automatically appends a review task at the queue tail.
+- Normal review claiming uses FIFO order through pollFirst().
+- A retry can be moved to the front through addFirst().
+- Queued work can be cancelled by traversing with Iterator and calling Iterator.remove().
+- Queue snapshots are immutable and do not expose the internal LinkedList.
+- GET /api/review-queue exposes the current snapshot.
+- POST /api/review-queue/claim-next claims the head item.
+- POST /api/review-queue/retry-first pushes a task to the front.
+- DELETE /api/review-queue/{projectCode} removes queued work if present.
+- ProjectCatalog remains ArrayList-backed because its workload still favors ordered storage and indexed reads.
+- ProjectReviewQueue is intentionally not concurrent yet.
+- A later concurrency requirement may replace the backing implementation with an appropriate concurrent/blocking queue.
+- The integration test context is isolated after each test method so singleton in-memory queue state cannot make test order affect results.
+- Sprint 004 continues the Collections and in-memory data-structure sequence.
