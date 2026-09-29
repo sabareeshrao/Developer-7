@@ -354,3 +354,14 @@ A more specific use case is expediting an already-queued project when operations
 Yes. In GeoOps I use LinkedList for the quality-review worklist through the Deque interface. The worklist supports normal FIFO claiming, retrying work at the front, expediting urgent work, cancelling queued work, and now deferring blocked work to the tail.
 
 For the defer case, we traverse to the existing task with an Iterator, remove it safely with iterator.remove(), and then add that same task to the tail with addLast(). That lets other ready projects continue through review while the blocked project stays queued. The task is moved rather than duplicated, so queue size stays the same and the relative order of the other projects is preserved.
+
+
+---
+
+## Set 33 — Status: 33/387+
+
+### ⭐ Have you used TreeSet in your project?
+
+Yes. In GeoOps I use TreeSet for the coordinate-reference-system catalog. We already use HashSet for project identity because that requirement is fast uniqueness and membership lookup, but the CRS catalog needs uniqueness and sorted output at the same time.
+
+I collect the CRS codes into a TreeSet<String>, so duplicate CRS values are removed automatically and the remaining codes are returned in their natural sorted order. Then I return an immutable List copy through the REST API. I keep TreeSet limited to this sorted-view requirement because its tree operations are O(log n); for project-code membership, where ordering is unnecessary, HashSet remains the better fit.
