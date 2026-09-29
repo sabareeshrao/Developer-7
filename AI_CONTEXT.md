@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 30/387+**
+**Status: 31/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -811,3 +811,46 @@ Status: 30/387+
 Set 30 adds two new master technical questions; five supporting questions are ✅ reuses.
 
 Sprint 004 remains active. The next original source anchor asks for the LinkedList use case in the project.
+
+
+## Set 31 — Latest Completed Set
+
+Anchor:
+
+⭐ **Can you tell me the use case of LinkedList in your project?**
+
+Set 31 deepens the existing quality-review worklist with an expedite operation:
+
+~~~text
+[A, B, C]
+expedite C
+   ↓
+Iterator.remove(C)
+   ↓
+addFirst(C)
+   ↓
+[C, A, B]
+~~~
+
+Endpoint:
+
+~~~text
+POST /api/review-queue/{projectCode}/expedite
+~~~
+
+The task is moved rather than duplicated, queue size remains unchanged, and the expedited task becomes the next claim.
+
+Latest learning state:
+
+~~~text
+Completed Sets: 31
+Completed anchors: 31
+Unique master technical questions covered: 152
+Synthetic technical questions covered: 9
+Synthetic ⭐⭐ anchors: 0
+Status: 31/387+
+~~~
+
+Set 31 adds one new master technical question; six supporting questions are ✅ reuses.
+
+Sprint 004 remains active. The next original source anchor is another LinkedList project-usage anchor.
