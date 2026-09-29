@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 21/387+**
+**Status: 22/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -449,3 +449,40 @@ Status: 21/387+
 ~~~
 
 Sprint 004 remains active. Continue the original Collections anchor sequence naturally and do not claim LinkedList/TreeSet/ConcurrentHashMap usage until code requirements actually introduce them.
+
+
+## Set 22 — Latest Completed Set
+
+Anchor:
+
+⭐ **Can you tell me a few best practices you consider when applying collections in your project?**
+
+Set 22 collection policy:
+- program to List / Set / Map / Collection interfaces;
+- use explicit Generics;
+- isolate mutable collection ownership in ProjectCatalog;
+- return immutable snapshots instead of internal collections;
+- keep hash-based identity state immutable;
+- avoid direct structural mutation during enhanced-for iteration;
+- use traversal-safe removal such as removeIf() where appropriate.
+
+ProjectService now delegates its in-memory List/HashSet state to ProjectCatalog.
+
+Controlled regression tests demonstrate:
+- ConcurrentModificationException risk during unsafe ArrayList mutation;
+- safe predicate-based removal;
+- failed HashSet lookup after mutable hash state changes;
+- failed HashMap lookup after mutable key hash state changes.
+
+Latest learning state:
+
+~~~text
+Completed Sets: 22
+Completed anchors: 22
+Unique master technical questions covered: 126
+Synthetic technical questions covered: 8
+Synthetic ⭐⭐ anchors: 0
+Status: 22/387+
+~~~
+
+Sprint 004 remains active. Continue the original Collections anchor sequence naturally.
