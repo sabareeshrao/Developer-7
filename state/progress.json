@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "16/387+",
+  "status": "17/387+",
   "completed": {
-    "sets": 16,
-    "jobExperienceAnchors": 16,
-    "uniqueMasterTechnicalQuestions": 97,
+    "sets": 17,
+    "jobExperienceAnchors": 17,
+    "uniqueMasterTechnicalQuestions": 101,
     "syntheticTechnicalQuestions": 8
   },
   "current": {
-    "set": 16,
-    "anchorMasterQuestion": 370,
-    "anchor": "What strategies do you majorly use for exception handling?",
+    "set": 17,
+    "anchorMasterQuestion": 371,
+    "anchor": "What were your basic approaches to error handling and what were the basic things that you were doing in error handling?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-016-EXCEPTION-HANDLING-STRATEGIES.md"
+    "evidence": "docs/sets/SET-017-BASIC-ERROR-HANDLING.md"
   },
-  "nextAction": "derive Set 17 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
+  "nextAction": "derive Set 18 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
