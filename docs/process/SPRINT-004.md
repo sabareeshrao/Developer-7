@@ -98,3 +98,43 @@ Evidence:
 - ProjectCollectionSummaryServiceTest.java
 - ProjectCollectionSummaryIntegrationTest.java
 - Set 21 evidence document
+
+
+---
+
+### Story GEO-22 — Apply collection safety and ownership best practices
+
+**Outcome:** GeoOps centralizes mutable collection ownership and documents safe iteration, generic typing, defensive snapshots, and stable hash-key design.
+
+Acceptance criteria:
+- Extract mutable project List/Set state from ProjectService into ProjectCatalog.
+- Keep fields typed to List and Set interfaces rather than exposing concrete implementations.
+- Keep generic element types explicit.
+- Never expose the internal mutable List directly.
+- ProjectCatalog.findAll() must return an immutable point-in-time snapshot.
+- ProjectIdentity remains immutable so its equals/hashCode state cannot change while stored in HashSet.
+- Add controlled tests proving direct structural modification during enhanced-for iteration is fail-fast.
+- Add a safe removal example using removeIf().
+- Add controlled tests proving mutable hash-based elements/keys can become unreachable after hash state changes.
+- Unsafe examples remain test-only.
+- Existing REST behavior and duplicate-project behavior remain unchanged.
+
+~~~text
+ProjectService
+    ↓
+ProjectCatalog
+    ├── List<GeoProject>  → ArrayList
+    └── Set<ProjectIdentity> → HashSet
+            ↓
+    collection ownership stays internal
+            ↓
+    List.copyOf(...) for callers
+~~~
+
+Evidence:
+- ProjectCatalog.java
+- ProjectService.java
+- ProjectCatalogTest.java
+- CollectionMutationSafetyTest.java
+- ProjectIdentity.java
+- Set 22 evidence document
