@@ -116,3 +116,43 @@ The hierarchy is an application grouping mechanism. HTTP status remains the resp
 - `ProjectExceptionHierarchyTest.java`
 - `ProjectControllerExceptionIntegrationTest.java`
 - Set 14 evidence document
+
+
+---
+
+### Story GEO-15 — Define project-wide exception handling boundaries
+
+**Outcome:** GeoOps now has an explicit exception-handling policy for REST and CLI execution paths: recover or translate locally only when the current boundary can make a meaningful decision; otherwise propagate to a centralized boundary.
+
+Acceptance criteria:
+- Known project exceptions continue to propagate from services to `GeoOpsExceptionHandler`.
+- Malformed JSON is handled explicitly as HTTP 400 with code `REQUEST_MALFORMED`.
+- Unexpected REST exceptions are logged with their stack trace and returned as a safe HTTP 500 response with code `INTERNAL_ERROR`.
+- Internal exception messages are not leaked through the generic 500 response.
+- `DatasetPreflightValidator` handles invalid/inaccessible path failures locally because it can convert them into a meaningful CLI result.
+- The preflight local handler uses Java multi-catch for `InvalidPathException | SecurityException`.
+- Invalid/inaccessible dataset paths return preflight exit code 6 instead of escaping as an uncaught runtime exception.
+- Existing custom-exception and hierarchy behavior remains unchanged.
+- Tests verify malformed REST input, generic fallback safety, and invalid-path CLI handling.
+
+## GEO-15 handling policy
+
+```text
+Can this layer meaningfully recover or translate?
+        │
+   yes  │  no
+        ↓
+handle locally      propagate
+        ↓               ↓
+CLI result         REST advice boundary
+exit code          specific/generic handler
+```
+
+## Additional evidence
+
+- `GeoOpsExceptionHandler.java`
+- `DatasetPreflightValidator.java`
+- `GeoOpsExceptionHandlerTest.java`
+- `ProjectControllerExceptionIntegrationTest.java`
+- `DatasetPreflightValidatorTest.java`
+- Set 15 evidence document
