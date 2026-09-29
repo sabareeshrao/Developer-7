@@ -60,7 +60,7 @@ public class ProjectService {
     }
 
     public boolean containsProjectCode(String projectCode) {
-        return findByProjectCode(projectCode).isPresent();
+        return projectCatalog.containsProjectCode(projectCode);
     }
 
     public GeoProject create(CreateProjectRequest request) {
