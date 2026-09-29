@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 16/387+**
+**Status: 17/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -39,6 +39,7 @@ Completed:
 14. Set 14 — GeoOpsProjectException hierarchy with shared error codes and specific/generic REST handling.
 15. Set 15 — project-wide exception handling boundaries across REST and CLI flows.
 16. Set 16 — exception-handling strategies with Optional-based normal lookup flow.
+17. Set 17 — basic error prevention through null guards and null-safe validation helpers.
 
 Read in this order:
 1. `CONTINUATION_PROTOCOL.md`
@@ -329,3 +330,18 @@ local recovery or centralized handling
 ## Visible Set formatting rule
 
 Master sequence IDs are internal bookkeeping only. Keep them in `state/LEARNING_TRACKER.md` for duplicate tracking, but do not show `[Master N]` in user-facing Set responses or normal Set lesson content.
+
+
+## Set 17 basic error handling
+
+```text
+predictable invalid input
+        ↓
+guard / validation
+        ↓
+controlled result
+        ↓
+no avoidable runtime exception
+```
+
+The preflight CLI now treats a null dataset argument as usage error 2, and the reusable project-code/CRS validation helpers return false for null values.
