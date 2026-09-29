@@ -3,6 +3,7 @@ package com.atlasgrid.geoops.project.application;
 import com.atlasgrid.geoops.project.validation.CoordinateReferenceSystemValidationRule;
 import com.atlasgrid.geoops.project.validation.ProjectCodeValidationRule;
 import com.atlasgrid.geoops.project.validation.ProjectValidationService;
+import com.atlasgrid.geoops.review.ProjectReviewQueue;
 
 import java.util.List;
 
@@ -20,6 +21,10 @@ final class ProjectServiceTestFactory {
                         )
                 );
 
-        return new ProjectService(validationService, new ProjectCatalog());
+        return new ProjectService(
+                validationService,
+                new ProjectCatalog(),
+                new ProjectReviewQueue()
+        );
     }
 }
