@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 30 — Status: 30/387+ — COMPLETE**
+**Set 31 — Status: 31/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -39,6 +39,7 @@ Set 27: integrated proof of ArrayList project order, HashSet identity rules and 
 Set 28: focused List-vs-HashSet responsibility proof inside ProjectCatalog
 Set 29: Arrays.sort and Collections.sort sorting preview with custom Comparator
 Set 30: ArrayList-backed recent intake windows with immutable range copies
+Set 31: LinkedList-backed review-task expedite operation with iterator-safe reordering
 ```
 
 ## Current project workflow
@@ -84,6 +85,7 @@ Useful endpoints:
 - `GET /api/projects/by-position/{intakePosition}`
 - `DELETE /api/review-queue/{projectCode}`
 - `POST /api/review-queue/retry-first`
+- `POST /api/review-queue/{projectCode}/expedite`
 - `POST /api/review-queue/claim-next`
 - `GET /api/review-queue`
 
