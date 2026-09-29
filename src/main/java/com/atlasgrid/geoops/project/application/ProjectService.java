@@ -2,6 +2,7 @@ package com.atlasgrid.geoops.project.application;
 
 import com.atlasgrid.geoops.project.api.CreateProjectRequest;
 import com.atlasgrid.geoops.project.domain.GeoProject;
+import com.atlasgrid.geoops.project.domain.ProjectCatalogSnapshot;
 import com.atlasgrid.geoops.project.domain.ProjectIdentity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,9 @@ import java.util.UUID;
  * path value can be a different String object with the same text. Reference
  * equality with == would not be a valid business comparison.</p>
  *
+ * <p>catalogSnapshot() returns an immutable ProjectCatalogSnapshot that captures
+ * the current project list using a defensive copy.</p>
+ *
  * <p>Storage is intentionally in-memory. A later database-focused anchor will
  * replace this implementation with persistence when the learning sequence
  * reaches database integration.</p>
@@ -42,6 +46,10 @@ public class ProjectService {
 
     public List<GeoProject> findAll() {
         return List.copyOf(projects);
+    }
+
+    public ProjectCatalogSnapshot catalogSnapshot() {
+        return new ProjectCatalogSnapshot(Instant.now(), projects);
     }
 
     public boolean containsProjectCode(String projectCode) {
