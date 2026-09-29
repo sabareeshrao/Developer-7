@@ -9,6 +9,10 @@ import java.util.Objects;
  *
  * <p>The class is final, all fields are private final, there are no setters,
  * and the mutable List input is defensively copied with List.copyOf(...).</p>
+ *
+ * <p>Standard JavaBean getters are also provided so Spring/Jackson can expose
+ * this immutable domain object reliably as JSON without requiring field
+ * visibility or Jackson-specific annotations on the domain type.</p>
  */
 public final class ProjectCatalogSnapshot {
 
@@ -29,6 +33,18 @@ public final class ProjectCatalogSnapshot {
     }
 
     public int projectCount() {
+        return projects.size();
+    }
+
+    public Instant getCapturedAt() {
+        return capturedAt;
+    }
+
+    public List<GeoProject> getProjects() {
+        return projects;
+    }
+
+    public int getProjectCount() {
         return projects.size();
     }
 }
