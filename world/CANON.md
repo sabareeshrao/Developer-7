@@ -455,3 +455,22 @@ Established rules:
 - Returned collection views from ProjectCollectionSummary are immutable.
 - Database persistence remains intentionally absent.
 - Sprint 004 continues the Collections and in-memory data-structure sequence.
+
+
+## Set 22 established facts — collection best-practice policy
+
+GeoOps now centralizes mutable in-memory collection ownership in ProjectCatalog.
+
+Established rules:
+- ProjectCatalog owns the mutable List<GeoProject> backed by ArrayList.
+- ProjectCatalog owns the mutable Set<ProjectIdentity> backed by HashSet.
+- ProjectService delegates collection storage and lookup to ProjectCatalog.
+- Collection fields and service boundaries use interface types with explicit Generic element types.
+- ProjectCatalog.findAll() returns List.copyOf(...) rather than exposing its internal mutable ArrayList.
+- Returned snapshots remain unchanged if the catalog is mutated later.
+- ProjectIdentity remains immutable so its equals/hashCode state is stable while stored in hash-based collections.
+- Direct structural mutation of ArrayList during enhanced-for iteration is treated as unsafe/fail-fast behavior.
+- Predicate-based removal may use removeIf() when appropriate.
+- Mutable hash-state examples for HashSet and HashMap exist only in regression tests.
+- Concurrent collections are still not introduced because no concurrency requirement has justified them.
+- Sprint 004 continues the Collections and in-memory data-structure sequence.
