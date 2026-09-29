@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 13 — Status: 13/387+ — COMPLETE**
+**Set 14 — Status: 14/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -22,6 +22,7 @@ Set 10: reference versus value equality for project-code lookup
 Set 11: immutable project catalog snapshot with defensive copying
 Set 12: DatasetFormat enum for supported GIS preflight formats
 Set 13: custom project-intake exceptions with centralized REST error handling
+Set 14: custom GeoOpsProjectException hierarchy with shared error codes
 ```
 
 ## Current project workflow
