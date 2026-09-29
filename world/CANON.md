@@ -515,3 +515,23 @@ Established rules:
 - A later concurrency requirement may replace the backing implementation with an appropriate concurrent/blocking queue.
 - The integration test context is isolated after each test method so singleton in-memory queue state cannot make test order affect results.
 - Sprint 004 continues the Collections and in-memory data-structure sequence.
+
+
+## Set 25 established facts — batch intake collection reconciliation
+
+GeoOps now has an analysis-only batch-intake reconciliation feature.
+
+Established rules:
+- BatchProjectIntakePlanner accepts Collection<CreateProjectRequest>.
+- The planner uses Map<ProjectIdentity, MutableBatchEntry> backed by LinkedHashMap.
+- ProjectIdentity remains the immutable hash/equality key.
+- Duplicate project codes increment an occurrence counter instead of overwriting the first-seen request.
+- First-seen request metadata is retained as the canonical batch-plan entry.
+- First-seen project-code order is part of the output contract.
+- BatchProjectIntakePlan reports submitted count, unique project count and duplicate submission count.
+- BatchProjectIntakePlan returns an immutable entry list.
+- POST /api/projects/batch-plan exposes the reconciliation result.
+- The batch-plan endpoint does not create projects and does not mutate ProjectCatalog.
+- Hash-table capacity/load-factor tuning remains on JDK defaults unless profiling demonstrates a need.
+- LinkedHashMap is chosen because the problem requires expected O(1) key lookup plus stable insertion-order iteration.
+- Sprint 004 continues the Collections and in-memory data-structure sequence.
