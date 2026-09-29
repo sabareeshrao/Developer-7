@@ -558,3 +558,22 @@ Set 26 also changes the existing project existence lookup:
 - TreeSet is still not claimed as current project usage.
 - No new collection is introduced solely for interview coverage.
 - Sprint 004 continues the Collections and in-memory data-structure sequence.
+
+
+## Set 27 established facts — integrated List / LinkedList / HashSet experience
+
+GeoOps now has an explicit end-to-end regression proving List/ArrayList, LinkedList and HashSet participate in the same project-intake workflow.
+
+Established proof:
+- ProjectCatalog stores accepted projects through List<GeoProject> backed by ArrayList.
+- GET /api/projects preserves intake order.
+- ProjectCatalog uses Set<ProjectIdentity> backed by HashSet for identity membership and duplicate prevention.
+- GET /api/projects/exists/{projectCode} uses the HashSet identity index.
+- Submitting the same logical project code again returns HTTP 409.
+- Duplicate rejection occurs before another review task is added.
+- ProjectReviewQueue uses Deque<ProjectReviewTask> backed by LinkedList.
+- Review work remains FIFO and claim-next returns the first accepted project.
+- ProjectCollectionStrategyIntegrationTest verifies all three collection choices in one scenario.
+- No new production collection was introduced because the experience already existed in the codebase.
+- All seven surrounding technical questions in Set 27 are reused with ✅, so unique technical-question coverage does not increase.
+- Sprint 004 continues the Collections and in-memory data-structure sequence.
