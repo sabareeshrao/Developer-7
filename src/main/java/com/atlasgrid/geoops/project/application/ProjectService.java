@@ -51,6 +51,10 @@ public class ProjectService {
         return new ProjectCatalogSnapshot(Instant.now(), projectCatalog.findAll());
     }
 
+    public List<GeoProject> findRecent(int limit) {
+        return projectCatalog.findRecent(limit);
+    }
+
     public Optional<GeoProject> findByIntakePosition(int intakePosition) {
         return projectCatalog.findByIntakePosition(intakePosition);
     }
