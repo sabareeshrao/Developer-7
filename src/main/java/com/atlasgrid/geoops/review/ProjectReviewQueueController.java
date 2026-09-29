@@ -33,6 +33,13 @@ public class ProjectReviewQueueController {
         projectReviewQueue.retryFirst(task);
     }
 
+    @PostMapping("/{projectCode}/expedite")
+    public ResponseEntity<Void> expedite(@PathVariable String projectCode) {
+        return projectReviewQueue.expedite(projectCode)
+                ? ResponseEntity.noContent().build()
+                : ResponseEntity.notFound().build();
+    }
+
     @DeleteMapping("/{projectCode}")
     public ResponseEntity<Void> cancel(@PathVariable String projectCode) {
         return projectReviewQueue.cancel(projectCode)
