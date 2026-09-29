@@ -211,3 +211,14 @@ We also maintain stable machine-readable error codes. I moved those codes into a
 Yes, but in GeoOps I treat it as a controlled code-quality lesson rather than claiming a production incident. While adding the manifest file-export path, we added regression tests around finally behavior and confirmed two risky cases: a return inside finally can replace the value returned from try, and an exception thrown from finally can hide the original exception.
 
 Because of that, I keep finally limited to cleanup behavior and avoid returning or deliberately throwing replacement exceptions from it. For the actual manifest file exporter, I used try-with-resources so Java manages the writer cleanup without mixing cleanup logic with the business result.
+
+
+---
+
+## Set 20 — Status: 20/387+
+
+### ⭐ Have you worked with collections in Java?
+
+Yes. I use Java Collections throughout the GeoOps project. For the in-memory project catalog, I use a `List<GeoProject>` backed by an `ArrayList` because we append project records and preserve their intake order. For duplicate project-code detection, I use a `Set<ProjectIdentity>` backed by a `HashSet`, where our custom `equals()` and `hashCode()` define logical project identity.
+
+I also added a collection-summary service that accepts the general `Collection<GeoProject>` interface. It uses an `ArrayList` to retain project-code order and a `HashSet` to calculate distinct CRS values. I choose the collection based on the behavior I need—ordering, uniqueness, lookup characteristics, or a general interface boundary.
