@@ -48,6 +48,43 @@ class ProjectCatalogTest {
     }
 
     @Test
+    void returnsRecentProjectWindowInOriginalIntakeOrder() {
+        ProjectCatalog catalog = new ProjectCatalog();
+        catalog.add(project("TX-AUS-030"));
+        catalog.add(project("TX-DAL-030"));
+        catalog.add(project("TX-HOU-030"));
+        catalog.add(project("TX-SAT-030"));
+
+        assertThat(catalog.findRecent(2))
+                .extracting(GeoProject::projectCode)
+                .containsExactly("TX-HOU-030", "TX-SAT-030");
+
+        assertThat(catalog.findAll())
+                .extracting(GeoProject::projectCode)
+                .containsExactly(
+                        "TX-AUS-030",
+                        "TX-DAL-030",
+                        "TX-HOU-030",
+                        "TX-SAT-030"
+                );
+    }
+
+    @Test
+    void recentWindowIsImmutableAndHandlesLimitEdges() {
+        ProjectCatalog catalog = new ProjectCatalog();
+        catalog.add(project("TX-AUS-030"));
+        catalog.add(project("TX-DAL-030"));
+
+        assertThat(catalog.findRecent(10))
+                .extracting(GeoProject::projectCode)
+                .containsExactly("TX-AUS-030", "TX-DAL-030");
+
+        assertThat(catalog.findRecent(10)).isUnmodifiable();
+        assertThat(catalog.findRecent(0)).isEmpty();
+        assertThat(catalog.findRecent(-1)).isEmpty();
+    }
+
+    @Test
     void findsProjectByOneBasedIntakePosition() {
         ProjectCatalog catalog = new ProjectCatalog();
         catalog.add(project("TX-AUS-023"));
