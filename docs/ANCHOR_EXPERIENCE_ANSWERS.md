@@ -112,3 +112,14 @@ I overrode both methods together and used `ProjectIdentity` inside a `HashSet`. 
 Yes, I have used both `==` and `.equals()` in the GeoOps project, but for different purposes. In our `ProjectIdentity.equals()` implementation, I use `this == other` as a quick check to see whether both references point to the exact same object.
 
 For business-value comparison, such as matching a project code coming from an API request against a stored project code, I use `.equals()`. An HTTP value can be a completely different String object even when it contains the same text, so using `==` there could incorrectly report that the project does not exist. We added a project-code existence lookup and a test with a separately created `String` to prove that reference equality can be false while content equality is true. So in the project I use `==` for identity and `.equals()` for logical/value comparison.
+
+
+---
+
+## Set 11 — Status: 11/387+
+
+### ⭐ Have you ever got a chance to design an immutable class?
+
+Yes, I have designed an immutable class in the GeoOps project. We needed a point-in-time project catalog snapshot that should not change even if the service continues receiving new project intake afterward, so I created `ProjectCatalogSnapshot`.
+
+I made the class final, kept its fields private and final, initialized everything through the constructor, and did not provide setters. The important part was the project list because the service's internal list is mutable. Instead of storing that list reference directly, I use `List.copyOf(...)` in the constructor. That gives the snapshot its own unmodifiable view of the data at creation time, so later changes to the service list do not change an existing snapshot and callers cannot modify the snapshot through the getter.
