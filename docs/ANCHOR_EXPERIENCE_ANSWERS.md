@@ -299,3 +299,14 @@ For key/value data, I use LinkedHashMap in the CRS summary and batch-intake reco
 Yes. In GeoOps I use all three, but for different requirements. The project catalog is declared as a List and backed by ArrayList because we need ordered project storage, iteration and indexed intake-position reads. We use HashSet for the ProjectIdentity index so duplicate project codes are rejected and membership checks are efficient.
 
 I use LinkedList in a separate quality-review worklist through the Deque interface. New review tasks go to the tail, reviewers claim from the head, and retry work can be moved to the front. We added an end-to-end integration test that creates projects, verifies ArrayList intake order, verifies HashSet membership and duplicate rejection, and then verifies the LinkedList-backed review queue still processes the accepted projects in FIFO order.
+
+
+---
+
+## Set 28 — Status: 28/387+
+
+### ⭐ Where have you used List and HashSet? Can you tell me the situations?
+
+Yes. In GeoOps I use List and HashSet together inside ProjectCatalog, but for different responsibilities. The List is backed by ArrayList and stores the accepted GeoProject records in intake order. We use that ordered list for project APIs, manifests, snapshots, iteration, and intake-position lookup.
+
+The HashSet stores immutable ProjectIdentity objects based on projectCode. I use it as the uniqueness and membership index. When a project comes in, we first try to add its ProjectIdentity to the HashSet. If the identity already exists, the duplicate is rejected and the project List is not changed. The same HashSet also powers project-code existence checks. So the List is our ordered record store, while the HashSet is our logical identity guard and lookup structure.
