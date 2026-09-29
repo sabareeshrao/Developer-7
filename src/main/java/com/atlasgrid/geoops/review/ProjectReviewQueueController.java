@@ -40,6 +40,13 @@ public class ProjectReviewQueueController {
                 : ResponseEntity.notFound().build();
     }
 
+    @PostMapping("/{projectCode}/defer")
+    public ResponseEntity<Void> defer(@PathVariable String projectCode) {
+        return projectReviewQueue.defer(projectCode)
+                ? ResponseEntity.noContent().build()
+                : ResponseEntity.notFound().build();
+    }
+
     @DeleteMapping("/{projectCode}")
     public ResponseEntity<Void> cancel(@PathVariable String projectCode) {
         return projectReviewQueue.cancel(projectCode)
