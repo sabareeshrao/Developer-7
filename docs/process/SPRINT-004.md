@@ -313,3 +313,46 @@ Evidence:
 - ProjectExistenceLookupIntegrationTest.java
 - existing collection-summary/batch/review components
 - Set 26 evidence document
+
+
+---
+
+### Story GEO-27 — Verify List, LinkedList and HashSet in one project-intake flow
+
+**Outcome:** GeoOps now has one end-to-end regression test proving that the three collection choices named by the experience anchor work together without adding another production collection solely for interview coverage.
+
+Acceptance criteria:
+- Do not change production collection choices unless a real requirement requires it.
+- Create two projects through the REST API.
+- Verify ProjectCatalog returns them in intake order through its List/ArrayList storage.
+- Verify ProjectCatalog's HashSet-backed ProjectIdentity membership returns true for a stored project and false for an unknown code.
+- Verify submitting the same logical project code again returns HTTP 409.
+- Verify the duplicate attempt does not create an extra quality-review work item.
+- Verify ProjectReviewQueue retains FIFO order through its Deque/LinkedList implementation.
+- Claim the next review task and verify the first accepted project is returned.
+- Isolate Spring context state after the test.
+
+~~~text
+POST project A
+POST project B
+        ↓
+ProjectCatalog
+  List / ArrayList
+  → [A, B]
+
+ProjectIdentity Set / HashSet
+  → A exists
+  → duplicate A rejected
+
+ProjectReviewQueue
+  Deque / LinkedList
+  → [A, B]
+  → claim-next returns A
+~~~
+
+Evidence:
+- ProjectCollectionStrategyIntegrationTest.java
+- existing ProjectCatalog.java
+- existing ProjectReviewQueue.java
+- existing ProjectService.java
+- Set 27 evidence document
