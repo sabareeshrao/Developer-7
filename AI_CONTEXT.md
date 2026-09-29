@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 13/387+**
+**Status: 14/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -36,6 +36,7 @@ Completed:
 11. Set 11 — immutable ProjectCatalogSnapshot with defensive collection copying.
 12. Set 12 — DatasetFormat enum for supported GIS preflight formats.
 13. Set 13 — custom project-intake exceptions and centralized REST error handling.
+14. Set 14 — GeoOpsProjectException hierarchy with shared error codes and specific/generic REST handling.
 
 Read in this order:
 1. `CONTINUATION_PROTOCOL.md`
@@ -277,3 +278,16 @@ InvalidProjectRequestException → HTTP 400
 ```
 
 `GeoOpsExceptionHandler` owns HTTP mapping through `@RestControllerAdvice`. A shared custom-exception hierarchy has not yet been introduced.
+
+
+## Set 14 custom-exception hierarchy
+
+```text
+RuntimeException
+        ↓
+GeoOpsProjectException
+        ├── DuplicateProjectException
+        └── InvalidProjectRequestException
+```
+
+The base exception owns the domain error code and supports cause preservation. `GeoOpsExceptionHandler` has both specific handlers and a generic hierarchy fallback; specific mappings win.
