@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "35/387+",
+  "status": "36/387+",
   "completed": {
-    "sets": 35,
-    "jobExperienceAnchors": 35,
-    "uniqueMasterTechnicalQuestions": 162,
-    "syntheticTechnicalQuestions": 9
+    "sets": 36,
+    "jobExperienceAnchors": 36,
+    "uniqueMasterTechnicalQuestions": 163,
+    "syntheticTechnicalQuestions": 10
   },
   "current": {
-    "set": 35,
-    "anchorMasterQuestion": 497,
-    "anchor": "What's the usage of Map in your project?",
+    "set": 36,
+    "anchorMasterQuestion": 498,
+    "anchor": "Did you get a chance to work with WeakHashMap?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-035-MAP-USAGE.md"
+    "evidence": "docs/sets/SET-036-WEAKHASHMAP.md"
   },
-  "nextAction": "derive Set 36 around exactly one next logical original job-experience anchor in Collections; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
+  "nextAction": "derive Set 37 around exactly one next logical original job-experience anchor in Collections; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
