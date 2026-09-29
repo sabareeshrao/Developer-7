@@ -123,3 +123,14 @@ For business-value comparison, such as matching a project code coming from an AP
 Yes, I have designed an immutable class in the GeoOps project. We needed a point-in-time project catalog snapshot that should not change even if the service continues receiving new project intake afterward, so I created `ProjectCatalogSnapshot`.
 
 I made the class final, kept its fields private and final, initialized everything through the constructor, and did not provide setters. The important part was the project list because the service's internal list is mutable. Instead of storing that list reference directly, I use `List.copyOf(...)` in the constructor. That gives the snapshot its own unmodifiable view of the data at creation time, so later changes to the service list do not change an existing snapshot and callers cannot modify the snapshot through the getter.
+
+
+---
+
+## Set 12 — Status: 12/387+
+
+### ⭐ Have you worked with Enum in your project?
+
+Yes, I have used Enum in the GeoOps project. In our standalone GIS dataset preflight flow, we support a fixed set of input formats: CSV, JSON, and GeoJSON. Initially those supported extensions were stored as raw String values inside the validator, but I replaced that with a `DatasetFormat` enum.
+
+Each enum constant owns its extension, and the enum also provides small helper behavior for checking whether a file matches one of the supported formats. Then `DatasetPreflightValidator` works with `DatasetFormat` instead of maintaining its own String constants. I used Enum there because the supported formats are a closed set of domain values, and the enum gives us type safety, centralized format metadata, and cleaner validation code without moving the overall workflow logic into the enum.
