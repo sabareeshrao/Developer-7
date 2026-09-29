@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 33/387+**
+**Status: 34/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -941,3 +941,46 @@ Status: 33/387+
 Set 33 adds six new master technical questions and reuses one question with ✅.
 
 Sprint 004 remains active. The next original source anchor asks whether HashMap has been used in the project.
+
+
+## Set 34 — Latest Completed Set
+
+Anchor:
+
+⭐ **Have you worked with HashMap?**
+
+Set 34 fixes review retry integrity and introduces a genuine HashMap use case:
+
+~~~text
+LinkedList queue
+   ↓ claim-next
+HashMap<projectCode, ProjectReviewTask>
+   ├── retry(code) → remove → queue.addFirst(task)
+   └── complete(code) → remove
+~~~
+
+The old arbitrary request-body retry endpoint is removed.
+
+Current retry/completion endpoints:
+
+~~~text
+POST /api/review-queue/{projectCode}/retry
+POST /api/review-queue/{projectCode}/complete
+~~~
+
+A post-Set-33 maintenance audit also split the overloaded project REST controller into command, query and reporting boundaries without changing project endpoint paths.
+
+Latest learning state:
+
+~~~text
+Completed Sets: 34
+Completed anchors: 34
+Unique master technical questions covered: 161
+Synthetic technical questions covered: 9
+Synthetic ⭐⭐ anchors: 0
+Status: 34/387+
+~~~
+
+Set 34 adds three new master technical questions and reuses four questions with ✅.
+
+Sprint 004 remains active. The next original source anchor asks about the usage of Map in the project.
