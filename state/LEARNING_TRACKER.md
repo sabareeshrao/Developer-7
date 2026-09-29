@@ -735,10 +735,41 @@ Set 23 learning items completed: 8 / 8
 
 Set 24 learning items completed: 8 / 8
 
+
 ---
 
-Completed job-experience anchors: 24
+# Set 25
+
+**Status: 25/387+**
+
+- [x] ⭐ [Master 408] Can you describe a complex problem you solved using a Java Collection?
+
+## Part A
+- [x] ✅ [Master 443] Can you explain how HashMap works in Java?
+- [x] [Master 400] Can we use a Map and store how many times each element occurs to solve the duplicate-element problem?
+- [x] [Master 441] What is the Default Load Factor of a HashMap?
+- [x] [Master 446] What happens when two keys have the same hash code?
+- [x] [Master 461] Why should we use immutable objects as keys in a Map?
+- [x] ✅ [Master 462] Why is HashMap not ordered like LinkedHashMap?
+- [x] [Master 464] What's the average lookup time in LinkedHashMap?
+
+## Set 25 completion evidence
+- docs/sets/SET-025-COMPLEX-COLLECTION-PROBLEM.md
+- docs/process/SPRINT-004.md
+- src/main/java/com/atlasgrid/geoops/project/batch/BatchProjectIntakeEntry.java
+- src/main/java/com/atlasgrid/geoops/project/batch/BatchProjectIntakePlan.java
+- src/main/java/com/atlasgrid/geoops/project/batch/BatchProjectIntakePlanner.java
+- src/main/java/com/atlasgrid/geoops/project/batch/BatchProjectIntakeController.java
+- src/test/java/com/atlasgrid/geoops/project/batch/BatchProjectIntakePlannerTest.java
+- src/test/java/com/atlasgrid/geoops/project/batch/BatchProjectIntakeControllerIntegrationTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 25 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 25
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 133
+Unique master technical questions covered: 138
 Synthetic technical questions covered: 9
 Current denominator: 387+
