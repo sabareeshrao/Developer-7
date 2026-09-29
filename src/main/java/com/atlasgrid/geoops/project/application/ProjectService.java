@@ -5,6 +5,7 @@ import com.atlasgrid.geoops.project.domain.GeoProject;
 import com.atlasgrid.geoops.project.domain.ProjectCatalogSnapshot;
 import com.atlasgrid.geoops.project.validation.ProjectValidationReport;
 import com.atlasgrid.geoops.project.validation.ProjectValidationService;
+import com.atlasgrid.geoops.review.ProjectReviewQueue;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -16,17 +17,13 @@ import java.util.UUID;
 /**
  * Application/service layer for the GeoOps project-intake vertical slice.
  *
- * <p>Mutable collection ownership is delegated to ProjectCatalog. The service
- * works through the catalog abstraction instead of exposing or manipulating
- * concrete collection implementations directly.</p>
+ * <p>Mutable collection ownership is delegated to ProjectCatalog. Newly
+ * accepted projects are also appended to ProjectReviewQueue so they enter the
+ * quality-review stage in the same order they were accepted.</p>
  *
- * <p>Expected lookup absence is represented with Optional instead of throwing
- * an exception. This keeps exceptions reserved for actual exceptional/domain
- * failure conditions rather than normal control flow.</p>
- *
- * <p>Storage is intentionally in-memory. A later database-focused anchor will
- * replace this implementation with persistence when the learning sequence
- * reaches database integration.</p>
+ * <p>Storage and review-queue state are intentionally in-memory. Later database
+ * and concurrency anchors can evolve those implementations without changing
+ * the current learning sequence prematurely.</p>
  */
 @Slf4j
 @Service
@@ -34,13 +31,16 @@ public class ProjectService {
 
     private final ProjectValidationService projectValidationService;
     private final ProjectCatalog projectCatalog;
+    private final ProjectReviewQueue projectReviewQueue;
 
     public ProjectService(
             ProjectValidationService projectValidationService,
-            ProjectCatalog projectCatalog
+            ProjectCatalog projectCatalog,
+            ProjectReviewQueue projectReviewQueue
     ) {
         this.projectValidationService = projectValidationService;
         this.projectCatalog = projectCatalog;
+        this.projectReviewQueue = projectReviewQueue;
     }
 
     public List<GeoProject> findAll() {
@@ -83,7 +83,9 @@ public class ProjectService {
             throw new DuplicateProjectException(request.projectCode());
         }
 
-        log.info("Created GeoOps project code={} crs={}",
+        projectReviewQueue.enqueue(project.projectCode());
+
+        log.info("Created GeoOps project code={} crs={} and queued for review",
                 project.projectCode(), project.coordinateReferenceSystem());
 
         return project;
