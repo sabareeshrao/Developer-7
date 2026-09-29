@@ -244,3 +244,14 @@ I also use a Map backed by LinkedHashMap in the summary flow to maintain a CRS-t
 Yes. In GeoOps I follow a few collection best practices consistently. I program to interfaces like List, Set, Map, and Collection instead of coupling callers to concrete implementations, and I use Generics everywhere for compile-time type safety. I also keep mutable collection ownership inside one component—ProjectCatalog—and return immutable snapshots with List.copyOf() instead of exposing the internal ArrayList.
 
 For hash-based collections, I make sure equality-defining keys are stable. ProjectIdentity is immutable and overrides equals() and hashCode() together, so it is safe inside our HashSet. I also avoid directly modifying an ArrayList during enhanced-for iteration; our regression tests demonstrate the ConcurrentModificationException risk, and for simple predicate-based deletion we use traversal-safe operations such as removeIf().
+
+
+---
+
+## Set 23 — Status: 23/387+
+
+### ⭐ Have you used ArrayList in your project?
+
+Yes. In GeoOps, the in-memory ProjectCatalog uses a List backed by ArrayList. It fits our current workload because projects are appended as they arrive, we preserve intake order, iterate over them for APIs and manifests, and now support indexed lookup by intake position.
+
+I still declare the field as List<GeoProject> so the service is not tightly coupled to ArrayList. For callers, I return immutable snapshots instead of the mutable internal list. We also added tests around ArrayList-specific behavior such as dynamic growth and the remove(int) versus remove(Object) overload. I have not switched this catalog to LinkedList because the current access pattern benefits more from ArrayList's ordered storage and constant-time indexed reads.
