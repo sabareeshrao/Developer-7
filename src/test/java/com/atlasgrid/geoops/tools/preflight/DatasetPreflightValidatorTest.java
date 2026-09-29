@@ -34,22 +34,27 @@ class DatasetPreflightValidatorTest {
     }
 
     @Test
-    void rejectsUnsupportedDatasetType() throws IOException {
+    void rejectsUnsupportedDatasetTypeAndListsEnumFormats() throws IOException {
         Path dataset = Files.createFile(tempDir.resolve("survey.exe"));
 
         PreflightResult result = validator.validate(new String[]{dataset.toString()});
 
         assertThat(result.valid()).isFalse();
         assertThat(result.exitCode()).isEqualTo(5);
+        assertThat(result.message()).contains(".csv, .json, .geojson");
     }
 
     @Test
-    void acceptsSupportedGeoJsonDataset() throws IOException {
-        Path dataset = Files.createFile(tempDir.resolve("survey.geojson"));
+    void acceptsEveryDatasetFormatDefinedByTheEnum() throws IOException {
+        for (DatasetFormat format : DatasetFormat.values()) {
+            Path dataset = Files.createFile(
+                    tempDir.resolve("survey-" + format.name().toLowerCase() + format.extension())
+            );
 
-        PreflightResult result = validator.validate(new String[]{dataset.toString()});
+            PreflightResult result = validator.validate(new String[]{dataset.toString()});
 
-        assertThat(result.valid()).isTrue();
-        assertThat(result.exitCode()).isZero();
+            assertThat(result.valid()).isTrue();
+            assertThat(result.exitCode()).isZero();
+        }
     }
 }
