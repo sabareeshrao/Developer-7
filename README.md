@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 34 — Status: 34/387+ — COMPLETE**
+**Set 35 — Status: 35/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -43,6 +43,7 @@ Set 31: LinkedList-backed review-task expedite operation with iterator-safe reor
 Set 32: LinkedList-backed defer-to-tail review workflow for blocked tasks
 Set 33: TreeSet-backed sorted unique CRS catalog
 Set 34: HashMap-backed claimed review-task state with validated retry/completion
+Set 35: consolidated HashMap and LinkedHashMap usage across review, summary and batch workflows
 ```
 
 ## Current project workflow
