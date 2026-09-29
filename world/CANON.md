@@ -349,6 +349,21 @@ Established rules:
 - Sprint 003 includes GEO-16 for this strategy.
 - Master sequence IDs remain internal tracker metadata and are not part of the user-facing Set format.
 
+## Set 17 established facts — basic error handling approaches
+
+GeoOps now makes predictable error prevention explicit.
+
+Established rules:
+- Simple invalid input should be rejected with guards before it can become an avoidable runtime exception.
+- `DatasetPreflightValidator` treats a null dataset argument as a usage error with exit code 2.
+- `ProjectValidationStandards.isValidProjectCode(null)` returns false.
+- `ProjectValidationStandards.isValidCrsIdentifier(null)` returns false.
+- Validation helpers treat null as invalid when null is an invalid value rather than a programming contract violation.
+- Existing path parsing/access failures still use local multi-catch and controlled preflight exit code 6.
+- REST domain/system failures remain handled through the established exception hierarchy and `@RestControllerAdvice`.
+- `finally` remains reserved for real cleanup responsibilities rather than business branching.
+- Sprint 003 includes GEO-17 for this basic error-prevention policy.
+
 ## Grounding boundaries
 
 The fictional premise is inspired by the supplied resume's real technology/domain themes: Java backend development, Spring Boot services, REST/SOAP integrations, geospatial project intake, survey-data processing, file tracking, validation/transformation, scheduled jobs, database workflows, production support, Jenkins/Git/Linux tooling, and testing.
