@@ -314,6 +314,24 @@ Established rules:
 - HTTP status remains a REST-layer concern and is not stored in the application exception hierarchy.
 - Sprint 003 includes GEO-14 for this hierarchy design.
 
+## Set 15 established facts — exception handling policy
+
+GeoOps now has an explicit handling policy across REST and CLI boundaries.
+
+Established rules:
+- Catch locally only when the current layer can meaningfully recover or translate the failure.
+- Otherwise allow the exception to propagate to the appropriate centralized boundary.
+- REST project exceptions propagate to `GeoOpsExceptionHandler`.
+- Malformed JSON maps to HTTP 400 with code `REQUEST_MALFORMED`.
+- Bean Validation maps to HTTP 400 with code `REQUEST_VALIDATION_FAILED`.
+- Known project-domain exceptions keep their existing stable codes/statuses.
+- Unexpected REST exceptions are logged with stack trace and mapped to a safe HTTP 500 response with code `INTERNAL_ERROR`.
+- Internal exception messages are not exposed by the generic 500 response.
+- `DatasetPreflightValidator` handles `InvalidPathException | SecurityException` with one multi-catch because both share the same recovery behavior.
+- Invalid/inaccessible preflight paths return exit code 6.
+- Manual `finally` cleanup is not added where no owned resource requires cleanup.
+- Sprint 003 includes GEO-15 for this project-wide handling policy.
+
 ## Grounding boundaries
 
 The fictional premise is inspired by the supplied resume's real technology/domain themes: Java backend development, Spring Boot services, REST/SOAP integrations, geospatial project intake, survey-data processing, file tracking, validation/transformation, scheduled jobs, database workflows, production support, Jenkins/Git/Linux tooling, and testing.
