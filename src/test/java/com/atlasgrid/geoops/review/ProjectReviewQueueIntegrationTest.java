@@ -23,22 +23,39 @@ class ProjectReviewQueueIntegrationTest {
     private MockMvc mockMvc;
 
     @Test
-    void newlyCreatedProjectsEnterReviewQueueInFifoOrder() throws Exception {
-        createProject("TX-AUS-024");
-        createProject("TX-DAL-024");
+    void claimedProjectCanBeRetriedOnlyAfterClaim() throws Exception {
+        createProject("TX-AUS-034");
+        createProject("TX-DAL-034");
+
+        mockMvc.perform(post("/api/review-queue/TX-AUS-034/retry"))
+                .andExpect(status().isNotFound());
+
+        mockMvc.perform(post("/api/review-queue/claim-next"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.projectCode").value("TX-AUS-034"));
+
+        mockMvc.perform(post("/api/review-queue/TX-AUS-034/retry"))
+                .andExpect(status().isNoContent());
 
         mockMvc.perform(get("/api/review-queue"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].projectCode").value("TX-AUS-024"))
-                .andExpect(jsonPath("$[1].projectCode").value("TX-DAL-024"));
+                .andExpect(jsonPath("$[0].projectCode").value("TX-AUS-034"))
+                .andExpect(jsonPath("$[1].projectCode").value("TX-DAL-034"));
+    }
+
+    @Test
+    void completedClaimCannotBeRetriedAgain() throws Exception {
+        createProject("TX-AUS-034");
 
         mockMvc.perform(post("/api/review-queue/claim-next"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.projectCode").value("TX-AUS-024"));
+                .andExpect(jsonPath("$.projectCode").value("TX-AUS-034"));
 
-        mockMvc.perform(post("/api/review-queue/claim-next"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.projectCode").value("TX-DAL-024"));
+        mockMvc.perform(post("/api/review-queue/TX-AUS-034/complete"))
+                .andExpect(status().isNoContent());
+
+        mockMvc.perform(post("/api/review-queue/TX-AUS-034/retry"))
+                .andExpect(status().isNotFound());
     }
 
     @Test
@@ -55,10 +72,6 @@ class ProjectReviewQueueIntegrationTest {
                 .andExpect(jsonPath("$[0].projectCode").value("TX-HOU-031"))
                 .andExpect(jsonPath("$[1].projectCode").value("TX-AUS-031"))
                 .andExpect(jsonPath("$[2].projectCode").value("TX-DAL-031"));
-
-        mockMvc.perform(post("/api/review-queue/claim-next"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.projectCode").value("TX-HOU-031"));
     }
 
     @Test
@@ -75,10 +88,6 @@ class ProjectReviewQueueIntegrationTest {
                 .andExpect(jsonPath("$[0].projectCode").value("TX-DAL-032"))
                 .andExpect(jsonPath("$[1].projectCode").value("TX-HOU-032"))
                 .andExpect(jsonPath("$[2].projectCode").value("TX-AUS-032"));
-
-        mockMvc.perform(post("/api/review-queue/claim-next"))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.projectCode").value("TX-DAL-032"));
     }
 
     @Test
@@ -102,7 +111,7 @@ class ProjectReviewQueueIntegrationTest {
                         .content("""
                                 {
                                   "projectCode": "%s",
-                                  "name": "LinkedList Review Project",
+                                  "name": "Review Workflow Project",
                                   "coordinateReferenceSystem": "EPSG:4326"
                                 }
                                 """.formatted(projectCode)))
