@@ -1001,10 +1001,43 @@ Set 32 learning items completed: 8 / 8
 
 Set 33 learning items completed: 8 / 8
 
+
 ---
 
-Completed job-experience anchors: 33
+# Set 34
+
+**Status: 34/387+**
+
+- [x] ⭐ [Master 495] Have you worked with HashMap?
+
+## Part A
+- [x] ✅ [Master 443] Can you explain how HashMap works in Java?
+- [x] ✅ [Master 441] What is the Default Load Factor of a HashMap?
+- [x] ✅ [Master 446] What happens when two keys have the same hash code?
+- [x] ✅ [Master 461] Why should we use immutable objects as keys in a Map?
+- [x] [Master 484] What happens internally when you put a key into a HashMap that already exists?
+- [x] [Master 491] What is the time complexity of common HashMap operations such as insertion, deletion and retrieval?
+- [x] [Master 492] What is the worst-case time complexity of HashMap if all keys have the same Hash Code?
+
+## Set 34 completion evidence
+- docs/sets/SET-034-HASHMAP-CLAIMED-REVIEWS.md
+- docs/process/SPRINT-004.md
+- docs/maintenance/POST-SET-033-CODEBASE-AUDIT.md
+- src/main/java/com/atlasgrid/geoops/review/ProjectReviewQueue.java
+- src/main/java/com/atlasgrid/geoops/review/ProjectReviewQueueController.java
+- src/main/java/com/atlasgrid/geoops/project/api/ProjectController.java
+- src/main/java/com/atlasgrid/geoops/project/api/ProjectQueryController.java
+- src/main/java/com/atlasgrid/geoops/project/api/ProjectReportController.java
+- src/test/java/com/atlasgrid/geoops/review/ProjectReviewQueueTest.java
+- src/test/java/com/atlasgrid/geoops/review/ProjectReviewQueueIntegrationTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 34 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 34
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 158
+Unique master technical questions covered: 161
 Synthetic technical questions covered: 9
 Current denominator: 387+
