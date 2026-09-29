@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 18/387+**
+**Status: 19/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -360,3 +360,29 @@ GeoOpsErrorCode
 ```
 
 The exception hierarchy and REST error contract now use typed error codes instead of duplicated String literals. HTTP status remains a REST-layer concern.
+
+
+## Set 19 — Latest Completed Set
+
+Anchor:
+
+⭐ **Was there ever a time when the finally block caused unexpected behavior or side effects in your code?**
+
+Set 19 introduced:
+- ProjectManifestFileExporter using try-with-resources.
+- FinallyBlockBehaviorTest regression examples for return/throw side effects.
+- A production policy forbidding returns or deliberate replacement exceptions from finally.
+- Nested finally order verified as inner-to-outer.
+
+Latest verified learning state after state updates:
+
+~~~text
+Completed Sets: 19
+Completed anchors: 19
+Unique master technical questions covered: 110
+Synthetic technical questions covered: 8
+Synthetic ⭐⭐ anchors: 0
+Status: 19/387+
+~~~
+
+The next original source sequence begins Java Collections. Derive Set 20 from the repository and question bank rather than continuing exception topics artificially.
