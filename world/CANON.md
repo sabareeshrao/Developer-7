@@ -401,3 +401,21 @@ Specific fictional incidents, metrics, architecture decisions, team names, servi
 9. Synthetic job-experience anchors increase the denominator and are never represented as part of the original 387.
 10. If essential technical knowledge is missing from the 2,308 master bank, create a 💡 synthetic technical question.
 11. When a later anchor reuses a technical question already completed earlier, mark it ✅ and do not reteach it unless explicitly requested.
+
+
+## Set 19 established facts — finally-block side-effect policy
+
+GeoOps now has an explicit policy for Java finally blocks.
+
+Established rules:
+- Production GeoOps code does not return from finally blocks.
+- Production GeoOps code does not deliberately throw a replacement exception from finally blocks.
+- A return from finally can replace a value prepared by try.
+- An exception thrown from finally can mask the original exception from try.
+- A single try statement has at most one associated finally block.
+- Nested try statements may each have their own finally block.
+- Nested finally execution unwinds inner scope first, then outer scope.
+- ProjectManifestFileExporter uses try-with-resources for BufferedWriter cleanup.
+- Dangerous finally examples exist only in FinallyBlockBehaviorTest.
+- The experience is recorded as a controlled code-quality/regression lesson, not as an invented production incident.
+- Set 19 closes the exception-focused sequence in Sprint 003; the next original sequence transitions to Collections.
