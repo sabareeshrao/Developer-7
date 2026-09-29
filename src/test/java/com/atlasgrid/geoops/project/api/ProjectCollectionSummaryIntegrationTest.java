@@ -37,7 +37,13 @@ class ProjectCollectionSummaryIntegrationTest {
                 .andExpect(jsonPath("$.projectCodesInIntakeOrder[1]")
                         .value("TX-DAL-020"))
                 .andExpect(jsonPath("$.projectCodesInIntakeOrder[2]")
-                        .value("TX-HOU-020"));
+                        .value("TX-HOU-020"))
+                .andExpect(jsonPath(
+                        "$.projectCountByCoordinateReferenceSystem['EPSG:4326']"
+                ).value(2))
+                .andExpect(jsonPath(
+                        "$.projectCountByCoordinateReferenceSystem['EPSG:3857']"
+                ).value(1));
     }
 
     private void createProject(String projectCode, String crs) throws Exception {
