@@ -2,8 +2,6 @@ package com.atlasgrid.geoops.tools.preflight;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Locale;
-import java.util.Set;
 
 /**
  * Lightweight command-line preflight validation for inbound GIS data files.
@@ -13,9 +11,6 @@ import java.util.Set;
  * should terminate with a non-zero status.</p>
  */
 public class DatasetPreflightValidator {
-
-    private static final Set<String> SUPPORTED_EXTENSIONS =
-            Set.of(".csv", ".json", ".geojson");
 
     public PreflightResult validate(String[] args) {
         if (args == null || args.length != 1 || args[0].isBlank()) {
@@ -41,13 +36,11 @@ public class DatasetPreflightValidator {
             );
         }
 
-        String fileName = dataset.getFileName().toString().toLowerCase(Locale.ROOT);
-        boolean supported = SUPPORTED_EXTENSIONS.stream().anyMatch(fileName::endsWith);
-
-        if (!supported) {
+        if (!DatasetFormat.supports(dataset)) {
             return PreflightResult.failure(
                     5,
-                    "Unsupported dataset type. Supported: " + SUPPORTED_EXTENSIONS
+                    "Unsupported dataset type. Supported: "
+                            + DatasetFormat.supportedExtensions()
             );
         }
 
