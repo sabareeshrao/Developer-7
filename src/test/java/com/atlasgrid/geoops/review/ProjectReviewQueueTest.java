@@ -43,6 +43,34 @@ class ProjectReviewQueueTest {
     }
 
     @Test
+    void expeditesQueuedProjectToFrontWithoutDuplicatingIt() {
+        ProjectReviewQueue queue = new ProjectReviewQueue();
+
+        queue.enqueue("TX-AUS-031");
+        queue.enqueue("TX-DAL-031");
+        queue.enqueue("TX-HOU-031");
+
+        assertThat(queue.expedite("TX-HOU-031")).isTrue();
+        assertThat(queue.snapshot())
+                .extracting(ProjectReviewTask::projectCode)
+                .containsExactly("TX-HOU-031", "TX-AUS-031", "TX-DAL-031");
+        assertThat(queue.size()).isEqualTo(3);
+    }
+
+    @Test
+    void expeditingUnknownProjectLeavesQueueUnchanged() {
+        ProjectReviewQueue queue = new ProjectReviewQueue();
+
+        queue.enqueue("TX-AUS-031");
+        queue.enqueue("TX-DAL-031");
+
+        assertThat(queue.expedite("TX-HOU-031")).isFalse();
+        assertThat(queue.snapshot())
+                .extracting(ProjectReviewTask::projectCode)
+                .containsExactly("TX-AUS-031", "TX-DAL-031");
+    }
+
+    @Test
     void cancelUsesIteratorSafeRemovalAndKeepsRemainingOrder() {
         ProjectReviewQueue queue = new ProjectReviewQueue();
 
