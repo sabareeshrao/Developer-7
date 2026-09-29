@@ -1,111 +1,29 @@
 package com.atlasgrid.geoops.project.api;
 
-import com.atlasgrid.geoops.project.application.ProjectCollectionSummary;
-import com.atlasgrid.geoops.project.application.ProjectCollectionSummaryService;
-import com.atlasgrid.geoops.project.application.ProjectCrsCatalogService;
-import com.atlasgrid.geoops.project.application.ProjectManifestFormatter;
 import com.atlasgrid.geoops.project.application.ProjectService;
-import com.atlasgrid.geoops.project.application.ProjectSortingService;
-import com.atlasgrid.geoops.project.application.ProjectSortingView;
 import com.atlasgrid.geoops.project.domain.GeoProject;
-import com.atlasgrid.geoops.project.domain.ProjectCatalogSnapshot;
 import com.atlasgrid.geoops.project.validation.ProjectValidationReport;
 import com.atlasgrid.geoops.project.validation.ProjectValidationService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 /**
- * REST entry point for GIS project intake.
+ * Command boundary for project intake and request validation.
  */
 @RestController
 @RequestMapping("/api/projects")
 public class ProjectController {
 
     private final ProjectService projectService;
-    private final ProjectManifestFormatter projectManifestFormatter;
     private final ProjectValidationService projectValidationService;
-    private final ProjectCollectionSummaryService projectCollectionSummaryService;
-    private final ProjectCrsCatalogService projectCrsCatalogService;
-    private final ProjectSortingService projectSortingService;
 
     public ProjectController(
             ProjectService projectService,
-            ProjectManifestFormatter projectManifestFormatter,
-            ProjectValidationService projectValidationService,
-            ProjectCollectionSummaryService projectCollectionSummaryService,
-            ProjectCrsCatalogService projectCrsCatalogService,
-            ProjectSortingService projectSortingService
+            ProjectValidationService projectValidationService
     ) {
         this.projectService = projectService;
-        this.projectManifestFormatter = projectManifestFormatter;
         this.projectValidationService = projectValidationService;
-        this.projectCollectionSummaryService = projectCollectionSummaryService;
-        this.projectCrsCatalogService = projectCrsCatalogService;
-        this.projectSortingService = projectSortingService;
-    }
-
-    @GetMapping
-    public List<GeoProject> getProjects() {
-        return projectService.findAll();
-    }
-
-    @GetMapping("/snapshot")
-    public ProjectCatalogSnapshot getProjectCatalogSnapshot() {
-        return projectService.catalogSnapshot();
-    }
-
-    @GetMapping("/collection-summary")
-    public ProjectCollectionSummary getProjectCollectionSummary() {
-        return projectCollectionSummaryService.summarize(projectService.findAll());
-    }
-
-    @GetMapping("/sorting-preview")
-    public ProjectSortingView getProjectSortingPreview() {
-        return projectSortingService.sort(projectService.findAll());
-    }
-
-    @GetMapping("/crs-catalog")
-    public List<String> getCoordinateReferenceSystemCatalog() {
-        return projectCrsCatalogService
-                .sortedUniqueCoordinateReferenceSystems(projectService.findAll());
-    }
-
-    @GetMapping("/recent")
-    public List<GeoProject> getRecentProjects(
-            @RequestParam(defaultValue = "5") int limit
-    ) {
-        return projectService.findRecent(limit);
-    }
-
-    @GetMapping(value = "/manifest", produces = MediaType.TEXT_PLAIN_VALUE)
-    public String getProjectManifest() {
-        return projectManifestFormatter.format(projectService.findAll());
-    }
-
-    @GetMapping("/exists/{projectCode}")
-    public boolean projectCodeExists(@PathVariable String projectCode) {
-        return projectService.containsProjectCode(projectCode);
-    }
-
-    @GetMapping("/by-position/{intakePosition}")
-    public ResponseEntity<GeoProject> getProjectByIntakePosition(
-            @PathVariable int intakePosition
-    ) {
-        return ResponseEntity.of(
-                projectService.findByIntakePosition(intakePosition)
-        );
-    }
-
-    @GetMapping("/by-code/{projectCode}")
-    public ResponseEntity<GeoProject> getProjectByCode(
-            @PathVariable String projectCode
-    ) {
-        return ResponseEntity.of(projectService.findByProjectCode(projectCode));
     }
 
     @PostMapping("/validate")
@@ -117,7 +35,9 @@ public class ProjectController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public GeoProject createProject(@Valid @RequestBody CreateProjectRequest request) {
+    public GeoProject createProject(
+            @Valid @RequestBody CreateProjectRequest request
+    ) {
         return projectService.create(request);
     }
 }
