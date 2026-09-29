@@ -321,3 +321,14 @@ The HashSet stores immutable ProjectIdentity objects based on projectCode. I use
 Yes. In GeoOps I use both, but on different data structures. For an array of project codes, I use Arrays.sort() to produce an alphabetical code view. For project objects, I copy the catalog into a mutable List and use Collections.sort() with a custom Comparator that orders projects by coordinate reference system and then project code.
 
 I intentionally sort copies instead of the main ProjectCatalog because intake order is meaningful elsewhere in the application. I also use Comparator rather than making GeoProject implement Comparable, because the project does not have one universal natural ordering—we may need different business-specific orderings for different views.
+
+
+---
+
+## Set 30 — Status: 30/387+
+
+### ⭐ Have you used ArrayList in your project?
+
+Yes. In GeoOps I use ArrayList as the implementation behind the ProjectCatalog List. Beyond storing projects in intake order and supporting indexed reads, I also use that ordered structure to build recent-intake windows for the operations API.
+
+For example, when the API requests the most recent two projects, the catalog takes the final contiguous range from the ArrayList and returns it in the same intake order. I do not expose the subList view directly; I wrap the result with List.copyOf() so callers cannot mutate internal catalog state. ArrayList fits this workload because we append projects, iterate them, perform indexed access, and now also take ordered contiguous ranges efficiently.
