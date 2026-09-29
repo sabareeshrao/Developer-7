@@ -398,3 +398,14 @@ I use LinkedHashMap where ordering matters as well as lookup. The CRS summary ma
 I evaluated WeakHashMap in the GeoOps collection-design work, but I did not use it for our production business state. WeakHashMap holds keys through weak references, so an entry can disappear after its key is no longer strongly reachable and the garbage collector reclaims it.
 
 That lifecycle is useful for auxiliary cache or metadata scenarios, but it is not appropriate for our project catalog or claimed review-task state because those entries must remain until an explicit business action removes them. So for GeoOps I kept HashMap and LinkedHashMap for deterministic workflow state, and documented WeakHashMap as a deliberate non-choice rather than adding it artificially.
+
+
+---
+
+## Set 37 — Status: 37/387+
+
+### ⭐ Did you get a chance to work on ConcurrentHashMap in your project?
+
+Yes. In GeoOps I use ConcurrentHashMap for claimed quality-review tasks. We initially used HashMap once we introduced claimed-state tracking, but because Spring Boot can process multiple requests concurrently, I later hardened that state with ConcurrentHashMap keyed by projectCode.
+
+A practical example is a retry and a completion request arriving at nearly the same time for the same claimed project. Both operations use ConcurrentHashMap.remove(projectCode), so only one request can obtain the task and succeed; the other sees no mapping. I also kept the existing LinkedList-backed review queue but protected its operations with a narrow internal lock, because ConcurrentHashMap only makes the map concurrent—it does not automatically make the rest of the workflow thread-safe.
