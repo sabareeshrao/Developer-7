@@ -614,10 +614,39 @@ Set 19 learning items completed: 8 / 8
 
 Set 20 learning items completed: 8 / 8
 
+
 ---
 
-Completed job-experience anchors: 20
+# Set 21
+
+**Status: 21/387+**
+
+- [x] ⭐ [Master 404] What type of collections have you incorporated in your projects?
+
+## Part A
+- [x] ✅ [Master 375] What are the major collections we have?
+- [x] ✅ [Master 379] What are the main implementations of the List interface?
+- [x] [Master 420] In which scenarios is LinkedList preferred over ArrayList?
+- [x] [Master 425] In Collections, how does HashSet ensure that there are no duplicates?
+- [x] [Master 443] Can you explain how HashMap works in Java?
+- [x] [Master 462] Why is HashMap not ordered like LinkedHashMap?
+- [x] ✅ [Master 396] How does polymorphism benefit the Java Collections Framework?
+
+## Set 21 completion evidence
+- docs/sets/SET-021-COLLECTION-TYPES.md
+- docs/process/SPRINT-004.md
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectCollectionSummary.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectCollectionSummaryService.java
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectCollectionSummaryServiceTest.java
+- src/test/java/com/atlasgrid/geoops/project/api/ProjectCollectionSummaryIntegrationTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 21 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 21
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 116
+Unique master technical questions covered: 120
 Synthetic technical questions covered: 8
 Current denominator: 387+
