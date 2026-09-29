@@ -3,45 +3,66 @@ package com.atlasgrid.geoops.review;
 import org.springframework.stereotype.Component;
 
 import java.util.Deque;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 
 /**
- * In-memory quality-review queue for newly created GIS projects.
+ * In-memory quality-review workflow for GIS projects.
  *
- * <p>The queue is declared through the Deque interface and currently backed by
- * LinkedList. The workflow needs efficient head/tail operations: new work is
- * appended at the tail, reviewers claim from the head, and a retry can be
- * pushed back to the front.</p>
- *
- * <p>When a queued project must be expedited, expedite(...) moves the existing
- * task to the front. When review must wait on upstream data, defer(...) moves
- * that same queued task to the tail. Both operations remove through
- * Iterator.remove() before reinserting, so the task is moved rather than
- * duplicated. Cancellation uses the same iterator-safe removal pattern.</p>
+ * <p>Queued work is stored through Deque and backed by LinkedList because the
+ * workflow uses head/tail operations and occasional reordering. Claimed work is
+ * stored in a HashMap keyed by immutable String projectCode so retry/complete
+ * operations can validate claimed state through expected O(1) average lookup.</p>
  *
  * <p>This component is intentionally not concurrent yet. A later concurrency
- * requirement can replace the implementation with an appropriate concurrent
- * queue without changing callers that depend on this abstraction.</p>
+ * requirement can replace the in-memory structures with appropriate
+ * thread-safe/persistent implementations.</p>
  */
 @Component
 public class ProjectReviewQueue {
 
     private final Deque<ProjectReviewTask> reviewTasks = new LinkedList<>();
+    private final Map<String, ProjectReviewTask> claimedTasksByProjectCode =
+            new HashMap<>();
 
     public void enqueue(String projectCode) {
         reviewTasks.addLast(new ProjectReviewTask(projectCode));
     }
 
     public Optional<ProjectReviewTask> claimNext() {
-        return Optional.ofNullable(reviewTasks.pollFirst());
+        ProjectReviewTask task = reviewTasks.pollFirst();
+
+        if (task == null) {
+            return Optional.empty();
+        }
+
+        claimedTasksByProjectCode.put(task.projectCode(), task);
+        return Optional.of(task);
     }
 
-    public void retryFirst(ProjectReviewTask task) {
-        reviewTasks.addFirst(Objects.requireNonNull(task, "task"));
+    public boolean retry(String projectCode) {
+        Objects.requireNonNull(projectCode, "projectCode");
+
+        ProjectReviewTask task =
+                claimedTasksByProjectCode.remove(projectCode);
+
+        if (task == null) {
+            return false;
+        }
+
+        reviewTasks.addFirst(task);
+        return true;
+    }
+
+    public boolean complete(String projectCode) {
+        Objects.requireNonNull(projectCode, "projectCode");
+
+        return claimedTasksByProjectCode.remove(projectCode) != null;
     }
 
     public boolean expedite(String projectCode) {
@@ -103,5 +124,9 @@ public class ProjectReviewQueue {
 
     public int size() {
         return reviewTasks.size();
+    }
+
+    public int claimedTaskCount() {
+        return claimedTasksByProjectCode.size();
     }
 }
