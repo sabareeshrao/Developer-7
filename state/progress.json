@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "29/387+",
+  "status": "30/387+",
   "completed": {
-    "sets": 29,
-    "jobExperienceAnchors": 29,
-    "uniqueMasterTechnicalQuestions": 149,
+    "sets": 30,
+    "jobExperienceAnchors": 30,
+    "uniqueMasterTechnicalQuestions": 151,
     "syntheticTechnicalQuestions": 9
   },
   "current": {
-    "set": 29,
-    "anchorMasterQuestion": 412,
-    "anchor": "Have you used Arrays.sort() and Collections.sort()?",
+    "set": 30,
+    "anchorMasterQuestion": 419,
+    "anchor": "Have you used ArrayList in your project?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-029-ARRAYS-COLLECTIONS-SORT.md"
+    "evidence": "docs/sets/SET-030-ARRAYLIST-RECENT-WINDOW.md"
   },
-  "nextAction": "derive Set 30 around exactly one next logical original job-experience anchor in Collections; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
+  "nextAction": "derive Set 31 around exactly one next logical original job-experience anchor in Collections; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
