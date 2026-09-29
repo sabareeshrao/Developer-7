@@ -441,8 +441,37 @@ Set 14 learning items completed: 8 / 8
 
 ---
 
-Completed job-experience anchors: 14
+# Set 15
+
+**Status: 15/387+**
+
+- [x] ⭐ [Master 369] How do you handle exceptions in your project?
+
+## Part A
+- [x] ✅ [Master 327] Can you discuss exception handling and what are checked and unchecked exceptions?
+- [x] ✅ [Master 338] How do you handle exceptions globally in a Spring Boot application?
+- [x] ✅ [Master 365] If @RestControllerAdvice contains both a Generic Exception Handler and a Specific Exception Handler, which one will execute?
+- [x] [Master 339] Can you explain the role of try, catch and finally blocks?
+- [x] [Master 344] How would you handle multiple Exceptions in a single catch block?
+- [x] [Master 348] How does Exception Propagation work in Java?
+- [x] [Master 364] What is the difference between @ControllerAdvice and @RestControllerAdvice?
+
+## Set 15 completion evidence
+- docs/sets/SET-015-EXCEPTION-HANDLING.md
+- docs/process/SPRINT-003.md
+- src/main/java/com/atlasgrid/geoops/project/api/GeoOpsExceptionHandler.java
+- src/main/java/com/atlasgrid/geoops/tools/preflight/DatasetPreflightValidator.java
+- src/test/java/com/atlasgrid/geoops/project/api/GeoOpsExceptionHandlerTest.java
+- src/test/java/com/atlasgrid/geoops/project/api/ProjectControllerExceptionIntegrationTest.java
+- src/test/java/com/atlasgrid/geoops/tools/preflight/DatasetPreflightValidatorTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 15 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 15
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 89
+Unique master technical questions covered: 93
 Synthetic technical questions covered: 8
 Current denominator: 387+
