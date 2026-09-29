@@ -766,10 +766,40 @@ Set 24 learning items completed: 8 / 8
 
 Set 25 learning items completed: 8 / 8
 
+
 ---
 
-Completed job-experience anchors: 25
+# Set 26
+
+**Status: 26/387+**
+
+- [x] ⭐ [Master 409] Can you tell me a few Collection names that you are using in your project?
+
+## Part A
+- [x] ✅ [Master 375] What are the major collections we have?
+- [x] ✅ [Master 379] What are the main implementations of the List interface?
+- [x] ✅ [Master 425] In Collections, how does HashSet ensure that there are no duplicates?
+- [x] [Master 423] What is the average Lookup Time for a HashSet?
+- [x] [Master 424] What is the Load Factor in a HashSet or Hash-based Collection?
+- [x] [Master 427] You want to store Custom Objects in a HashSet, but duplicates are being added. What could be wrong in the Object design?
+- [x] [Master 434] What's the internal working of HashSet?
+
+## Set 26 completion evidence
+- docs/sets/SET-026-COLLECTION-INVENTORY.md
+- docs/process/SPRINT-004.md
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectCatalog.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectService.java
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectCatalogTest.java
+- src/test/java/com/atlasgrid/geoops/project/api/ProjectExistenceLookupIntegrationTest.java
+- existing ArrayList, LinkedHashMap and LinkedList collection components
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 26 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 26
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 138
+Unique master technical questions covered: 142
 Synthetic technical questions covered: 9
 Current denominator: 387+
