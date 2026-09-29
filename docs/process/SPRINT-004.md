@@ -624,3 +624,45 @@ Evidence:
 - ProjectReviewQueueIntegrationTest.java
 - docs/maintenance/POST-SET-033-CODEBASE-AUDIT.md
 - Set 34 evidence document
+
+---
+
+### Story GEO-35 — Consolidate Map usage across GeoOps workflows
+
+**Outcome:** GeoOps now has explicit cross-component regression evidence showing that Map implementations are selected by workflow semantics rather than used interchangeably.
+
+Acceptance criteria:
+- Do not introduce another production Map implementation solely for interview coverage.
+- Prove LinkedHashMap usage in collection summaries for CRS counts with first-seen key order.
+- Prove LinkedHashMap usage in batch reconciliation for identity lookup plus first-seen entry order.
+- Prove HashMap usage in review workflow for claimed-task lookup where ordering is unnecessary.
+- Keep immutable or stable keys for hash-based structures.
+- Add one regression test spanning the three current Map roles.
+- Preserve existing production behavior.
+
+~~~text
+Map usage in GeoOps
+
+LinkedHashMap
+├── CRS count summary
+│   → key/value aggregation
+│   → first-seen CRS order
+│
+└── batch reconciliation
+    → identity lookup
+    → duplicate counting
+    → first-seen project order
+
+HashMap
+└── claimed review tasks
+    → projectCode → task
+    → fast lookup/removal
+    → ordering unnecessary
+~~~
+
+Evidence:
+- ProjectMapUsageIntegrationTest.java
+- ProjectCollectionSummaryService.java
+- BatchProjectIntakePlanner.java
+- ProjectReviewQueue.java
+- Set 35 evidence document
