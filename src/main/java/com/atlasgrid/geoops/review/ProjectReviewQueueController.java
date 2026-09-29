@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * REST boundary for the current in-memory project quality-review queue.
+ * REST boundary for the current in-memory project quality-review workflow.
  */
 @RestController
 @RequestMapping("/api/review-queue")
@@ -28,9 +28,18 @@ public class ProjectReviewQueueController {
         return ResponseEntity.of(projectReviewQueue.claimNext());
     }
 
-    @PostMapping("/retry-first")
-    public void retryFirst(@RequestBody ProjectReviewTask task) {
-        projectReviewQueue.retryFirst(task);
+    @PostMapping("/{projectCode}/retry")
+    public ResponseEntity<Void> retry(@PathVariable String projectCode) {
+        return projectReviewQueue.retry(projectCode)
+                ? ResponseEntity.noContent().build()
+                : ResponseEntity.notFound().build();
+    }
+
+    @PostMapping("/{projectCode}/complete")
+    public ResponseEntity<Void> complete(@PathVariable String projectCode) {
+        return projectReviewQueue.complete(projectCode)
+                ? ResponseEntity.noContent().build()
+                : ResponseEntity.notFound().build();
     }
 
     @PostMapping("/{projectCode}/expedite")
