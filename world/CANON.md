@@ -364,6 +364,24 @@ Established rules:
 - `finally` remains reserved for real cleanup responsibilities rather than business branching.
 - Sprint 003 includes GEO-17 for this basic error-prevention policy.
 
+## Set 18 established facts — exception maintenance
+
+GeoOps now centralizes stable machine-readable error identifiers in one typed registry.
+
+Established rules:
+- `GeoOpsErrorCode` contains the current stable error identifiers.
+- The enum stores identifiers only and does not contain HTTP status.
+- `GeoOpsProjectException` stores a `GeoOpsErrorCode`, not a raw String.
+- `DuplicateProjectException` uses `PROJECT_DUPLICATE`.
+- `InvalidProjectRequestException` uses `PROJECT_VALIDATION_FAILED`.
+- REST request-validation, malformed-request and unexpected-error handlers use the same typed registry.
+- `ApiError.code` is typed as `GeoOpsErrorCode` and serializes to the same JSON code names.
+- Existing HTTP 400/409/500 mappings remain unchanged.
+- Existing exception chaining remains supported.
+- One `GeoOpsExceptionHandler` remains sufficient for the current REST surface.
+- Built-in exception types are retained when they already describe the technical failure; custom exceptions remain domain-focused.
+- Sprint 003 includes GEO-18 for this maintenance policy.
+
 ## Grounding boundaries
 
 The fictional premise is inspired by the supplied resume's real technology/domain themes: Java backend development, Spring Boot services, REST/SOAP integrations, geospatial project intake, survey-data processing, file tracking, validation/transformation, scheduled jobs, database workflows, production support, Jenkins/Git/Linux tooling, and testing.
