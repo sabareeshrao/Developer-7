@@ -7,39 +7,55 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ProjectReviewQueueTest {
 
     @Test
-    void claimsProjectsInFifoOrder() {
+    void claimsProjectsInFifoOrderAndIndexesClaimedTasks() {
         ProjectReviewQueue queue = new ProjectReviewQueue();
 
-        queue.enqueue("TX-AUS-024");
-        queue.enqueue("TX-DAL-024");
-        queue.enqueue("TX-HOU-024");
+        queue.enqueue("TX-AUS-034");
+        queue.enqueue("TX-DAL-034");
 
         assertThat(queue.claimNext())
                 .isPresent()
                 .get()
                 .extracting(ProjectReviewTask::projectCode)
-                .isEqualTo("TX-AUS-024");
+                .isEqualTo("TX-AUS-034");
+        assertThat(queue.claimedTaskCount()).isEqualTo(1);
 
         assertThat(queue.claimNext())
                 .isPresent()
                 .get()
                 .extracting(ProjectReviewTask::projectCode)
-                .isEqualTo("TX-DAL-024");
+                .isEqualTo("TX-DAL-034");
+        assertThat(queue.claimedTaskCount()).isEqualTo(2);
     }
 
     @Test
-    void retryCanBeMovedToFront() {
+    void retryRequiresAnActuallyClaimedTask() {
         ProjectReviewQueue queue = new ProjectReviewQueue();
 
-        queue.enqueue("TX-AUS-024");
-        queue.enqueue("TX-DAL-024");
+        queue.enqueue("TX-AUS-034");
+        queue.enqueue("TX-DAL-034");
 
-        ProjectReviewTask first = queue.claimNext().orElseThrow();
-        queue.retryFirst(first);
+        queue.claimNext().orElseThrow();
 
+        assertThat(queue.retry("TX-AUS-034")).isTrue();
+        assertThat(queue.retry("TX-HOU-034")).isFalse();
+        assertThat(queue.claimedTaskCount()).isZero();
         assertThat(queue.snapshot())
                 .extracting(ProjectReviewTask::projectCode)
-                .containsExactly("TX-AUS-024", "TX-DAL-024");
+                .containsExactly("TX-AUS-034", "TX-DAL-034");
+    }
+
+    @Test
+    void completeRemovesClaimedTaskAndPreventsLaterRetry() {
+        ProjectReviewQueue queue = new ProjectReviewQueue();
+
+        queue.enqueue("TX-AUS-034");
+        queue.claimNext().orElseThrow();
+
+        assertThat(queue.complete("TX-AUS-034")).isTrue();
+        assertThat(queue.complete("TX-AUS-034")).isFalse();
+        assertThat(queue.retry("TX-AUS-034")).isFalse();
+        assertThat(queue.claimedTaskCount()).isZero();
     }
 
     @Test
