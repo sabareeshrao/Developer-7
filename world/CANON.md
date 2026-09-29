@@ -419,3 +419,21 @@ Established rules:
 - Dangerous finally examples exist only in FinallyBlockBehaviorTest.
 - The experience is recorded as a controlled code-quality/regression lesson, not as an invented production incident.
 - Set 19 closes the exception-focused sequence in Sprint 003; the next original sequence transitions to Collections.
+
+
+## Set 20 established facts — Java Collections Framework usage
+
+GeoOps now makes its collection choices explicit through a collection-summary feature.
+
+Established rules:
+- ProjectService continues to store projects through List<GeoProject> backed by ArrayList.
+- ProjectService continues to store logical project identities through Set<ProjectIdentity> backed by HashSet.
+- ProjectValidationService continues to work with a List<ProjectValidationRule>.
+- ProjectCollectionSummaryService accepts Collection<GeoProject> at its public boundary.
+- The collection-summary implementation uses ArrayList<String> to preserve project-code intake order.
+- The collection-summary implementation uses HashSet<String> to count distinct coordinate-reference-system values.
+- ProjectCollectionSummary defensively copies its project-code list.
+- GET /api/projects/collection-summary exposes the derived summary.
+- TreeSet, LinkedList, Map, Queue and concurrent collections are not introduced without a real requirement.
+- Database persistence remains intentionally absent.
+- Sprint 004 begins the Collections and in-memory data-structure sequence.
