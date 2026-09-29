@@ -658,3 +658,23 @@ Established rules:
 - ProjectReviewQueue remains intentionally non-concurrent.
 - Set 31 adds one new master technical question and reuses six completed questions with ✅.
 - Sprint 004 continues the Collections sequence.
+
+
+## Set 32 established facts — LinkedList review-worklist defer use case
+
+GeoOps now supports deferring blocked review work to the tail of the existing LinkedList-backed quality-review worklist.
+
+Established rules:
+- ProjectReviewQueue remains Deque<ProjectReviewTask> backed by LinkedList.
+- defer(projectCode) traverses to the matching queued task with Iterator.
+- The matching task is removed through Iterator.remove().
+- The same task is reinserted at the tail through addLast().
+- Successful defer preserves queue size and does not duplicate the task.
+- All non-deferred tasks preserve their relative order.
+- Unknown project codes leave the queue unchanged and map to HTTP 404.
+- POST /api/review-queue/{projectCode}/defer exposes the operation.
+- Normal FIFO claim, retry-first, expedite and cancellation behavior remain intact.
+- ProjectReviewQueue remains intentionally non-concurrent.
+- All seven supporting technical questions in Set 32 are reused with ✅.
+- Unique technical-question coverage therefore remains unchanged.
+- Sprint 004 continues the Collections sequence.
