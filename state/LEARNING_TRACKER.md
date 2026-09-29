@@ -796,9 +796,38 @@ Set 25 learning items completed: 8 / 8
 
 Set 26 learning items completed: 8 / 8
 
+
 ---
 
-Completed job-experience anchors: 26
+# Set 27
+
+**Status: 27/387+**
+
+- [x] ⭐ [Master 410] Have you used List, LinkedList and HashSet in your project?
+
+## Part A
+- [x] ✅ [Master 375] What are the major collections we have?
+- [x] ✅ [Master 379] What are the main implementations of the List interface?
+- [x] ✅ [Master 380] What is the difference between Set and ArrayList? What are they used for and why have they been created?
+- [x] ✅ [Master 386] Can you tell me the difference between ArrayList and LinkedList?
+- [x] ✅ [Master 420] In which scenarios is LinkedList preferred over ArrayList?
+- [x] ✅ [Master 425] In Collections, how does HashSet ensure that there are no duplicates?
+- [x] ✅ [Master 385] You are given ArrayList, LinkedList and HashSet. Can you tell me when we should use each one and give a real-world example?
+
+## Set 27 completion evidence
+- docs/sets/SET-027-LIST-LINKEDLIST-HASHSET.md
+- docs/process/SPRINT-004.md
+- src/test/java/com/atlasgrid/geoops/project/api/ProjectCollectionStrategyIntegrationTest.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectCatalog.java
+- src/main/java/com/atlasgrid/geoops/review/ProjectReviewQueue.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectService.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 27 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 27
 Synthetic job-experience anchors created so far: 0
 Unique master technical questions covered: 142
 Synthetic technical questions covered: 9
