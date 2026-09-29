@@ -1,5 +1,7 @@
 package com.atlasgrid.geoops.project.api;
 
+import com.atlasgrid.geoops.project.application.ProjectCollectionSummary;
+import com.atlasgrid.geoops.project.application.ProjectCollectionSummaryService;
 import com.atlasgrid.geoops.project.application.ProjectManifestFormatter;
 import com.atlasgrid.geoops.project.application.ProjectService;
 import com.atlasgrid.geoops.project.domain.GeoProject;
@@ -24,15 +26,18 @@ public class ProjectController {
     private final ProjectService projectService;
     private final ProjectManifestFormatter projectManifestFormatter;
     private final ProjectValidationService projectValidationService;
+    private final ProjectCollectionSummaryService projectCollectionSummaryService;
 
     public ProjectController(
             ProjectService projectService,
             ProjectManifestFormatter projectManifestFormatter,
-            ProjectValidationService projectValidationService
+            ProjectValidationService projectValidationService,
+            ProjectCollectionSummaryService projectCollectionSummaryService
     ) {
         this.projectService = projectService;
         this.projectManifestFormatter = projectManifestFormatter;
         this.projectValidationService = projectValidationService;
+        this.projectCollectionSummaryService = projectCollectionSummaryService;
     }
 
     @GetMapping
@@ -43,6 +48,11 @@ public class ProjectController {
     @GetMapping("/snapshot")
     public ProjectCatalogSnapshot getProjectCatalogSnapshot() {
         return projectService.catalogSnapshot();
+    }
+
+    @GetMapping("/collection-summary")
+    public ProjectCollectionSummary getProjectCollectionSummary() {
+        return projectCollectionSummaryService.summarize(projectService.findAll());
     }
 
     @GetMapping(value = "/manifest", produces = MediaType.TEXT_PLAIN_VALUE)
