@@ -766,3 +766,23 @@ Established rules:
 - docs/architecture/ADR-WEAKHASHMAP-BUSINESS-STATE.md records the architecture decision.
 - Set 36 adds one new master technical question and one synthetic technical question.
 - Sprint 004 continues the Map sequence.
+
+
+## Set 37 established facts — ConcurrentHashMap review-state hardening
+
+GeoOps now uses ConcurrentHashMap for claimed review-task state.
+
+Established rules:
+- claimedTasksByProjectCode is declared as Map<String, ProjectReviewTask> backed by ConcurrentHashMap.
+- immutable String projectCode remains the key.
+- retry(projectCode) and complete(projectCode) both compete through ConcurrentHashMap.remove(projectCode).
+- For one claimed project, concurrent retry/complete calls have a single winner because only one remove receives the mapping.
+- The existing Deque<ProjectReviewTask> backed by LinkedList remains the queued-work structure.
+- LinkedList access is protected by one private queueLock for enqueue, poll, requeue, expedite, defer, cancel, snapshot and size.
+- ConcurrentHashMap does not make arbitrary multi-step application logic atomic.
+- ConcurrentHashMap does not permit null keys or null values.
+- ProjectCatalog ArrayList/HashSet concurrency remains intentionally unresolved.
+- ProjectCatalog.add(...) plus ProjectReviewQueue.enqueue(...) are still not one transactional operation.
+- docs/architecture/ADR-CONCURRENT-REVIEW-STATE.md records the targeted concurrency boundary.
+- Set 37 adds seven new master technical questions.
+- Sprint 004 continues the concurrent-collections sequence.
