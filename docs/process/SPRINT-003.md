@@ -156,3 +156,22 @@ exit code          specific/generic handler
 - `ProjectControllerExceptionIntegrationTest.java`
 - `DatasetPreflightValidatorTest.java`
 - Set 15 evidence document
+
+---
+
+### Story GEO-16 — Make exception-handling strategies explicit
+
+**Outcome:** GeoOps distinguishes expected application outcomes from exceptional failures instead of using exceptions as normal control flow.
+
+Acceptance criteria:
+- `ProjectService.findByProjectCode(...)` returns `Optional<GeoProject>`.
+- Missing lookup returns `Optional.empty()` rather than throwing.
+- `GET /api/projects/by-code/{projectCode}` returns 200 when present and 404 when absent.
+- `containsProjectCode(...)` reuses the same lookup logic.
+- Domain failures still use the custom exception hierarchy and centralized REST handling.
+- Tests prove present and missing lookup behavior.
+
+```text
+Expected outcome → value / Optional / normal HTTP status
+Actual failure   → exception → local recovery or centralized handling
+```
