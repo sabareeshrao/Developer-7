@@ -178,3 +178,14 @@ We also handle malformed JSON separately as a 400 request error. For anything un
 The main exception-handling strategies I use in GeoOps are to validate early, use meaningful custom exceptions for real business failures, let exceptions propagate when the current layer cannot recover, and handle REST exceptions centrally with `@RestControllerAdvice`.
 
 I also avoid using exceptions for normal control flow. For example, when we look up a project by project code, a missing project is an expected outcome, so the service returns `Optional<GeoProject>` instead of throwing an exception. The controller maps that to a normal 404 response. For actual failures such as invalid project data or duplicate intake, we use the custom exception hierarchy and specific handlers. For unexpected failures, we log the full exception and return a safe generic 500 response.
+
+
+---
+
+## Set 17 — Status: 17/387+
+
+### ⭐ What were your basic approaches to error handling and what were the basic things that you were doing in error handling?
+
+My basic approach to error handling in GeoOps is to prevent predictable errors first, validate inputs before changing state, and use exceptions only for real failures.
+
+For example, in the GIS preflight flow we validate the command-line argument before parsing the path, including checking for a null or blank value, so invalid input returns a controlled usage result instead of causing a `NullPointerException`. Our reusable project-validation helpers also treat null project codes or CRS values as invalid rather than throwing. For business failures like duplicate project intake or failed domain validation, we use custom runtime exceptions and handle them centrally with `@RestControllerAdvice`. For unexpected server failures, we log the full exception internally and return a safe generic response to the client.
