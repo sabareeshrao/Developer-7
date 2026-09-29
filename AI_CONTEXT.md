@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 27/387+**
+**Status: 28/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -695,3 +695,38 @@ Status: 27/387+
 All seven supporting technical questions in Set 27 are ✅ reuses, so unique technical coverage is unchanged.
 
 Sprint 004 remains active. The next original source anchor asks where List and HashSet are used and in which situations.
+
+
+## Set 28 — Latest Completed Set
+
+Anchor:
+
+⭐ **Where have you used List and HashSet? Can you tell me the situations?**
+
+Set 28 adds focused evidence for ProjectCatalog:
+
+~~~text
+List<GeoProject> / ArrayList
+→ ordered accepted records
+
+Set<ProjectIdentity> / HashSet
+→ uniqueness
+→ membership lookup
+~~~
+
+The new ProjectCatalogCollectionRoleTest proves that a duplicate logical identity is rejected while the ordered List and catalog size remain unchanged.
+
+Latest learning state:
+
+~~~text
+Completed Sets: 28
+Completed anchors: 28
+Unique master technical questions covered: 142
+Synthetic technical questions covered: 9
+Synthetic ⭐⭐ anchors: 0
+Status: 28/387+
+~~~
+
+All seven supporting technical questions in Set 28 are ✅ reuses, so unique technical coverage is unchanged.
+
+Sprint 004 remains active. The next original source anchor asks whether Arrays.sort() and Collections.sort() have been used.
