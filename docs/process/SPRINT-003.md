@@ -251,3 +251,41 @@ Evidence:
 - `ProjectExceptionHierarchyTest.java`
 - `GeoOpsExceptionHandlerTest.java`
 - Set 18 evidence document
+
+---
+
+### Story GEO-19 — Prevent finally-block side effects from masking business outcomes
+
+**Outcome:** GeoOps documents and tests the Java finally behaviors that can replace a business result or hide the original failure, while production resource cleanup uses try-with-resources.
+
+Acceptance criteria:
+- Add a small manifest file-export component that manages its BufferedWriter with try-with-resources.
+- Production GeoOps code must not return from a finally block.
+- Production GeoOps code must not deliberately throw a replacement exception from a finally block.
+- Regression tests demonstrate that a return in finally overrides the return prepared by try.
+- Regression tests demonstrate that an exception thrown from finally masks the original try exception.
+- Regression tests demonstrate nested finally execution order from inner scope to outer scope.
+- Unsafe finally examples remain test-only.
+- Existing exception hierarchy and REST error behavior remain unchanged.
+
+~~~text
+unsafe
+try result / failure
+        ↓
+finally return / throw
+        ↓
+original outcome replaced
+
+GeoOps production policy
+AutoCloseable resource
+        ↓
+try-with-resources
+        ↓
+cleanup separated from business result
+~~~
+
+Evidence:
+- ProjectManifestFileExporter.java
+- ProjectManifestFileExporterTest.java
+- FinallyBlockBehaviorTest.java
+- Set 19 evidence document
