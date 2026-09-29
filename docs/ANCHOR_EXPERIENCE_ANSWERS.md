@@ -145,3 +145,14 @@ Each enum constant owns its extension, and the enum also provides small helper b
 Yes. In the GeoOps project, two custom exceptions we currently throw are `DuplicateProjectException` and `InvalidProjectRequestException`.
 
 `DuplicateProjectException` is used when a project intake request uses a project code that already exists. `InvalidProjectRequestException` is used when the request is structurally valid but fails our GeoOps business-validation rules, such as an invalid project-code format or CRS identifier. Both are unchecked exceptions, and instead of putting HTTP annotations on the exception classes, we handle them centrally with `@RestControllerAdvice`. That handler converts the domain exceptions into consistent JSON responses—400 for invalid project data and 409 for duplicates—while keeping the service layer independent from HTTP concerns.
+
+
+---
+
+## Set 14 — Status: 14/387+
+
+### ⭐ Have you ever created a Custom Exception Hierarchy?
+
+Yes. In GeoOps I created a custom exception hierarchy for project-intake failures. I introduced an abstract `GeoOpsProjectException` that extends `RuntimeException`, and our existing `DuplicateProjectException` and `InvalidProjectRequestException` now extend that common base.
+
+The reason was that both exceptions belong to the same project domain and need shared behavior, especially a stable application error code and support for preserving an original cause. At the REST layer we can also define a generic handler for `GeoOpsProjectException` while still keeping more specific handlers. For example, `DuplicateProjectException` has its own handler and still returns 409 Conflict, while the generic hierarchy handler acts as a fallback. That gives us common handling without losing exception-specific behavior.
