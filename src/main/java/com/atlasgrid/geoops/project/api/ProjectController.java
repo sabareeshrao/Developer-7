@@ -65,6 +65,13 @@ public class ProjectController {
         return projectSortingService.sort(projectService.findAll());
     }
 
+    @GetMapping("/recent")
+    public List<GeoProject> getRecentProjects(
+            @RequestParam(defaultValue = "5") int limit
+    ) {
+        return projectService.findRecent(limit);
+    }
+
     @GetMapping(value = "/manifest", produces = MediaType.TEXT_PLAIN_VALUE)
     public String getProjectManifest() {
         return projectManifestFormatter.format(projectService.findAll());
