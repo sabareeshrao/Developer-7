@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 10/387+**
+**Status: 11/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -33,6 +33,7 @@ Completed:
 8. Set 8 — stateless static GIS validation helpers.
 9. Set 9 — custom ProjectIdentity equality/hashCode and HashSet duplicate detection.
 10. Set 10 — reference equality versus value equality for project-code lookup.
+11. Set 11 — immutable ProjectCatalogSnapshot with defensive collection copying.
 
 Read in this order:
 1. `CONTINUATION_PROTOCOL.md`
@@ -210,3 +211,22 @@ business-value comparison
 ```
 
 Use `==` only for intentional reference identity; use `.equals()` for project-code content.
+
+
+## Set 11 immutable snapshot flow
+
+```text
+mutable ProjectService project list
+        ↓
+catalogSnapshot()
+        ↓
+ProjectCatalogSnapshot
+        ↓
+List.copyOf(projects)
+        ↓
+immutable point-in-time read model
+        ↓
+GET /api/projects/snapshot
+```
+
+The snapshot is a final class with private final fields, constructor initialization, no setters, and defensive copying of mutable collection input.
