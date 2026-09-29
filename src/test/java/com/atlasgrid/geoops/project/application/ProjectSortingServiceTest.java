@@ -35,9 +35,9 @@ class ProjectSortingServiceTest {
         assertThat(view.projectsByCrsThenCode())
                 .extracting(GeoProject::projectCode)
                 .containsExactly(
+                        "TX-AUS-029",
                         "TX-DAL-029",
-                        "TX-HOU-029",
-                        "TX-AUS-029"
+                        "TX-HOU-029"
                 );
 
         assertThat(source)
