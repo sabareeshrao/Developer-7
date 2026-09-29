@@ -747,3 +747,22 @@ Established Map roles:
 - Set 35 introduces no new production Map implementation because the existing design already answers the anchor.
 - Set 35 adds one new master technical question and reuses six completed questions with ✅.
 - Sprint 004 continues the Collections/Map sequence.
+
+
+## Set 36 established facts — WeakHashMap evaluated and deliberately not used
+
+GeoOps evaluated WeakHashMap during the Map sequence and deliberately rejected it for authoritative business state.
+
+Established rules:
+- ProjectCatalog must retain projects/identities until explicit business changes occur.
+- ProjectReviewQueue must retain queued and claimed tasks until explicit workflow transitions occur.
+- WeakHashMap entries can disappear after keys are no longer strongly reachable and are reclaimed by the garbage collector.
+- GC timing is not deterministic, so WeakHashMap is not a TTL/timeout mechanism.
+- WeakHashMap is appropriate only when disappearing key-associated metadata is acceptable and recomputable.
+- WeakHashMap key equality/hash behavior still needs to remain stable while entries exist.
+- Values must not accidentally retain keys strongly if weak-key lifecycle is desired.
+- WeakHashMap is not thread-safe and does not solve the current singleton-state concurrency limitation.
+- No production Java code was added for Set 36 because no legitimate GeoOps runtime requirement matches WeakHashMap semantics.
+- docs/architecture/ADR-WEAKHASHMAP-BUSINESS-STATE.md records the architecture decision.
+- Set 36 adds one new master technical question and one synthetic technical question.
+- Sprint 004 continues the Map sequence.
