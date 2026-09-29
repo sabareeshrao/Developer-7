@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "19/387+",
+  "status": "20/387+",
   "completed": {
-    "sets": 19,
-    "jobExperienceAnchors": 19,
-    "uniqueMasterTechnicalQuestions": 110,
+    "sets": 20,
+    "jobExperienceAnchors": 20,
+    "uniqueMasterTechnicalQuestions": 116,
     "syntheticTechnicalQuestions": 8
   },
   "current": {
-    "set": 19,
-    "anchorMasterQuestion": 374,
-    "anchor": "Was there ever a time when the finally block caused unexpected behavior or side effects in your code?",
+    "set": 20,
+    "anchorMasterQuestion": 403,
+    "anchor": "Have you worked with collections in Java?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-019-FINALLY-SIDE-EFFECTS.md"
+    "evidence": "docs/sets/SET-020-JAVA-COLLECTIONS.md"
   },
-  "nextAction": "derive Set 20 around exactly one next logical original job-experience anchor; transition naturally into Collections; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
+  "nextAction": "derive Set 21 around exactly one next logical original job-experience anchor in Collections; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
