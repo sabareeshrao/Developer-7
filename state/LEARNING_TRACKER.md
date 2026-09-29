@@ -971,10 +971,40 @@ Set 31 learning items completed: 8 / 8
 
 Set 32 learning items completed: 8 / 8
 
+
 ---
 
-Completed job-experience anchors: 32
+# Set 33
+
+**Status: 33/387+**
+
+- [x] ⭐ [Master 437] Have you used TreeSet in your project?
+
+## Part A
+- [x] [Master 429] Can you give me an example where you would use HashSet and a scenario where TreeSet is more appropriate?
+- [x] [Master 430] Does TreeSet allow null values? Why?
+- [x] [Master 432] How does a TreeSet sort Objects internally?
+- [x] [Master 541] Do you know about the Comparable Interface?
+- [x] [Master 542] Can a Class have multiple Natural Orderings through Comparable?
+- [x] [Master 548] If a Comparator returns 0 for two Objects, what happens when those Objects are added to a TreeSet?
+- [x] ✅ [Master 391] Can you tell me the difference between Comparable and Comparator Interfaces?
+
+## Set 33 completion evidence
+- docs/sets/SET-033-TREESET-CRS-CATALOG.md
+- docs/process/SPRINT-004.md
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectCrsCatalogService.java
+- src/main/java/com/atlasgrid/geoops/project/api/ProjectController.java
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectCrsCatalogServiceTest.java
+- src/test/java/com/atlasgrid/geoops/project/application/TreeSetBehaviorTest.java
+- src/test/java/com/atlasgrid/geoops/project/api/ProjectCrsCatalogIntegrationTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 33 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 33
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 152
+Unique master technical questions covered: 158
 Synthetic technical questions covered: 9
 Current denominator: 387+
