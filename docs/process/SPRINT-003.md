@@ -215,3 +215,39 @@ Evidence:
 - `DatasetPreflightValidatorTest.java`
 - `ProjectValidationStandardsTest.java`
 - Set 17 evidence document
+---
+
+### Story GEO-18 — Maintain exception contracts with typed error codes
+
+**Outcome:** GeoOps now keeps stable machine-readable error identifiers in one typed registry instead of repeating raw String literals across exceptions and REST handlers.
+
+Acceptance criteria:
+- Add `GeoOpsErrorCode` as the shared typed error-code registry.
+- Keep HTTP status mapping out of the error-code enum.
+- `GeoOpsProjectException` stores `GeoOpsErrorCode` instead of String.
+- Existing project exceptions use typed error-code constants.
+- Request validation, malformed request and internal-error handlers use the same enum.
+- `ApiError.code` is typed as `GeoOpsErrorCode` and still serializes to the same JSON code names.
+- Existing 400/409/500 behavior remains unchanged.
+- Existing exception hierarchy and cause chaining remain unchanged.
+- Tests verify typed error codes and existing REST JSON codes.
+
+```text
+GeoOpsErrorCode
+   ├── PROJECT_DUPLICATE
+   ├── PROJECT_VALIDATION_FAILED
+   ├── REQUEST_VALIDATION_FAILED
+   ├── REQUEST_MALFORMED
+   └── INTERNAL_ERROR
+```
+
+Evidence:
+- `GeoOpsErrorCode.java`
+- `GeoOpsProjectException.java`
+- `DuplicateProjectException.java`
+- `InvalidProjectRequestException.java`
+- `ApiError.java`
+- `GeoOpsExceptionHandler.java`
+- `ProjectExceptionHierarchyTest.java`
+- `GeoOpsExceptionHandlerTest.java`
+- Set 18 evidence document
