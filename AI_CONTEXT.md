@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 22/387+**
+**Status: 23/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -486,3 +486,45 @@ Status: 22/387+
 ~~~
 
 Sprint 004 remains active. Continue the original Collections anchor sequence naturally.
+
+
+## Set 23 — Latest Completed Set
+
+Anchor:
+
+⭐ **Have you used ArrayList in your project?**
+
+Set 23 makes the existing ArrayList choice visible through ordered intake-position lookup.
+
+Current flow:
+
+~~~text
+ProjectCatalog
+   ↓
+List<GeoProject> backed by ArrayList
+   ↓
+findByIntakePosition(1-based)
+   ↓
+projects.get(position - 1)
+   ↓
+GET /api/projects/by-position/{intakePosition}
+~~~
+
+Set 23 also adds ArrayList behavior regression tests for:
+- dynamic growth beyond a small element count;
+- preserved insertion order;
+- remove(int index);
+- remove(Integer value).
+
+Latest learning state:
+
+~~~text
+Completed Sets: 23
+Completed anchors: 23
+Unique master technical questions covered: 130
+Synthetic technical questions covered: 8
+Synthetic ⭐⭐ anchors: 0
+Status: 23/387+
+~~~
+
+Sprint 004 remains active. The next original source anchor is still within the Collections sequence.
