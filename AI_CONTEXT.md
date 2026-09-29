@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 17/387+**
+**Status: 18/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -40,6 +40,7 @@ Completed:
 15. Set 15 — project-wide exception handling boundaries across REST and CLI flows.
 16. Set 16 — exception-handling strategies with Optional-based normal lookup flow.
 17. Set 17 — basic error prevention through null guards and null-safe validation helpers.
+18. Set 18 — typed GeoOpsErrorCode registry for maintainable exception contracts.
 
 Read in this order:
 1. `CONTINUATION_PROTOCOL.md`
@@ -345,3 +346,17 @@ no avoidable runtime exception
 ```
 
 The preflight CLI now treats a null dataset argument as usage error 2, and the reusable project-code/CRS validation helpers return false for null values.
+
+
+## Set 18 exception maintenance
+
+```text
+GeoOpsErrorCode
+   ├── PROJECT_DUPLICATE
+   ├── PROJECT_VALIDATION_FAILED
+   ├── REQUEST_VALIDATION_FAILED
+   ├── REQUEST_MALFORMED
+   └── INTERNAL_ERROR
+```
+
+The exception hierarchy and REST error contract now use typed error codes instead of duplicated String literals. HTTP status remains a REST-layer concern.
