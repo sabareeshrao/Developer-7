@@ -584,10 +584,40 @@ Set 18 learning items completed: 8 / 8
 
 Set 19 learning items completed: 8 / 8
 
+
 ---
 
-Completed job-experience anchors: 19
+# Set 20
+
+**Status: 20/387+**
+
+- [x] ⭐ [Master 403] Have you worked with collections in Java?
+
+## Part A
+- [x] [Master 389] Can you explain the concept of the Java Collection Framework?
+- [x] [Master 375] What are the major collections we have?
+- [x] [Master 379] What are the main implementations of the List interface?
+- [x] [Master 380] What is the difference between Set and ArrayList? What are they used for and why have they been created?
+- [x] [Master 381] Do you know about HashSet and TreeSet?
+- [x] ✅ [Master 249] Can you describe how hashCode() and equals() work together in Collections?
+- [x] [Master 396] How does polymorphism benefit the Java Collections Framework?
+
+## Set 20 completion evidence
+- docs/sets/SET-020-JAVA-COLLECTIONS.md
+- docs/process/SPRINT-004.md
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectCollectionSummary.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectCollectionSummaryService.java
+- src/main/java/com/atlasgrid/geoops/project/api/ProjectController.java
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectCollectionSummaryServiceTest.java
+- src/test/java/com/atlasgrid/geoops/project/api/ProjectCollectionSummaryIntegrationTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 20 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 20
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 110
+Unique master technical questions covered: 116
 Synthetic technical questions covered: 8
 Current denominator: 387+
