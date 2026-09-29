@@ -101,3 +101,12 @@ Set 13 closed two deferred audit findings:
 - **Finding 3 partially resolved for the current design:** `DuplicateProjectException` no longer carries `@ResponseStatus`; `GeoOpsExceptionHandler` centrally maps application exceptions to HTTP responses. A shared custom-exception hierarchy remains intentionally deferred to the next dedicated anchor.
 
 Additional controller integration coverage was also added through `ProjectControllerExceptionIntegrationTest`.
+
+
+## Resolution after Set 15
+
+Set 15 closed another deferred audit finding:
+
+- **Finding 6 resolved:** malformed/inaccessible filesystem paths are now handled inside `DatasetPreflightValidator` with a multi-catch for `InvalidPathException | SecurityException`, returning a controlled preflight failure with exit code 6 instead of allowing the runtime exception to escape.
+
+Set 15 also expanded REST integration coverage with malformed JSON handling and added a safe logged HTTP 500 fallback for unexpected server exceptions.
