@@ -1089,10 +1089,38 @@ Set 35 learning items completed: 8 / 8
 
 Set 36 learning items completed: 6 / 6
 
+
 ---
 
-Completed job-experience anchors: 36
+# Set 37
+
+**Status: 37/387+**
+
+- [x] ⭐ [Master 531] Did you get a chance to work on ConcurrentHashMap in your project?
+
+## Part A
+- [x] [Master 505] Can you please brief on ConcurrentHashMap?
+- [x] [Master 506] How does ConcurrentHashMap improve performance in a multi-threaded environment?
+- [x] [Master 507] How does ConcurrentHashMap handle concurrency differently from HashMap? In what parameters is it different, and how does it handle concurrency?
+- [x] [Master 508] You need a collection that supports very frequent reads but occasional writes. What would you choose between HashMap, Collections.synchronizedMap() and ConcurrentHashMap?
+- [x] [Master 512] What happens when Two Threads update the Same Key in a ConcurrentHashMap at the same time?
+- [x] [Master 517] Is ConcurrentHashMap 100% Thread-Safe for every kind of operation?
+- [x] [Master 522] Does ConcurrentHashMap allow null Keys or Values, and why not?
+
+## Set 37 completion evidence
+- docs/sets/SET-037-CONCURRENTHASHMAP.md
+- docs/architecture/ADR-CONCURRENT-REVIEW-STATE.md
+- docs/process/SPRINT-004.md
+- src/main/java/com/atlasgrid/geoops/review/ProjectReviewQueue.java
+- src/test/java/com/atlasgrid/geoops/review/ProjectReviewQueueTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 37 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 37
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 163
+Unique master technical questions covered: 170
 Synthetic technical questions covered: 10
 Current denominator: 387+
