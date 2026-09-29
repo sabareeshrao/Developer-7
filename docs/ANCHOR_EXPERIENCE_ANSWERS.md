@@ -343,3 +343,14 @@ For example, when the API requests the most recent two projects, the catalog tak
 Yes. In GeoOps I use LinkedList for the quality-review worklist through the Deque interface. New projects are appended at the tail, reviewers normally claim from the head, and retry work can be moved to the front.
 
 A more specific use case is expediting an already-queued project when operations wants it reviewed next. We traverse the LinkedList with an Iterator, remove the existing task safely with iterator.remove(), and then add that same task to the front with addFirst(). That keeps the queue size unchanged, avoids duplicate review tasks, and preserves the relative order of the other queued projects.
+
+
+---
+
+## Set 32 — Status: 32/387+
+
+### ⭐ Have you used LinkedList in your project?
+
+Yes. In GeoOps I use LinkedList for the quality-review worklist through the Deque interface. The worklist supports normal FIFO claiming, retrying work at the front, expediting urgent work, cancelling queued work, and now deferring blocked work to the tail.
+
+For the defer case, we traverse to the existing task with an Iterator, remove it safely with iterator.remove(), and then add that same task to the tail with addLast(). That lets other ready projects continue through review while the blocked project stays queued. The task is moved rather than duplicated, so queue size stays the same and the relative order of the other projects is preserved.
