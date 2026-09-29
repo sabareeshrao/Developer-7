@@ -352,8 +352,35 @@ Set 11 learning items completed: 8 / 8
 
 ---
 
-Completed job-experience anchors: 11
+# Set 12
+
+**Status: 12/387+**
+
+- [x] ⭐ [Master 319] Have you worked with Enum in your project?
+
+## Part A
+- [x] [Master 314] Can you explain Enum in Java?
+- [x] [Master 315] What's the purpose of using Enum?
+- [x] [Master 313] Can you tell me the advantages of Enum over constants?
+- [x] [Master 2724] What is an enum in Java, and how is it different from a set of constants?
+- [x] [Master 316] Let's say you are working in a payment system with different methods like credit card, UPI and net banking. How would you use Enums and what would be your strategy?
+- [x] [Master 318] Can Enums implement interfaces?
+
+## Set 12 completion evidence
+- docs/sets/SET-012-ENUM.md
+- docs/process/SPRINT-002.md
+- src/main/java/com/atlasgrid/geoops/tools/preflight/DatasetFormat.java
+- src/main/java/com/atlasgrid/geoops/tools/preflight/DatasetPreflightValidator.java
+- src/test/java/com/atlasgrid/geoops/tools/preflight/DatasetFormatTest.java
+- src/test/java/com/atlasgrid/geoops/tools/preflight/DatasetPreflightValidatorTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 12 learning items completed: 7 / 7
+
+---
+
+Completed job-experience anchors: 12
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 72
+Unique master technical questions covered: 78
 Synthetic technical questions covered: 8
 Current denominator: 387+
