@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "15/387+",
+  "status": "16/387+",
   "completed": {
-    "sets": 15,
-    "jobExperienceAnchors": 15,
-    "uniqueMasterTechnicalQuestions": 93,
+    "sets": 16,
+    "jobExperienceAnchors": 16,
+    "uniqueMasterTechnicalQuestions": 97,
     "syntheticTechnicalQuestions": 8
   },
   "current": {
-    "set": 15,
-    "anchorMasterQuestion": 369,
-    "anchor": "How do you handle exceptions in your project?",
+    "set": 16,
+    "anchorMasterQuestion": 370,
+    "anchor": "What strategies do you majorly use for exception handling?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-015-EXCEPTION-HANDLING.md"
+    "evidence": "docs/sets/SET-016-EXCEPTION-HANDLING-STRATEGIES.md"
   },
-  "nextAction": "derive Set 16 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; end with Experience Answer",
+  "nextAction": "derive Set 17 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
@@ -27,7 +27,8 @@
     "syntheticTechnicalMarker": "💡",
     "previouslyCoveredTechnicalMarker": "✅",
     "plusMeansExpandableSyntheticWorld": true,
-    "experienceAnswerRequiredAtEnd": true
+    "experienceAnswerRequiredAtEnd": true,
+    "masterIdsVisibleToUser": false
   },
   "tracker": "state/LEARNING_TRACKER.md"
 }
