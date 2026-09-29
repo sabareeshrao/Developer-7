@@ -387,3 +387,14 @@ That gives us fast claimed-state lookup for workflow actions. A retry now succee
 In GeoOps I use Map wherever the workflow naturally has a key-to-value relationship. For claimed quality-review work, I use a HashMap from projectCode to ProjectReviewTask because I need fast lookup and removal for retry and completion, but I do not need iteration order.
 
 I use LinkedHashMap where ordering matters as well as lookup. The CRS summary maps each CRS code to its project count while preserving first-seen CRS order, and the batch-intake planner maps immutable ProjectIdentity keys to reconciliation entries so duplicate submissions can be counted while the first-seen project order and canonical request metadata are retained. So I choose the Map implementation from the actual ordering and lookup requirement rather than using one Map type everywhere.
+
+
+---
+
+## Set 36 — Status: 36/387+
+
+### ⭐ Did you get a chance to work with WeakHashMap?
+
+I evaluated WeakHashMap in the GeoOps collection-design work, but I did not use it for our production business state. WeakHashMap holds keys through weak references, so an entry can disappear after its key is no longer strongly reachable and the garbage collector reclaims it.
+
+That lifecycle is useful for auxiliary cache or metadata scenarios, but it is not appropriate for our project catalog or claimed review-task state because those entries must remain until an explicit business action removes them. So for GeoOps I kept HashMap and LinkedHashMap for deterministic workflow state, and documented WeakHashMap as a deliberate non-choice rather than adding it artificially.
