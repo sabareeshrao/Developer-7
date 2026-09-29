@@ -283,6 +283,37 @@ Established rules:
 - A shared custom-exception base class has not yet been introduced.
 - Sprint 003 begins with GEO-13 for API resilience and error contracts.
 
+## Set 14 established facts — custom project exception hierarchy
+
+GeoOps now has a common application exception base type.
+
+Established hierarchy:
+
+```text
+Throwable
+   ↓
+Exception
+   ↓
+RuntimeException
+   ↓
+GeoOpsProjectException
+   ├── DuplicateProjectException
+   └── InvalidProjectRequestException
+```
+
+Established rules:
+- `GeoOpsProjectException` is abstract and extends `RuntimeException`.
+- The base exception owns a stable machine-readable `errorCode`.
+- The base exception supports a cause constructor for exception chaining.
+- `DuplicateProjectException` uses `PROJECT_DUPLICATE`.
+- `InvalidProjectRequestException` uses `PROJECT_VALIDATION_FAILED`.
+- `ApiError` exposes the domain error code.
+- `GeoOpsExceptionHandler` contains both specific handlers and a generic `GeoOpsProjectException` fallback.
+- Spring's more-specific exception handler wins when both specific and generic mappings match.
+- Duplicate project intake therefore remains HTTP 409.
+- HTTP status remains a REST-layer concern and is not stored in the application exception hierarchy.
+- Sprint 003 includes GEO-14 for this hierarchy design.
+
 ## Grounding boundaries
 
 The fictional premise is inspired by the supplied resume's real technology/domain themes: Java backend development, Spring Boot services, REST/SOAP integrations, geospatial project intake, survey-data processing, file tracking, validation/transformation, scheduled jobs, database workflows, production support, Jenkins/Git/Linux tooling, and testing.
