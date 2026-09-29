@@ -535,3 +535,26 @@ Established rules:
 - Hash-table capacity/load-factor tuning remains on JDK defaults unless profiling demonstrates a need.
 - LinkedHashMap is chosen because the problem requires expected O(1) key lookup plus stable insertion-order iteration.
 - Sprint 004 continues the Collections and in-memory data-structure sequence.
+
+
+## Set 26 established facts — collection inventory and HashSet membership lookup
+
+GeoOps now has an explicit, code-backed inventory of current collection usage.
+
+Established collection choices:
+- List / ArrayList → ordered ProjectCatalog storage and indexed intake-position reads.
+- Set / HashSet → ProjectIdentity uniqueness, duplicate prevention and project-code membership lookup.
+- Map / LinkedHashMap → ordered CRS counts and batch-intake reconciliation.
+- Deque / LinkedList → quality-review FIFO worklist, retry-first and cancellation.
+- Collection → general processing boundary where no specific implementation is required.
+
+Set 26 also changes the existing project existence lookup:
+- ProjectCatalog.containsProjectCode(...) uses HashSet<ProjectIdentity>.contains(...).
+- ProjectService.containsProjectCode(...) delegates directly to ProjectCatalog.
+- GET /api/projects/exists/{projectCode} keeps the same REST contract.
+- Membership lookup now uses the existing identity Set rather than scanning List<GeoProject>.
+- ProjectIdentity remains immutable and continues to define equals()/hashCode() using projectCode.
+- HashSet capacity/load-factor behavior stays on JDK defaults unless profiling justifies tuning.
+- TreeSet is still not claimed as current project usage.
+- No new collection is introduced solely for interview coverage.
+- Sprint 004 continues the Collections and in-memory data-structure sequence.
