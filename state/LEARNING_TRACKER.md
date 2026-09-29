@@ -853,10 +853,40 @@ Set 27 learning items completed: 8 / 8
 
 Set 28 learning items completed: 8 / 8
 
+
 ---
 
-Completed job-experience anchors: 28
+# Set 29
+
+**Status: 29/387+**
+
+- [x] ⭐ [Master 412] Have you used Arrays.sort() and Collections.sort()?
+
+## Part A
+- [x] [Master 395] What's the difference between Arrays.sort() and Collections.sort()?
+- [x] [Master 398] Do you know which sorting algorithms Arrays.sort() and Collections.sort() use internally?
+- [x] [Master 399] How does Collections.sort() work internally, and which Sorting Algorithm does it use?
+- [x] [Master 391] Can you tell me the difference between Comparable and Comparator Interfaces?
+- [x] [Master 536] What are Comparator and Comparable used for?
+- [x] [Master 537] If a Class implements Comparable but a Custom Comparator is supplied while sorting, which ordering takes precedence?
+- [x] [Master 546] Give me a scenario where we should use Comparator.
+
+## Set 29 completion evidence
+- docs/sets/SET-029-ARRAYS-COLLECTIONS-SORT.md
+- docs/process/SPRINT-004.md
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectSortingView.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectSortingService.java
+- src/main/java/com/atlasgrid/geoops/project/api/ProjectController.java
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectSortingServiceTest.java
+- src/test/java/com/atlasgrid/geoops/project/api/ProjectSortingIntegrationTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 29 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 29
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 142
+Unique master technical questions covered: 149
 Synthetic technical questions covered: 9
 Current denominator: 387+
