@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 21 — Status: 21/387+ — COMPLETE**
+**Set 22 — Status: 22/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -30,6 +30,7 @@ Set 18: typed GeoOpsErrorCode registry for maintainable exception contracts
 Set 19: finally-block side-effect regression tests and try-with-resources cleanup policy
 Set 20: Java Collections Framework usage with ordered List and uniqueness-oriented Set behavior
 Set 21: List, Set and ordered Map choices with LinkedHashMap CRS counts
+Set 22: collection best practices with ProjectCatalog ownership, Generics, immutable snapshots and mutation-safety tests
 ```
 
 ## Current project workflow
