@@ -430,3 +430,43 @@ Evidence:
 - ProjectSortingServiceTest.java
 - ProjectSortingIntegrationTest.java
 - Set 29 evidence document
+
+---
+
+### Story GEO-30 — Use ArrayList for recent intake windows
+
+**Outcome:** GeoOps now uses the existing ArrayList-backed ProjectCatalog to return the most recent N accepted projects while preserving their original intake order.
+
+Acceptance criteria:
+- Keep ProjectCatalog storage declared as List<GeoProject> backed by ArrayList.
+- Add findRecent(int limit) using the ordered contiguous tail range of the catalog.
+- Preserve the original intake order inside the returned window.
+- Return an immutable copy rather than exposing ArrayList.subList() directly.
+- Return an empty List for non-positive limits.
+- If limit exceeds catalog size, return all accepted projects in intake order.
+- Expose GET /api/projects/recent?limit=N.
+- Verify the recent-window request never changes the full catalog order.
+- Add unit and MockMvc integration tests.
+
+~~~text
+ProjectCatalog
+  List<GeoProject> / ArrayList
+        ↓
+size = 4, limit = 2
+        ↓
+subList(2, 4)
+        ↓
+[project 3, project 4]
+        ↓
+List.copyOf(...)
+        ↓
+immutable recent window
+~~~
+
+Evidence:
+- ProjectCatalog.java
+- ProjectService.java
+- ProjectController.java
+- ProjectCatalogTest.java
+- RecentProjectsIntegrationTest.java
+- Set 30 evidence document
