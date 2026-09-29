@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 15/387+**
+**Status: 16/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -38,6 +38,7 @@ Completed:
 13. Set 13 — custom project-intake exceptions and centralized REST error handling.
 14. Set 14 — GeoOpsProjectException hierarchy with shared error codes and specific/generic REST handling.
 15. Set 15 — project-wide exception handling boundaries across REST and CLI flows.
+16. Set 16 — exception-handling strategies with Optional-based normal lookup flow.
 
 Read in this order:
 1. `CONTINUATION_PROTOCOL.md`
@@ -307,3 +308,24 @@ CLI PreflightResult  centralized REST advice
 ```
 
 REST malformed input is handled explicitly, unexpected exceptions are logged and converted to a safe 500 response, and invalid/inaccessible CLI paths become preflight exit code 6.
+
+
+## Set 16 exception strategy
+
+```text
+Expected lookup outcome
+        ↓
+Optional / boolean / normal HTTP status
+
+Actual failure
+        ↓
+exception
+        ↓
+local recovery or centralized handling
+```
+
+`GET /api/projects/by-code/{projectCode}` returns 200 when a project exists and 404 when it does not, without throwing an exception for the normal lookup miss.
+
+## Visible Set formatting rule
+
+Master sequence IDs are internal bookkeeping only. Keep them in `state/LEARNING_TRACKER.md` for duplicate tracking, but do not show `[Master N]` in user-facing Set responses or normal Set lesson content.
