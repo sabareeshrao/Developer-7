@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -38,6 +39,21 @@ class ProjectReviewQueueIntegrationTest {
         mockMvc.perform(post("/api/review-queue/claim-next"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.projectCode").value("TX-DAL-024"));
+    }
+
+    @Test
+    void queuedProjectCanBeCancelledWithoutBreakingOrder() throws Exception {
+        createProject("TX-HOU-024");
+        createProject("TX-SAT-024");
+        createProject("TX-ELP-024");
+
+        mockMvc.perform(delete("/api/review-queue/TX-SAT-024"))
+                .andExpect(status().isNoContent());
+
+        mockMvc.perform(get("/api/review-queue"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].projectCode").value("TX-HOU-024"))
+                .andExpect(jsonPath("$[1].projectCode").value("TX-ELP-024"));
     }
 
     private void createProject(String projectCode) throws Exception {
