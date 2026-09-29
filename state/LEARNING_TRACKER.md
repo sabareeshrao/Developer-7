@@ -825,9 +825,37 @@ Set 26 learning items completed: 8 / 8
 
 Set 27 learning items completed: 8 / 8
 
+
 ---
 
-Completed job-experience anchors: 27
+# Set 28
+
+**Status: 28/387+**
+
+- [x] ⭐ [Master 411] Where have you used List and HashSet? Can you tell me the situations?
+
+## Part A
+- [x] ✅ [Master 375] What are the major collections we have?
+- [x] ✅ [Master 379] What are the main implementations of the List interface?
+- [x] ✅ [Master 380] What is the difference between Set and ArrayList? What are they used for and why have they been created?
+- [x] ✅ [Master 425] In Collections, how does HashSet ensure that there are no duplicates?
+- [x] ✅ [Master 423] What is the average Lookup Time for a HashSet?
+- [x] ✅ [Master 427] You want to store Custom Objects in a HashSet, but duplicates are being added. What could be wrong in the Object design?
+- [x] ✅ [Master 396] How does polymorphism benefit the Java Collections Framework?
+
+## Set 28 completion evidence
+- docs/sets/SET-028-LIST-HASHSET-SITUATIONS.md
+- docs/process/SPRINT-004.md
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectCatalogCollectionRoleTest.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectCatalog.java
+- src/main/java/com/atlasgrid/geoops/project/domain/ProjectIdentity.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 28 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 28
 Synthetic job-experience anchors created so far: 0
 Unique master technical questions covered: 142
 Synthetic technical questions covered: 9
