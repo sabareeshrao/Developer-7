@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "24/387+",
+  "status": "25/387+",
   "completed": {
-    "sets": 24,
-    "jobExperienceAnchors": 24,
-    "uniqueMasterTechnicalQuestions": 133,
+    "sets": 25,
+    "jobExperienceAnchors": 25,
+    "uniqueMasterTechnicalQuestions": 138,
     "syntheticTechnicalQuestions": 9
   },
   "current": {
-    "set": 24,
-    "anchorMasterQuestion": 407,
-    "anchor": "Have you used LinkedList in your project?",
+    "set": 25,
+    "anchorMasterQuestion": 408,
+    "anchor": "Can you describe a complex problem you solved using a Java Collection?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-024-LINKEDLIST.md"
+    "evidence": "docs/sets/SET-025-COMPLEX-COLLECTION-PROBLEM.md"
   },
-  "nextAction": "derive Set 25 around exactly one next logical original job-experience anchor in Collections; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
+  "nextAction": "derive Set 26 around exactly one next logical original job-experience anchor in Collections; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
