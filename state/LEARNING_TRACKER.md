@@ -324,8 +324,36 @@ Set 10 learning items completed: 8 / 8
 
 ---
 
-Completed job-experience anchors: 10
+# Set 11
+
+**Status: 11/387+**
+
+- [x] ⭐ [Master 304] Have you ever got a chance to design an immutable class?
+
+## Part A
+- [x] [Master 291] What does immutability mean in Java?
+- [x] [Master 283] What makes an object immutable in Java?
+- [x] [Master 275] Can we create immutable classes in Java?
+- [x] [Master 276] How can we create an immutable class?
+- [x] [Master 282] Why should we not have setter methods in an immutable class?
+- [x] [Master 294] You need to design an immutable class that contains a mutable object such as a List. How would you design it?
+- [x] [Master 303] Let's say you need to ensure that certain data within your application remains constant and secure throughout its lifecycle. How would you implement immutability for this purpose?
+
+## Set 11 completion evidence
+- docs/sets/SET-011-IMMUTABLE-CLASS.md
+- docs/process/SPRINT-002.md
+- src/main/java/com/atlasgrid/geoops/project/domain/ProjectCatalogSnapshot.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectService.java
+- src/main/java/com/atlasgrid/geoops/project/api/ProjectController.java
+- src/test/java/com/atlasgrid/geoops/project/domain/ProjectCatalogSnapshotTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 11 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 11
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 65
+Unique master technical questions covered: 72
 Synthetic technical questions covered: 8
 Current denominator: 387+
