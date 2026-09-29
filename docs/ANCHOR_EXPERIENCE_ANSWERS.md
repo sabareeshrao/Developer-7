@@ -200,3 +200,14 @@ For example, in the GIS preflight flow we validate the command-line argument bef
 In GeoOps, we maintain exceptions in a centralized and consistent way rather than handling them differently in every controller or service. We have a common `GeoOpsProjectException` hierarchy for project-domain failures, and the REST layer uses `@RestControllerAdvice` to map those failures to one `ApiError` response structure.
 
 We also maintain stable machine-readable error codes. I moved those codes into a shared `GeoOpsErrorCode` enum instead of keeping raw String literals across multiple exception and handler classes. That gives us compile-time checking and one place to add or review error identifiers. Specific exceptions still have specific HTTP mappings, the generic handler is only a fallback, unexpected errors are logged without exposing internals, and tests verify that status codes and error codes remain stable when the exception code evolves.
+
+
+---
+
+## Set 19 — Status: 19/387+
+
+### ⭐ Was there ever a time when the finally block caused unexpected behavior or side effects in your code?
+
+Yes, but in GeoOps I treat it as a controlled code-quality lesson rather than claiming a production incident. While adding the manifest file-export path, we added regression tests around finally behavior and confirmed two risky cases: a return inside finally can replace the value returned from try, and an exception thrown from finally can hide the original exception.
+
+Because of that, I keep finally limited to cleanup behavior and avoid returning or deliberately throwing replacement exceptions from it. For the actual manifest file exporter, I used try-with-resources so Java manages the writer cleanup without mixing cleanup logic with the business result.
