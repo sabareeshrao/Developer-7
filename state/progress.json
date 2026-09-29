@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "13/387+",
+  "status": "14/387+",
   "completed": {
-    "sets": 13,
-    "jobExperienceAnchors": 13,
-    "uniqueMasterTechnicalQuestions": 85,
+    "sets": 14,
+    "jobExperienceAnchors": 14,
+    "uniqueMasterTechnicalQuestions": 89,
     "syntheticTechnicalQuestions": 8
   },
   "current": {
-    "set": 13,
-    "anchorMasterQuestion": 366,
-    "anchor": "Can you share some custom exception names that you guys are throwing in your current project?",
+    "set": 14,
+    "anchorMasterQuestion": 368,
+    "anchor": "Have you ever created a Custom Exception Hierarchy?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-013-CUSTOM-EXCEPTIONS.md"
+    "evidence": "docs/sets/SET-014-CUSTOM-EXCEPTION-HIERARCHY.md"
   },
-  "nextAction": "derive Set 14 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; end with Experience Answer",
+  "nextAction": "derive Set 15 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
