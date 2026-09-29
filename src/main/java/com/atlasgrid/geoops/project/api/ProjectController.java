@@ -9,6 +9,7 @@ import com.atlasgrid.geoops.project.validation.ProjectValidationService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -52,6 +53,13 @@ public class ProjectController {
     @GetMapping("/exists/{projectCode}")
     public boolean projectCodeExists(@PathVariable String projectCode) {
         return projectService.containsProjectCode(projectCode);
+    }
+
+    @GetMapping("/by-code/{projectCode}")
+    public ResponseEntity<GeoProject> getProjectByCode(
+            @PathVariable String projectCode
+    ) {
+        return ResponseEntity.of(projectService.findByProjectCode(projectCode));
     }
 
     @PostMapping("/validate")

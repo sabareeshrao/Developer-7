@@ -13,6 +13,7 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 
@@ -32,8 +33,12 @@ import java.util.UUID;
  * path value can be a different String object with the same text. Reference
  * equality with == would not be a valid business comparison.</p>
  *
- * <p>Project creation now executes the same domain validation rules exposed by
- * the validation endpoint. Invalid business input raises
+ * <p>Expected lookup absence is represented with Optional instead of throwing
+ * an exception. This keeps exceptions reserved for actual exceptional/domain
+ * failure conditions rather than normal control flow.</p>
+ *
+ * <p>Project creation executes the same domain validation rules exposed by the
+ * validation endpoint. Invalid business input raises
  * InvalidProjectRequestException before any project state is changed.</p>
  *
  * <p>catalogSnapshot() returns an immutable ProjectCatalogSnapshot that captures
@@ -63,9 +68,14 @@ public class ProjectService {
         return new ProjectCatalogSnapshot(Instant.now(), projects);
     }
 
-    public boolean containsProjectCode(String projectCode) {
+    public Optional<GeoProject> findByProjectCode(String projectCode) {
         return projects.stream()
-                .anyMatch(project -> project.projectCode().equals(projectCode));
+                .filter(project -> project.projectCode().equals(projectCode))
+                .findFirst();
+    }
+
+    public boolean containsProjectCode(String projectCode) {
+        return findByProjectCode(projectCode).isPresent();
     }
 
     public GeoProject create(CreateProjectRequest request) {
