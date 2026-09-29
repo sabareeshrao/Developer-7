@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 25/387+**
+**Status: 26/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -609,3 +609,47 @@ Status: 25/387+
 ~~~
 
 Sprint 004 remains active. The next original source anchor asks for the collection names currently used in the project.
+
+
+## Set 26 — Latest Completed Set
+
+Anchor:
+
+⭐ **Can you tell me a few Collection names that you are using in your project?**
+
+Current GeoOps collection inventory:
+
+~~~text
+List / ArrayList
+→ ordered project catalog
+
+Set / HashSet
+→ project identity uniqueness
+→ existence lookup
+→ distinct CRS values
+
+Map / LinkedHashMap
+→ ordered CRS counts
+→ batch reconciliation
+
+Deque / LinkedList
+→ quality-review worklist
+
+Collection
+→ general processing boundaries
+~~~
+
+Set 26 also refactored GET /api/projects/exists/{projectCode} so membership is answered through HashSet<ProjectIdentity>.contains(...) instead of an ArrayList scan.
+
+Latest learning state:
+
+~~~text
+Completed Sets: 26
+Completed anchors: 26
+Unique master technical questions covered: 142
+Synthetic technical questions covered: 9
+Synthetic ⭐⭐ anchors: 0
+Status: 26/387+
+~~~
+
+Sprint 004 remains active. The next original source anchor asks whether List, LinkedList and HashSet have been used in the project.
