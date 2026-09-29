@@ -332,6 +332,23 @@ Established rules:
 - Manual `finally` cleanup is not added where no owned resource requires cleanup.
 - Sprint 003 includes GEO-15 for this project-wide handling policy.
 
+## Set 16 established facts — exception-handling strategies
+
+GeoOps now explicitly distinguishes expected outcomes from exceptional failures.
+
+Established rules:
+- `ProjectService.findByProjectCode(...)` returns `Optional<GeoProject>`.
+- A missing project lookup is an expected result and returns `Optional.empty()`.
+- `GET /api/projects/by-code/{projectCode}` returns HTTP 200 when found and HTTP 404 when absent.
+- No custom exception is thrown merely to drive normal lookup branching.
+- Actual domain failures continue to use the `GeoOpsProjectException` hierarchy.
+- Service exceptions propagate when the current layer cannot recover meaningfully.
+- Same-recovery exception types may use multi-catch.
+- Different failure types receive specific handlers.
+- The generic REST `Exception` handler remains a final safety net, not the primary strategy.
+- Sprint 003 includes GEO-16 for this strategy.
+- Master sequence IDs remain internal tracker metadata and are not part of the user-facing Set format.
+
 ## Grounding boundaries
 
 The fictional premise is inspired by the supplied resume's real technology/domain themes: Java backend development, Spring Boot services, REST/SOAP integrations, geospatial project intake, survey-data processing, file tracking, validation/transformation, scheduled jobs, database workflows, production support, Jenkins/Git/Linux tooling, and testing.
