@@ -58,6 +58,34 @@ class ProjectReviewQueueTest {
     }
 
     @Test
+    void defersQueuedProjectToTailWithoutDuplicatingIt() {
+        ProjectReviewQueue queue = new ProjectReviewQueue();
+
+        queue.enqueue("TX-AUS-032");
+        queue.enqueue("TX-DAL-032");
+        queue.enqueue("TX-HOU-032");
+
+        assertThat(queue.defer("TX-AUS-032")).isTrue();
+        assertThat(queue.snapshot())
+                .extracting(ProjectReviewTask::projectCode)
+                .containsExactly("TX-DAL-032", "TX-HOU-032", "TX-AUS-032");
+        assertThat(queue.size()).isEqualTo(3);
+    }
+
+    @Test
+    void deferringUnknownProjectLeavesQueueUnchanged() {
+        ProjectReviewQueue queue = new ProjectReviewQueue();
+
+        queue.enqueue("TX-AUS-032");
+        queue.enqueue("TX-DAL-032");
+
+        assertThat(queue.defer("TX-HOU-032")).isFalse();
+        assertThat(queue.snapshot())
+                .extracting(ProjectReviewTask::projectCode)
+                .containsExactly("TX-AUS-032", "TX-DAL-032");
+    }
+
+    @Test
     void expeditingUnknownProjectLeavesQueueUnchanged() {
         ProjectReviewQueue queue = new ProjectReviewQueue();
 
