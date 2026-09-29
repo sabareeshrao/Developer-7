@@ -10,6 +10,7 @@ public record ApiError(
         Instant timestamp,
         int status,
         String error,
+        String code,
         String message,
         List<String> details
 ) {

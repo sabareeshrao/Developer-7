@@ -1,6 +1,7 @@
 package com.atlasgrid.geoops.project.api;
 
 import com.atlasgrid.geoops.project.application.DuplicateProjectException;
+import com.atlasgrid.geoops.project.application.GeoOpsProjectException;
 import com.atlasgrid.geoops.project.application.InvalidProjectRequestException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,8 +15,9 @@ import java.util.List;
 /**
  * Central REST exception mapping for the GeoOps project API.
  *
- * <p>Application exceptions remain independent from HTTP concerns. This advice
- * translates them into stable API responses at the web boundary.</p>
+ * <p>Specific exception handlers take precedence over the generic
+ * GeoOpsProjectException fallback. Application exceptions remain independent
+ * from HTTP concerns.</p>
  */
 @RestControllerAdvice
 public class GeoOpsExceptionHandler {
@@ -26,6 +28,7 @@ public class GeoOpsExceptionHandler {
     ) {
         return build(
                 HttpStatus.CONFLICT,
+                exception.errorCode(),
                 exception.getMessage(),
                 List.of()
         );
@@ -41,8 +44,21 @@ public class GeoOpsExceptionHandler {
 
         return build(
                 HttpStatus.BAD_REQUEST,
+                exception.errorCode(),
                 exception.getMessage(),
                 details
+        );
+    }
+
+    @ExceptionHandler(GeoOpsProjectException.class)
+    public ResponseEntity<ApiError> handleProjectException(
+            GeoOpsProjectException exception
+    ) {
+        return build(
+                HttpStatus.BAD_REQUEST,
+                exception.errorCode(),
+                exception.getMessage(),
+                List.of()
         );
     }
 
@@ -58,6 +74,7 @@ public class GeoOpsExceptionHandler {
 
         return build(
                 HttpStatus.BAD_REQUEST,
+                "REQUEST_VALIDATION_FAILED",
                 "Request failed API validation",
                 details
         );
@@ -65,6 +82,7 @@ public class GeoOpsExceptionHandler {
 
     private ResponseEntity<ApiError> build(
             HttpStatus status,
+            String code,
             String message,
             List<String> details
     ) {
@@ -72,6 +90,7 @@ public class GeoOpsExceptionHandler {
                 Instant.now(),
                 status.value(),
                 status.getReasonPhrase(),
+                code,
                 message,
                 details
         );

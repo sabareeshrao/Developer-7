@@ -35,6 +35,8 @@ class ProjectControllerExceptionIntegrationTest {
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.status").value(400))
                 .andExpect(jsonPath("$.error").value("Bad Request"))
+                .andExpect(jsonPath("$.code")
+                        .value("PROJECT_VALIDATION_FAILED"))
                 .andExpect(jsonPath("$.message")
                         .value("Project request failed domain validation"))
                 .andExpect(jsonPath("$.details", hasItems(
@@ -44,7 +46,7 @@ class ProjectControllerExceptionIntegrationTest {
     }
 
     @Test
-    void duplicateProjectExceptionReturnsStructuredConflict() throws Exception {
+    void specificDuplicateHandlerWinsOverGenericHierarchyHandler() throws Exception {
         String request = """
                 {
                   "projectCode": "TX-AUS-777",
@@ -64,6 +66,8 @@ class ProjectControllerExceptionIntegrationTest {
                 .andExpect(status().isConflict())
                 .andExpect(jsonPath("$.status").value(409))
                 .andExpect(jsonPath("$.error").value("Conflict"))
+                .andExpect(jsonPath("$.code")
+                        .value("PROJECT_DUPLICATE"))
                 .andExpect(jsonPath("$.message")
                         .value("Project already exists for projectCode=TX-AUS-777"))
                 .andExpect(jsonPath("$.details").isEmpty());
@@ -82,6 +86,8 @@ class ProjectControllerExceptionIntegrationTest {
                                 """))
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.status").value(400))
+                .andExpect(jsonPath("$.code")
+                        .value("REQUEST_VALIDATION_FAILED"))
                 .andExpect(jsonPath("$.message")
                         .value("Request failed API validation"))
                 .andExpect(jsonPath("$.details").isArray());
