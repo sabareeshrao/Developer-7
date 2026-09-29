@@ -33,14 +33,21 @@ class ProjectCollectionSummaryServiceTest {
                         "TX-DAL-020",
                         "TX-HOU-020"
                 );
+        assertThat(summary.projectCountByCoordinateReferenceSystem())
+                .containsExactly(
+                        java.util.Map.entry("EPSG:4326", 2),
+                        java.util.Map.entry("EPSG:3857", 1)
+                );
     }
 
     @Test
-    void returnedProjectCodeListIsImmutable() {
+    void returnedCollectionViewsAreImmutable() {
         ProjectCollectionSummary summary =
                 service.summarize(List.of(project("TX-AUS-021", "EPSG:4326")));
 
         assertThat(summary.projectCodesInIntakeOrder())
+                .isUnmodifiable();
+        assertThat(summary.projectCountByCoordinateReferenceSystem())
                 .isUnmodifiable();
     }
 
