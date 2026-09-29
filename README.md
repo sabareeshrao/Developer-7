@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 19 — Status: 19/387+ — COMPLETE**
+**Set 20 — Status: 20/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -28,6 +28,7 @@ Set 16: exception-handling strategies with Optional-based normal lookup flow
 Set 17: basic error prevention through null guards and null-safe validation
 Set 18: typed GeoOpsErrorCode registry for maintainable exception contracts
 Set 19: finally-block side-effect regression tests and try-with-resources cleanup policy
+Set 20: Java Collections Framework usage with ordered List and uniqueness-oriented Set behavior
 ```
 
 ## Current project workflow
@@ -60,6 +61,7 @@ mvn spring-boot:run
 Useful endpoints:
 - `GET /actuator/health`
 - `GET /api/projects`
+- `GET /api/projects/collection-summary`
 - `POST /api/projects`
 - `GET /api/projects/manifest`
 - `POST /api/projects/validate`
