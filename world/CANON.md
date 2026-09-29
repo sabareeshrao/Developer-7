@@ -615,3 +615,25 @@ Established rules:
 - Collections.sort() delegates to List.sort(...); the concrete List implementation controls the final sorting path.
 - Set 29 adds seven new master technical questions.
 - Sprint 004 continues the Collections and sorting sequence.
+
+
+## Set 30 established facts — recent ArrayList intake windows
+
+GeoOps now has a second distinct project-backed ArrayList use case.
+
+Established rules:
+- ProjectCatalog continues to declare List<GeoProject> backed by ArrayList.
+- ProjectCatalog.findRecent(int limit) returns the most recently accepted N projects.
+- The selected window preserves original intake order.
+- The implementation uses the ordered contiguous tail range of the ArrayList-backed List.
+- ArrayList.subList(...) is never exposed directly.
+- List.copyOf(...) converts the selected range into an immutable returned result.
+- limit <= 0 returns an empty List.
+- A limit larger than the catalog size returns all accepted projects in intake order.
+- GET /api/projects/recent?limit=N exposes the recent-intake window.
+- Recent-window reads never mutate ProjectCatalog ordering.
+- ArrayList remains appropriate for append, iteration, indexed reads and contiguous range access.
+- HashSet remains the separate logical identity/membership index.
+- LinkedList remains the quality-review worklist implementation.
+- Set 30 adds two new master technical questions and reuses five completed questions with ✅.
+- Sprint 004 continues the Collections sequence.
