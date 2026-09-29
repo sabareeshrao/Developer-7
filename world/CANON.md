@@ -474,3 +474,21 @@ Established rules:
 - Mutable hash-state examples for HashSet and HashMap exist only in regression tests.
 - Concurrent collections are still not introduced because no concurrency requirement has justified them.
 - Sprint 004 continues the Collections and in-memory data-structure sequence.
+
+
+## Set 23 established facts — ArrayList project usage
+
+GeoOps now makes the ArrayList choice explicit through ordered intake-position lookup.
+
+Established rules:
+- ProjectCatalog continues to declare List<GeoProject> backed by ArrayList.
+- ArrayList is selected for append-oriented project intake, preserved order, iteration and indexed reads.
+- GET /api/projects/by-position/{intakePosition} exposes a 1-based intake-position lookup.
+- ProjectCatalog translates the 1-based position to List.get(intakePosition - 1).
+- Invalid positions return Optional.empty(), which maps to HTTP 404.
+- Production code does not depend on private ArrayList capacity fields or reflection.
+- The no-argument ArrayList constructor is treated precisely for Java 17: empty backing storage initially, default capacity 10 on first growth.
+- ArrayList growth behavior is understood but left to the JDK implementation.
+- remove(int) versus remove(Object) overload behavior is covered by regression tests.
+- LinkedList remains absent from production code because current GeoOps access patterns favor ArrayList.
+- Sprint 004 continues the Collections and in-memory data-structure sequence.
