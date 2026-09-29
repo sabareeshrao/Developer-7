@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "11/387+",
+  "status": "12/387+",
   "completed": {
-    "sets": 11,
-    "jobExperienceAnchors": 11,
-    "uniqueMasterTechnicalQuestions": 72,
+    "sets": 12,
+    "jobExperienceAnchors": 12,
+    "uniqueMasterTechnicalQuestions": 78,
     "syntheticTechnicalQuestions": 8
   },
   "current": {
-    "set": 11,
-    "anchorMasterQuestion": 304,
-    "anchor": "Have you ever got a chance to design an immutable class?",
+    "set": 12,
+    "anchorMasterQuestion": 319,
+    "anchor": "Have you worked with Enum in your project?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-011-IMMUTABLE-CLASS.md"
+    "evidence": "docs/sets/SET-012-ENUM.md"
   },
-  "nextAction": "derive Set 12 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; end with Experience Answer",
+  "nextAction": "derive Set 13 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
