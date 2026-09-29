@@ -678,3 +678,24 @@ Established rules:
 - All seven supporting technical questions in Set 32 are reused with ✅.
 - Unique technical-question coverage therefore remains unchanged.
 - Sprint 004 continues the Collections sequence.
+
+
+## Set 33 established facts — TreeSet sorted CRS catalog
+
+GeoOps now uses TreeSet for a real sorted-unique view.
+
+Established rules:
+- ProjectCrsCatalogService accepts Collection<GeoProject>.
+- It collects coordinateReferenceSystem values into SortedSet<String> backed by TreeSet.
+- Repeated CRS codes are deduplicated automatically.
+- CRS codes are returned in String natural order.
+- The returned result is converted to an immutable List with List.copyOf(...).
+- GET /api/projects/crs-catalog exposes the sorted unique CRS catalog.
+- TreeSet does not replace ProjectCatalog's HashSet<ProjectIdentity>.
+- HashSet remains the fast logical identity/membership index where ordering is unnecessary.
+- Natural-order TreeSet<String> rejects null.
+- TreeSet is backed by TreeMap / balanced Red-Black Tree ordering.
+- TreeSet uniqueness follows comparison semantics: compare/compareTo result 0 means the second value is treated as an existing set element.
+- GeoOps uses Comparable natural ordering for CRS Strings and does not define a custom CRS Comparator.
+- Set 33 adds six new master technical questions and reuses one completed question with ✅.
+- Sprint 004 continues the Collections sequence.
