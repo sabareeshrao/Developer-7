@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "22/387+",
+  "status": "23/387+",
   "completed": {
-    "sets": 22,
-    "jobExperienceAnchors": 22,
-    "uniqueMasterTechnicalQuestions": 126,
+    "sets": 23,
+    "jobExperienceAnchors": 23,
+    "uniqueMasterTechnicalQuestions": 130,
     "syntheticTechnicalQuestions": 8
   },
   "current": {
-    "set": 22,
-    "anchorMasterQuestion": 405,
-    "anchor": "Can you tell me a few best practices you consider when applying collections in your project?",
+    "set": 23,
+    "anchorMasterQuestion": 406,
+    "anchor": "Have you used ArrayList in your project?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-022-COLLECTION-BEST-PRACTICES.md"
+    "evidence": "docs/sets/SET-023-ARRAYLIST.md"
   },
-  "nextAction": "derive Set 23 around exactly one next logical original job-experience anchor in Collections; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
+  "nextAction": "derive Set 24 around exactly one next logical original job-experience anchor in Collections; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
