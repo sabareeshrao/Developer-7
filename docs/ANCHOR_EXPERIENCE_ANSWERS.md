@@ -255,3 +255,14 @@ For hash-based collections, I make sure equality-defining keys are stable. Proje
 Yes. In GeoOps, the in-memory ProjectCatalog uses a List backed by ArrayList. It fits our current workload because projects are appended as they arrive, we preserve intake order, iterate over them for APIs and manifests, and now support indexed lookup by intake position.
 
 I still declare the field as List<GeoProject> so the service is not tightly coupled to ArrayList. For callers, I return immutable snapshots instead of the mutable internal list. We also added tests around ArrayList-specific behavior such as dynamic growth and the remove(int) versus remove(Object) overload. I have not switched this catalog to LinkedList because the current access pattern benefits more from ArrayList's ordered storage and constant-time indexed reads.
+
+
+---
+
+## Set 24 — Status: 24/387+
+
+### ⭐ Have you used LinkedList in your project?
+
+Yes. In GeoOps I use LinkedList for the in-memory project quality-review worklist, not for the main project catalog. The catalog stays on ArrayList because it needs ordered storage and indexed reads, while the review workflow has a different access pattern.
+
+The review queue is declared as a Deque<ProjectReviewTask> backed by LinkedList. When a project is accepted, we add the review task at the tail with addLast(). Reviewers claim the next item from the head with pollFirst(), and a retry can be placed back at the front with addFirst(). We also support cancelling a queued review item by traversing with an Iterator and calling iterator.remove(), which avoids unsafe modification during iteration. So LinkedList is used where head/tail operations and linked worklist behavior actually match the requirement.
