@@ -699,3 +699,33 @@ Established rules:
 - GeoOps uses Comparable natural ordering for CRS Strings and does not define a custom CRS Comparator.
 - Set 33 adds six new master technical questions and reuses one completed question with ✅.
 - Sprint 004 continues the Collections sequence.
+
+
+## Post-Set-33 maintenance decisions
+
+The project API boundary was split without changing endpoint paths:
+- ProjectController owns intake/validation commands.
+- ProjectQueryController owns catalog reads.
+- ProjectReportController owns derived reporting/view endpoints.
+
+Concurrency, persistence, and transactional atomicity remain intentionally deferred to later learning anchors.
+
+## Set 34 established facts — HashMap claimed review-task registry
+
+GeoOps now tracks claimed review work separately from queued review work.
+
+Established rules:
+- ProjectReviewQueue still stores queued work in Deque<ProjectReviewTask> backed by LinkedList.
+- Claimed work is stored in Map<String, ProjectReviewTask> backed by HashMap.
+- projectCode String is the HashMap key and is immutable.
+- claimNext() removes the head task from the queue and puts it in claimedTasksByProjectCode.
+- retry(projectCode) succeeds only when the project exists in claimed state.
+- retry removes the task from the HashMap and requeues the same task at the front.
+- complete(projectCode) removes an actually claimed task from the HashMap.
+- Unknown/unclaimed project codes return false and map to HTTP 404 for retry/complete.
+- The unsafe POST /api/review-queue/retry-first request-body endpoint no longer exists.
+- New state-aware endpoints are POST /api/review-queue/{projectCode}/retry and POST /api/review-queue/{projectCode}/complete.
+- HashMap is chosen because claimed-task ordering is unnecessary and expected average key lookup/removal is O(1).
+- ProjectReviewQueue remains intentionally in-memory and non-concurrent.
+- Set 34 adds three new master technical questions and reuses four completed questions with ✅.
+- Sprint 004 continues the Collections/Map sequence.
