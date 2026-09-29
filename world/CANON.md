@@ -249,6 +249,21 @@ Established rules:
 - Persistence/database-level snapshots have not yet been introduced.
 - Sprint 002 includes GEO-11 for this immutable read model.
 
+## Set 12 established facts — dataset format enum
+
+GeoOps now models the fixed supported preflight dataset formats with a Java enum.
+
+Established rules:
+- `DatasetFormat` defines `CSV`, `JSON`, and `GEOJSON`.
+- Each enum constant owns its file extension.
+- `DatasetFormat.matches(...)` contains per-format matching behavior.
+- `DatasetFormat.supports(...)` determines whether a dataset path matches any supported enum constant.
+- `DatasetFormat.supportedExtensions()` derives the user-facing extension list from the enum values.
+- `DatasetPreflightValidator` no longer owns a duplicate raw `Set<String>` of extensions.
+- Preflight tests iterate over `DatasetFormat.values()`.
+- The supported format set has not expanded; Set 12 formalizes the three formats established in Set 2.
+- Sprint 002 includes GEO-12 for this enum refactor.
+
 ## Grounding boundaries
 
 The fictional premise is inspired by the supplied resume's real technology/domain themes: Java backend development, Spring Boot services, REST/SOAP integrations, geospatial project intake, survey-data processing, file tracking, validation/transformation, scheduled jobs, database workflows, production support, Jenkins/Git/Linux tooling, and testing.
