@@ -20,6 +20,6 @@ final class ProjectServiceTestFactory {
                         )
                 );
 
-        return new ProjectService(validationService);
+        return new ProjectService(validationService, new ProjectCatalog());
     }
 }
