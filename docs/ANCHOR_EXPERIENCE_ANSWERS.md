@@ -310,3 +310,14 @@ I use LinkedList in a separate quality-review worklist through the Deque interfa
 Yes. In GeoOps I use List and HashSet together inside ProjectCatalog, but for different responsibilities. The List is backed by ArrayList and stores the accepted GeoProject records in intake order. We use that ordered list for project APIs, manifests, snapshots, iteration, and intake-position lookup.
 
 The HashSet stores immutable ProjectIdentity objects based on projectCode. I use it as the uniqueness and membership index. When a project comes in, we first try to add its ProjectIdentity to the HashSet. If the identity already exists, the duplicate is rejected and the project List is not changed. The same HashSet also powers project-code existence checks. So the List is our ordered record store, while the HashSet is our logical identity guard and lookup structure.
+
+
+---
+
+## Set 29 — Status: 29/387+
+
+### ⭐ Have you used Arrays.sort() and Collections.sort()?
+
+Yes. In GeoOps I use both, but on different data structures. For an array of project codes, I use Arrays.sort() to produce an alphabetical code view. For project objects, I copy the catalog into a mutable List and use Collections.sort() with a custom Comparator that orders projects by coordinate reference system and then project code.
+
+I intentionally sort copies instead of the main ProjectCatalog because intake order is meaningful elsewhere in the application. I also use Comparator rather than making GeoProject implement Comparable, because the project does not have one universal natural ordering—we may need different business-specific orderings for different views.
