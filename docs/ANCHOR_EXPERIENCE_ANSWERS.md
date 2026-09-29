@@ -167,3 +167,14 @@ The reason was that both exceptions belong to the same project domain and need s
 In GeoOps, I handle exceptions based on the layer that can make the right recovery decision. In the Spring Boot REST flow, I normally let service-layer custom exceptions propagate instead of putting repetitive try/catch blocks in every controller. We handle them centrally using `@RestControllerAdvice`, where known domain exceptions are mapped to consistent API responses—for example 400 for validation failures and 409 for duplicate projects.
 
 We also handle malformed JSON separately as a 400 request error. For anything unexpected, the generic handler logs the full exception and stack trace on the server but returns only a safe 500 response to the client, so internal details are not leaked. In the standalone preflight CLI, I do catch path-related exceptions locally because that layer can recover by converting them into a controlled `PreflightResult` and exit code. So the main approach is: catch locally when recovery is meaningful; otherwise propagate to the centralized boundary.
+
+
+---
+
+## Set 16 — Status: 16/387+
+
+### ⭐ What strategies do you majorly use for exception handling?
+
+The main exception-handling strategies I use in GeoOps are to validate early, use meaningful custom exceptions for real business failures, let exceptions propagate when the current layer cannot recover, and handle REST exceptions centrally with `@RestControllerAdvice`.
+
+I also avoid using exceptions for normal control flow. For example, when we look up a project by project code, a missing project is an expected outcome, so the service returns `Optional<GeoProject>` instead of throwing an exception. The controller maps that to a normal 404 response. For actual failures such as invalid project data or duplicate intake, we use the custom exception hierarchy and specific handlers. For unexpected failures, we log the full exception and return a safe generic 500 response.
