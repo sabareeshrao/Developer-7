@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 12/387+**
+**Status: 13/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -35,6 +35,7 @@ Completed:
 10. Set 10 — reference equality versus value equality for project-code lookup.
 11. Set 11 — immutable ProjectCatalogSnapshot with defensive collection copying.
 12. Set 12 — DatasetFormat enum for supported GIS preflight formats.
+13. Set 13 — custom project-intake exceptions and centralized REST error handling.
 
 Read in this order:
 1. `CONTINUATION_PROTOCOL.md`
@@ -257,3 +258,22 @@ The snapshot REST serialization risk was fixed by adding JavaBean getters to `Pr
 Read `docs/maintenance/PRE-SET-013-CODEBASE-AUDIT.md` before starting Set 13.
 
 Learning status remains **12/387+**; maintenance work does not increment the Set counter.
+
+
+## Set 13 custom-exception flow
+
+```text
+POST /api/projects
+        ↓
+Bean Validation
+        ↓
+ProjectValidationService
+        ↓
+InvalidProjectRequestException → HTTP 400
+        │
+        └─ valid → duplicate check
+                     ↓
+          DuplicateProjectException → HTTP 409
+```
+
+`GeoOpsExceptionHandler` owns HTTP mapping through `@RestControllerAdvice`. A shared custom-exception hierarchy has not yet been introduced.
