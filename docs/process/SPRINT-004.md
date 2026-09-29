@@ -548,3 +548,44 @@ Evidence:
 - ProjectReviewQueueTest.java
 - ProjectReviewQueueIntegrationTest.java
 - Set 32 evidence document
+
+---
+
+### Story GEO-33 — Build a sorted unique CRS catalog with TreeSet
+
+**Outcome:** GeoOps can expose the unique coordinate reference systems currently used by accepted projects in natural sorted order.
+
+Acceptance criteria:
+- Add ProjectCrsCatalogService.
+- Accept the current project collection through Collection<GeoProject>.
+- Use SortedSet<String> backed by TreeSet.
+- Deduplicate repeated CRS codes automatically.
+- Return CRS codes in natural String order.
+- Return an immutable List copy to callers.
+- Expose GET /api/projects/crs-catalog.
+- Keep ProjectCatalog's HashSet<ProjectIdentity> unchanged; TreeSet solves a different requirement.
+- Add unit tests for sorted uniqueness.
+- Add regression tests for natural-order null rejection and Comparator-equality behavior.
+- Add MockMvc integration coverage.
+
+~~~text
+accepted projects
+    ↓
+CRS values
+    ↓
+TreeSet<String>
+    ├── uniqueness
+    └── natural sorted order
+    ↓
+List.copyOf(...)
+    ↓
+GET /api/projects/crs-catalog
+~~~
+
+Evidence:
+- ProjectCrsCatalogService.java
+- ProjectController.java
+- ProjectCrsCatalogServiceTest.java
+- TreeSetBehaviorTest.java
+- ProjectCrsCatalogIntegrationTest.java
+- Set 33 evidence document
