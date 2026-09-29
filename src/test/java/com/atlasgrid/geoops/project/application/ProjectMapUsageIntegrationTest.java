@@ -30,7 +30,7 @@ class ProjectMapUsageIntegrationTest {
         ));
 
         // LinkedHashMap: count by CRS while preserving first-seen key order.
-        assertThat(summary.projectCountByCrs())
+        assertThat(summary.projectCountByCoordinateReferenceSystem())
                 .containsExactly(
                         org.assertj.core.data.MapEntry.entry("EPSG:4326", 2),
                         org.assertj.core.data.MapEntry.entry("EPSG:3857", 1)
