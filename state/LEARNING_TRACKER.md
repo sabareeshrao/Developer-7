@@ -410,8 +410,39 @@ Set 13 learning items completed: 8 / 8
 
 ---
 
-Completed job-experience anchors: 13
+# Set 14
+
+**Status: 14/387+**
+
+- [x] ⭐ [Master 368] Have you ever created a Custom Exception Hierarchy?
+
+## Part A
+- [x] ✅ [Master 327] Can you discuss exception handling and what are checked and unchecked exceptions?
+- [x] ✅ [Master 337] How do you create a custom runtime exception?
+- [x] ✅ [Master 347] In what scenarios would you create a custom checked Exception versus a custom unchecked Exception?
+- [x] [Master 330] Do you know the difference between Error, RuntimeException, and Exception?
+- [x] [Master 351] What is the difference between Throwable and Exception in Java?
+- [x] [Master 350] What is Exception Chaining, and why is it important in our projects?
+- [x] [Master 365] If @RestControllerAdvice contains both a Generic Exception Handler and a Specific Exception Handler, which one will execute?
+
+## Set 14 completion evidence
+- docs/sets/SET-014-CUSTOM-EXCEPTION-HIERARCHY.md
+- docs/process/SPRINT-003.md
+- src/main/java/com/atlasgrid/geoops/project/application/GeoOpsProjectException.java
+- src/main/java/com/atlasgrid/geoops/project/application/DuplicateProjectException.java
+- src/main/java/com/atlasgrid/geoops/project/application/InvalidProjectRequestException.java
+- src/main/java/com/atlasgrid/geoops/project/api/GeoOpsExceptionHandler.java
+- src/main/java/com/atlasgrid/geoops/project/api/ApiError.java
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectExceptionHierarchyTest.java
+- src/test/java/com/atlasgrid/geoops/project/api/ProjectControllerExceptionIntegrationTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 14 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 14
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 85
+Unique master technical questions covered: 89
 Synthetic technical questions covered: 8
 Current denominator: 387+
