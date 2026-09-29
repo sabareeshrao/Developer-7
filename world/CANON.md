@@ -264,6 +264,25 @@ Established rules:
 - The supported format set has not expanded; Set 12 formalizes the three formats established in Set 2.
 - Sprint 002 includes GEO-12 for this enum refactor.
 
+## Set 13 established facts — custom exception handling
+
+GeoOps now has two named custom application exceptions:
+- `DuplicateProjectException`
+- `InvalidProjectRequestException`
+
+Established rules:
+- Both currently extend `RuntimeException`.
+- `ProjectService.create(...)` executes `ProjectValidationService` before mutating project state.
+- Domain-invalid project requests throw `InvalidProjectRequestException`.
+- Duplicate project codes throw `DuplicateProjectException`.
+- Application exceptions do not carry HTTP annotations.
+- `GeoOpsExceptionHandler` uses `@RestControllerAdvice` and specific `@ExceptionHandler` methods.
+- Invalid project domain data maps to HTTP 400.
+- Duplicate project intake maps to HTTP 409.
+- Bean Validation failures also use the centralized `ApiError` JSON contract.
+- A shared custom-exception base class has not yet been introduced.
+- Sprint 003 begins with GEO-13 for API resilience and error contracts.
+
 ## Grounding boundaries
 
 The fictional premise is inspired by the supplied resume's real technology/domain themes: Java backend development, Spring Boot services, REST/SOAP integrations, geospatial project intake, survey-data processing, file tracking, validation/transformation, scheduled jobs, database workflows, production support, Jenkins/Git/Linux tooling, and testing.
