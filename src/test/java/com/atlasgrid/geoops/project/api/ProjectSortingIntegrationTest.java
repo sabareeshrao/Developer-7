@@ -37,11 +37,11 @@ class ProjectSortingIntegrationTest {
                 .andExpect(jsonPath("$.projectCodesAlphabetically[2]")
                         .value("TX-HOU-029"))
                 .andExpect(jsonPath("$.projectsByCrsThenCode[0].projectCode")
-                        .value("TX-DAL-029"))
+                        .value("TX-AUS-029"))
                 .andExpect(jsonPath("$.projectsByCrsThenCode[1].projectCode")
-                        .value("TX-HOU-029"))
+                        .value("TX-DAL-029"))
                 .andExpect(jsonPath("$.projectsByCrsThenCode[2].projectCode")
-                        .value("TX-AUS-029"));
+                        .value("TX-HOU-029"));
 
         mockMvc.perform(get("/api/projects"))
                 .andExpect(status().isOk())
