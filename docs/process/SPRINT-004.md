@@ -395,3 +395,38 @@ Evidence:
 - existing ProjectCatalog.java
 - existing ProjectIdentity.java
 - Set 28 evidence document
+
+---
+
+### Story GEO-29 — Add deterministic array and list sorting views
+
+**Outcome:** GeoOps now demonstrates both Arrays.sort() and Collections.sort() in a read-only project view without mutating ProjectCatalog intake order.
+
+Acceptance criteria:
+- Add ProjectSortingService.
+- Sort a project-code String[] with Arrays.sort().
+- Sort a mutable GeoProject List copy with Collections.sort(..., Comparator).
+- Use a custom Comparator ordering by coordinateReferenceSystem and then projectCode.
+- Do not add Comparable to GeoProject because no single natural ordering is established.
+- Return immutable sorting-view Lists.
+- Expose GET /api/projects/sorting-preview.
+- Verify source catalog order is unchanged after sorting.
+- Add unit and MockMvc integration tests.
+
+~~~text
+ProjectCatalog snapshot
+        ↓
+ProjectSortingService
+        ├── String[] → Arrays.sort()
+        └── List copy → Collections.sort(..., Comparator)
+
+original catalog order → unchanged
+~~~
+
+Evidence:
+- ProjectSortingView.java
+- ProjectSortingService.java
+- ProjectController.java
+- ProjectSortingServiceTest.java
+- ProjectSortingIntegrationTest.java
+- Set 29 evidence document
