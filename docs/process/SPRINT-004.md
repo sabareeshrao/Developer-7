@@ -589,3 +589,38 @@ Evidence:
 - TreeSetBehaviorTest.java
 - ProjectCrsCatalogIntegrationTest.java
 - Set 33 evidence document
+
+---
+
+### Story GEO-34 — Track claimed review tasks with HashMap
+
+**Outcome:** GeoOps now validates review retry/completion against actual claimed state instead of accepting arbitrary retry tasks from the API.
+
+Acceptance criteria:
+- Keep queued review work in Deque<ProjectReviewTask> backed by LinkedList.
+- Add Map<String, ProjectReviewTask> backed by HashMap for claimed tasks.
+- claimNext() removes from the queue and indexes the claimed task by immutable String projectCode.
+- retry(projectCode) succeeds only for an actually claimed task.
+- retry removes the task from the HashMap before moving it back to the queue front.
+- complete(projectCode) removes an actually claimed task from the HashMap.
+- Unknown/unclaimed project codes return false / HTTP 404 for retry and complete.
+- Remove the unsafe POST /api/review-queue/retry-first request-body endpoint.
+- Add POST /api/review-queue/{projectCode}/retry.
+- Add POST /api/review-queue/{projectCode}/complete.
+- Preserve existing queue, expedite, defer and cancellation behavior.
+
+~~~text
+LinkedList queue
+     ↓ claim-next
+HashMap<projectCode, task>
+     ├── retry(code) → remove → addFirst(queue)
+     └── complete(code) → remove
+~~~
+
+Evidence:
+- ProjectReviewQueue.java
+- ProjectReviewQueueController.java
+- ProjectReviewQueueTest.java
+- ProjectReviewQueueIntegrationTest.java
+- docs/maintenance/POST-SET-033-CODEBASE-AUDIT.md
+- Set 34 evidence document
