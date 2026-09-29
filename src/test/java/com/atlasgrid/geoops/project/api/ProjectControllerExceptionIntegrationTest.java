@@ -92,4 +92,20 @@ class ProjectControllerExceptionIntegrationTest {
                         .value("Request failed API validation"))
                 .andExpect(jsonPath("$.details").isArray());
     }
+
+    @Test
+    void malformedJsonReturnsSafeBadRequest() throws Exception {
+        mockMvc.perform(post("/api/projects")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("""
+                                {
+                                  "projectCode": "TX-AUS-555",
+                                """))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.status").value(400))
+                .andExpect(jsonPath("$.code").value("REQUEST_MALFORMED"))
+                .andExpect(jsonPath("$.message")
+                        .value("Request body is malformed or unreadable"))
+                .andExpect(jsonPath("$.details").isEmpty());
+    }
 }

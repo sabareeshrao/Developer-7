@@ -1,6 +1,7 @@
 package com.atlasgrid.geoops.tools.preflight;
 
 import java.nio.file.Files;
+import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 
 /**
@@ -9,6 +10,9 @@ import java.nio.file.Path;
  * <p>This validator deliberately contains no System.exit call. Business logic
  * returns a result; only the outer CLI boundary decides whether the JVM process
  * should terminate with a non-zero status.</p>
+ *
+ * <p>Path parsing/access failures are handled locally because the CLI can
+ * convert them directly into a meaningful preflight failure result.</p>
  */
 public class DatasetPreflightValidator {
 
@@ -20,32 +24,39 @@ public class DatasetPreflightValidator {
             );
         }
 
-        Path dataset = Path.of(args[0]);
+        try {
+            Path dataset = Path.of(args[0]);
 
-        if (!Files.exists(dataset)) {
+            if (!Files.exists(dataset)) {
+                return PreflightResult.failure(
+                        3,
+                        "Dataset does not exist: " + dataset
+                );
+            }
+
+            if (!Files.isRegularFile(dataset)) {
+                return PreflightResult.failure(
+                        4,
+                        "Dataset path is not a regular file: " + dataset
+                );
+            }
+
+            if (!DatasetFormat.supports(dataset)) {
+                return PreflightResult.failure(
+                        5,
+                        "Unsupported dataset type. Supported: "
+                                + DatasetFormat.supportedExtensions()
+                );
+            }
+
+            return PreflightResult.success(
+                    "Dataset passed basic GeoOps preflight checks: " + dataset
+            );
+        } catch (InvalidPathException | SecurityException exception) {
             return PreflightResult.failure(
-                    3,
-                    "Dataset does not exist: " + dataset
+                    6,
+                    "Dataset path is invalid or inaccessible"
             );
         }
-
-        if (!Files.isRegularFile(dataset)) {
-            return PreflightResult.failure(
-                    4,
-                    "Dataset path is not a regular file: " + dataset
-            );
-        }
-
-        if (!DatasetFormat.supports(dataset)) {
-            return PreflightResult.failure(
-                    5,
-                    "Unsupported dataset type. Supported: "
-                            + DatasetFormat.supportedExtensions()
-            );
-        }
-
-        return PreflightResult.success(
-                "Dataset passed basic GeoOps preflight checks: " + dataset
-        );
     }
 }

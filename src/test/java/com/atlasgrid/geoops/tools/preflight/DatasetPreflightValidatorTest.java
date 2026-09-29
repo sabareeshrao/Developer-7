@@ -45,6 +45,17 @@ class DatasetPreflightValidatorTest {
     }
 
     @Test
+    void handlesInvalidPathWithoutLeakingRuntimeException() {
+        PreflightResult result =
+                validator.validate(new String[]{"bad\u0000path.geojson"});
+
+        assertThat(result.valid()).isFalse();
+        assertThat(result.exitCode()).isEqualTo(6);
+        assertThat(result.message())
+                .isEqualTo("Dataset path is invalid or inaccessible");
+    }
+
+    @Test
     void acceptsEveryDatasetFormatDefinedByTheEnum() throws IOException {
         for (DatasetFormat format : DatasetFormat.values()) {
             Path dataset = Files.createFile(
