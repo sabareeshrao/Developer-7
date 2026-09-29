@@ -224,3 +224,45 @@ Evidence:
 - ProjectReviewQueueTest.java
 - ProjectReviewQueueIntegrationTest.java
 - Set 24 evidence document
+
+
+---
+
+### Story GEO-25 — Reconcile duplicate project records in a batch intake plan
+
+**Outcome:** GeoOps can analyze a submitted batch before actual project creation, preserving first-seen project order while counting duplicate project-code submissions.
+
+Acceptance criteria:
+- Add BatchProjectIntakePlanner.
+- Accept a Collection<CreateProjectRequest> rather than one concrete list implementation.
+- Use immutable ProjectIdentity objects as hash-based keys.
+- Use LinkedHashMap to combine expected hash lookup with stable first-seen key order.
+- Count repeated project-code submissions without losing the first-seen request metadata.
+- Produce submitted count, unique project count and duplicate submission count.
+- Return an immutable result-entry list.
+- Expose POST /api/projects/batch-plan.
+- Add unit tests for deduplication, occurrence counts, first-seen ordering, first-seen metadata retention and immutable output.
+- Add MockMvc integration coverage.
+- Do not create projects or mutate ProjectCatalog as part of planning; the endpoint is analysis-only.
+
+~~~text
+submitted batch
+    ↓
+Collection<CreateProjectRequest>
+    ↓
+LinkedHashMap<ProjectIdentity, MutableBatchEntry>
+    ├── fast expected key lookup
+    ├── duplicate occurrence count
+    └── first-seen key order
+    ↓
+BatchProjectIntakePlan
+~~~
+
+Evidence:
+- BatchProjectIntakeEntry.java
+- BatchProjectIntakePlan.java
+- BatchProjectIntakePlanner.java
+- BatchProjectIntakeController.java
+- BatchProjectIntakePlannerTest.java
+- BatchProjectIntakeControllerIntegrationTest.java
+- Set 25 evidence document
