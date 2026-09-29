@@ -32,4 +32,11 @@ public class ProjectReviewQueueController {
     public void retryFirst(@RequestBody ProjectReviewTask task) {
         projectReviewQueue.retryFirst(task);
     }
+
+    @DeleteMapping("/{projectCode}")
+    public ResponseEntity<Void> cancel(@PathVariable String projectCode) {
+        return projectReviewQueue.cancel(projectCode)
+                ? ResponseEntity.noContent().build()
+                : ResponseEntity.notFound().build();
+    }
 }
