@@ -1034,10 +1034,39 @@ Set 33 learning items completed: 8 / 8
 
 Set 34 learning items completed: 8 / 8
 
+
 ---
 
-Completed job-experience anchors: 34
+# Set 35
+
+**Status: 35/387+**
+
+- [x] ⭐ [Master 497] What's the usage of Map in your project?
+
+## Part A
+- [x] ✅ [Master 443] Can you explain how HashMap works in Java?
+- [x] ✅ [Master 462] Why is HashMap not ordered like LinkedHashMap?
+- [x] ✅ [Master 464] What's the average lookup time in LinkedHashMap?
+- [x] [Master 465] Can you tell me the internal working of LinkedHashMap?
+- [x] ✅ [Master 400] Can we use a Map and store how many times each element occurs to solve the duplicate-element problem?
+- [x] ✅ [Master 461] Why should we use immutable objects as keys in a Map?
+- [x] ✅ [Master 382] You need to store large data, preserve insertion order and perform fast lookups. Which collection would you choose and why?
+
+## Set 35 completion evidence
+- docs/sets/SET-035-MAP-USAGE.md
+- docs/process/SPRINT-004.md
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectMapUsageIntegrationTest.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectCollectionSummaryService.java
+- src/main/java/com/atlasgrid/geoops/project/batch/BatchProjectIntakePlanner.java
+- src/main/java/com/atlasgrid/geoops/review/ProjectReviewQueue.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 35 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 35
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 161
+Unique master technical questions covered: 162
 Synthetic technical questions covered: 9
 Current denominator: 387+
