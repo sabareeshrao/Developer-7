@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 27 — Status: 27/387+ — COMPLETE**
+**Set 28 — Status: 28/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -36,6 +36,7 @@ Set 24: LinkedList-backed GIS quality-review worklist with FIFO claim, retry-fir
 Set 25: LinkedHashMap-based batch intake reconciliation with duplicate counting and first-seen ordering
 Set 26: explicit collection inventory and HashSet-backed project existence lookup
 Set 27: integrated proof of ArrayList project order, HashSet identity rules and LinkedList review FIFO
+Set 28: focused List-vs-HashSet responsibility proof inside ProjectCatalog
 ```
 
 ## Current project workflow
