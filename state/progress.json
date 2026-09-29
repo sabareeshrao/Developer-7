@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "18/387+",
+  "status": "19/387+",
   "completed": {
-    "sets": 18,
-    "jobExperienceAnchors": 18,
-    "uniqueMasterTechnicalQuestions": 105,
+    "sets": 19,
+    "jobExperienceAnchors": 19,
+    "uniqueMasterTechnicalQuestions": 110,
     "syntheticTechnicalQuestions": 8
   },
   "current": {
-    "set": 18,
-    "anchorMasterQuestion": 372,
-    "anchor": "Can you tell me how you guys are maintaining or handling exceptions?",
+    "set": 19,
+    "anchorMasterQuestion": 374,
+    "anchor": "Was there ever a time when the finally block caused unexpected behavior or side effects in your code?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-018-EXCEPTION-MAINTENANCE.md"
+    "evidence": "docs/sets/SET-019-FINALLY-SIDE-EFFECTS.md"
   },
-  "nextAction": "derive Set 19 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
+  "nextAction": "derive Set 20 around exactly one next logical original job-experience anchor; transition naturally into Collections; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
