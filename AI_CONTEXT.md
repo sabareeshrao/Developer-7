@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 26/387+**
+**Status: 27/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -653,3 +653,45 @@ Status: 26/387+
 ~~~
 
 Sprint 004 remains active. The next original source anchor asks whether List, LinkedList and HashSet have been used in the project.
+
+
+## Set 27 — Latest Completed Set
+
+Anchor:
+
+⭐ **Have you used List, LinkedList and HashSet in your project?**
+
+Set 27 is an integration-consolidation set rather than a new collection feature.
+
+One end-to-end test now proves:
+
+~~~text
+ProjectCatalog
+→ List / ArrayList
+→ preserves intake order
+
+ProjectIdentity index
+→ Set / HashSet
+→ membership + duplicate rejection
+
+ProjectReviewQueue
+→ Deque / LinkedList
+→ FIFO review processing
+~~~
+
+The duplicate attempt is rejected before an extra review task is enqueued.
+
+Latest learning state:
+
+~~~text
+Completed Sets: 27
+Completed anchors: 27
+Unique master technical questions covered: 142
+Synthetic technical questions covered: 9
+Synthetic ⭐⭐ anchors: 0
+Status: 27/387+
+~~~
+
+All seven supporting technical questions in Set 27 are ✅ reuses, so unique technical coverage is unchanged.
+
+Sprint 004 remains active. The next original source anchor asks where List and HashSet are used and in which situations.
