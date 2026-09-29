@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 31/387+**
+**Status: 32/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -854,3 +854,46 @@ Status: 31/387+
 Set 31 adds one new master technical question; six supporting questions are ✅ reuses.
 
 Sprint 004 remains active. The next original source anchor is another LinkedList project-usage anchor.
+
+
+## Set 32 — Latest Completed Set
+
+Anchor:
+
+⭐ **Have you used LinkedList in your project?**
+
+Set 32 adds a distinct defer-to-tail review-worklist behavior:
+
+~~~text
+[A, B, C]
+defer A
+   ↓
+Iterator.remove(A)
+   ↓
+addLast(A)
+   ↓
+[B, C, A]
+~~~
+
+Endpoint:
+
+~~~text
+POST /api/review-queue/{projectCode}/defer
+~~~
+
+The task stays queued but no longer blocks ready work. Queue size is unchanged and the other tasks retain their relative order.
+
+Latest learning state:
+
+~~~text
+Completed Sets: 32
+Completed anchors: 32
+Unique master technical questions covered: 152
+Synthetic technical questions covered: 9
+Synthetic ⭐⭐ anchors: 0
+Status: 32/387+
+~~~
+
+All seven supporting technical questions in Set 32 are ✅ reuses.
+
+Sprint 004 remains active. The next original source anchor asks whether TreeSet has been used in the project.
