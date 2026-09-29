@@ -134,3 +134,14 @@ I made the class final, kept its fields private and final, initialized everythin
 Yes, I have used Enum in the GeoOps project. In our standalone GIS dataset preflight flow, we support a fixed set of input formats: CSV, JSON, and GeoJSON. Initially those supported extensions were stored as raw String values inside the validator, but I replaced that with a `DatasetFormat` enum.
 
 Each enum constant owns its extension, and the enum also provides small helper behavior for checking whether a file matches one of the supported formats. Then `DatasetPreflightValidator` works with `DatasetFormat` instead of maintaining its own String constants. I used Enum there because the supported formats are a closed set of domain values, and the enum gives us type safety, centralized format metadata, and cleaner validation code without moving the overall workflow logic into the enum.
+
+
+---
+
+## Set 13 — Status: 13/387+
+
+### ⭐ Can you share some custom exception names that you guys are throwing in your current project?
+
+Yes. In the GeoOps project, two custom exceptions we currently throw are `DuplicateProjectException` and `InvalidProjectRequestException`.
+
+`DuplicateProjectException` is used when a project intake request uses a project code that already exists. `InvalidProjectRequestException` is used when the request is structurally valid but fails our GeoOps business-validation rules, such as an invalid project-code format or CRS identifier. Both are unchecked exceptions, and instead of putting HTTP annotations on the exception classes, we handle them centrally with `@RestControllerAdvice`. That handler converts the domain exceptions into consistent JSON responses—400 for invalid project data and 409 for duplicates—while keeping the service layer independent from HTTP concerns.
