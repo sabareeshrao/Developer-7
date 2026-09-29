@@ -24,10 +24,6 @@ import java.util.UUID;
  * an exception. This keeps exceptions reserved for actual exceptional/domain
  * failure conditions rather than normal control flow.</p>
  *
- * <p>Project creation executes the same domain validation rules exposed by the
- * validation endpoint. Invalid business input raises
- * InvalidProjectRequestException before any project state is changed.</p>
- *
  * <p>Storage is intentionally in-memory. A later database-focused anchor will
  * replace this implementation with persistence when the learning sequence
  * reaches database integration.</p>
@@ -53,6 +49,10 @@ public class ProjectService {
 
     public ProjectCatalogSnapshot catalogSnapshot() {
         return new ProjectCatalogSnapshot(Instant.now(), projectCatalog.findAll());
+    }
+
+    public Optional<GeoProject> findByIntakePosition(int intakePosition) {
+        return projectCatalog.findByIntakePosition(intakePosition);
     }
 
     public Optional<GeoProject> findByProjectCode(String projectCode) {
