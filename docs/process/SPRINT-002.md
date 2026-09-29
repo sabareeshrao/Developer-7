@@ -177,6 +177,27 @@ Implementation evidence:
 - `ProjectCatalogSnapshotTest.java`
 - Set 11 evidence document
 
+### Story GEO-12 — Model supported GIS dataset formats with Enum
+
+**Outcome:** GeoOps represents its fixed set of supported preflight dataset formats as a type-safe Java enum instead of scattered String constants.
+
+Acceptance criteria:
+- `DatasetFormat` defines CSV, JSON and GEOJSON.
+- Each enum constant owns its file extension.
+- The enum provides shared matching/support behavior.
+- `DatasetPreflightValidator` uses `DatasetFormat` instead of a raw Set<String>.
+- Unsupported-format messages are generated from the enum values.
+- Tests iterate over `DatasetFormat.values()` so every supported format is validated.
+- Existing preflight exit-code behavior remains unchanged.
+- Existing CI remains green.
+
+Implementation evidence:
+- `DatasetFormat.java`
+- `DatasetPreflightValidator.java`
+- `DatasetFormatTest.java`
+- `DatasetPreflightValidatorTest.java`
+- Set 12 evidence document
+
 ## Sprint Review demo
 
 1. Run `mvn clean verify`.
