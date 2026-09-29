@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 11/387+**
+**Status: 12/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -34,6 +34,7 @@ Completed:
 9. Set 9 — custom ProjectIdentity equality/hashCode and HashSet duplicate detection.
 10. Set 10 — reference equality versus value equality for project-code lookup.
 11. Set 11 — immutable ProjectCatalogSnapshot with defensive collection copying.
+12. Set 12 — DatasetFormat enum for supported GIS preflight formats.
 
 Read in this order:
 1. `CONTINUATION_PROTOCOL.md`
@@ -230,3 +231,18 @@ GET /api/projects/snapshot
 ```
 
 The snapshot is a final class with private final fields, constructor initialization, no setters, and defensive copying of mutable collection input.
+
+
+## Set 12 dataset-format enum flow
+
+```text
+DatasetPreflightValidator
+        ↓
+DatasetFormat
+        ↓
+CSV | JSON | GEOJSON
+        ↓
+extension + matching behavior
+```
+
+The enum formalizes the same three preflight formats already established in Set 2 and removes the duplicate raw extension set from the validator.
