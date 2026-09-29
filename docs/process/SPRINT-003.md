@@ -175,3 +175,43 @@ Acceptance criteria:
 Expected outcome → value / Optional / normal HTTP status
 Actual failure   → exception → local recovery or centralized handling
 ```
+
+---
+
+### Story GEO-17 — Prevent predictable errors before exception handling
+
+**Outcome:** GeoOps handles predictable invalid/null inputs with guards and validation results before they become avoidable runtime exceptions.
+
+Acceptance criteria:
+- `DatasetPreflightValidator` treats a null dataset argument as a usage error.
+- The CLI null-argument case returns exit code 2 instead of throwing `NullPointerException`.
+- `ProjectValidationStandards.isValidProjectCode(null)` returns false.
+- `ProjectValidationStandards.isValidCrsIdentifier(null)` returns false.
+- Validation helpers remain stateless and reusable.
+- Existing malformed-path handling and exception translation remain unchanged.
+- Tests prove null input is rejected without an exception escaping.
+
+Basic flow:
+
+```text
+predictable invalid input
+        ↓
+guard / validation
+        ↓
+controlled result
+        ↓
+no avoidable runtime exception
+
+unexpected or domain failure
+        ↓
+exception
+        ↓
+appropriate boundary handling
+```
+
+Evidence:
+- `DatasetPreflightValidator.java`
+- `ProjectValidationStandards.java`
+- `DatasetPreflightValidatorTest.java`
+- `ProjectValidationStandardsTest.java`
+- Set 17 evidence document
