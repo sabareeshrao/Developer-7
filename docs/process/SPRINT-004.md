@@ -666,3 +666,26 @@ Evidence:
 - BatchProjectIntakePlanner.java
 - ProjectReviewQueue.java
 - Set 35 evidence document
+
+---
+
+### Story GEO-36 — Evaluate WeakHashMap and reject it for authoritative state
+
+**Outcome:** GeoOps has an explicit architecture decision explaining where WeakHashMap fits and why it is not used for catalog/review/business state.
+
+Acceptance criteria:
+- Explain weak-key lifecycle and GC-driven entry removal.
+- Compare WeakHashMap's lifetime semantics with current HashMap/LinkedHashMap business state.
+- Do not replace ProjectCatalog identity storage with WeakHashMap.
+- Do not replace claimed review-task HashMap with WeakHashMap.
+- Do not introduce a fake cache solely to claim WeakHashMap production usage.
+- Document the type of non-authoritative metadata for which WeakHashMap could be appropriate.
+- Document that WeakHashMap is not a concurrency solution.
+- Preserve all current runtime behavior.
+- Verify the full project with CI.
+
+Evidence:
+- docs/architecture/ADR-WEAKHASHMAP-BUSINESS-STATE.md
+- docs/sets/SET-036-WEAKHASHMAP.md
+- existing ProjectCatalog.java
+- existing ProjectReviewQueue.java
