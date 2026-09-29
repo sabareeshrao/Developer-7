@@ -1063,10 +1063,36 @@ Set 34 learning items completed: 8 / 8
 
 Set 35 learning items completed: 8 / 8
 
+
 ---
 
-Completed job-experience anchors: 35
+# Set 36
+
+**Status: 36/387+**
+
+- [x] ⭐ [Master 498] Did you get a chance to work with WeakHashMap?
+
+## Part A
+- [x] [Master 466] What is a WeakHashMap, and how do Weak References affect its entries?
+- [x] ✅ [Master 443] Can you explain how HashMap works in Java?
+- [x] ✅ [Master 461] Why should we use immutable objects as keys in a Map?
+- [x] ✅ [Master 499] How can you design a custom object to be safely used as a key in a HashMap?
+- [x] 💡 Why should WeakHashMap not be used for authoritative business state?
+
+## Set 36 completion evidence
+- docs/sets/SET-036-WEAKHASHMAP.md
+- docs/architecture/ADR-WEAKHASHMAP-BUSINESS-STATE.md
+- docs/process/SPRINT-004.md
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectCatalog.java
+- src/main/java/com/atlasgrid/geoops/review/ProjectReviewQueue.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 36 learning items completed: 6 / 6
+
+---
+
+Completed job-experience anchors: 36
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 162
-Synthetic technical questions covered: 9
+Unique master technical questions covered: 163
+Synthetic technical questions covered: 10
 Current denominator: 387+
