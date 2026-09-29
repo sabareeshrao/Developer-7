@@ -356,3 +356,42 @@ Evidence:
 - existing ProjectReviewQueue.java
 - existing ProjectService.java
 - Set 27 evidence document
+
+---
+
+### Story GEO-28 — Prove the separate responsibilities of List and HashSet in ProjectCatalog
+
+**Outcome:** GeoOps now has a focused regression test showing why ProjectCatalog needs both an ordered List of project records and a HashSet-backed identity index.
+
+Acceptance criteria:
+- Do not change the current production collection design.
+- Add two unique projects to ProjectCatalog.
+- Verify List/ArrayList preserves accepted project records in intake order.
+- Verify HashSet-backed ProjectIdentity membership returns true for a stored code and false for an unknown code.
+- Attempt to add a duplicate logical project code.
+- Verify the duplicate is rejected.
+- Verify duplicate rejection does not alter the ordered List or catalog size.
+- Keep ProjectIdentity immutable and equality/hash based on projectCode.
+- Treat this as evidence consolidation rather than new technical-question coverage.
+
+~~~text
+ProjectCatalog
+    ├── List<GeoProject> / ArrayList
+    │      → ordered accepted records
+    │
+    └── Set<ProjectIdentity> / HashSet
+           → uniqueness
+           → membership
+
+duplicate identity attempt
+        ↓
+HashSet rejects identity
+        ↓
+List remains unchanged
+~~~
+
+Evidence:
+- ProjectCatalogCollectionRoleTest.java
+- existing ProjectCatalog.java
+- existing ProjectIdentity.java
+- Set 28 evidence document
