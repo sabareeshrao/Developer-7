@@ -365,3 +365,14 @@ For the defer case, we traverse to the existing task with an Iterator, remove it
 Yes. In GeoOps I use TreeSet for the coordinate-reference-system catalog. We already use HashSet for project identity because that requirement is fast uniqueness and membership lookup, but the CRS catalog needs uniqueness and sorted output at the same time.
 
 I collect the CRS codes into a TreeSet<String>, so duplicate CRS values are removed automatically and the remaining codes are returned in their natural sorted order. Then I return an immutable List copy through the REST API. I keep TreeSet limited to this sorted-view requirement because its tree operations are O(log n); for project-code membership, where ordering is unnecessary, HashSet remains the better fit.
+
+
+---
+
+## Set 34 — Status: 34/387+
+
+### ⭐ Have you worked with HashMap?
+
+Yes. In GeoOps I use HashMap to track quality-review tasks after a reviewer claims them. The queue itself is still a LinkedList-backed Deque, but once claim-next removes a task from the queue, I store it in a HashMap keyed by the immutable projectCode.
+
+That gives us fast claimed-state lookup for workflow actions. A retry now succeeds only if that project code actually exists in the claimed-task HashMap; we remove the task from the map and put the same task back at the front of the review queue. Completion also removes the claimed entry. This fixed an earlier integrity issue where the retry API could accept an arbitrary task body that had never really been claimed.
