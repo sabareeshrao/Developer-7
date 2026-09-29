@@ -266,3 +266,14 @@ I still declare the field as List<GeoProject> so the service is not tightly coup
 Yes. In GeoOps I use LinkedList for the in-memory project quality-review worklist, not for the main project catalog. The catalog stays on ArrayList because it needs ordered storage and indexed reads, while the review workflow has a different access pattern.
 
 The review queue is declared as a Deque<ProjectReviewTask> backed by LinkedList. When a project is accepted, we add the review task at the tail with addLast(). Reviewers claim the next item from the head with pollFirst(), and a retry can be placed back at the front with addFirst(). We also support cancelling a queued review item by traversing with an Iterator and calling iterator.remove(), which avoids unsafe modification during iteration. So LinkedList is used where head/tail operations and linked worklist behavior actually match the requirement.
+
+
+---
+
+## Set 25 — Status: 25/387+
+
+### ⭐ Can you describe a complex problem you solved using a Java Collection?
+
+Yes. One collection-heavy problem I solved in GeoOps was batch-intake reconciliation. A submitted batch could contain the same project code multiple times, but we still needed to preserve first-seen order, count duplicates, and retain the first request as the canonical metadata without creating any projects yet.
+
+I solved that with a LinkedHashMap keyed by our immutable ProjectIdentity. The hash-based lookup lets us detect an existing logical project efficiently, and LinkedHashMap preserves first-seen order for the final plan. For each repeated code we increment an occurrence counter instead of overwriting the first request. The final result tells us how many records were submitted, how many unique projects exist, how many duplicates were found, and returns the unique entries in deterministic order. That let us solve deduplication and ordering together with one collection design.
