@@ -37,6 +37,17 @@ class ProjectCatalogTest {
     }
 
     @Test
+    void usesHashSetIdentityLookupForProjectCodeMembership() {
+        ProjectCatalog catalog = new ProjectCatalog();
+        catalog.add(project("TX-AUS-026"));
+        catalog.add(project("TX-DAL-026"));
+
+        assertThat(catalog.containsProjectCode("TX-AUS-026")).isTrue();
+        assertThat(catalog.containsProjectCode("TX-DAL-026")).isTrue();
+        assertThat(catalog.containsProjectCode("TX-HOU-026")).isFalse();
+    }
+
+    @Test
     void findsProjectByOneBasedIntakePosition() {
         ProjectCatalog catalog = new ProjectCatalog();
         catalog.add(project("TX-AUS-023"));
