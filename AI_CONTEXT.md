@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 29/387+**
+**Status: 30/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -770,3 +770,44 @@ Status: 29/387+
 Set 29 adds seven new master technical questions.
 
 Sprint 004 remains active. The next original source anchor returns to ArrayList project usage.
+
+
+## Set 30 — Latest Completed Set
+
+Anchor:
+
+⭐ **Have you used ArrayList in your project?**
+
+This is the second original ArrayList experience anchor, so Set 30 adds a distinct use case rather than repeating Set 23.
+
+New behavior:
+
+~~~text
+ProjectCatalog
+→ List<GeoProject> backed by ArrayList
+→ findRecent(limit)
+→ contiguous tail range
+→ List.copyOf(...)
+→ immutable recent-intake window
+~~~
+
+Endpoint:
+
+~~~text
+GET /api/projects/recent?limit=N
+~~~
+
+Latest learning state:
+
+~~~text
+Completed Sets: 30
+Completed anchors: 30
+Unique master technical questions covered: 151
+Synthetic technical questions covered: 9
+Synthetic ⭐⭐ anchors: 0
+Status: 30/387+
+~~~
+
+Set 30 adds two new master technical questions; five supporting questions are ✅ reuses.
+
+Sprint 004 remains active. The next original source anchor asks for the LinkedList use case in the project.
