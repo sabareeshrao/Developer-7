@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 34/387+**
+**Status: 35/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -984,3 +984,44 @@ Status: 34/387+
 Set 34 adds three new master technical questions and reuses four questions with ✅.
 
 Sprint 004 remains active. The next original source anchor asks about the usage of Map in the project.
+
+
+## Set 35 — Latest Completed Set
+
+Anchor:
+
+⭐ **What's the usage of Map in your project?**
+
+Set 35 consolidates the three real Map roles already present in GeoOps:
+
+~~~text
+HashMap
+→ claimed review tasks
+→ projectCode → ProjectReviewTask
+→ ordering unnecessary
+
+LinkedHashMap
+→ CRS counts
+→ first-seen CRS ordering
+
+LinkedHashMap
+→ batch reconciliation
+→ identity lookup + duplicate counts + first-seen project order
+~~~
+
+A new cross-component regression test proves these Map roles together without adding an artificial fourth Map feature.
+
+Latest learning state:
+
+~~~text
+Completed Sets: 35
+Completed anchors: 35
+Unique master technical questions covered: 162
+Synthetic technical questions covered: 9
+Synthetic ⭐⭐ anchors: 0
+Status: 35/387+
+~~~
+
+Set 35 adds one new master technical question; six supporting questions are ✅ reuses.
+
+Sprint 004 remains active. The next original source anchor asks whether WeakHashMap has been used in the project.
