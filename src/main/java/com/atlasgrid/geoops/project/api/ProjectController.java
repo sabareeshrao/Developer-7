@@ -2,6 +2,7 @@ package com.atlasgrid.geoops.project.api;
 
 import com.atlasgrid.geoops.project.application.ProjectCollectionSummary;
 import com.atlasgrid.geoops.project.application.ProjectCollectionSummaryService;
+import com.atlasgrid.geoops.project.application.ProjectCrsCatalogService;
 import com.atlasgrid.geoops.project.application.ProjectManifestFormatter;
 import com.atlasgrid.geoops.project.application.ProjectService;
 import com.atlasgrid.geoops.project.application.ProjectSortingService;
@@ -29,6 +30,7 @@ public class ProjectController {
     private final ProjectManifestFormatter projectManifestFormatter;
     private final ProjectValidationService projectValidationService;
     private final ProjectCollectionSummaryService projectCollectionSummaryService;
+    private final ProjectCrsCatalogService projectCrsCatalogService;
     private final ProjectSortingService projectSortingService;
 
     public ProjectController(
@@ -36,12 +38,14 @@ public class ProjectController {
             ProjectManifestFormatter projectManifestFormatter,
             ProjectValidationService projectValidationService,
             ProjectCollectionSummaryService projectCollectionSummaryService,
+            ProjectCrsCatalogService projectCrsCatalogService,
             ProjectSortingService projectSortingService
     ) {
         this.projectService = projectService;
         this.projectManifestFormatter = projectManifestFormatter;
         this.projectValidationService = projectValidationService;
         this.projectCollectionSummaryService = projectCollectionSummaryService;
+        this.projectCrsCatalogService = projectCrsCatalogService;
         this.projectSortingService = projectSortingService;
     }
 
@@ -63,6 +67,12 @@ public class ProjectController {
     @GetMapping("/sorting-preview")
     public ProjectSortingView getProjectSortingPreview() {
         return projectSortingService.sort(projectService.findAll());
+    }
+
+    @GetMapping("/crs-catalog")
+    public List<String> getCoordinateReferenceSystemCatalog() {
+        return projectCrsCatalogService
+                .sortedUniqueCoordinateReferenceSystems(projectService.findAll());
     }
 
     @GetMapping("/recent")
