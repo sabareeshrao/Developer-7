@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 24/387+**
+**Status: 25/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -568,3 +568,44 @@ Status: 24/387+
 ~~~
 
 Sprint 004 remains active. The next original source anchor is the complex Java Collection problem question.
+
+
+## Set 25 — Latest Completed Set
+
+Anchor:
+
+⭐ **Can you describe a complex problem you solved using a Java Collection?**
+
+Set 25 introduced batch-intake reconciliation:
+
+~~~text
+Collection<CreateProjectRequest>
+        ↓
+LinkedHashMap<ProjectIdentity, MutableBatchEntry>
+        ├── duplicate project-code detection
+        ├── occurrence counting
+        └── first-seen ordering
+        ↓
+BatchProjectIntakePlan
+~~~
+
+The endpoint is:
+
+~~~text
+POST /api/projects/batch-plan
+~~~
+
+It is analysis-only and does not create projects or mutate ProjectCatalog.
+
+Latest learning state:
+
+~~~text
+Completed Sets: 25
+Completed anchors: 25
+Unique master technical questions covered: 138
+Synthetic technical questions covered: 9
+Synthetic ⭐⭐ anchors: 0
+Status: 25/387+
+~~~
+
+Sprint 004 remains active. The next original source anchor asks for the collection names currently used in the project.
