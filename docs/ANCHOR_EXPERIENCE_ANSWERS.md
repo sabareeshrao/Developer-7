@@ -156,3 +156,14 @@ Yes. In the GeoOps project, two custom exceptions we currently throw are `Duplic
 Yes. In GeoOps I created a custom exception hierarchy for project-intake failures. I introduced an abstract `GeoOpsProjectException` that extends `RuntimeException`, and our existing `DuplicateProjectException` and `InvalidProjectRequestException` now extend that common base.
 
 The reason was that both exceptions belong to the same project domain and need shared behavior, especially a stable application error code and support for preserving an original cause. At the REST layer we can also define a generic handler for `GeoOpsProjectException` while still keeping more specific handlers. For example, `DuplicateProjectException` has its own handler and still returns 409 Conflict, while the generic hierarchy handler acts as a fallback. That gives us common handling without losing exception-specific behavior.
+
+
+---
+
+## Set 15 — Status: 15/387+
+
+### ⭐ How do you handle exceptions in your project?
+
+In GeoOps, I handle exceptions based on the layer that can make the right recovery decision. In the Spring Boot REST flow, I normally let service-layer custom exceptions propagate instead of putting repetitive try/catch blocks in every controller. We handle them centrally using `@RestControllerAdvice`, where known domain exceptions are mapped to consistent API responses—for example 400 for validation failures and 409 for duplicate projects.
+
+We also handle malformed JSON separately as a 400 request error. For anything unexpected, the generic handler logs the full exception and stack trace on the server but returns only a safe 500 response to the client, so internal details are not leaked. In the standalone preflight CLI, I do catch path-related exceptions locally because that layer can recover by converting them into a controlled `PreflightResult` and exit code. So the main approach is: catch locally when recovery is meaningful; otherwise propagate to the centralized boundary.
