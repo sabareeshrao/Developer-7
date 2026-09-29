@@ -4,6 +4,8 @@ import com.atlasgrid.geoops.project.application.ProjectCollectionSummary;
 import com.atlasgrid.geoops.project.application.ProjectCollectionSummaryService;
 import com.atlasgrid.geoops.project.application.ProjectManifestFormatter;
 import com.atlasgrid.geoops.project.application.ProjectService;
+import com.atlasgrid.geoops.project.application.ProjectSortingService;
+import com.atlasgrid.geoops.project.application.ProjectSortingView;
 import com.atlasgrid.geoops.project.domain.GeoProject;
 import com.atlasgrid.geoops.project.domain.ProjectCatalogSnapshot;
 import com.atlasgrid.geoops.project.validation.ProjectValidationReport;
@@ -27,17 +29,20 @@ public class ProjectController {
     private final ProjectManifestFormatter projectManifestFormatter;
     private final ProjectValidationService projectValidationService;
     private final ProjectCollectionSummaryService projectCollectionSummaryService;
+    private final ProjectSortingService projectSortingService;
 
     public ProjectController(
             ProjectService projectService,
             ProjectManifestFormatter projectManifestFormatter,
             ProjectValidationService projectValidationService,
-            ProjectCollectionSummaryService projectCollectionSummaryService
+            ProjectCollectionSummaryService projectCollectionSummaryService,
+            ProjectSortingService projectSortingService
     ) {
         this.projectService = projectService;
         this.projectManifestFormatter = projectManifestFormatter;
         this.projectValidationService = projectValidationService;
         this.projectCollectionSummaryService = projectCollectionSummaryService;
+        this.projectSortingService = projectSortingService;
     }
 
     @GetMapping
@@ -53,6 +58,11 @@ public class ProjectController {
     @GetMapping("/collection-summary")
     public ProjectCollectionSummary getProjectCollectionSummary() {
         return projectCollectionSummaryService.summarize(projectService.findAll());
+    }
+
+    @GetMapping("/sorting-preview")
+    public ProjectSortingView getProjectSortingPreview() {
+        return projectSortingService.sort(projectService.findAll());
     }
 
     @GetMapping(value = "/manifest", produces = MediaType.TEXT_PLAIN_VALUE)
