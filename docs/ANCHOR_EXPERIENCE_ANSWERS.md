@@ -288,3 +288,14 @@ I solved that with a LinkedHashMap keyed by our immutable ProjectIdentity. The h
 Yes. In GeoOps I currently use several collection types depending on the behavior I need. The project catalog uses a List backed by ArrayList for ordered project storage and indexed reads. For uniqueness, I use a Set backed by HashSet with our immutable ProjectIdentity; that prevents duplicate project codes and now also powers the project-existence lookup.
 
 For key/value data, I use LinkedHashMap in the CRS summary and batch-intake reconciliation because I need normal map lookup plus predictable first-seen ordering. For the quality-review worklist, I use a Deque backed by LinkedList because the workflow needs add-at-tail, claim-from-head, retry-at-front, and queued-item removal. I also use the general Collection interface at service boundaries when the logic does not require a specific implementation.
+
+
+---
+
+## Set 27 — Status: 27/387+
+
+### ⭐ Have you used List, LinkedList and HashSet in your project?
+
+Yes. In GeoOps I use all three, but for different requirements. The project catalog is declared as a List and backed by ArrayList because we need ordered project storage, iteration and indexed intake-position reads. We use HashSet for the ProjectIdentity index so duplicate project codes are rejected and membership checks are efficient.
+
+I use LinkedList in a separate quality-review worklist through the Deque interface. New review tasks go to the tail, reviewers claim from the head, and retry work can be moved to the front. We added an end-to-end integration test that creates projects, verifies ArrayList intake order, verifies HashSet membership and duplicate rejection, and then verifies the LinkedList-backed review queue still processes the accepted projects in FIFO order.
