@@ -232,6 +232,23 @@ Established rules:
 - Wrapper-object cache behavior is treated as a Java language/runtime concept, not as a business-equality mechanism.
 - Sprint 002 includes GEO-10 for this reference-vs-value equality behavior.
 
+## Set 11 established facts — immutable project catalog snapshot
+
+GeoOps now has an immutable application snapshot model.
+
+Established rules:
+- `ProjectCatalogSnapshot` is a final class.
+- Snapshot fields are private and final.
+- Snapshot state is fully initialized in the constructor.
+- No setter methods exist.
+- The mutable project-list input is defensively copied with `List.copyOf(...)`.
+- Later mutation of `ProjectService.projects` does not change an already-created snapshot.
+- Callers cannot mutate the project list exposed by a snapshot.
+- `ProjectService.catalogSnapshot()` creates the immutable point-in-time view.
+- GeoOps exposes `GET /api/projects/snapshot`.
+- Persistence/database-level snapshots have not yet been introduced.
+- Sprint 002 includes GEO-11 for this immutable read model.
+
 ## Grounding boundaries
 
 The fictional premise is inspired by the supplied resume's real technology/domain themes: Java backend development, Spring Boot services, REST/SOAP integrations, geospatial project intake, survey-data processing, file tracking, validation/transformation, scheduled jobs, database workflows, production support, Jenkins/Git/Linux tooling, and testing.
