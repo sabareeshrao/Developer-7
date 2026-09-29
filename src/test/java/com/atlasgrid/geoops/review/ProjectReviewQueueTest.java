@@ -2,6 +2,9 @@ package com.atlasgrid.geoops.review;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class ProjectReviewQueueTest {
@@ -56,6 +59,47 @@ class ProjectReviewQueueTest {
         assertThat(queue.complete("TX-AUS-034")).isFalse();
         assertThat(queue.retry("TX-AUS-034")).isFalse();
         assertThat(queue.claimedTaskCount()).isZero();
+    }
+
+    @Test
+    void retryAndCompleteCompetingForSameClaimHaveSingleWinner()
+            throws InterruptedException {
+        ProjectReviewQueue queue = new ProjectReviewQueue();
+
+        queue.enqueue("TX-AUS-037");
+        queue.claimNext().orElseThrow();
+
+        CountDownLatch start = new CountDownLatch(1);
+        AtomicBoolean retryResult = new AtomicBoolean();
+        AtomicBoolean completeResult = new AtomicBoolean();
+
+        Thread retryThread = new Thread(() -> {
+            await(start);
+            retryResult.set(queue.retry("TX-AUS-037"));
+        });
+
+        Thread completeThread = new Thread(() -> {
+            await(start);
+            completeResult.set(queue.complete("TX-AUS-037"));
+        });
+
+        retryThread.start();
+        completeThread.start();
+        start.countDown();
+
+        retryThread.join();
+        completeThread.join();
+
+        assertThat(retryResult.get() ^ completeResult.get()).isTrue();
+        assertThat(queue.claimedTaskCount()).isZero();
+
+        if (retryResult.get()) {
+            assertThat(queue.snapshot())
+                    .extracting(ProjectReviewTask::projectCode)
+                    .containsExactly("TX-AUS-037");
+        } else {
+            assertThat(queue.snapshot()).isEmpty();
+        }
     }
 
     @Test
@@ -126,6 +170,15 @@ class ProjectReviewQueueTest {
         assertThat(queue.snapshot())
                 .extracting(ProjectReviewTask::projectCode)
                 .containsExactly("TX-AUS-024", "TX-HOU-024");
+    }
+
+    private void await(CountDownLatch latch) {
+        try {
+            latch.await();
+        } catch (InterruptedException exception) {
+            Thread.currentThread().interrupt();
+            throw new IllegalStateException(exception);
+        }
     }
 
     @Test
