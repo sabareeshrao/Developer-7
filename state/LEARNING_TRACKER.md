@@ -470,8 +470,36 @@ Set 15 learning items completed: 8 / 8
 
 ---
 
-Completed job-experience anchors: 15
+# Set 16
+
+**Status: 16/387+**
+
+- [x] ⭐ [Master 370] What strategies do you majorly use for exception handling?
+
+## Part A
+- [x] ✅ [Master 338] How do you handle exceptions globally in a Spring Boot application?
+- [x] ✅ [Master 348] How does Exception Propagation work in Java?
+- [x] ✅ [Master 339] Can you explain the role of try, catch and finally blocks?
+- [x] [Master 334] Is it good practice to use exceptions for control flow?
+- [x] [Master 336] Do you know about uncaught exceptions?
+- [x] [Master 328] How would you handle a scenario where a method throws multiple types of exception?
+- [x] [Master 363] You created a @RestControllerAdvice, but the Global Exception is not being caught. What could be the reasons?
+
+## Set 16 completion evidence
+- docs/sets/SET-016-EXCEPTION-HANDLING-STRATEGIES.md
+- docs/process/SPRINT-003.md
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectService.java
+- src/main/java/com/atlasgrid/geoops/project/api/ProjectController.java
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectServiceLookupStrategyTest.java
+- src/test/java/com/atlasgrid/geoops/project/api/ProjectControllerLookupIntegrationTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 16 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 16
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 93
+Unique master technical questions covered: 97
 Synthetic technical questions covered: 8
 Current denominator: 387+
