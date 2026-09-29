@@ -43,6 +43,20 @@ class ProjectReviewQueueTest {
     }
 
     @Test
+    void cancelUsesIteratorSafeRemovalAndKeepsRemainingOrder() {
+        ProjectReviewQueue queue = new ProjectReviewQueue();
+
+        queue.enqueue("TX-AUS-024");
+        queue.enqueue("TX-DAL-024");
+        queue.enqueue("TX-HOU-024");
+
+        assertThat(queue.cancel("TX-DAL-024")).isTrue();
+        assertThat(queue.snapshot())
+                .extracting(ProjectReviewTask::projectCode)
+                .containsExactly("TX-AUS-024", "TX-HOU-024");
+    }
+
+    @Test
     void snapshotDoesNotExposeMutableLinkedList() {
         ProjectReviewQueue queue = new ProjectReviewQueue();
         queue.enqueue("TX-AUS-024");
