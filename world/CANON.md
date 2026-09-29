@@ -577,3 +577,21 @@ Established proof:
 - No new production collection was introduced because the experience already existed in the codebase.
 - All seven surrounding technical questions in Set 27 are reused with ✅, so unique technical-question coverage does not increase.
 - Sprint 004 continues the Collections and in-memory data-structure sequence.
+
+
+## Set 28 established facts — List and HashSet responsibilities
+
+GeoOps now has focused regression evidence showing why ProjectCatalog needs both List and HashSet.
+
+Established rules:
+- List<GeoProject> backed by ArrayList is the ordered accepted-record store.
+- Set<ProjectIdentity> backed by HashSet is the logical identity index.
+- The List preserves accepted project records in intake order.
+- The HashSet provides duplicate prevention and membership lookup.
+- Duplicate ProjectIdentity must be rejected before the List changes.
+- ProjectIdentity remains immutable and defines equals()/hashCode() from projectCode.
+- ProjectCatalogCollectionRoleTest verifies ordered List behavior, HashSet membership, duplicate rejection and unchanged catalog size after a duplicate attempt.
+- No new production collection was introduced for Set 28 because the production design already answers the anchor.
+- All seven supporting technical questions are reused with ✅.
+- Unique technical-question coverage therefore remains unchanged.
+- Sprint 004 continues the Collections sequence.
