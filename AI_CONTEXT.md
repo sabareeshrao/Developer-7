@@ -246,3 +246,14 @@ extension + matching behavior
 ```
 
 The enum formalizes the same three preflight formats already established in Set 2 and removes the duplicate raw extension set from the validator.
+
+
+## Pre-Set-13 maintenance checkpoint
+
+A repository-wide audit was completed after Set 12.
+
+The snapshot REST serialization risk was fixed by adding JavaBean getters to `ProjectCatalogSnapshot`, and `ProjectControllerSnapshotIntegrationTest` now verifies the real `GET /api/projects/snapshot` JSON response through MockMvc.
+
+Read `docs/maintenance/PRE-SET-013-CODEBASE-AUDIT.md` before starting Set 13.
+
+Learning status remains **12/387+**; maintenance work does not increment the Set counter.
