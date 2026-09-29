@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 28/387+**
+**Status: 29/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -730,3 +730,43 @@ Status: 28/387+
 All seven supporting technical questions in Set 28 are ✅ reuses, so unique technical coverage is unchanged.
 
 Sprint 004 remains active. The next original source anchor asks whether Arrays.sort() and Collections.sort() have been used.
+
+
+## Set 29 — Latest Completed Set
+
+Anchor:
+
+⭐ **Have you used Arrays.sort() and Collections.sort()?**
+
+Set 29 adds a read-only sorting preview:
+
+~~~text
+ProjectCatalog snapshot
+        ↓
+ProjectSortingService
+        ├── String[] → Arrays.sort()
+        └── List<GeoProject> copy → Collections.sort(..., Comparator)
+~~~
+
+The custom Comparator sorts by coordinateReferenceSystem and then projectCode. The source catalog remains in intake order.
+
+Endpoint:
+
+~~~text
+GET /api/projects/sorting-preview
+~~~
+
+Latest learning state:
+
+~~~text
+Completed Sets: 29
+Completed anchors: 29
+Unique master technical questions covered: 149
+Synthetic technical questions covered: 9
+Synthetic ⭐⭐ anchors: 0
+Status: 29/387+
+~~~
+
+Set 29 adds seven new master technical questions.
+
+Sprint 004 remains active. The next original source anchor returns to ArrayList project usage.
