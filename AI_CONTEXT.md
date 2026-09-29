@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 19/387+**
+**Status: 20/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -386,3 +386,32 @@ Status: 19/387+
 ~~~
 
 The next original source sequence begins Java Collections. Derive Set 20 from the repository and question bank rather than continuing exception topics artificially.
+
+
+## Set 20 — Latest Completed Set
+
+Anchor:
+
+⭐ **Have you worked with collections in Java?**
+
+Set 20 established practical Collections Framework usage:
+- List<GeoProject> / ArrayList for ordered in-memory project records.
+- Set<ProjectIdentity> / HashSet for logical uniqueness.
+- Collection<GeoProject> as a general service boundary.
+- ArrayList<String> for ordered project codes.
+- HashSet<String> for distinct CRS counting.
+- GET /api/projects/collection-summary.
+- ProjectCollectionSummary returns an immutable code list.
+
+Latest learning state:
+
+~~~text
+Completed Sets: 20
+Completed anchors: 20
+Unique master technical questions covered: 116
+Synthetic technical questions covered: 8
+Synthetic ⭐⭐ anchors: 0
+Status: 20/387+
+~~~
+
+Sprint 004 is now active and should continue naturally through Collections topics. Do not introduce persistence merely because collections are in-memory.
