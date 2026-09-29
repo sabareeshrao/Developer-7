@@ -266,3 +266,50 @@ Evidence:
 - BatchProjectIntakePlannerTest.java
 - BatchProjectIntakeControllerIntegrationTest.java
 - Set 25 evidence document
+
+
+---
+
+### Story GEO-26 — Make current collection inventory explicit and use HashSet membership lookup
+
+**Outcome:** GeoOps can explain the collection implementations currently used in the project, and the existing project-existence endpoint now uses the HashSet identity index instead of scanning the ArrayList.
+
+Acceptance criteria:
+- Keep ProjectCatalog project storage as List<GeoProject> backed by ArrayList.
+- Keep ProjectCatalog logical identity index as Set<ProjectIdentity> backed by HashSet.
+- Add ProjectCatalog.containsProjectCode(...) using HashSet.contains(...).
+- ProjectService.containsProjectCode(...) delegates to ProjectCatalog.
+- Existing GET /api/projects/exists/{projectCode} behavior remains unchanged.
+- Add unit tests for present and absent project-code membership.
+- Add MockMvc integration coverage for the existence endpoint.
+- Preserve existing LinkedHashMap batch/summary use and LinkedList review-queue use.
+- Do not introduce TreeSet, LinkedList in the catalog, or other collections without a requirement.
+
+~~~text
+GeoOps collection inventory
+
+List / ArrayList
+→ ordered ProjectCatalog records
+
+Set / HashSet
+→ ProjectIdentity uniqueness
+→ project-code membership lookup
+
+Map / LinkedHashMap
+→ CRS counts
+→ batch reconciliation
+
+Deque / LinkedList
+→ quality-review worklist
+
+Collection
+→ general service/planner boundaries
+~~~
+
+Evidence:
+- ProjectCatalog.java
+- ProjectService.java
+- ProjectCatalogTest.java
+- ProjectExistenceLookupIntegrationTest.java
+- existing collection-summary/batch/review components
+- Set 26 evidence document
