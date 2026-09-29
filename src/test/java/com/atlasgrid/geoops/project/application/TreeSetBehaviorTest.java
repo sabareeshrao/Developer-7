@@ -26,7 +26,7 @@ class TreeSetBehaviorTest {
                 );
 
         assertThat(values.add("EPSG:1")).isTrue();
-        assertThat(values.add("CRS-123")).isFalse();
+        assertThat(values.add("CRS123")).isFalse();
         assertThat(values).containsExactly("EPSG:1");
     }
 }
