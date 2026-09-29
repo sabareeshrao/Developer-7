@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 14/387+**
+**Status: 15/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -37,6 +37,7 @@ Completed:
 12. Set 12 — DatasetFormat enum for supported GIS preflight formats.
 13. Set 13 — custom project-intake exceptions and centralized REST error handling.
 14. Set 14 — GeoOpsProjectException hierarchy with shared error codes and specific/generic REST handling.
+15. Set 15 — project-wide exception handling boundaries across REST and CLI flows.
 
 Read in this order:
 1. `CONTINUATION_PROTOCOL.md`
@@ -291,3 +292,18 @@ GeoOpsProjectException
 ```
 
 The base exception owns the domain error code and supports cause preservation. `GeoOpsExceptionHandler` has both specific handlers and a generic hierarchy fallback; specific mappings win.
+
+
+## Set 15 exception-handling policy
+
+```text
+Can this layer recover or translate meaningfully?
+        │
+   yes  │  no
+        ↓
+handle locally      propagate
+        ↓               ↓
+CLI PreflightResult  centralized REST advice
+```
+
+REST malformed input is handled explicitly, unexpected exceptions are logged and converted to a safe 500 response, and invalid/inaccessible CLI paths become preflight exit code 6.
