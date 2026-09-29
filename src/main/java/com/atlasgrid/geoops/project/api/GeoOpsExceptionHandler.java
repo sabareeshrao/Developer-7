@@ -1,5 +1,6 @@
 package com.atlasgrid.geoops.project.api;
 
+import com.atlasgrid.geoops.error.GeoOpsErrorCode;
 import com.atlasgrid.geoops.project.application.DuplicateProjectException;
 import com.atlasgrid.geoops.project.application.GeoOpsProjectException;
 import com.atlasgrid.geoops.project.application.InvalidProjectRequestException;
@@ -78,7 +79,7 @@ public class GeoOpsExceptionHandler {
 
         return build(
                 HttpStatus.BAD_REQUEST,
-                "REQUEST_VALIDATION_FAILED",
+                GeoOpsErrorCode.REQUEST_VALIDATION_FAILED,
                 "Request failed API validation",
                 details
         );
@@ -90,7 +91,7 @@ public class GeoOpsExceptionHandler {
     ) {
         return build(
                 HttpStatus.BAD_REQUEST,
-                "REQUEST_MALFORMED",
+                GeoOpsErrorCode.REQUEST_MALFORMED,
                 "Request body is malformed or unreadable",
                 List.of()
         );
@@ -104,7 +105,7 @@ public class GeoOpsExceptionHandler {
 
         return build(
                 HttpStatus.INTERNAL_SERVER_ERROR,
-                "INTERNAL_ERROR",
+                GeoOpsErrorCode.INTERNAL_ERROR,
                 "Unexpected server error",
                 List.of()
         );
@@ -112,7 +113,7 @@ public class GeoOpsExceptionHandler {
 
     private ResponseEntity<ApiError> build(
             HttpStatus status,
-            String code,
+            GeoOpsErrorCode code,
             String message,
             List<String> details
     ) {

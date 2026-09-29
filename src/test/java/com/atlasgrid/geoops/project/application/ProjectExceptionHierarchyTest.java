@@ -1,5 +1,6 @@
 package com.atlasgrid.geoops.project.application;
 
+import com.atlasgrid.geoops.error.GeoOpsErrorCode;
 import com.atlasgrid.geoops.project.validation.ValidationIssue;
 import org.junit.jupiter.api.Test;
 
@@ -31,10 +32,10 @@ class ProjectExceptionHierarchyTest {
                 .isInstanceOf(GeoOpsProjectException.class);
 
         assertThat(duplicate.errorCode())
-                .isEqualTo("PROJECT_DUPLICATE");
+                .isEqualTo(GeoOpsErrorCode.PROJECT_DUPLICATE);
 
         assertThat(invalid.errorCode())
-                .isEqualTo("PROJECT_VALIDATION_FAILED");
+                .isEqualTo(GeoOpsErrorCode.PROJECT_VALIDATION_FAILED);
     }
 
     @Test
@@ -44,21 +45,21 @@ class ProjectExceptionHierarchyTest {
 
         GeoOpsProjectException wrapped =
                 new TestProjectException(
-                        "PROJECT_PROCESSING_FAILED",
+                        GeoOpsErrorCode.PROJECT_VALIDATION_FAILED,
                         "Project processing failed",
                         cause
                 );
 
         assertThat(wrapped.getCause()).isSameAs(cause);
         assertThat(wrapped.errorCode())
-                .isEqualTo("PROJECT_PROCESSING_FAILED");
+                .isEqualTo(GeoOpsErrorCode.PROJECT_VALIDATION_FAILED);
     }
 
     private static final class TestProjectException
             extends GeoOpsProjectException {
 
         private TestProjectException(
-                String errorCode,
+                GeoOpsErrorCode errorCode,
                 String message,
                 Throwable cause
         ) {

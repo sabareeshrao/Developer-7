@@ -1,5 +1,7 @@
 package com.atlasgrid.geoops.project.api;
 
+import com.atlasgrid.geoops.error.GeoOpsErrorCode;
+
 import java.time.Instant;
 import java.util.List;
 
@@ -10,7 +12,7 @@ public record ApiError(
         Instant timestamp,
         int status,
         String error,
-        String code,
+        GeoOpsErrorCode code,
         String message,
         List<String> details
 ) {

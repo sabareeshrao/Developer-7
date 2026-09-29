@@ -1,5 +1,6 @@
 package com.atlasgrid.geoops.project.api;
 
+import com.atlasgrid.geoops.error.GeoOpsErrorCode;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,7 +27,7 @@ class GeoOpsExceptionHandlerTest {
 
         assertThat(response.getBody()).isNotNull();
         assertThat(response.getBody().code())
-                .isEqualTo("INTERNAL_ERROR");
+                .isEqualTo(GeoOpsErrorCode.INTERNAL_ERROR);
         assertThat(response.getBody().message())
                 .isEqualTo("Unexpected server error");
         assertThat(response.getBody().message())
