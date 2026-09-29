@@ -526,8 +526,40 @@ Set 17 learning items completed: 8 / 8
 
 ---
 
-Completed job-experience anchors: 17
+# Set 18
+
+**Status: 18/387+**
+
+- [x] ⭐ [Master 372] Can you tell me how you guys are maintaining or handling exceptions?
+
+## Part A
+- [x] ✅ [Master 338] How do you handle exceptions globally in a Spring Boot application?
+- [x] ✅ [Master 350] What is Exception Chaining, and why is it important in our projects?
+- [x] ✅ [Master 365] If @RestControllerAdvice contains both a Generic Exception Handler and a Specific Exception Handler, which one will execute?
+- [x] [Master 322] What is the role of the pipe (|) symbol in a multi-catch block?
+- [x] [Master 326] Can you name any inbuilt exception?
+- [x] [Master 349] Suppose you have a method that throws a Checked Exception, but the Interface it implements does not declare that Exception. How would you handle this situation?
+- [x] [Master 362] Can we have multiple @ControllerAdvice annotations?
+
+## Set 18 completion evidence
+- docs/sets/SET-018-EXCEPTION-MAINTENANCE.md
+- docs/process/SPRINT-003.md
+- src/main/java/com/atlasgrid/geoops/error/GeoOpsErrorCode.java
+- src/main/java/com/atlasgrid/geoops/project/application/GeoOpsProjectException.java
+- src/main/java/com/atlasgrid/geoops/project/application/DuplicateProjectException.java
+- src/main/java/com/atlasgrid/geoops/project/application/InvalidProjectRequestException.java
+- src/main/java/com/atlasgrid/geoops/project/api/ApiError.java
+- src/main/java/com/atlasgrid/geoops/project/api/GeoOpsExceptionHandler.java
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectExceptionHierarchyTest.java
+- src/test/java/com/atlasgrid/geoops/project/api/GeoOpsExceptionHandlerTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 18 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 18
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 101
+Unique master technical questions covered: 105
 Synthetic technical questions covered: 8
 Current denominator: 387+
