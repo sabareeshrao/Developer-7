@@ -36,6 +36,29 @@ class ProjectCatalogTest {
         assertThat(catalog.findAll()).hasSize(2);
     }
 
+    @Test
+    void findsProjectByOneBasedIntakePosition() {
+        ProjectCatalog catalog = new ProjectCatalog();
+        catalog.add(project("TX-AUS-023"));
+        catalog.add(project("TX-DAL-023"));
+        catalog.add(project("TX-HOU-023"));
+
+        assertThat(catalog.findByIntakePosition(2))
+                .isPresent()
+                .get()
+                .extracting(GeoProject::projectCode)
+                .isEqualTo("TX-DAL-023");
+    }
+
+    @Test
+    void outOfRangeIntakePositionReturnsEmpty() {
+        ProjectCatalog catalog = new ProjectCatalog();
+        catalog.add(project("TX-AUS-023"));
+
+        assertThat(catalog.findByIntakePosition(0)).isEmpty();
+        assertThat(catalog.findByIntakePosition(2)).isEmpty();
+    }
+
     private GeoProject project(String projectCode) {
         return new GeoProject(
                 UUID.randomUUID(),
