@@ -637,3 +637,24 @@ Established rules:
 - LinkedList remains the quality-review worklist implementation.
 - Set 30 adds two new master technical questions and reuses five completed questions with ✅.
 - Sprint 004 continues the Collections sequence.
+
+
+## Set 31 established facts — LinkedList review-worklist expedite use case
+
+GeoOps now has a distinct LinkedList use case for expediting queued quality-review work.
+
+Established rules:
+- ProjectReviewQueue remains Deque<ProjectReviewTask> backed by LinkedList.
+- New review work still enters at the tail.
+- Normal claim still removes from the head.
+- Retry-first still inserts at the front.
+- expedite(projectCode) traverses to the matching queued task with Iterator.
+- The matching task is removed through Iterator.remove().
+- That same task is reinserted at the front through addFirst().
+- Successful expedite preserves queue size and does not duplicate the task.
+- Non-expedited tasks preserve their relative order.
+- Unknown project codes leave the queue unchanged and map to HTTP 404.
+- POST /api/review-queue/{projectCode}/expedite exposes the operation.
+- ProjectReviewQueue remains intentionally non-concurrent.
+- Set 31 adds one new master technical question and reuses six completed questions with ✅.
+- Sprint 004 continues the Collections sequence.
