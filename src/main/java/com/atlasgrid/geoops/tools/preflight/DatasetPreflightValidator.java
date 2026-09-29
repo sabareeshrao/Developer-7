@@ -11,13 +11,17 @@ import java.nio.file.Path;
  * returns a result; only the outer CLI boundary decides whether the JVM process
  * should terminate with a non-zero status.</p>
  *
- * <p>Path parsing/access failures are handled locally because the CLI can
- * convert them directly into a meaningful preflight failure result.</p>
+ * <p>Predictable input problems are rejected with guard clauses before path
+ * parsing. Path parsing/access failures are then handled locally because the
+ * CLI can convert them directly into a meaningful preflight failure result.</p>
  */
 public class DatasetPreflightValidator {
 
     public PreflightResult validate(String[] args) {
-        if (args == null || args.length != 1 || args[0].isBlank()) {
+        if (args == null
+                || args.length != 1
+                || args[0] == null
+                || args[0].isBlank()) {
             return PreflightResult.failure(
                     2,
                     "Usage: GeoOpsPreflightCli <dataset-file>"

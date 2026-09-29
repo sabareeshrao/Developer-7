@@ -25,6 +25,16 @@ class DatasetPreflightValidatorTest {
     }
 
     @Test
+    void returnsUsageErrorWhenDatasetArgumentIsNull() {
+        PreflightResult result = validator.validate(new String[]{null});
+
+        assertThat(result.valid()).isFalse();
+        assertThat(result.exitCode()).isEqualTo(2);
+        assertThat(result.message())
+                .isEqualTo("Usage: GeoOpsPreflightCli <dataset-file>");
+    }
+
+    @Test
     void returnsNotFoundWhenDatasetDoesNotExist() {
         PreflightResult result =
                 validator.validate(new String[]{tempDir.resolve("missing.geojson").toString()});

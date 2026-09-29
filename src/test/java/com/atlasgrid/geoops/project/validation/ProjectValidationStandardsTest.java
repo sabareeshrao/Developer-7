@@ -15,6 +15,12 @@ class ProjectValidationStandardsTest {
     }
 
     @Test
+    void treatsNullProjectCodeAsInvalidInsteadOfThrowing() {
+        assertThat(ProjectValidationStandards.isValidProjectCode(null))
+                .isFalse();
+    }
+
+    @Test
     void normalizesAndValidatesCrsIdentifiersStatically() {
         assertThat(ProjectValidationStandards.normalizeCrsIdentifier(" epsg:4326 "))
                 .isEqualTo("EPSG:4326");
@@ -22,6 +28,12 @@ class ProjectValidationStandardsTest {
         assertThat(ProjectValidationStandards.isValidCrsIdentifier(" epsg:4326 "))
                 .isTrue();
         assertThat(ProjectValidationStandards.isValidCrsIdentifier("WGS84"))
+                .isFalse();
+    }
+
+    @Test
+    void treatsNullCrsAsInvalidInsteadOfThrowing() {
+        assertThat(ProjectValidationStandards.isValidCrsIdentifier(null))
                 .isFalse();
     }
 }
