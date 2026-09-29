@@ -379,8 +379,39 @@ Set 12 learning items completed: 7 / 7
 
 ---
 
-Completed job-experience anchors: 12
+# Set 13
+
+**Status: 13/387+**
+
+- [x] ⭐ [Master 366] Can you share some custom exception names that you guys are throwing in your current project?
+
+## Part A
+- [x] [Master 320] What are the steps to create a custom exception?
+- [x] [Master 324] Do you know about custom exceptions and inbuilt exceptions?
+- [x] [Master 325] Which are better, custom exceptions or built-in exceptions?
+- [x] [Master 327] Can you discuss exception handling and what are checked and unchecked exceptions?
+- [x] [Master 337] How do you create a custom runtime exception?
+- [x] [Master 338] How do you handle exceptions globally in a Spring Boot application?
+- [x] [Master 347] In what scenarios would you create a custom checked Exception versus a custom unchecked Exception?
+
+## Set 13 completion evidence
+- docs/sets/SET-013-CUSTOM-EXCEPTIONS.md
+- docs/process/SPRINT-003.md
+- src/main/java/com/atlasgrid/geoops/project/application/DuplicateProjectException.java
+- src/main/java/com/atlasgrid/geoops/project/application/InvalidProjectRequestException.java
+- src/main/java/com/atlasgrid/geoops/project/api/GeoOpsExceptionHandler.java
+- src/main/java/com/atlasgrid/geoops/project/api/ApiError.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectService.java
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectServiceValidationExceptionTest.java
+- src/test/java/com/atlasgrid/geoops/project/api/ProjectControllerExceptionIntegrationTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 13 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 13
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 78
+Unique master technical questions covered: 85
 Synthetic technical questions covered: 8
 Current denominator: 387+
