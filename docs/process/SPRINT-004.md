@@ -689,3 +689,36 @@ Evidence:
 - docs/sets/SET-036-WEAKHASHMAP.md
 - existing ProjectCatalog.java
 - existing ProjectReviewQueue.java
+
+---
+
+### Story GEO-37 — Harden claimed review state with ConcurrentHashMap
+
+**Outcome:** Concurrent retry/complete requests for the same claimed project now have one atomic winner, while the existing LinkedList worklist is protected from simultaneous mutation.
+
+Acceptance criteria:
+- Replace claimed-review HashMap with ConcurrentHashMap.
+- Keep the field declared through Map where practical.
+- Preserve immutable String projectCode keys.
+- Protect LinkedList queue mutation/snapshot operations with a private queue lock.
+- Do not replace the established LinkedList worklist solely for this anchor.
+- retry(projectCode) and complete(projectCode) must compete through ConcurrentHashMap.remove(projectCode).
+- Exactly one concurrent retry/complete transition may succeed for one claimed project.
+- Preserve all existing review endpoints and behavior.
+- Add a multi-threaded unit regression test for same-key retry-vs-complete.
+- Explicitly document that this does not make ProjectCatalog or the entire application thread-safe.
+
+~~~text
+LinkedList queue
+→ queueLock
+
+ConcurrentHashMap claimed state
+→ projectCode → task
+→ retry/complete same-key race has one winner
+~~~
+
+Evidence:
+- ProjectReviewQueue.java
+- ProjectReviewQueueTest.java
+- docs/architecture/ADR-CONCURRENT-REVIEW-STATE.md
+- Set 37 evidence document
