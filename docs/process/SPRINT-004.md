@@ -60,3 +60,41 @@ GEO-20 does not replace those choices. It makes the collection concepts easier t
 - `ProjectCollectionSummaryIntegrationTest.java`
 - `ProjectController.java`
 - Set 20 evidence document
+
+
+---
+
+### Story GEO-21 — Make List, Set and Map choices explicit in one collection workflow
+
+**Outcome:** GeoOps now demonstrates three collection families in one project-summary flow and documents why each concrete implementation is chosen.
+
+Acceptance criteria:
+- Keep ordered project codes in an ArrayList-backed List.
+- Keep distinct CRS values in a HashSet-backed Set.
+- Add a Map-based CRS frequency view.
+- Use LinkedHashMap so the API preserves first-seen CRS order while storing key/value counts.
+- Keep the summary boundary immutable.
+- Do not introduce LinkedList merely for demonstration.
+- Do not introduce persistence as part of this story.
+- Unit and integration tests verify list order, set-driven distinct count, map counts, and immutable returned views.
+
+~~~text
+Collection<GeoProject>
+        ↓
+ArrayList<String>
+        → ordered project codes
+
+HashSet<String>
+        → distinct CRS values
+
+LinkedHashMap<String,Integer>
+        → CRS → project count
+        → first-seen key order retained
+~~~
+
+Evidence:
+- ProjectCollectionSummary.java
+- ProjectCollectionSummaryService.java
+- ProjectCollectionSummaryServiceTest.java
+- ProjectCollectionSummaryIntegrationTest.java
+- Set 21 evidence document
