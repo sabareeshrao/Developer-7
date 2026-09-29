@@ -4,6 +4,8 @@ import com.atlasgrid.geoops.project.api.CreateProjectRequest;
 import com.atlasgrid.geoops.project.domain.GeoProject;
 import com.atlasgrid.geoops.project.domain.ProjectCatalogSnapshot;
 import com.atlasgrid.geoops.project.domain.ProjectIdentity;
+import com.atlasgrid.geoops.project.validation.ProjectValidationReport;
+import com.atlasgrid.geoops.project.validation.ProjectValidationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +32,10 @@ import java.util.UUID;
  * path value can be a different String object with the same text. Reference
  * equality with == would not be a valid business comparison.</p>
  *
+ * <p>Project creation now executes the same domain validation rules exposed by
+ * the validation endpoint. Invalid business input raises
+ * InvalidProjectRequestException before any project state is changed.</p>
+ *
  * <p>catalogSnapshot() returns an immutable ProjectCatalogSnapshot that captures
  * the current project list using a defensive copy.</p>
  *
@@ -41,8 +47,13 @@ import java.util.UUID;
 @Service
 public class ProjectService {
 
+    private final ProjectValidationService projectValidationService;
     private final List<GeoProject> projects = new ArrayList<>();
     private final Set<ProjectIdentity> projectIdentities = new HashSet<>();
+
+    public ProjectService(ProjectValidationService projectValidationService) {
+        this.projectValidationService = projectValidationService;
+    }
 
     public List<GeoProject> findAll() {
         return List.copyOf(projects);
@@ -58,6 +69,13 @@ public class ProjectService {
     }
 
     public GeoProject create(CreateProjectRequest request) {
+        ProjectValidationReport validationReport =
+                projectValidationService.validate(request);
+
+        if (!validationReport.valid()) {
+            throw new InvalidProjectRequestException(validationReport.issues());
+        }
+
         ProjectIdentity identity = new ProjectIdentity(request.projectCode());
 
         if (!projectIdentities.add(identity)) {

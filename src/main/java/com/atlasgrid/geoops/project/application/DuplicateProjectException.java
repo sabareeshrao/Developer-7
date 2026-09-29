@@ -1,13 +1,12 @@
 package com.atlasgrid.geoops.project.application;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
-
 /**
  * Raised when a logical project identity already exists in the current
  * in-memory GeoOps registry.
+ *
+ * <p>This application exception intentionally has no HTTP annotation. The API
+ * layer maps it to an HTTP response centrally through GeoOpsExceptionHandler.</p>
  */
-@ResponseStatus(HttpStatus.CONFLICT)
 public class DuplicateProjectException extends RuntimeException {
 
     public DuplicateProjectException(String projectCode) {

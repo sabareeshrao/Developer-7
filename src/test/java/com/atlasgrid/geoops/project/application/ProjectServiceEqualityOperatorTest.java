@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class ProjectServiceEqualityOperatorTest {
 
-    private final ProjectService service = new ProjectService();
+    private final ProjectService service = ProjectServiceTestFactory.create();
 
     @Test
     void findsProjectCodeByStringContentEvenWhenReferencesDiffer() {

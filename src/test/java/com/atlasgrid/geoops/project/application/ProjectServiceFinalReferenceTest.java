@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class ProjectServiceFinalReferenceTest {
 
-    private final ProjectService service = new ProjectService();
+    private final ProjectService service = ProjectServiceTestFactory.create();
 
     @Test
     void finalListReferenceCanStillPointToAMutableList() {

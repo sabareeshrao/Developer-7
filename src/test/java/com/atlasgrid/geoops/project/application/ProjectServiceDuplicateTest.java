@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class ProjectServiceDuplicateTest {
 
-    private final ProjectService service = new ProjectService();
+    private final ProjectService service = ProjectServiceTestFactory.create();
 
     @Test
     void rejectsSecondIntakeWithSameLogicalProjectCode() {
