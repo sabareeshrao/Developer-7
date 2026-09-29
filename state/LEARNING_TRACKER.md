@@ -643,10 +643,40 @@ Set 20 learning items completed: 8 / 8
 
 Set 21 learning items completed: 8 / 8
 
+
 ---
 
-Completed job-experience anchors: 21
+# Set 22
+
+**Status: 22/387+**
+
+- [x] ⭐ [Master 405] Can you tell me a few best practices you consider when applying collections in your project?
+
+## Part A
+- [x] ✅ [Master 396] How does polymorphism benefit the Java Collections Framework?
+- [x] [Master 551] What are the benefits of using Generics in Java?
+- [x] [Master 413] What will happen if you remove an element from an ArrayList while iterating over it using an enhanced for loop?
+- [x] [Master 539] Do you know the difference between Fail-Fast and Fail-Safe Iterators?
+- [x] [Master 428] What happens if you add a mutable object to a HashSet and then change it?
+- [x] [Master 440] What are the issues with using a mutable object as a key in a HashMap?
+- [x] [Master 499] How can you design a custom object to be safely used as a key in a HashMap?
+
+## Set 22 completion evidence
+- docs/sets/SET-022-COLLECTION-BEST-PRACTICES.md
+- docs/process/SPRINT-004.md
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectCatalog.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectService.java
+- src/main/java/com/atlasgrid/geoops/project/domain/ProjectIdentity.java
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectCatalogTest.java
+- src/test/java/com/atlasgrid/geoops/project/application/CollectionMutationSafetyTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 22 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 22
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 120
+Unique master technical questions covered: 126
 Synthetic technical questions covered: 8
 Current denominator: 387+
