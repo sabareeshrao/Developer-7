@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 36/387+**
+**Status: 37/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -1067,3 +1067,50 @@ Status: 36/387+
 Set 36 adds one new master technical question and one 💡 synthetic technical question.
 
 Sprint 004 remains active. The next original source anchor asks whether ConcurrentHashMap has been used in the project.
+
+
+## Set 37 — Latest Completed Set
+
+Anchor:
+
+⭐ **Did you get a chance to work on ConcurrentHashMap in your project?**
+
+Set 37 hardens the review workflow:
+
+~~~text
+queued review work
+→ LinkedList
+→ protected by queueLock
+
+claimed review work
+→ ConcurrentHashMap<projectCode, ProjectReviewTask>
+→ concurrent key-based state transitions
+~~~
+
+Key invariant:
+
+~~~text
+retry(A) and complete(A) race
+→ both call remove(A)
+→ only one receives the task
+→ only one succeeds
+~~~
+
+A two-thread regression test proves the same-key single-winner behavior.
+
+Latest learning state:
+
+~~~text
+Completed Sets: 37
+Completed anchors: 37
+Unique master technical questions covered: 170
+Synthetic technical questions covered: 10
+Synthetic ⭐⭐ anchors: 0
+Status: 37/387+
+~~~
+
+Set 37 adds seven new master technical questions.
+
+Important remaining boundary: ProjectCatalog concurrency and cross-component transactionality are still future learning concerns.
+
+The next original source anchor asks whether customized sorting has been used and for what purpose.
