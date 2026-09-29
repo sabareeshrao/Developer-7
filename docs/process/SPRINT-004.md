@@ -470,3 +470,43 @@ Evidence:
 - ProjectCatalogTest.java
 - RecentProjectsIntegrationTest.java
 - Set 30 evidence document
+
+---
+
+### Story GEO-31 — Expedite queued review work with LinkedList
+
+**Outcome:** GeoOps can move an already-queued GIS review task to the front of the LinkedList-backed worklist without duplicating the task or corrupting queue order.
+
+Acceptance criteria:
+- Keep ProjectReviewQueue declared as Deque<ProjectReviewTask> backed by LinkedList.
+- Add expedite(projectCode).
+- Traverse to the matching task with Iterator.
+- Remove the matching task through Iterator.remove().
+- Reinsert that same task at the front with addFirst().
+- Keep queue size unchanged after a successful expedite.
+- Return false and leave order unchanged when the project code is not queued.
+- Expose POST /api/review-queue/{projectCode}/expedite.
+- Verify the expedited task becomes the next claimed review item.
+- Preserve existing FIFO behavior for all non-expedited tasks.
+
+~~~text
+[A, B, C]
+expedite C
+    ↓
+Iterator finds C
+    ↓
+Iterator.remove()
+    ↓
+addFirst(C)
+    ↓
+[C, A, B]
+    ↓
+claim-next → C
+~~~
+
+Evidence:
+- ProjectReviewQueue.java
+- ProjectReviewQueueController.java
+- ProjectReviewQueueTest.java
+- ProjectReviewQueueIntegrationTest.java
+- Set 31 evidence document
