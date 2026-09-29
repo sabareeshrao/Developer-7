@@ -3,6 +3,7 @@ package com.atlasgrid.geoops.project.api;
 import com.atlasgrid.geoops.project.application.ProjectManifestFormatter;
 import com.atlasgrid.geoops.project.application.ProjectService;
 import com.atlasgrid.geoops.project.domain.GeoProject;
+import com.atlasgrid.geoops.project.domain.ProjectCatalogSnapshot;
 import com.atlasgrid.geoops.project.validation.ProjectValidationReport;
 import com.atlasgrid.geoops.project.validation.ProjectValidationService;
 import jakarta.validation.Valid;
@@ -36,6 +37,11 @@ public class ProjectController {
     @GetMapping
     public List<GeoProject> getProjects() {
         return projectService.findAll();
+    }
+
+    @GetMapping("/snapshot")
+    public ProjectCatalogSnapshot getProjectCatalogSnapshot() {
+        return projectService.catalogSnapshot();
     }
 
     @GetMapping(value = "/manifest", produces = MediaType.TEXT_PLAIN_VALUE)
