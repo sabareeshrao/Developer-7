@@ -277,3 +277,14 @@ The review queue is declared as a Deque<ProjectReviewTask> backed by LinkedList.
 Yes. One collection-heavy problem I solved in GeoOps was batch-intake reconciliation. A submitted batch could contain the same project code multiple times, but we still needed to preserve first-seen order, count duplicates, and retain the first request as the canonical metadata without creating any projects yet.
 
 I solved that with a LinkedHashMap keyed by our immutable ProjectIdentity. The hash-based lookup lets us detect an existing logical project efficiently, and LinkedHashMap preserves first-seen order for the final plan. For each repeated code we increment an occurrence counter instead of overwriting the first request. The final result tells us how many records were submitted, how many unique projects exist, how many duplicates were found, and returns the unique entries in deterministic order. That let us solve deduplication and ordering together with one collection design.
+
+
+---
+
+## Set 26 — Status: 26/387+
+
+### ⭐ Can you tell me a few Collection names that you are using in your project?
+
+Yes. In GeoOps I currently use several collection types depending on the behavior I need. The project catalog uses a List backed by ArrayList for ordered project storage and indexed reads. For uniqueness, I use a Set backed by HashSet with our immutable ProjectIdentity; that prevents duplicate project codes and now also powers the project-existence lookup.
+
+For key/value data, I use LinkedHashMap in the CRS summary and batch-intake reconciliation because I need normal map lookup plus predictable first-seen ordering. For the quality-review worklist, I use a Deque backed by LinkedList because the workflow needs add-at-tail, claim-from-head, retry-at-front, and queued-item removal. I also use the general Collection interface at service boundaries when the logic does not require a specific implementation.
