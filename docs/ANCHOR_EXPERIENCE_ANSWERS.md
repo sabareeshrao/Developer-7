@@ -376,3 +376,14 @@ I collect the CRS codes into a TreeSet<String>, so duplicate CRS values are remo
 Yes. In GeoOps I use HashMap to track quality-review tasks after a reviewer claims them. The queue itself is still a LinkedList-backed Deque, but once claim-next removes a task from the queue, I store it in a HashMap keyed by the immutable projectCode.
 
 That gives us fast claimed-state lookup for workflow actions. A retry now succeeds only if that project code actually exists in the claimed-task HashMap; we remove the task from the map and put the same task back at the front of the review queue. Completion also removes the claimed entry. This fixed an earlier integrity issue where the retry API could accept an arbitrary task body that had never really been claimed.
+
+
+---
+
+## Set 35 — Status: 35/387+
+
+### ⭐ What's the usage of Map in your project?
+
+In GeoOps I use Map wherever the workflow naturally has a key-to-value relationship. For claimed quality-review work, I use a HashMap from projectCode to ProjectReviewTask because I need fast lookup and removal for retry and completion, but I do not need iteration order.
+
+I use LinkedHashMap where ordering matters as well as lookup. The CRS summary maps each CRS code to its project count while preserving first-seen CRS order, and the batch-intake planner maps immutable ProjectIdentity keys to reconciliation entries so duplicate submissions can be counted while the first-seen project order and canonical request metadata are retained. So I choose the Map implementation from the actual ordering and lookup requirement rather than using one Map type everywhere.
