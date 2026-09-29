@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "34/387+",
+  "status": "35/387+",
   "completed": {
-    "sets": 34,
-    "jobExperienceAnchors": 34,
-    "uniqueMasterTechnicalQuestions": 161,
+    "sets": 35,
+    "jobExperienceAnchors": 35,
+    "uniqueMasterTechnicalQuestions": 162,
     "syntheticTechnicalQuestions": 9
   },
   "current": {
-    "set": 34,
-    "anchorMasterQuestion": 495,
-    "anchor": "Have you worked with HashMap?",
+    "set": 35,
+    "anchorMasterQuestion": 497,
+    "anchor": "What's the usage of Map in your project?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-034-HASHMAP-CLAIMED-REVIEWS.md"
+    "evidence": "docs/sets/SET-035-MAP-USAGE.md"
   },
-  "nextAction": "derive Set 35 around exactly one next logical original job-experience anchor in Collections; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
+  "nextAction": "derive Set 36 around exactly one next logical original job-experience anchor in Collections; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
