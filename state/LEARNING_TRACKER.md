@@ -556,10 +556,38 @@ Set 17 learning items completed: 8 / 8
 
 Set 18 learning items completed: 8 / 8
 
+
 ---
 
-Completed job-experience anchors: 18
+# Set 19
+
+**Status: 19/387+**
+
+- [x] ⭐ [Master 374] Was there ever a time when the finally block caused unexpected behavior or side effects in your code?
+
+## Part A
+- [x] ✅ [Master 339] Can you explain the role of try, catch and finally blocks?
+- [x] ✅ [Master 340] If a return statement executes inside the try or catch block, does the finally block still execute?
+- [x] [Master 352] If an Exception is thrown inside a finally block, will it override an Exception thrown from the try block?
+- [x] [Master 354] What happens if both the try and finally blocks contain return statements?
+- [x] [Master 357] Can we throw an exception from a finally block?
+- [x] [Master 358] Can we have multiple finally blocks in Java?
+- [x] [Master 360] Which finally block will be executed if we have multiple?
+
+## Set 19 completion evidence
+- docs/sets/SET-019-FINALLY-SIDE-EFFECTS.md
+- docs/process/SPRINT-003.md
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectManifestFileExporter.java
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectManifestFileExporterTest.java
+- src/test/java/com/atlasgrid/geoops/project/application/FinallyBlockBehaviorTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 19 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 19
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 105
+Unique master technical questions covered: 110
 Synthetic technical questions covered: 8
 Current denominator: 387+
