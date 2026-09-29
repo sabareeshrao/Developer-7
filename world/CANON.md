@@ -595,3 +595,23 @@ Established rules:
 - All seven supporting technical questions are reused with ✅.
 - Unique technical-question coverage therefore remains unchanged.
 - Sprint 004 continues the Collections sequence.
+
+
+## Set 29 established facts — Arrays.sort() and Collections.sort()
+
+GeoOps now has a read-only sorting preview that demonstrates both array and List sorting without changing ProjectCatalog intake order.
+
+Established rules:
+- ProjectSortingService accepts the current project collection and creates sorting copies.
+- Project codes are copied into a String[] and sorted with Arrays.sort().
+- GeoProject records are copied into a mutable List and sorted with Collections.sort(..., Comparator).
+- The custom Comparator sorts lexicographically by coordinateReferenceSystem and then projectCode.
+- ProjectCatalog's original intake order remains unchanged after sorting.
+- GET /api/projects/sorting-preview exposes both sorted views.
+- ProjectSortingView defensively exposes immutable Lists.
+- GeoProject does not implement Comparable because no single natural project ordering has been established.
+- Business-specific project orderings use Comparator.
+- For Java 17, Arrays.sort() is overload-dependent: primitive arrays use specialized primitive algorithms, while object sorting is stable and uses TimSort.
+- Collections.sort() delegates to List.sort(...); the concrete List implementation controls the final sorting path.
+- Set 29 adds seven new master technical questions.
+- Sprint 004 continues the Collections and sorting sequence.
