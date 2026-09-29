@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 28 — Status: 28/387+ — COMPLETE**
+**Set 29 — Status: 29/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -37,6 +37,7 @@ Set 25: LinkedHashMap-based batch intake reconciliation with duplicate counting 
 Set 26: explicit collection inventory and HashSet-backed project existence lookup
 Set 27: integrated proof of ArrayList project order, HashSet identity rules and LinkedList review FIFO
 Set 28: focused List-vs-HashSet responsibility proof inside ProjectCatalog
+Set 29: Arrays.sort and Collections.sort sorting preview with custom Comparator
 ```
 
 ## Current project workflow
@@ -70,6 +71,7 @@ Useful endpoints:
 - `GET /actuator/health`
 - `GET /api/projects`
 - `GET /api/projects/collection-summary`
+- `GET /api/projects/sorting-preview`
 - `POST /api/projects`
 - `POST /api/projects/batch-plan`
 - `GET /api/projects/manifest`
