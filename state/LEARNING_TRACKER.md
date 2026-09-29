@@ -673,10 +673,41 @@ Set 21 learning items completed: 8 / 8
 
 Set 22 learning items completed: 8 / 8
 
+
 ---
 
-Completed job-experience anchors: 22
+# Set 23
+
+**Status: 23/387+**
+
+- [x] ⭐ [Master 406] Have you used ArrayList in your project?
+
+## Part A
+- [x] ✅ [Master 379] What are the main implementations of the List interface?
+- [x] [Master 415] What's the default capacity of an ArrayList?
+- [x] [Master 417] How does an ArrayList grow when it exceeds its current capacity?
+- [x] [Master 416] You have a List of Integer and call list.remove(1). Does it remove the element at index 1 or the integer value 1?
+- [x] ✅ [Master 413] What will happen if you remove an element from an ArrayList while iterating over it using an enhanced for loop?
+- [x] ✅ [Master 420] In which scenarios is LinkedList preferred over ArrayList?
+- [x] [Master 2136] How is ArrayList different from LinkedList in terms of performance?
+
+## Set 23 completion evidence
+- docs/sets/SET-023-ARRAYLIST.md
+- docs/process/SPRINT-004.md
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectCatalog.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectService.java
+- src/main/java/com/atlasgrid/geoops/project/api/ProjectController.java
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectCatalogTest.java
+- src/test/java/com/atlasgrid/geoops/project/application/ArrayListBehaviorTest.java
+- src/test/java/com/atlasgrid/geoops/project/api/ProjectIntakePositionIntegrationTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 23 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 23
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 126
+Unique master technical questions covered: 130
 Synthetic technical questions covered: 8
 Current denominator: 387+
