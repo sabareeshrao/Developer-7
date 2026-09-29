@@ -883,10 +883,40 @@ Set 28 learning items completed: 8 / 8
 
 Set 29 learning items completed: 8 / 8
 
+
 ---
 
-Completed job-experience anchors: 29
+# Set 30
+
+**Status: 30/387+**
+
+- [x] ⭐ [Master 419] Have you used ArrayList in your project?
+
+## Part A
+- [x] ✅ [Master 379] What are the main implementations of the List interface?
+- [x] ✅ [Master 415] What's the default capacity of an ArrayList?
+- [x] ✅ [Master 417] How does an ArrayList grow when it exceeds its current capacity?
+- [x] ✅ [Master 380] What is the difference between Set and ArrayList? What are they used for and why have they been created?
+- [x] [Master 388] In what scenarios would you prefer ArrayList over LinkedList or one over the other?
+- [x] [Master 382] You need to store large data, preserve insertion order and perform fast lookups. Which collection would you choose and why?
+- [x] ✅ [Master 2136] How is ArrayList different from LinkedList in terms of performance?
+
+## Set 30 completion evidence
+- docs/sets/SET-030-ARRAYLIST-RECENT-WINDOW.md
+- docs/process/SPRINT-004.md
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectCatalog.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectService.java
+- src/main/java/com/atlasgrid/geoops/project/api/ProjectController.java
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectCatalogTest.java
+- src/test/java/com/atlasgrid/geoops/project/api/RecentProjectsIntegrationTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 30 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 30
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 149
+Unique master technical questions covered: 151
 Synthetic technical questions covered: 9
 Current denominator: 387+
