@@ -181,3 +181,46 @@ Evidence:
 - ArrayListBehaviorTest.java
 - ProjectIntakePositionIntegrationTest.java
 - Set 23 evidence document
+
+
+---
+
+### Story GEO-24 — Add a LinkedList-backed quality-review worklist
+
+**Outcome:** Newly accepted GeoOps projects now enter an in-memory quality-review worklist that needs ordered head/tail operations and safe cancellation during traversal.
+
+Acceptance criteria:
+- Add ProjectReviewTask as the review-work item.
+- Add ProjectReviewQueue backed by LinkedList through the Deque interface.
+- New projects are appended at the tail after successful intake.
+- Reviewers claim work from the head in FIFO order.
+- Retried work can be placed back at the front.
+- A queued project can be cancelled safely during traversal using Iterator.remove().
+- Queue snapshots must not expose the mutable LinkedList.
+- Add REST endpoints to inspect, claim, retry and cancel queued review work.
+- Add unit and integration tests for FIFO ordering, front retry, safe cancellation and immutable snapshots.
+- Do not replace the ProjectCatalog ArrayList; ArrayList remains correct for ordered catalog/indexed-read behavior.
+- Do not introduce a concurrent queue until a multithreading/concurrency requirement justifies it.
+
+~~~text
+successful project intake
+        ↓
+ProjectReviewQueue
+        ↓
+Deque<ProjectReviewTask>
+        ↓
+LinkedList
+   ├── addLast()  → new review work
+   ├── pollFirst() → claim next
+   ├── addFirst() → retry first
+   └── Iterator.remove() → cancel queued task
+~~~
+
+Evidence:
+- ProjectReviewTask.java
+- ProjectReviewQueue.java
+- ProjectReviewQueueController.java
+- ProjectService.java
+- ProjectReviewQueueTest.java
+- ProjectReviewQueueIntegrationTest.java
+- Set 24 evidence document
