@@ -91,3 +91,13 @@ Expected next source anchor:
 ```
 
 Do not count this audit as a completed anchor or Set.
+
+
+## Resolution after Set 13
+
+Set 13 closed two deferred audit findings:
+
+- **Finding 2 resolved:** `POST /api/projects` now executes `ProjectValidationService` before project state is mutated. Nonblank but invalid project code/CRS values can no longer bypass domain validation.
+- **Finding 3 partially resolved for the current design:** `DuplicateProjectException` no longer carries `@ResponseStatus`; `GeoOpsExceptionHandler` centrally maps application exceptions to HTTP responses. A shared custom-exception hierarchy remains intentionally deferred to the next dedicated anchor.
+
+Additional controller integration coverage was also added through `ProjectControllerExceptionIntegrationTest`.
