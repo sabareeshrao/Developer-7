@@ -138,3 +138,46 @@ Evidence:
 - CollectionMutationSafetyTest.java
 - ProjectIdentity.java
 - Set 22 evidence document
+
+
+---
+
+### Story GEO-23 — Use ArrayList for ordered intake and indexed access
+
+**Outcome:** GeoOps makes its ArrayList choice explicit by supporting safe project lookup by ordered intake position and documenting ArrayList growth/removal semantics.
+
+Acceptance criteria:
+- Keep ProjectCatalog storage declared as List<GeoProject> backed by ArrayList.
+- Add a 1-based intake-position lookup backed by List.get(...).
+- Return Optional.empty() for invalid/out-of-range positions rather than throwing IndexOutOfBoundsException through the API.
+- Expose GET /api/projects/by-position/{intakePosition}.
+- Preserve existing insertion order.
+- Add regression tests demonstrating ArrayList dynamic growth.
+- Add regression tests demonstrating remove(int index) versus remove(Object value) for List<Integer>.
+- Do not use reflection or production logic that depends on ArrayList private capacity internals.
+- Keep LinkedList out of production code because the current workload favors ordered append/read and indexed access.
+
+~~~text
+POST /api/projects
+        ↓
+ProjectCatalog
+        ↓
+ArrayList-backed List<GeoProject>
+        ↓
+ordered intake positions
+
+GET /api/projects/by-position/2
+        ↓
+projects.get(1)
+        ↓
+second intake project
+~~~
+
+Evidence:
+- ProjectCatalog.java
+- ProjectService.java
+- ProjectController.java
+- ProjectCatalogTest.java
+- ArrayListBehaviorTest.java
+- ProjectIntakePositionIntegrationTest.java
+- Set 23 evidence document
