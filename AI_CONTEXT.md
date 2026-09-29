@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 20/387+**
+**Status: 21/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -415,3 +415,37 @@ Status: 20/387+
 ~~~
 
 Sprint 004 is now active and should continue naturally through Collections topics. Do not introduce persistence merely because collections are in-memory.
+
+
+## Set 21 — Latest Completed Set
+
+Anchor:
+
+⭐ **What type of collections have you incorporated in your projects?**
+
+Current project collection inventory:
+- List / ArrayList → ordered project records and project-code output.
+- Set / HashSet → logical uniqueness and distinct CRS values.
+- Map / LinkedHashMap → CRS-to-project-count mapping with first-seen key order.
+- LinkedList → understood but not currently used because the current access pattern does not justify it.
+
+Set 21 extended GET /api/projects/collection-summary with:
+
+~~~text
+projectCountByCoordinateReferenceSystem
+~~~
+
+The summary model defensively exposes immutable List and Map views.
+
+Latest learning state:
+
+~~~text
+Completed Sets: 21
+Completed anchors: 21
+Unique master technical questions covered: 120
+Synthetic technical questions covered: 8
+Synthetic ⭐⭐ anchors: 0
+Status: 21/387+
+~~~
+
+Sprint 004 remains active. Continue the original Collections anchor sequence naturally and do not claim LinkedList/TreeSet/ConcurrentHashMap usage until code requirements actually introduce them.
