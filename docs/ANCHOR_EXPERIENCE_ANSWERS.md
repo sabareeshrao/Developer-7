@@ -233,3 +233,14 @@ I also added a collection-summary service that accepts the general `Collection<G
 In GeoOps, I have mainly incorporated List, Set and Map collections. We use a List backed by ArrayList for the in-memory project catalog because we append projects and preserve their intake order. We use HashSet for uniqueness—for example, duplicate project-code detection through ProjectIdentity, and distinct CRS calculation in the collection summary.
 
 I also use a Map backed by LinkedHashMap in the summary flow to maintain a CRS-to-project-count mapping. I chose LinkedHashMap there because I need normal key/value lookup plus predictable first-seen key order in the API output. I have not used LinkedList in the current GeoOps implementation because our access pattern does not justify it.
+
+
+---
+
+## Set 22 — Status: 22/387+
+
+### ⭐ Can you tell me a few best practices you consider when applying collections in your project?
+
+Yes. In GeoOps I follow a few collection best practices consistently. I program to interfaces like List, Set, Map, and Collection instead of coupling callers to concrete implementations, and I use Generics everywhere for compile-time type safety. I also keep mutable collection ownership inside one component—ProjectCatalog—and return immutable snapshots with List.copyOf() instead of exposing the internal ArrayList.
+
+For hash-based collections, I make sure equality-defining keys are stable. ProjectIdentity is immutable and overrides equals() and hashCode() together, so it is safe inside our HashSet. I also avoid directly modifying an ArrayList during enhanced-for iteration; our regression tests demonstrate the ConcurrentModificationException risk, and for simple predicate-based deletion we use traversal-safe operations such as removeIf().
