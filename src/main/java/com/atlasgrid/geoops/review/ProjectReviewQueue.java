@@ -17,9 +17,11 @@ import java.util.Optional;
  * appended at the tail, reviewers claim from the head, and a retry can be
  * pushed back to the front.</p>
  *
- * <p>When a queued project must be expedited, expedite(...) traverses to the
- * matching task, removes it through Iterator.remove(), and places that same task
- * at the front. Cancellation uses the same iterator-safe removal pattern.</p>
+ * <p>When a queued project must be expedited, expedite(...) moves the existing
+ * task to the front. When review must wait on upstream data, defer(...) moves
+ * that same queued task to the tail. Both operations remove through
+ * Iterator.remove() before reinserting, so the task is moved rather than
+ * duplicated. Cancellation uses the same iterator-safe removal pattern.</p>
  *
  * <p>This component is intentionally not concurrent yet. A later concurrency
  * requirement can replace the implementation with an appropriate concurrent
@@ -53,6 +55,24 @@ public class ProjectReviewQueue {
             if (task.projectCode().equals(projectCode)) {
                 iterator.remove();
                 reviewTasks.addFirst(task);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean defer(String projectCode) {
+        Objects.requireNonNull(projectCode, "projectCode");
+
+        Iterator<ProjectReviewTask> iterator = reviewTasks.iterator();
+
+        while (iterator.hasNext()) {
+            ProjectReviewTask task = iterator.next();
+
+            if (task.projectCode().equals(projectCode)) {
+                iterator.remove();
+                reviewTasks.addLast(task);
                 return true;
             }
         }
