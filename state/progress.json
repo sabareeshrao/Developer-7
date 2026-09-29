@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "14/387+",
+  "status": "15/387+",
   "completed": {
-    "sets": 14,
-    "jobExperienceAnchors": 14,
-    "uniqueMasterTechnicalQuestions": 89,
+    "sets": 15,
+    "jobExperienceAnchors": 15,
+    "uniqueMasterTechnicalQuestions": 93,
     "syntheticTechnicalQuestions": 8
   },
   "current": {
-    "set": 14,
-    "anchorMasterQuestion": 368,
-    "anchor": "Have you ever created a Custom Exception Hierarchy?",
+    "set": 15,
+    "anchorMasterQuestion": 369,
+    "anchor": "How do you handle exceptions in your project?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-014-CUSTOM-EXCEPTION-HIERARCHY.md"
+    "evidence": "docs/sets/SET-015-EXCEPTION-HANDLING.md"
   },
-  "nextAction": "derive Set 15 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; end with Experience Answer",
+  "nextAction": "derive Set 16 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
