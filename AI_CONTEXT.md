@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 35/387+**
+**Status: 36/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -1025,3 +1025,45 @@ Status: 35/387+
 Set 35 adds one new master technical question; six supporting questions are ✅ reuses.
 
 Sprint 004 remains active. The next original source anchor asks whether WeakHashMap has been used in the project.
+
+
+## Set 36 — Latest Completed Set
+
+Anchor:
+
+⭐ **Did you get a chance to work with WeakHashMap?**
+
+Set 36 is intentionally a design-decision Set rather than a forced production feature.
+
+Decision:
+
+~~~text
+WeakHashMap
+→ useful for non-authoritative metadata whose lifetime may follow key reachability
+→ NOT used for ProjectCatalog
+→ NOT used for queued review work
+→ NOT used for claimed review state
+~~~
+
+Reason: authoritative GeoOps state must disappear because business logic explicitly removes it, not because a weak key becomes garbage-collectable.
+
+An ADR records the decision:
+
+~~~text
+docs/architecture/ADR-WEAKHASHMAP-BUSINESS-STATE.md
+~~~
+
+Latest learning state:
+
+~~~text
+Completed Sets: 36
+Completed anchors: 36
+Unique master technical questions covered: 163
+Synthetic technical questions covered: 10
+Synthetic ⭐⭐ anchors: 0
+Status: 36/387+
+~~~
+
+Set 36 adds one new master technical question and one 💡 synthetic technical question.
+
+Sprint 004 remains active. The next original source anchor asks whether ConcurrentHashMap has been used in the project.
