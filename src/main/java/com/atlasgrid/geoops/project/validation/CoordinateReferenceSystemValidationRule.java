@@ -1,6 +1,7 @@
 package com.atlasgrid.geoops.project.validation;
 
 import com.atlasgrid.geoops.project.api.CreateProjectRequest;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -8,15 +9,13 @@ import java.util.List;
 /**
  * Encapsulates the starter coordinate-reference-system rule.
  *
- * <p>Set 5 validates only the identifier shape. It does not yet query an EPSG
- * registry or perform coordinate transformations.</p>
- *
- * <p>This concrete rule is final because GeoOps extends validation by adding a
- * new ProjectValidationRule implementation rather than subclassing an existing
- * focused rule.</p>
+ * <p>The rule validates identifier shape only. Canonicalization is performed
+ * by ProjectService before accepted projects are stored.</p>
  */
 @Component
-public final class CoordinateReferenceSystemValidationRule implements ProjectValidationRule {
+@Order(20)
+public final class CoordinateReferenceSystemValidationRule
+        implements ProjectValidationRule {
 
     @Override
     public String code() {
@@ -25,8 +24,13 @@ public final class CoordinateReferenceSystemValidationRule implements ProjectVal
 
     @Override
     public List<ValidationIssue> validate(CreateProjectRequest request) {
-        if (ProjectValidationStandards
-                .isValidCrsIdentifier(request.coordinateReferenceSystem())) {
+        String crs = request.coordinateReferenceSystem();
+
+        if (crs == null || crs.isBlank()) {
+            return List.of();
+        }
+
+        if (ProjectValidationStandards.isValidCrsIdentifier(crs)) {
             return List.of();
         }
 
