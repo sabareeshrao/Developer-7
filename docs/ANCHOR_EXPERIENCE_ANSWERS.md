@@ -464,3 +464,14 @@ I avoid calling Optional.get() in production code. When I need to transform a pr
 Yes. In GeoOps I use Optional practically in the project lookup layer. Besides looking up by project code, we also support a one-based intake-position lookup. If that position exists, the catalog returns Optional.of(project); if the requested position is outside the catalog, it returns Optional.empty() because that is a normal missing-result case.
 
 I also compose Optional instead of blindly extracting values. For a caller that requires a specific kind of project, I can filter the Optional, map the project to the value I need, and use orElseThrow() only when that caller truly requires presence. I keep Optional at these query boundaries rather than putting it into required GeoProject fields or getters.
+
+
+---
+
+## Set 43 — Status: 43/387+
+
+### ⭐ Did you guys leverage the Optional class?
+
+Yes. In GeoOps we leverage Optional consistently in the project lookup layer. Both lookup by project code and lookup by one-based intake position return Optional<GeoProject>, because a missing project is a normal query result rather than an exceptional failure.
+
+At the REST boundary we pass those Optional values to ResponseEntity.of(), so present results become HTTP 200 and empty results become HTTP 404. I avoid blindly calling Optional.get(); instead I use Optional composition or let the boundary handle the empty state directly. That makes Optional part of the application's lookup contract rather than just a standalone Java feature.
