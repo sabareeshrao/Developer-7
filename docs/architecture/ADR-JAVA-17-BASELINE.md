@@ -84,3 +84,56 @@ Developers, local Maven builds, and CI are expected to use Java 17 consistently.
 - GitHub Actions,
 - tests,
 - canon and migration documentation.
+
+## Set 49 rationale — why Java 17 even without heavy Java-17-specific syntax
+
+The project does **not** choose Java 17 only to gain access to new syntax.
+
+The rationale now recorded for GeoOps is:
+
+1. **Spring Boot 3.x compatibility baseline**
+   - GeoOps uses Spring Boot 3.3.5 in `pom.xml`.
+   - The Spring Boot 3.3 line requires at least Java 17.
+   - Therefore Java 17 is part of the framework/runtime compatibility baseline, not merely a language-feature preference.
+
+2. **Long-Term Support baseline**
+   - Java 17 is an LTS release.
+   - An LTS baseline gives an enterprise project a conservative, well-supported runtime target even if the application does not immediately adopt every feature introduced by that release.
+
+3. **Consistent toolchain**
+   - Local development, Maven, CI and runtime tests all use the same Java 17 contract.
+   - Avoiding version drift is valuable independently of language-feature usage.
+
+4. **Modern platform access without forced feature adoption**
+   - Running on Java 17 makes modern Java APIs/language capabilities available.
+   - The codebase can adopt a feature when it improves the design.
+   - GeoOps already uses a `record`, but deliberately does not add sealed classes or other constructs merely to claim Java 17 usage.
+
+5. **Version choice and feature choice are separate decisions**
+   - Runtime/framework compatibility answers "which baseline should the project run on?"
+   - Code readability/domain need answers "which language feature should this class use?"
+   - A project does not need to use many Java-17-specific constructs to justify a Java 17 runtime baseline.
+
+### External verification used for this rationale
+
+Spring Boot 3.3 system requirements:
+
+https://docs.spring.io/spring-boot/3.3/system-requirements.html
+
+Oracle Java 17 announcement / LTS description:
+
+https://www.oracle.com/news/announcement/oracle-releases-java-17-2021-09-14/
+
+These references support the compatibility/LTS facts. The GeoOps-specific decision remains documented by this ADR and the repository's build configuration.
+
+### Non-claims
+
+This ADR does **not** claim:
+- that GeoOps migrated from Java 8, 11, or another version;
+- that a customer mandated Java 17;
+- that Java 17 produced a measured performance percentage;
+- that every Java 17 language feature is used;
+- that Java 17 was selected because of one isolated syntax feature.
+
+Any future migration story must be introduced by its own source anchor and repository evidence.
+
