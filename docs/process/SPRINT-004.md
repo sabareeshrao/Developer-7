@@ -924,3 +924,29 @@ Evidence:
 - ProjectService.java
 - ProjectQueryController.java
 - ProjectOptionalBoundaryIntegrationTest.java
+
+---
+
+### Story GEO-45 — Consolidate real Java 8 feature usage
+
+**Outcome:** GeoOps can answer which Java 8 features are used most often using existing production code plus one cross-feature regression test.
+
+Acceptance criteria:
+- Keep the lambda-backed `ProjectValidationCheck` validation path.
+- Keep Stream-based delivery selection.
+- Keep Optional-based project lookup.
+- Keep `Instant` as the project creation timestamp type.
+- Recognize the existing `GeoProject::projectCode` method reference.
+- Add one integration test that proves project creation, Instant timestamping, Optional lookup and Stream delivery selection together.
+- Do not add another production endpoint solely for Java 8 interview coverage.
+- Reuse already-completed Java 8 technical questions with ✅.
+- Keep CI green.
+
+Evidence:
+- docs/sets/SET-045-JAVA-8-FEATURES.md
+- ProjectValidationRuleConfiguration.java
+- ProjectValidationCheck.java
+- ProjectDeliverySelectionService.java
+- ProjectCatalog.java
+- GeoProject.java
+- ProjectJava8FeatureUsageIntegrationTest.java
