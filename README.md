@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 45 — Status: 45/387+ — COMPLETE**
+**Set 46 — Status: 46/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -54,6 +54,7 @@ Set 42: practical Optional intake-position lookup with safe composition
 Set 43: Optional contract verified across project-code and intake-position boundaries
 Set 44: concrete Optional project-code lookup scenario
 Set 45: consolidated Java 8 feature usage across validation, Streams, Optional and java.time
+Set 46: Java 17 build/runtime baseline enforced across Maven, CI and tests
 ```
 
 ## Current project workflow
@@ -151,10 +152,10 @@ The project is a fictional interview-simulation environment and should not be pr
 
 ## Latest learning checkpoint
 
-Set 45 consolidates the Java 8 features already used in GeoOps: lambda-backed Functional Interfaces, Stream API, Optional, `java.time.Instant`, and method references.
+Set 46 establishes Java 17 as an enforceable GeoOps build/runtime contract. Maven compiles for release 17, Maven Enforcer rejects non-Java-17 runtimes, CI installs Temurin 17, and `Java17BaselineTest` verifies the actual runtime.
 
-A cross-feature integration test proves those features in one real project flow without creating a duplicate production endpoint.
+Evidence: `docs/sets/SET-046-JAVA-17-BASELINE.md`
 
-Evidence: `docs/sets/SET-045-JAVA-8-FEATURES.md`
+Architecture decision: `docs/architecture/ADR-JAVA-17-BASELINE.md`
 
-Next anchor: **Which Java version do you use in your current project?**
+Next anchor: **Currently, which Java version are you working on?**
