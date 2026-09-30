@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "39/387+",
+  "status": "40/387+",
   "completed": {
-    "sets": 39,
-    "jobExperienceAnchors": 39,
-    "uniqueMasterTechnicalQuestions": 180,
+    "sets": 40,
+    "jobExperienceAnchors": 40,
+    "uniqueMasterTechnicalQuestions": 187,
     "syntheticTechnicalQuestions": 10
   },
   "current": {
-    "set": 39,
-    "anchorMasterQuestion": 592,
-    "anchor": "What challenges did you face while implementing Functional Interfaces in legacy code?",
+    "set": 40,
+    "anchorMasterQuestion": 624,
+    "anchor": "Have you worked on Stream APIs?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-039-FUNCTIONAL-INTERFACES-LEGACY.md"
+    "evidence": "docs/sets/SET-040-STREAM-API.md"
   },
-  "nextAction": "derive Set 40 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
+  "nextAction": "derive Set 41 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
