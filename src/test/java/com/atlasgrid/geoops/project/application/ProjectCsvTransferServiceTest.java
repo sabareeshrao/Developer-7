@@ -105,7 +105,13 @@ class ProjectCsvTransferServiceTest {
         assertThat(freshService.findAll())
                 .singleElement()
                 .extracting(GeoProject::name)
-                .isEqualTo("=HYPERLINK("https://example.invalid")");
+                .isEqualTo(
+                        "=HYPERLINK("
+                                + '"'
+                                + "https://example.invalid"
+                                + '"'
+                                + ")"
+                );
     }
 
     @Test
