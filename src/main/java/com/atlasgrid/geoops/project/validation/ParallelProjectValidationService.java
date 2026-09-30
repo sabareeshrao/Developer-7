@@ -52,11 +52,34 @@ public class ParallelProjectValidationService {
         List<ProjectBatchValidationResult> results =
                 new ArrayList<>(futures.size());
 
-        for (Future<ProjectBatchValidationResult> future : futures) {
-            results.add(await(future));
-        }
+        try {
+            for (Future<ProjectBatchValidationResult> future : futures) {
+                results.add(future.get());
+            }
 
-        return List.copyOf(results);
+            return List.copyOf(results);
+        } catch (InterruptedException exception) {
+            cancelOutstanding(futures);
+            Thread.currentThread().interrupt();
+
+            throw new IllegalStateException(
+                    "Parallel project validation was interrupted",
+                    exception
+            );
+        } catch (ExecutionException exception) {
+            cancelOutstanding(futures);
+
+            Throwable cause = exception.getCause();
+
+            if (cause instanceof RuntimeException runtimeException) {
+                throw runtimeException;
+            }
+
+            throw new IllegalStateException(
+                    "Parallel project validation failed",
+                    cause
+            );
+        }
     }
 
     private ProjectBatchValidationResult validateOne(
@@ -72,28 +95,13 @@ public class ParallelProjectValidationService {
         );
     }
 
-    private ProjectBatchValidationResult await(
-            Future<ProjectBatchValidationResult> future
+    private void cancelOutstanding(
+            List<Future<ProjectBatchValidationResult>> futures
     ) {
-        try {
-            return future.get();
-        } catch (InterruptedException exception) {
-            Thread.currentThread().interrupt();
-            throw new IllegalStateException(
-                    "Parallel project validation was interrupted",
-                    exception
-            );
-        } catch (ExecutionException exception) {
-            Throwable cause = exception.getCause();
-
-            if (cause instanceof RuntimeException runtimeException) {
-                throw runtimeException;
+        for (Future<?> future : futures) {
+            if (!future.isDone()) {
+                future.cancel(true);
             }
-
-            throw new IllegalStateException(
-                    "Parallel project validation failed",
-                    cause
-            );
         }
     }
 }

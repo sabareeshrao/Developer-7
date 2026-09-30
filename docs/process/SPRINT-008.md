@@ -50,3 +50,20 @@ Evidence:
 - docs/sets/SET-068-MULTITHREADING-REQUIREMENT.md
 - ProjectValidationExecutorConfiguration.java
 - ProjectValidationExecutorConfigurationTest.java
+
+
+## Story GEO-69 — Handle thread interruption and cancellation
+
+**Outcome:** If a caller waiting on parallel validation is interrupted or a worker fails, GeoOps cancels outstanding validation futures instead of leaving unnecessary tasks running.
+
+Acceptance criteria:
+- Preserve the caller thread's interrupted status.
+- Cancel unfinished Future tasks with interruption enabled.
+- Cancel remaining tasks after worker execution failure.
+- Add a deterministic test proving caller interrupt preservation and worker interruption.
+- Keep CI and SpotBugs green.
+
+Evidence:
+- docs/sets/SET-069-THREAD-EXPERIENCE.md
+- ParallelProjectValidationService.java
+- ParallelProjectValidationInterruptionTest.java
