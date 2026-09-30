@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 49 — Status: 49/387+ — COMPLETE**
+**Set 50 — Status: 50/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -58,6 +58,7 @@ Set 46: Java 17 build/runtime baseline enforced across Maven, CI and tests
 Set 47: current Java 17 version confirmation using the same enforced baseline
 Set 48: Java 17 version-used confirmation with zero duplicate implementation
 Set 49: Java 17 selection rationale grounded in Spring Boot 3 compatibility and LTS
+Set 50: bounded CSV import/export through Spring multipart upload and CSV download
 ```
 
 ## Current project workflow
@@ -99,6 +100,8 @@ Useful endpoints:
 - `POST /api/projects/batch-plan`
 - `GET /api/projects/manifest`
 - `POST /api/projects/validate`
+- `POST /api/projects/imports/csv`
+- `GET /api/projects/exports/csv`
 - `GET /api/projects/exists/{projectCode}`
 - `GET /api/projects/snapshot`
 - `GET /api/projects/by-code/{projectCode}`
@@ -155,10 +158,10 @@ The project is a fictional interview-simulation environment and should not be pr
 
 ## Latest learning checkpoint
 
-Set 49 explains why GeoOps uses Java 17 even without heavy use of Java-17-specific syntax: the project is on Spring Boot 3.3.x, Java 17 is the minimum framework baseline for that generation, Java 17 is an LTS release, and the project enforces one consistent toolchain across local builds and CI.
+Set 50 adds real CSV project-data exchange. GeoOps now accepts bounded multipart CSV project imports and exports the current catalog as a downloadable CSV file. Imported rows still use the normal ProjectService validation, duplicate, catalog, and review-queue path.
 
-Evidence: `docs/sets/SET-049-WHY-JAVA-17.md`
+Evidence: `docs/sets/SET-050-DATA-IMPORT-EXPORT.md`
 
-Baseline/rationale ADR: `docs/architecture/ADR-JAVA-17-BASELINE.md`
+Current Sprint: `docs/process/SPRINT-005.md`
 
-Next anchor: **How are you importing and exporting data? Can you tell me the technical part of that?**
+Next anchor: **What challenge did you face while deserializing data?**
