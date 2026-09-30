@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 48/387+**
+**Status: 49/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -1584,3 +1584,54 @@ Set-48 evidence:
 Next exact original experience anchor:
 
 ⭐ **Why did you choose Java 17 if you are not using many Java 17-specific features?**
+
+## Set 49 — Latest Completed Set
+
+Anchor:
+
+⭐ **Why did you choose Java 17 if you are not using many Java 17-specific features?**
+
+GeoOps rationale:
+
+~~~text
+Spring Boot 3.3.x
+→ Java 17 minimum framework baseline
+
+Java 17 LTS
+→ conservative supported runtime target
+
+one toolchain
+→ local + Maven + CI + runtime verification
+
+modern features available
+→ use only when design benefits
+~~~
+
+Important boundary:
+- Java 17 is not justified by forcing Java-17-specific syntax everywhere.
+- `GeoProject` legitimately uses a record.
+- No sealed hierarchy is added artificially.
+- No Java migration history is claimed yet.
+
+Current counters:
+
+~~~text
+Completed Sets: 49
+Completed anchors: 49
+Unique master technical questions: 205
+Synthetic technical questions: 12
+Synthetic ⭐⭐ anchors: 0
+Status: 49/387+
+~~~
+
+Set-49 evidence:
+
+`docs/sets/SET-049-WHY-JAVA-17.md`
+
+Java-version rationale:
+
+`docs/architecture/ADR-JAVA-17-BASELINE.md`
+
+Next exact original experience anchor:
+
+⭐ **How are you importing and exporting data? Can you tell me the technical part of that?**
