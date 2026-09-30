@@ -3,9 +3,11 @@ package com.atlasgrid.geoops.project.validation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -15,6 +17,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class ProjectValidationExecutorConfiguration {
 
     static final int VALIDATION_THREADS = 4;
+    static final int VALIDATION_QUEUE_CAPACITY = 64;
 
     @Bean(name = "projectValidationExecutor", destroyMethod = "shutdown")
     ExecutorService projectValidationExecutor() {
@@ -30,9 +33,16 @@ public class ProjectValidationExecutorConfiguration {
             return thread;
         };
 
-        return Executors.newFixedThreadPool(
+        return new ThreadPoolExecutor(
                 VALIDATION_THREADS,
-                threadFactory
+                VALIDATION_THREADS,
+                0L,
+                TimeUnit.MILLISECONDS,
+                new ArrayBlockingQueue<>(
+                        VALIDATION_QUEUE_CAPACITY
+                ),
+                threadFactory,
+                new ThreadPoolExecutor.CallerRunsPolicy()
         );
     }
 }
