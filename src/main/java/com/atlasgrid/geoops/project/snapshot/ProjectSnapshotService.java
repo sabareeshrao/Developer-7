@@ -5,10 +5,14 @@ import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.EOFException;
 import java.io.IOException;
+import java.io.InvalidClassException;
 import java.io.ObjectInputFilter;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.OptionalDataException;
+import java.io.StreamCorruptedException;
 import java.util.Objects;
 
 /**
@@ -52,6 +56,7 @@ public class ProjectSnapshotService {
             return bytes.toByteArray();
         } catch (IOException exception) {
             throw new ProjectSnapshotException(
+                    ProjectSnapshotFailure.SERIALIZATION_FAILED,
                     "Unable to serialize GeoOps project snapshot",
                     exception
             );
@@ -70,6 +75,7 @@ public class ProjectSnapshotService {
 
             if (!(value instanceof ProjectSnapshotDocument snapshot)) {
                 throw new ProjectSnapshotException(
+                        ProjectSnapshotFailure.WRONG_ROOT_TYPE,
                         "Serialized data is not a GeoOps project snapshot"
                 );
             }
@@ -77,6 +83,7 @@ public class ProjectSnapshotService {
             if (snapshot.schemaVersion()
                     != ProjectSnapshotDocument.CURRENT_SCHEMA_VERSION) {
                 throw new ProjectSnapshotException(
+                        ProjectSnapshotFailure.UNSUPPORTED_SCHEMA,
                         "Unsupported GeoOps snapshot schema version: "
                                 + snapshot.schemaVersion()
                 );
@@ -85,12 +92,48 @@ public class ProjectSnapshotService {
             return snapshot;
         } catch (ProjectSnapshotException exception) {
             throw exception;
-        } catch (IOException | ClassNotFoundException exception) {
+        } catch (StreamCorruptedException
+                 | EOFException
+                 | OptionalDataException exception) {
             throw new ProjectSnapshotException(
-                    "Unable to deserialize GeoOps project snapshot",
+                    ProjectSnapshotFailure.CORRUPT_STREAM,
+                    "GeoOps project snapshot stream is corrupt or incomplete",
+                    exception
+            );
+        } catch (InvalidClassException exception) {
+            ProjectSnapshotFailure failure =
+                    isFilterRejection(exception)
+                            ? ProjectSnapshotFailure.REJECTED_TYPE
+                            : ProjectSnapshotFailure.INCOMPATIBLE_CLASS;
+
+            throw new ProjectSnapshotException(
+                    failure,
+                    failure == ProjectSnapshotFailure.REJECTED_TYPE
+                            ? "GeoOps project snapshot contains a disallowed type"
+                            : "GeoOps project snapshot is class-incompatible",
+                    exception
+            );
+        } catch (ClassNotFoundException exception) {
+            throw new ProjectSnapshotException(
+                    ProjectSnapshotFailure.MISSING_CLASS,
+                    "GeoOps project snapshot requires a class that is not available",
+                    exception
+            );
+        } catch (IOException exception) {
+            throw new ProjectSnapshotException(
+                    ProjectSnapshotFailure.IO_FAILURE,
+                    "Unable to read GeoOps project snapshot",
                     exception
             );
         }
+    }
+
+    private static boolean isFilterRejection(
+            InvalidClassException exception
+    ) {
+        String message = exception.getMessage();
+        return message != null
+                && message.contains("filter status: REJECTED");
     }
 
     private static ObjectInputFilter.Status filterSnapshot(

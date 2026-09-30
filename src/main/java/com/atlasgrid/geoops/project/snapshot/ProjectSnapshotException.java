@@ -1,15 +1,32 @@
 package com.atlasgrid.geoops.project.snapshot;
 
+import java.util.Objects;
+
 /**
  * Application exception for the trusted internal snapshot format.
  */
 public class ProjectSnapshotException extends RuntimeException {
 
-    public ProjectSnapshotException(String message) {
+    private final ProjectSnapshotFailure failure;
+
+    public ProjectSnapshotException(
+            ProjectSnapshotFailure failure,
+            String message
+    ) {
         super(message);
+        this.failure = Objects.requireNonNull(failure, "failure");
     }
 
-    public ProjectSnapshotException(String message, Throwable cause) {
+    public ProjectSnapshotException(
+            ProjectSnapshotFailure failure,
+            String message,
+            Throwable cause
+    ) {
         super(message, cause);
+        this.failure = Objects.requireNonNull(failure, "failure");
+    }
+
+    public ProjectSnapshotFailure failure() {
+        return failure;
     }
 }
