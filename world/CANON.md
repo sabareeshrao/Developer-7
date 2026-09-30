@@ -786,3 +786,20 @@ Established rules:
 - docs/architecture/ADR-CONCURRENT-REVIEW-STATE.md records the targeted concurrency boundary.
 - Set 37 adds seven new master technical questions.
 - Sprint 004 continues the concurrent-collections sequence.
+
+
+## Set 38 established facts — customized sorting for delivery preparation
+
+GeoOps now gives its existing custom project Comparator an explicit delivery-preparation business purpose.
+
+Established rules:
+- ProjectCatalog continues to preserve intake order.
+- Delivery preparation uses a separate sorted copy.
+- Full projects are sorted by coordinateReferenceSystem ascending and then projectCode ascending.
+- projectCode is the deterministic tie-breaker for projects sharing the same CRS.
+- GeoProject still does not implement Comparable because no single universal project order exists.
+- The reporting endpoint is now GET /api/projects/delivery-order.
+- The earlier /api/projects/sorting-preview endpoint is replaced by the delivery-order business endpoint.
+- ProjectSortingService still returns immutable sorting results and never mutates ProjectCatalog order.
+- Set 38 adds three new master technical questions and reuses four completed questions with ✅.
+- Sprint 004 continues the sorting sequence.
