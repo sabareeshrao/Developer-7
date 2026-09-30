@@ -45,8 +45,8 @@ public class ProjectReportController {
                 .summarize(projectService.findAll());
     }
 
-    @GetMapping("/sorting-preview")
-    public ProjectSortingView getProjectSortingPreview() {
+    @GetMapping("/delivery-order")
+    public ProjectSortingView getProjectDeliveryOrder() {
         return projectSortingService.sort(projectService.findAll());
     }
 
