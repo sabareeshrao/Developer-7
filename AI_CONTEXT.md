@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 37/387+**
+**Status: 38/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -1114,3 +1114,48 @@ Set 37 adds seven new master technical questions.
 Important remaining boundary: ProjectCatalog concurrency and cross-component transactionality are still future learning concerns.
 
 The next original source anchor asks whether customized sorting has been used and for what purpose.
+
+
+## Set 38 — Latest Completed Set
+
+Anchor:
+
+⭐ **Have you customized sorting before? If yes, for what purpose?**
+
+Set 38 turns the earlier sorting-preview behavior into a real delivery-preparation report:
+
+~~~text
+ProjectCatalog intake order
+        ↓ copy
+custom Comparator
+        ↓
+CRS ascending
+        ↓
+projectCode ascending tie-break
+        ↓
+delivery-order view
+~~~
+
+Endpoint evolution:
+
+~~~text
+OLD: GET /api/projects/sorting-preview
+NEW: GET /api/projects/delivery-order
+~~~
+
+GeoProject still has no global Comparable natural order because different business views can require different ordering rules.
+
+Latest learning state:
+
+~~~text
+Completed Sets: 38
+Completed anchors: 38
+Unique master technical questions covered: 173
+Synthetic technical questions covered: 10
+Synthetic ⭐⭐ anchors: 0
+Status: 38/387+
+~~~
+
+Set 38 adds three new master technical questions and reuses four questions with ✅.
+
+The next original source anchor asks about challenges implementing Functional Interfaces in legacy code.
