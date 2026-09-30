@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringWriter;
+import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -151,6 +152,18 @@ public class ProjectCsvTransferService {
             } catch (CSVException exception) {
                 throw new ProjectDataTransferException(
                         "CSV content is malformed",
+                        exception
+                );
+            } catch (UncheckedIOException exception) {
+                if (exception.getCause() instanceof CSVException csvException) {
+                    throw new ProjectDataTransferException(
+                            "CSV content is malformed",
+                            csvException
+                    );
+                }
+
+                throw new ProjectDataTransferIoException(
+                        "Unable to read CSV import data",
                         exception
                 );
             }
