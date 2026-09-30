@@ -1386,3 +1386,69 @@ Resolution policy:
 4. check for intentional class rename/removal;
 5. migrate/recreate or explicitly reject old snapshots when compatibility changed;
 6. inspect ClassLoader visibility only when the runtime architecture has multiple loader boundaries.
+
+
+## Set 56 established facts — Reflection diagnostics
+
+GeoOps uses Java Reflection in the trusted snapshot-compatibility diagnostics.
+
+- `SnapshotReflectionInspector` inspects runtime class metadata.
+- record components are read from `ProjectSnapshotEntry`.
+- declared instance-field names are read from `ProjectSnapshotDocument`.
+- the inspector does not call `setAccessible(true)`, mutate private fields, or invoke arbitrary methods.
+- Reflection stays out of normal project-intake business logic.
+
+## Set 57 established facts — conditional diagnostics
+
+The Reflection inspector is an optional Spring bean.
+
+```text
+geoops.snapshot.diagnostics.enabled=false
+→ no SnapshotReflectionInspector bean
+
+geoops.snapshot.diagnostics.enabled=true
+→ @ConditionalOnProperty
+→ SnapshotReflectionInspector bean
+```
+
+Default remains disabled. `ApplicationContextRunner` tests true, false, and missing-property behavior.
+
+## Set 58 established facts — custom annotation
+
+GeoOps defines runtime `@SnapshotField` metadata for `ProjectSnapshotEntry` record components.
+
+- target = `RECORD_COMPONENT`;
+- retention = `RUNTIME`;
+- the annotation carries a description and required flag;
+- `SnapshotReflectionInspector` reads the annotation through Reflection;
+- the custom annotation has a real diagnostic consumer.
+
+## Set 59 established facts — JVM memory evidence
+
+GeoOps now has `JvmMemoryDiagnosticsService` backed by the standard JDK `MemoryMXBean`.
+
+It captures:
+- heap used/committed/max;
+- non-heap used/committed;
+- pending-finalization count;
+- timestamp.
+
+One high-memory sample is not treated as proof of a leak. The investigation looks for retained-memory growth under comparable repeated workloads.
+
+No new public memory-diagnostics REST endpoint was added.
+
+## Set 60 established facts — bounded diagnostic history and leak-debug workflow
+
+The memory diagnostics history is bounded to the newest 120 samples with `ArrayDeque`.
+
+A regression test records 1,000 samples and proves the history remains at 120 entries.
+
+The documented JDK debugging workflow uses:
+- `jcmd <pid> GC.heap_info`;
+- `jcmd <pid> GC.class_histogram`;
+- `jcmd <pid> GC.heap_dump ...`;
+- Java Flight Recorder through `jcmd JFR.start`.
+
+This is a controlled development retention scenario, not a claimed production customer incident.
+
+VisualVM remains intentionally deferred to Set 61.

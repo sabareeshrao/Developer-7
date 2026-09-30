@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 55/387+**
+**Status: 60/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -1774,3 +1774,38 @@ ProjectCatalog
 Next exact original anchor:
 
 ⭐ **Have you used reflection somewhere in your project?**
+
+
+## Sets 56–60 — Latest Completed Batch
+
+**Status: 60/387+**
+
+- Set 56: snapshot-schema diagnostics using read-only Java Reflection.
+- Set 57: Reflection diagnostics enabled only through `@ConditionalOnProperty`.
+- Set 58: runtime custom `@SnapshotField` annotation consumed by the Reflection inspector.
+- Set 59: lightweight JVM heap/non-heap evidence using `MemoryMXBean`.
+- Set 60: bounded 120-sample memory history plus `jcmd`, heap-dump and JFR debugging runbook.
+
+Current diagnostic flow:
+
+```text
+snapshot schema
+→ Reflection
+→ optional conditional bean
+→ custom runtime annotation metadata
+
+JVM
+→ MemoryMXBean
+→ JvmMemorySnapshot
+→ bounded MemorySnapshotHistory
+→ newest 120 samples
+```
+
+Source-bank traceability note:
+- Set 56 already had known Master ID 711.
+- Exact 2,308-bank IDs for Sets 57–60 were not available in the repository or accessible source files, so their original 387-bank source indices are recorded instead of inventing master IDs.
+- technical questions added for unavailable bank coverage are marked 💡.
+
+Next exact original anchor:
+
+⭐ **Have you worked with VisualVM?**

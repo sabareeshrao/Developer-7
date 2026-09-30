@@ -1639,3 +1639,136 @@ Synthetic job-experience anchors created so far: 0
 Unique master technical questions covered: 231
 Synthetic technical questions covered: 15
 Current denominator: 387+
+
+
+---
+
+# Set 56
+
+**Status: 56/387+**
+
+- [x] ⭐ [Master 711] Have you used reflection somewhere in your project?
+
+## Part A
+- [x] ✅ [Master 694] Do you know what ClassLoaders are?
+- [x] 💡 What is Java Reflection and what runtime metadata can it inspect?
+- [x] 💡 What is the difference between getFields() and getDeclaredFields()?
+- [x] 💡 What risks come with using Reflection to bypass encapsulation?
+
+## Set 56 completion evidence
+- docs/sets/SET-056-REFLECTION.md
+- docs/process/SPRINT-006.md
+- src/main/java/com/atlasgrid/geoops/project/snapshot/SnapshotTypeReport.java
+- src/main/java/com/atlasgrid/geoops/project/snapshot/SnapshotReflectionInspector.java
+- src/test/java/com/atlasgrid/geoops/project/snapshot/SnapshotReflectionInspectorTest.java
+
+Set 56 learning items completed: 5 / 5
+
+---
+
+# Set 57
+
+**Status: 57/387+**
+
+- [x] ⭐ [Source 66] Have you used Conditional annotations in Spring Boot?
+
+## Part A
+- [x] ✅ [Master 1697] What is the role of @SpringBootApplication annotation in a Spring Boot application?
+- [x] ✅ [Master 1698] What are the components that make up @SpringBootApplication annotation?
+- [x] 💡 What does @ConditionalOnProperty do in Spring Boot?
+- [x] 💡 What is the difference between havingValue and matchIfMissing?
+- [x] 💡 When should optional diagnostic or integration beans be conditional instead of always loaded?
+
+## Set 57 completion evidence
+- docs/sets/SET-057-CONDITIONAL-ANNOTATIONS.md
+- docs/process/SPRINT-006.md
+- src/main/java/com/atlasgrid/geoops/project/snapshot/SnapshotDiagnosticsConfiguration.java
+- src/test/java/com/atlasgrid/geoops/project/snapshot/SnapshotDiagnosticsConfigurationTest.java
+- src/main/resources/application.yml
+
+Set 57 learning items completed: 6 / 6
+
+---
+
+# Set 58
+
+**Status: 58/387+**
+
+- [x] ⭐ [Source 67] Have you tried creating a custom annotation?
+
+## Part A
+- [x] ✅ 💡 What is Java Reflection and what runtime metadata can it inspect?
+- [x] 💡 How do you create a custom Java annotation using @interface?
+- [x] 💡 What do @Target, @Retention, and @Documented control?
+- [x] 💡 How can a runtime custom annotation be read through Reflection?
+
+## Set 58 completion evidence
+- docs/sets/SET-058-CUSTOM-ANNOTATION.md
+- docs/process/SPRINT-006.md
+- src/main/java/com/atlasgrid/geoops/project/snapshot/SnapshotField.java
+- src/main/java/com/atlasgrid/geoops/project/snapshot/SnapshotFieldMetadata.java
+- src/main/java/com/atlasgrid/geoops/project/snapshot/ProjectSnapshotEntry.java
+- src/main/java/com/atlasgrid/geoops/project/snapshot/SnapshotReflectionInspector.java
+- src/test/java/com/atlasgrid/geoops/project/snapshot/SnapshotFieldAnnotationTest.java
+
+Set 58 learning items completed: 5 / 5
+
+---
+
+# Set 59
+
+**Status: 59/387+**
+
+- [x] ⭐ [Source 68] How do you find memory leakage in a Java Spring Boot project?
+
+## Part A
+- [x] 💡 What does a memory leak mean in a garbage-collected Java application?
+- [x] 💡 How can Java still have a memory leak when the JVM has Garbage Collection?
+- [x] 💡 What JVM memory evidence should you compare before calling high memory a leak?
+- [x] 💡 Why does one high heap-usage sample not prove a memory leak?
+
+## Set 59 completion evidence
+- docs/sets/SET-059-FIND-MEMORY-LEAK.md
+- docs/process/SPRINT-006.md
+- docs/operations/JVM-MEMORY-LEAK-DETECTION.md
+- src/main/java/com/atlasgrid/geoops/diagnostics/memory/JvmMemorySnapshot.java
+- src/main/java/com/atlasgrid/geoops/diagnostics/memory/JvmMemoryDiagnosticsService.java
+- src/test/java/com/atlasgrid/geoops/diagnostics/memory/JvmMemoryDiagnosticsServiceTest.java
+
+Set 59 learning items completed: 5 / 5
+
+---
+
+# Set 60
+
+**Status: 60/387+**
+
+- [x] ⭐ [Source 69] How did you debug a Memory Leak in your project, and what tools specifically did you use?
+
+## Part A
+- [x] ✅ 💡 What does a memory leak mean in a garbage-collected Java application?
+- [x] ✅ 💡 What JVM memory evidence should you compare before calling high memory a leak?
+- [x] 💡 What is the difference between a class histogram and a heap dump?
+- [x] 💡 How do retained paths and GC roots help identify why an object cannot be collected?
+- [x] 💡 How can Java Flight Recorder help during a memory investigation?
+- [x] 💡 Why should an in-process diagnostics history be bounded?
+
+## Set 60 completion evidence
+- docs/sets/SET-060-DEBUG-MEMORY-LEAK.md
+- docs/process/SPRINT-006.md
+- docs/operations/JVM-MEMORY-LEAK-DEBUGGING.md
+- docs/architecture/ADR-BOUNDED-MEMORY-DIAGNOSTIC-HISTORY.md
+- src/main/java/com/atlasgrid/geoops/diagnostics/memory/MemorySnapshotHistory.java
+- src/main/java/com/atlasgrid/geoops/diagnostics/memory/JvmMemoryDiagnosticsService.java
+- src/test/java/com/atlasgrid/geoops/diagnostics/memory/MemorySnapshotHistoryTest.java
+- src/test/java/com/atlasgrid/geoops/diagnostics/memory/JvmMemoryDiagnosticsServiceTest.java
+
+Set 60 learning items completed: 7 / 7
+
+---
+
+Completed job-experience anchors: 60
+Synthetic job-experience anchors created so far: 0
+Unique master technical questions covered: 231
+Synthetic technical questions covered: 32
+Current denominator: 387+

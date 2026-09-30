@@ -596,3 +596,54 @@ I added a typed failure model and regression tests for those cases. We also keep
 Yes, I handled `ClassNotFoundException` in the GeoOps internal snapshot deserialization path. I added a regression test that changes the serialized snapshot's class descriptor to a nonexistent class and verifies that the real `ObjectInputStream` failure is classified as `MISSING_CLASS`.
 
 My resolution approach is to identify which class cannot be resolved, verify the producer and consumer artifacts are aligned, and confirm the expected snapshot class or dependency is present on the runtime classpath. If the class was intentionally renamed or removed, I would migrate or recreate the old snapshot rather than swallowing the exception or adding an arbitrary JAR.
+
+
+---
+
+## Set 56 — Status: 56/387+
+
+### ⭐ Have you used reflection somewhere in your project?
+
+Yes. In GeoOps I used Reflection in the internal snapshot-compatibility diagnostics. After we introduced Java-native snapshot DTOs, I added a small inspector that reads the runtime structure of `ProjectSnapshotEntry` and `ProjectSnapshotDocument`.
+
+It uses `Class`, `RecordComponent`, and `Field` metadata to report record components and declared instance fields. I deliberately kept it read-only and did not use `setAccessible(true)` or mutate private state, because the goal was schema diagnostics rather than bypassing encapsulation.
+
+---
+
+## Set 57 — Status: 57/387+
+
+### ⭐ Have you used Conditional annotations in Spring Boot?
+
+Yes. In GeoOps I used Spring Boot conditional configuration for the snapshot Reflection diagnostics. The inspector is useful during compatibility investigation, but it is not required for normal GIS project intake, CSV exchange, or REST processing.
+
+I registered it with `@ConditionalOnProperty`. By default `geoops.snapshot.diagnostics.enabled` is false, so the bean does not exist. When the property is explicitly true, Spring creates the Reflection inspector. I also tested the true, false, and missing-property cases with `ApplicationContextRunner`.
+
+---
+
+## Set 58 — Status: 58/387+
+
+### ⭐ Have you tried creating a custom annotation?
+
+Yes. In GeoOps I created a custom annotation called `@SnapshotField` for the trusted internal snapshot schema. It carries runtime metadata such as a field description and whether that snapshot component is required.
+
+I restricted it to record components with `@Target`, retained it at runtime with `@Retention(RUNTIME)`, and then extended our Reflection inspector to read the annotation from `ProjectSnapshotEntry`. That gave the annotation a real consumer instead of adding custom annotation syntax only for demonstration.
+
+---
+
+## Set 59 — Status: 59/387+
+
+### ⭐ How do you find memory leakage in a Java Spring Boot project?
+
+In GeoOps I find a possible memory leak by looking for retained-memory growth over repeated comparable workloads, not by treating one high heap reading as a leak. I added a JVM diagnostics service based on `MemoryMXBean` that captures heap, non-heap, and pending-finalization values with a timestamp.
+
+I take a baseline, repeat the same type of processing, observe whether the JVM settles after normal GC activity, and compare the memory floor over time. If retained heap keeps rising, that gives me evidence to move to a class histogram and heap-dump retained-path analysis to find which objects are still strongly referenced.
+
+---
+
+## Set 60 — Status: 60/387+
+
+### ⭐ How did you debug a Memory Leak in your project, and what tools specifically did you use?
+
+In GeoOps I debugged a controlled memory-retention issue in the JVM diagnostics work. The risky design was keeping every `JvmMemorySnapshot` in an unbounded history, which would keep all of those samples strongly reachable for the lifetime of the application.
+
+I used repeated JVM memory samples to confirm the retention trend. For deeper analysis my JDK-tool workflow uses `jcmd GC.class_histogram` to identify growing live classes, `jcmd GC.heap_dump` for retained-path and GC-root analysis, and Java Flight Recorder to correlate allocation activity with the workload. The fix was a bounded `ArrayDeque` that retains only the newest 120 samples, with a regression test proving that 1,000 writes cannot grow the history past that limit.

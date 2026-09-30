@@ -4,27 +4,27 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "55/387+",
+  "status": "60/387+",
   "completed": {
-    "sets": 55,
-    "jobExperienceAnchors": 55,
+    "sets": 60,
+    "jobExperienceAnchors": 60,
     "uniqueMasterTechnicalQuestions": 231,
-    "syntheticTechnicalQuestions": 15
+    "syntheticTechnicalQuestions": 32
   },
   "current": {
-    "set": 55,
-    "anchorMasterQuestion": 710,
-    "anchor": "Have you ever seen ClassNotFoundException in your project, and if yes, how can we resolve it?",
+    "set": 60,
+    "anchorSourceQuestion": 69,
+    "anchor": "How did you debug a Memory Leak in your project, and what tools specifically did you use?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-055-CLASSNOTFOUND-DESERIALIZATION.md"
+    "evidence": "docs/sets/SET-060-DEBUG-MEMORY-LEAK.md"
   },
   "next": {
-    "set": 56,
-    "anchorMasterQuestion": 711,
-    "anchor": "Have you used reflection somewhere in your project?"
+    "set": 61,
+    "anchorSourceQuestion": 70,
+    "anchor": "Have you worked with VisualVM?"
   },
-  "nextAction": "derive Set 56 around exactly one reflection experience anchor; inspect current Spring/Jackson/class-loading code; search the master bank for Reflection questions; reuse covered class-loading questions with ✅; keep Master IDs internal only; end with Experience Answer",
+  "nextAction": "derive Set 61 around exactly one VisualVM experience anchor; inspect the Set 59-60 JVM memory diagnostics and runbooks; search the 2,308 technical bank again before creating synthetic questions; reuse covered memory-leak questions with ✅; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
@@ -45,9 +45,9 @@
     "qualityGate": "mvn clean verify + SpotBugs",
     "firstGreenCodeCommit": "7e154b98e9496969b3e5bf5a04748b62367b51aa",
     "report": "docs/maintenance/POST-SET-050-CODEBASE-AUDIT.md",
-    "nextLearningSet": 51,
-    "latestLearningCheckpoint": "set-055",
-    "latestVerifiedCodeCommit": "8376032f9dcd76f1876a79f42dcc3d61d7fb8113",
+    "nextLearningSet": 61,
+    "latestLearningCheckpoint": "set-060",
+    "latestVerifiedCodeCommit": "7a3649f96d2e9fe94b516d28850cb380cf62a7e4",
     "latestVerifiedCodeCi": "green"
   }
 }
