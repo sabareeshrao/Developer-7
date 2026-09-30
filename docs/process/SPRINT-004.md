@@ -757,3 +757,46 @@ Evidence:
 - FunctionalProjectValidationRuleAdapterTest.java
 - ProjectServiceTestFactory.java
 - Set 39 evidence document
+
+---
+
+### Story GEO-40 — Use Stream API for CRS delivery selection
+
+**Outcome:** GeoOps can select project codes for one CRS using a read-only Stream pipeline without changing ProjectCatalog intake order.
+
+Acceptance criteria:
+- Add ProjectDeliverySelection as an immutable result.
+- Add ProjectDeliverySelectionService.
+- Use projects.stream().
+- Use filter(...) to keep only projects matching the requested CRS.
+- Use map(...) to transform matching GeoProject objects into project codes.
+- Use sorted() for deterministic output.
+- Use toList() as the terminal operation.
+- Expose GET /api/projects/delivery-selection?crs=....
+- Verify source project order is unchanged.
+- Return an empty immutable selection when no project matches.
+- Keep ProjectCollectionSummaryService as an imperative loop because one pass updates three related accumulators and a Stream rewrite would be less clear.
+
+~~~text
+ProjectCatalog snapshot
+        ↓
+stream()
+        ↓
+filter(CRS)
+        ↓
+map(projectCode)
+        ↓
+sorted()
+        ↓
+toList()
+        ↓
+delivery selection
+~~~
+
+Evidence:
+- ProjectDeliverySelection.java
+- ProjectDeliverySelectionService.java
+- ProjectReportController.java
+- ProjectDeliverySelectionServiceTest.java
+- ProjectDeliverySelectionIntegrationTest.java
+- Set 40 evidence document
