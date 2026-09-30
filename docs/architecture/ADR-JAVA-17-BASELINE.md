@@ -137,3 +137,27 @@ This ADR does **not** claim:
 
 Any future migration story must be introduced by its own source anchor and repository evidence.
 
+## Post-Set-50 maintenance evolution
+
+The historical Set 49 rationale referenced Spring Boot 3.3.5 because that was the project framework version at that time.
+
+After Set 50, the project was upgraded to **Spring Boot 4.1.1** as a maintenance change.
+
+The Java baseline did **not** change:
+
+```text
+Java 17
+→ still enforced by Maven compiler release
+→ still enforced by Maven Enforcer [17,18)
+→ still installed by GitHub Actions
+→ still verified by Java17BaselineTest
+```
+
+Spring Boot 4.1.1 still has Java 17 as its minimum Java version, so the original Java 17 platform decision remains compatible with the maintained framework baseline.
+
+Current Spring Boot system requirements:
+
+https://docs.spring.io/spring-boot/system-requirements.html
+
+This framework upgrade is maintenance evolution, not a claim that a historical job-experience migration occurred during Sets 46–49.
+
