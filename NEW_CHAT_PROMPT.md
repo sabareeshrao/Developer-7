@@ -1,4 +1,4 @@
-# Developer-7 / GeoOps — New Chat Handover After Set 44
+# Developer-7 / GeoOps — New Chat Handover After Set 45
 
 Continue my existing GitHub project:
 
@@ -12,32 +12,32 @@ Do not rely on previous chat memory and do not ask me to re-paste earlier Sets. 
 
 ## Current verified checkpoint
 
-Set 44 is complete and pushed.
+Set 45 is complete and pushed.
 
-Verified Set-44 completion checkpoint:
+Verified Set-45 completion checkpoint:
 
-`7e057d1ba2dcac963289bec3f8eb6b5418445905`
+`a8b2d0d07a67e5130ab13db1cc3f017a75ea7d5c`
 
 Current learning state:
 
 ~~~text
-Completed Sets: 44
-Completed original experience anchors: 44
+Completed Sets: 45
+Completed original experience anchors: 45
 Synthetic experience anchors: 0
 
-Unique master technical questions: 197
+Unique master technical questions: 201
 Synthetic technical questions: 10
 
-Status: 44/387+
+Status: 45/387+
 ~~~
 
-CI / Maven verification for the Set-44 completion checkpoint is green.
+CI / Maven verification for the Set-45 completion checkpoint is green.
 
 If GitHub contains anything newer than this handover, GitHub wins.
 
 ## Mandatory startup
 
-Before doing Set 45:
+Before doing Set 46:
 
 1. Inspect the latest 10–20 commits.
 2. Read `CONTINUATION_PROTOCOL.md`.
@@ -45,12 +45,12 @@ Before doing Set 45:
 4. Read `state/LEARNING_TRACKER.md`.
 5. Read `world/CANON.md`.
 6. Read `AI_CONTEXT.md`.
-7. Read `docs/sets/SET-044-OPTIONAL-SCENARIO.md`.
+7. Read `docs/sets/SET-045-JAVA-8-FEATURES.md`.
 8. Read `docs/process/SPRINT-004.md`.
 9. Inspect implementation/tests relevant to the next Set.
 10. Check the latest GitHub Actions state.
 
-If any partial Set-45 work already exists, reconcile it instead of starting duplicate work.
+If any partial Set-46 work already exists, reconcile it instead of starting duplicate work.
 
 ## Core Set rule
 
@@ -108,7 +108,6 @@ Maximum 7 technical questions per Part.
 Use the 2,308-question master bank whenever possible.
 
 Before selecting a supporting question:
-
 1. Search the master bank.
 2. Check `state/LEARNING_TRACKER.md`.
 3. Mark previously completed questions ✅.
@@ -117,93 +116,51 @@ Before selecting a supporting question:
 6. Avoid semantic duplicates.
 7. Keep every supporting question directly related to the current anchor.
 
+## Current Java 8 evidence
+
+GeoOps currently uses:
+- lambda expressions;
+- Functional Interfaces;
+- Stream API;
+- Optional;
+- `java.time.Instant`;
+- method references.
+
+Set 45 cross-feature proof:
+
+`src/test/java/com/atlasgrid/geoops/project/application/ProjectJava8FeatureUsageIntegrationTest.java`
+
+Set 45 evidence:
+
+`docs/sets/SET-045-JAVA-8-FEATURES.md`
+
+Do not create duplicate Stream/Optional/lambda features just to answer future Java-version questions.
+
+## Set 46 — required next anchor
+
+The next exact original experience question is:
+
+⭐ **Which Java version do you use in your current project?**
+
+This must be the Set 46 anchor.
+
+Do not skip it and do not combine it with another experience anchor.
+
+The established project baseline is Java 17. Search the master bank and tracker for Java-version/JDK questions before selecting supporting questions.
+
+Reuse completed JVM/JDK/Java 8 concepts with ✅ where appropriate.
+
+Do not claim Java 11/17 features are used unless the repository actually uses them or Set 46 adds genuine evidence.
+
 ## Fiction boundary
 
 Company: `AtlasGrid Geospatial Systems`
 
 Product: `GeoOps`
 
-Domain: GIS/geospatial project intake, validation, processing, quality review and delivery.
-
 GeoOps is a fictional interview-simulation world.
 
 Never invent customers, production incidents, team size, scale, metrics, or technologies and represent them as real employment facts.
-
-## Current technology baseline
-
-~~~text
-Java 17
-Maven
-Spring Boot
-Spring MVC
-Bean Validation
-Actuator
-Lombok
-JUnit 5
-GitHub Actions
-~~~
-
-Persistence is still intentionally in-memory.
-
-Do not prematurely add PostgreSQL/PostGIS, security, Kafka, Redis, Docker, Kubernetes, monitoring, etc. They should enter only when the learning sequence reaches them.
-
-## Optional evolution through Set 44
-
-Optional is an established GeoOps query-boundary convention.
-
-Current contracts:
-
-~~~java
-Optional<GeoProject> findByProjectCode(String projectCode);
-
-Optional<GeoProject> findByIntakePosition(
-        int intakePosition
-);
-~~~
-
-REST behavior:
-
-~~~text
-Optional present
-→ ResponseEntity.of(...)
-→ HTTP 200
-
-Optional empty
-→ ResponseEntity.of(...)
-→ HTTP 404
-~~~
-
-Set 44's concrete scenario is:
-
-~~~text
-valid projectCode
-→ ProjectCatalog.findByProjectCode(...)
-→ Optional<GeoProject>
-   ├── present → HTTP 200
-   └── empty   → HTTP 404
-~~~
-
-Normal lookup absence is not an exception.
-
-Null project-code input remains separate from ordinary absence.
-
-Do not create a third Optional endpoint merely to demonstrate Optional.
-
-## Set 45 — required next anchor
-
-The next exact original experience question is:
-
-⭐ **Which Java 8 features do you use most of the time?**
-
-This must be the Set 45 anchor.
-
-Do not skip it and do not combine it with another experience anchor.
-
-First search the master question bank and tracker.
-
-Reuse previously completed Java 8 concepts with ✅ where appropriate.
-
-Build only genuine new GeoOps evidence if needed; do not duplicate existing Stream, Optional, lambda, collection, or comparator features merely for coverage.
 
 ## Experience Answer rule
 
@@ -227,7 +184,7 @@ A Set is not complete until its Experience Answer is also added there.
 
 ## Completion gate
 
-Do not declare Set 45 complete until all applicable items are complete:
+Do not declare Set 46 complete until all applicable items are complete:
 
 ~~~text
 implementation/evidence
@@ -236,7 +193,7 @@ tests
 +
 CI green
 +
-docs/sets/SET-045-*.md
+docs/sets/SET-046-*.md
 +
 Sprint/process docs
 +
@@ -259,6 +216,6 @@ If CI fails, fix it before advancing the tracker.
 
 After recovering repository state, proceed directly with:
 
-**Set 45**
+**Set 46**
 
 Do not ask me to repeat prior Sets or explain the workflow again.
