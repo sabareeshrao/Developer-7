@@ -525,3 +525,13 @@ So when I say Java 17 is the version I’m currently working on, it is not just 
 The Java version we use in GeoOps is **Java 17**. We keep that version consistent across the project: Maven compiles for Java 17, the repository's `.java-version` file is set to 17, GitHub Actions uses Temurin 17, and Maven Enforcer prevents the project from being built with a different Java runtime.
 
 So Java 17 is not just what I select in the IDE; it is the enforced Java version for the build and test pipeline as well.
+
+---
+
+## Set 49 — Status: 49/387+
+
+### ⭐ Why did you choose Java 17 if you are not using many Java 17-specific features?
+
+We chose **Java 17** for GeoOps mainly as a project and platform baseline, not because we needed to use every Java 17 language feature. Our application is on Spring Boot 3.3.x, and that Spring Boot generation requires Java 17 or newer. Java 17 is also an LTS release, so it gives us a stable baseline for development, builds, CI, and runtime.
+
+I separate the JDK-version decision from the feature-level coding decision. We already use a record where it fits the `GeoProject` data model, but I would not introduce sealed classes or rewrite working code just to say we are using Java 17 features. The main value is having a supported, consistent modern platform and then adopting individual features only where they improve the design.
