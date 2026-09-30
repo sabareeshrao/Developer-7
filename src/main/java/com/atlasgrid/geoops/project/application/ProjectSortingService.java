@@ -12,11 +12,13 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Produces deterministic sorted views without mutating ProjectCatalog order.
+ * Produces the deterministic project order used during delivery preparation
+ * without mutating ProjectCatalog intake order.
  *
- * <p>Arrays.sort() is used for a project-code array. Collections.sort() is
- * used for a mutable copy of GeoProject records with an explicit Comparator,
- * because GeoProject does not define one global natural ordering.</p>
+ * <p>The delivery report includes an alphabetic project-code index plus a
+ * business-specific project ordering grouped by CRS and then by project code.
+ * GeoProject intentionally has no universal natural ordering, so this use case
+ * supplies an explicit Comparator.</p>
  */
 @Service
 public class ProjectSortingService {
