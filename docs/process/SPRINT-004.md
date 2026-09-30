@@ -978,3 +978,29 @@ Evidence:
 - .github/workflows/ci.yml
 - GeoProject.java
 - Java17BaselineTest.java
+
+---
+
+### Story GEO-47 — Confirm the current working Java version
+
+**Outcome:** GeoOps can answer the present-tense Java-version experience question using the already-enforced Java 17 project baseline without duplicating infrastructure.
+
+Acceptance criteria:
+- Keep `.java-version` at 17.
+- Keep Maven compilation and Enforcer rules at Java 17.
+- Keep GitHub Actions on Temurin 17.
+- Reuse `Java17BaselineTest` as executable proof.
+- Keep `GeoProject` as existing record evidence.
+- Do not add a duplicate endpoint, plugin, script, or test solely because the experience question is phrased differently.
+- Reuse all supporting Java-version technical questions with ✅.
+- Preserve the later separate Java-version experience anchors.
+- Keep CI green.
+
+Evidence:
+- docs/sets/SET-047-CURRENT-JAVA-VERSION.md
+- docs/architecture/ADR-JAVA-17-BASELINE.md
+- pom.xml
+- .java-version
+- .github/workflows/ci.yml
+- GeoProject.java
+- Java17BaselineTest.java
