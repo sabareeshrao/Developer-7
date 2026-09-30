@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 44/387+**
+**Status: 45/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -1405,3 +1405,55 @@ Set-44 evidence:
 Next exact original experience anchor:
 
 ⭐ **Which Java 8 features do you use most of the time?**
+
+## Set 45 — Latest Completed Set
+
+Anchor:
+
+⭐ **Which Java 8 features do you use most of the time?**
+
+GeoOps has repository evidence for these commonly used Java 8 features:
+
+~~~text
+Lambda / Functional Interface
+→ project-code validation
+
+Stream API
+→ CRS delivery selection
+→ project lookup
+
+Optional
+→ normal lookup absence
+
+java.time.Instant
+→ project creation timestamps
+→ catalog snapshots
+
+Method reference
+→ GeoProject::projectCode
+~~~
+
+Set 45 adds:
+
+`ProjectJava8FeatureUsageIntegrationTest`
+
+The test proves those features participate in one real project flow without adding an interview-only production endpoint.
+
+Current counters:
+
+~~~text
+Completed Sets: 45
+Completed anchors: 45
+Unique master technical questions: 201
+Synthetic technical questions: 10
+Synthetic ⭐⭐ anchors: 0
+Status: 45/387+
+~~~
+
+Set-45 evidence:
+
+`docs/sets/SET-045-JAVA-8-FEATURES.md`
+
+Next exact original experience anchor:
+
+⭐ **Which Java version do you use in your current project?**
