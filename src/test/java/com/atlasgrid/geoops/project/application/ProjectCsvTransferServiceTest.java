@@ -66,7 +66,7 @@ class ProjectCsvTransferServiceTest {
         assertThat(csv)
                 .startsWith(ProjectCsvTransferService.HEADER)
                 .contains(
-                        "TX-AUS-051,"Austin, Export Survey",EPSG:4326"
+                        "TX-AUS-051,\"Austin, Export Survey\",EPSG:4326"
                 );
     }
 }
