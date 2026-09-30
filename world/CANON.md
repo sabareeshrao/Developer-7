@@ -896,3 +896,53 @@ Established rules:
 - ProjectOptionalBoundaryIntegrationTest proves both boundaries together.
 - Set 43 adds one new master technical question and reuses six completed questions with ✅.
 - Sprint 004 continues the Modern Java sequence.
+
+## Set 44 established facts — concrete Optional project-code scenario
+
+Anchor:
+
+⭐ **Can you tell me a particular scenario where you used Optional?**
+
+The canonical concrete Optional scenario is project lookup by project code.
+
+~~~text
+GET /api/projects/by-code/{projectCode}
+        ↓
+ProjectQueryController
+        ↓
+ProjectService.findByProjectCode(...)
+        ↓
+ProjectCatalog.findByProjectCode(...)
+        ↓
+Stream.findFirst()
+        ↓
+Optional<GeoProject>
+   ├── present → ResponseEntity.of(...) → HTTP 200
+   └── empty   → ResponseEntity.of(...) → HTTP 404
+~~~
+
+Established rules:
+- a valid project code can legitimately have no matching project;
+- normal absence returns Optional.empty(), not null and not an exception;
+- null projectCode remains invalid caller input and is separate from ordinary absence;
+- the service preserves the Optional return contract;
+- the REST boundary uses ResponseEntity.of(...);
+- production code does not blindly call Optional.get();
+- no third Optional endpoint was created merely for interview coverage;
+- Set 44 reuses seven completed Optional technical questions with ✅;
+- unique master technical-question coverage remains 197;
+- synthetic technical-question coverage remains 10;
+- Sprint 004 continues the Modern Java sequence.
+
+Latest learning state:
+
+~~~text
+Completed Sets: 44
+Completed anchors: 44
+Unique master technical questions covered: 197
+Synthetic technical questions covered: 10
+Synthetic ⭐⭐ anchors: 0
+Status: 44/387+
+~~~
+
+The next original source anchor asks: Which Java 8 features do you use most of the time?
