@@ -12,19 +12,11 @@ import java.util.Optional;
 import java.util.Set;
 
 /**
- * Owns the mutable in-memory collections used by the current GeoOps project
- * catalog.
+ * Thread-safe owner of the current in-memory GeoOps project catalog.
  *
- * <p>The class programs to List and Set interfaces while choosing ArrayList
- * and HashSet for the current behavior. ArrayList is a good fit because project
- * intake is append-oriented, order matters, and the operations team can also
- * read a project efficiently by its intake position.</p>
- *
- * <p>The class never exposes its mutable collections directly; callers receive
- * immutable snapshots.</p>
- *
- * <p>ProjectIdentity is immutable, so values stored in the hash-based identity
- * Set cannot change their equality/hashCode state after insertion.</p>
+ * <p>The implementation deliberately keeps ArrayList and HashSet because their
+ * semantics were established by earlier learning Sets. Synchronization stays
+ * inside this owner so callers never coordinate the collections themselves.</p>
  */
 @Component
 public class ProjectCatalog {
@@ -32,7 +24,7 @@ public class ProjectCatalog {
     private final List<GeoProject> projects = new ArrayList<>();
     private final Set<ProjectIdentity> projectIdentities = new HashSet<>();
 
-    public boolean add(GeoProject project) {
+    public synchronized boolean add(GeoProject project) {
         Objects.requireNonNull(project, "project");
 
         ProjectIdentity identity = new ProjectIdentity(project.projectCode());
@@ -45,15 +37,41 @@ public class ProjectCatalog {
         return true;
     }
 
-    public List<GeoProject> findAll() {
+    /**
+     * Adds a whole batch or none of it.
+     *
+     * <p>Both conflicts with the existing catalog and duplicates inside the
+     * incoming batch are detected before either backing collection is mutated.</p>
+     */
+    public synchronized void addAllAtomically(List<GeoProject> newProjects) {
+        Objects.requireNonNull(newProjects, "newProjects");
+
+        List<GeoProject> projectsToAdd = List.copyOf(newProjects);
+        Set<ProjectIdentity> incomingIdentities = new HashSet<>();
+
+        for (GeoProject project : projectsToAdd) {
+            Objects.requireNonNull(project, "project");
+
+            ProjectIdentity identity =
+                    new ProjectIdentity(project.projectCode());
+
+            if (projectIdentities.contains(identity)
+                    || !incomingIdentities.add(identity)) {
+                throw new DuplicateProjectException(
+                        project.projectCode()
+                );
+            }
+        }
+
+        projectIdentities.addAll(incomingIdentities);
+        projects.addAll(projectsToAdd);
+    }
+
+    public synchronized List<GeoProject> findAll() {
         return List.copyOf(projects);
     }
 
-    /**
-     * Returns the most recently accepted projects while preserving their
-     * original intake order within the returned window.
-     */
-    public List<GeoProject> findRecent(int limit) {
+    public synchronized List<GeoProject> findRecent(int limit) {
         if (limit <= 0 || projects.isEmpty()) {
             return List.of();
         }
@@ -65,10 +83,9 @@ public class ProjectCatalog {
         );
     }
 
-    /**
-     * Returns a project using a human-friendly, 1-based intake position.
-     */
-    public Optional<GeoProject> findByIntakePosition(int intakePosition) {
+    public synchronized Optional<GeoProject> findByIntakePosition(
+            int intakePosition
+    ) {
         if (intakePosition < 1 || intakePosition > projects.size()) {
             return Optional.empty();
         }
@@ -76,7 +93,7 @@ public class ProjectCatalog {
         return Optional.of(projects.get(intakePosition - 1));
     }
 
-    public boolean containsProjectCode(String projectCode) {
+    public synchronized boolean containsProjectCode(String projectCode) {
         Objects.requireNonNull(projectCode, "projectCode");
 
         return projectIdentities.contains(
@@ -84,7 +101,9 @@ public class ProjectCatalog {
         );
     }
 
-    public Optional<GeoProject> findByProjectCode(String projectCode) {
+    public synchronized Optional<GeoProject> findByProjectCode(
+            String projectCode
+    ) {
         Objects.requireNonNull(projectCode, "projectCode");
 
         return projects.stream()
@@ -92,7 +111,7 @@ public class ProjectCatalog {
                 .findFirst();
     }
 
-    public int size() {
+    public synchronized int size() {
         return projects.size();
     }
 }
