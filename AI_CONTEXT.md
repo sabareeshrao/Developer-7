@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 50/387+**
+**Status: 55/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -1748,3 +1748,29 @@ Next exact anchor remains:
 
 ⭐ **What challenge did you face while deserializing data?**
 
+
+
+## Sets 51–55 — Latest Completed Batch
+
+**Status: 55/387+**
+
+- Set 51: strict Spring/Jackson JSON deserialization; known snake_case aliases accepted, unknown properties rejected.
+- Set 52: trusted internal Java snapshot serialization with dedicated Serializable DTOs and an ObjectInputFilter allowlist.
+- Set 53: explicit JSON vs CSV vs native Java serialization boundaries.
+- Set 54: typed snapshot failure classification with regression tests.
+- Set 55: real ClassNotFoundException deserialization regression and classpath/ClassLoader compatibility policy.
+
+Current snapshot flow:
+
+```text
+ProjectCatalog
+→ dedicated snapshot DTOs
+→ ObjectOutputStream
+→ trusted bytes
+→ ObjectInputStream + allowlist filter
+→ ProjectSnapshotDocument
+```
+
+Next exact original anchor:
+
+⭐ **Have you used reflection somewhere in your project?**

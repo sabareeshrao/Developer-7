@@ -1328,3 +1328,61 @@ Next source anchor remains:
 
 ⭐ **What challenge did you face while deserializing data?**
 
+
+
+## Set 51 established facts — strict JSON deserialization
+
+GeoOps now treats Spring/Jackson JSON request-body deserialization as a distinct boundary from CSV parsing and Java-native object serialization.
+
+- Known legacy JSON aliases `project_code` and `coordinate_reference_system` are accepted through `@JsonAlias`.
+- Java request-model field names remain camelCase.
+- Unknown JSON properties are rejected rather than silently ignored.
+- malformed/unknown-property JSON maps to `REQUEST_MALFORMED`.
+- Bean Validation and GeoOps domain validation still run after successful deserialization.
+
+## Set 52 established facts — trusted internal Java snapshot serialization
+
+GeoOps now has one narrow native Java serialization use case: a trusted internal project-catalog snapshot.
+
+```text
+GeoProject
+→ ProjectSnapshotEntry
+→ ProjectSnapshotDocument
+→ ObjectOutputStream / ObjectInputStream
+```
+
+- `GeoProject` remains non-Serializable.
+- dedicated snapshot DTOs implement `Serializable`.
+- snapshot classes declare explicit `serialVersionUID = 1L`.
+- deserialization uses an `ObjectInputFilter` allowlist plus depth/reference/stream-size limits.
+- native Java serialization is not the public CSV or JSON contract.
+
+## Set 53 established facts — representation boundaries
+
+GeoOps distinguishes:
+- REST JSON ↔ Jackson;
+- CSV text ↔ Apache Commons CSV;
+- trusted binary snapshot ↔ Java object streams.
+
+A normal in-memory catalog lookup is not described as serialization merely because Java objects are returned.
+
+## Set 54 established facts — typed snapshot failures
+
+The internal snapshot boundary classifies failures as:
+`SERIALIZATION_FAILED`, `CORRUPT_STREAM`, `INCOMPATIBLE_CLASS`, `MISSING_CLASS`, `REJECTED_TYPE`, `UNSUPPORTED_SCHEMA`, `WRONG_ROOT_TYPE`, or `IO_FAILURE`.
+
+Regression tests cover corrupt bytes, unsupported schema, rejected classes and wrong root objects. SpotBugs remains enforced; an unnecessary exception-constructor null guard was removed rather than suppressing the quality gate.
+
+## Set 55 established facts — ClassNotFoundException policy
+
+A controlled regression test proves the real native-deserialization missing-class path by changing the serialized root class descriptor to a nonexistent class.
+
+`ObjectInputStream` produces `ClassNotFoundException`, which GeoOps maps to `ProjectSnapshotFailure.MISSING_CLASS`.
+
+Resolution policy:
+1. identify the missing class;
+2. align producer/consumer artifact versions;
+3. verify the required class/dependency is on the runtime classpath;
+4. check for intentional class rename/removal;
+5. migrate/recreate or explicitly reject old snapshots when compatibility changed;
+6. inspect ClassLoader visibility only when the runtime architecture has multiple loader boundaries.

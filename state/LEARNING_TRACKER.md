@@ -1504,3 +1504,138 @@ Synthetic job-experience anchors created so far: 0
 Unique master technical questions covered: 210
 Synthetic technical questions covered: 13
 Current denominator: 387+
+
+
+---
+
+# Set 51
+
+**Status: 51/387+**
+
+- [x] ⭐ [Master 681] What challenge did you face while deserializing data?
+
+## Part A
+- [x] ✅ [Master 664] Have you heard about Java serialization?
+- [x] [Master 676] Are Serialization and Deserialization simple to implement, or can we face challenges with them?
+- [x] [Master 2041] A Client sends snake_case JSON fields while your Java Fields use camelCase. How would you map them correctly?
+- [x] [Master 2042] Can JSON Serialization and Deserialization be customized instead of using the default Jackson behavior?
+- [x] [Master 2050] How does Spring Boot handle JSON conversion internally?
+- [x] [Master 1687] What happens when Validation fails for a Request Body Object?
+
+## Set 51 completion evidence
+- docs/sets/SET-051-DESERIALIZATION-CHALLENGE.md
+- src/main/java/com/atlasgrid/geoops/project/api/CreateProjectRequest.java
+- src/main/resources/application.yml
+- src/test/java/com/atlasgrid/geoops/project/api/ProjectJsonDeserializationIntegrationTest.java
+- src/main/java/com/atlasgrid/geoops/project/api/GeoOpsExceptionHandler.java
+
+Set 51 learning items completed: 7 / 7
+
+---
+
+# Set 52
+
+**Status: 52/387+**
+
+- [x] ⭐ [Master 682] Have you worked with Serialization?
+
+## Part A
+- [x] ✅ [Master 664] Have you heard about Java serialization?
+- [x] [Master 671] Do you know about serialized data?
+- [x] [Master 675] What is serialVersionUID, and why is it used in Java Serialization?
+- [x] [Master 669] What is this transient?
+- [x] [Master 673] What happens if your Serializable class contains a member that is not Serializable, and how will you fix it?
+- [x] [Master 677] How can you secure a Java application against Serialization attacks?
+- [x] [Master 680] What happens if a class does not implement Serializable, but its object is serialized?
+
+## Set 52 completion evidence
+- docs/sets/SET-052-JAVA-SERIALIZATION.md
+- src/main/java/com/atlasgrid/geoops/project/snapshot/ProjectSnapshotEntry.java
+- src/main/java/com/atlasgrid/geoops/project/snapshot/ProjectSnapshotDocument.java
+- src/main/java/com/atlasgrid/geoops/project/snapshot/ProjectSnapshotService.java
+- src/main/java/com/atlasgrid/geoops/project/snapshot/ProjectSnapshotException.java
+- src/test/java/com/atlasgrid/geoops/project/snapshot/ProjectSnapshotServiceTest.java
+
+Set 52 learning items completed: 8 / 8
+
+---
+
+# Set 53
+
+**Status: 53/387+**
+
+- [x] ⭐ [Master 683] Since your project imports, exports and fetches data, didn't you serialize data while fetching or saving it?
+
+## Part A
+- [x] ✅ [Master 671] Do you know about serialized data?
+- [x] ✅ [Master 2042] Can JSON Serialization and Deserialization be customized instead of using the default Jackson behavior?
+- [x] ✅ [Master 2050] How does Spring Boot handle JSON conversion internally?
+- [x] [Master 672] Why shouldn't we serialize data into a text file?
+- [x] [Master 674] Do you know about Marshalling and Unmarshalling?
+- [x] 💡 What is the difference between JSON serialization, CSV text encoding, and native Java object serialization in GeoOps?
+
+## Set 53 completion evidence
+- docs/sets/SET-053-SERIALIZATION-BOUNDARIES.md
+- docs/architecture/ADR-DATA-REPRESENTATION-BOUNDARIES.md
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectRepresentationContractIntegrationTest.java
+
+Set 53 learning items completed: 7 / 7
+
+---
+
+# Set 54
+
+**Status: 54/387+**
+
+- [x] ⭐ [Master 684] Did you face any error or challenge while Serialization and Deserialization?
+
+## Part A
+- [x] ✅ [Master 676] Are Serialization and Deserialization simple to implement, or can we face challenges with them?
+- [x] [Master 668] Have you heard about Java serialization attacks?
+- [x] ✅ [Master 677] How can you secure a Java application against Serialization attacks?
+- [x] ✅ [Master 673] What happens if your Serializable class contains a member that is not Serializable, and how will you fix it?
+- [x] ✅ [Master 675] What is serialVersionUID, and why is it used in Java Serialization?
+- [x] [Master 678] How can you prevent certain fields in a class from being serialized?
+- [x] 💡 How should GeoOps distinguish corrupted streams, rejected types, incompatible classes, unsupported schema versions, and missing classes?
+
+## Set 54 completion evidence
+- docs/sets/SET-054-SERIALIZATION-DESERIALIZATION-ERRORS.md
+- src/main/java/com/atlasgrid/geoops/project/snapshot/ProjectSnapshotFailure.java
+- src/main/java/com/atlasgrid/geoops/project/snapshot/ProjectSnapshotException.java
+- src/main/java/com/atlasgrid/geoops/project/snapshot/ProjectSnapshotService.java
+- src/test/java/com/atlasgrid/geoops/project/snapshot/ProjectSnapshotFailureHandlingTest.java
+
+Set 54 learning items completed: 8 / 8
+
+---
+
+# Set 55
+
+**Status: 55/387+**
+
+- [x] ⭐ [Master 710] Have you ever seen ClassNotFoundException in your project, and if yes, how can we resolve it?
+
+## Part A
+- [x] [Master 689] What is the Classpath in Spring Boot, and how is it related to where dependencies or Beans are found?
+- [x] [Master 690] Do you know the difference between ClassLoader and Class.forName() method?
+- [x] [Master 694] Do you know what ClassLoaders are?
+- [x] [Master 695] Can you explain the different types of ClassLoaders in Java?
+- [x] [Master 696] Can you load the same class twice using different ClassLoaders?
+- [x] [Master 697] Do you know about the Parent Delegation Model?
+
+## Set 55 completion evidence
+- docs/sets/SET-055-CLASSNOTFOUND-DESERIALIZATION.md
+- docs/architecture/ADR-SNAPSHOT-CLASSPATH-COMPATIBILITY.md
+- src/main/java/com/atlasgrid/geoops/project/snapshot/ProjectSnapshotService.java
+- src/main/java/com/atlasgrid/geoops/project/snapshot/ProjectSnapshotFailure.java
+- src/test/java/com/atlasgrid/geoops/project/snapshot/ProjectSnapshotMissingClassTest.java
+
+Set 55 learning items completed: 7 / 7
+
+---
+
+Completed job-experience anchors: 55
+Synthetic job-experience anchors created so far: 0
+Unique master technical questions covered: 231
+Synthetic technical questions covered: 15
+Current denominator: 387+

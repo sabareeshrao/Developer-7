@@ -4,27 +4,27 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "50/387+",
+  "status": "55/387+",
   "completed": {
-    "sets": 50,
-    "jobExperienceAnchors": 50,
-    "uniqueMasterTechnicalQuestions": 210,
-    "syntheticTechnicalQuestions": 13
+    "sets": 55,
+    "jobExperienceAnchors": 55,
+    "uniqueMasterTechnicalQuestions": 231,
+    "syntheticTechnicalQuestions": 15
   },
   "current": {
-    "set": 50,
-    "anchorMasterQuestion": 663,
-    "anchor": "How are you importing and exporting data? Can you tell me the technical part of that?",
+    "set": 55,
+    "anchorMasterQuestion": 710,
+    "anchor": "Have you ever seen ClassNotFoundException in your project, and if yes, how can we resolve it?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-050-DATA-IMPORT-EXPORT.md"
+    "evidence": "docs/sets/SET-055-CLASSNOTFOUND-DESERIALIZATION.md"
   },
   "next": {
-    "set": 51,
-    "anchorMasterQuestion": 681,
-    "anchor": "What challenge did you face while deserializing data?"
+    "set": 56,
+    "anchorMasterQuestion": 711,
+    "anchor": "Have you used reflection somewhere in your project?"
   },
-  "nextAction": "derive Set 51 around exactly one deserialization-challenge experience anchor; inspect Set 50 CSV transfer and serialization source-bank questions; reuse covered questions with ✅; keep Master IDs internal only; end with Experience Answer",
+  "nextAction": "derive Set 56 around exactly one reflection experience anchor; inspect current Spring/Jackson/class-loading code; search the master bank for Reflection questions; reuse covered class-loading questions with ✅; keep Master IDs internal only; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
@@ -45,6 +45,9 @@
     "qualityGate": "mvn clean verify + SpotBugs",
     "firstGreenCodeCommit": "7e154b98e9496969b3e5bf5a04748b62367b51aa",
     "report": "docs/maintenance/POST-SET-050-CODEBASE-AUDIT.md",
-    "nextLearningSet": 51
+    "nextLearningSet": 51,
+    "latestLearningCheckpoint": "set-055",
+    "latestVerifiedCodeCommit": "8376032f9dcd76f1876a79f42dcc3d61d7fb8113",
+    "latestVerifiedCodeCi": "green"
   }
 }

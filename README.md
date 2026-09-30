@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 50 — Status: 50/387+ — COMPLETE**
+**Set 55 — Status: 55/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -59,6 +59,11 @@ Set 47: current Java 17 version confirmation using the same enforced baseline
 Set 48: Java 17 version-used confirmation with zero duplicate implementation
 Set 49: Java 17 selection rationale grounded in Spring Boot 3 compatibility and LTS
 Set 50: bounded CSV import/export through Spring multipart upload and CSV download
+Set 51: strict JSON deserialization with legacy aliases and unknown-property rejection
+Set 52: trusted internal Java catalog snapshot serialization
+Set 53: explicit JSON/CSV/native-serialization representation boundaries
+Set 54: typed native snapshot failure classification
+Set 55: ClassNotFoundException regression and classpath/ClassLoader resolution policy
 ```
 
 

@@ -60,3 +60,59 @@ It does not yet introduce:
 - transactional database rollback.
 
 Those capabilities require their own future anchors.
+
+
+## Story GEO-51 — Harden JSON request deserialization
+
+**Outcome:** Accept explicit legacy JSON aliases while rejecting unknown request fields.
+
+Evidence:
+- docs/sets/SET-051-DESERIALIZATION-CHALLENGE.md
+- CreateProjectRequest.java
+- ProjectJsonDeserializationIntegrationTest.java
+
+## Story GEO-52 — Add trusted internal catalog snapshots
+
+**Outcome:** Serialize a point-in-time project catalog with dedicated internal snapshot DTOs without coupling the core GeoProject type to native Java serialization.
+
+Evidence:
+- docs/sets/SET-052-JAVA-SERIALIZATION.md
+- ProjectSnapshotDocument.java
+- ProjectSnapshotEntry.java
+- ProjectSnapshotService.java
+
+## Story GEO-53 — Make data representation boundaries explicit
+
+**Outcome:** Prove and document the distinction between REST JSON, CSV text exchange, and trusted Java-native snapshots.
+
+Evidence:
+- docs/sets/SET-053-SERIALIZATION-BOUNDARIES.md
+- docs/architecture/ADR-DATA-REPRESENTATION-BOUNDARIES.md
+- ProjectRepresentationContractIntegrationTest.java
+
+## Story GEO-54 — Classify snapshot failures
+
+**Outcome:** Make corrupt streams, rejected types, incompatible classes, unsupported schemas, missing classes, wrong roots and I/O failures distinguishable.
+
+Evidence:
+- docs/sets/SET-054-SERIALIZATION-DESERIALIZATION-ERRORS.md
+- ProjectSnapshotFailure.java
+- ProjectSnapshotFailureHandlingTest.java
+
+## Story GEO-55 — Prove missing-class deserialization handling
+
+**Outcome:** Reproduce a real ObjectInputStream ClassNotFoundException and document the classpath/ClassLoader resolution strategy.
+
+Evidence:
+- docs/sets/SET-055-CLASSNOTFOUND-DESERIALIZATION.md
+- docs/architecture/ADR-SNAPSHOT-CLASSPATH-COMPATIBILITY.md
+- ProjectSnapshotMissingClassTest.java
+
+## Sprint 005 extension review
+
+1. Demonstrate known snake_case JSON aliases and unknown-property rejection.
+2. Run the trusted snapshot serialization round trip.
+3. Show the same project through JSON, CSV and snapshot representations.
+4. Run typed snapshot-failure tests.
+5. Run the real missing-class regression.
+6. Run `mvn clean verify` and keep SpotBugs green.

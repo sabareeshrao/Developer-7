@@ -545,3 +545,54 @@ I separate the JDK-version decision from the feature-level coding decision. We a
 In GeoOps, I implemented project-metadata import and export through CSV. For import, the REST API accepts a multipart CSV file, opens its input stream, reads it as UTF-8 with a buffered reader, validates the expected header, parses each row into a `CreateProjectRequest`, and then delegates to the existing `ProjectService.create()` path. That means imported projects still go through the same validation, duplicate checks, catalog insertion, and quality-review queue as normal API-created projects.
 
 For export, we read the current project catalog and generate a UTF-8 CSV response with proper escaping and a `Content-Disposition` attachment header. The current upload is intentionally bounded and synchronous for modest metadata batches. For something like 50,000 rows, I would redesign it as an asynchronous import job with a job ID and status tracking instead of holding one HTTP request open.
+
+
+---
+
+## Set 51 — Status: 51/387+
+
+### ⭐ What challenge did you face while deserializing data?
+
+In GeoOps, one deserialization challenge was handling request-contract differences without making the Java model inconsistent. Our request DTO uses camelCase fields, while a known legacy payload can use names such as `project_code` and `coordinate_reference_system`. I handled those known variations explicitly with Jackson aliases.
+
+I also configured the JSON boundary to reject unknown properties, so a misspelled field becomes a safe `REQUEST_MALFORMED` response instead of being silently ignored. After Jackson creates the request object, Bean Validation and the existing GeoOps domain validation still run as separate stages.
+
+---
+
+## Set 52 — Status: 52/387+
+
+### ⭐ Have you worked with Serialization?
+
+Yes. In GeoOps I added Java native serialization for one narrow internal use case: creating a point-in-time catalog snapshot for trusted operational use. I did not use native serialization as the public CSV or JSON interchange format.
+
+I created dedicated `Serializable` snapshot DTOs with explicit `serialVersionUID`, converted the domain projects into those DTOs, wrote them with `ObjectOutputStream`, and read them with `ObjectInputStream`. I also kept the core `GeoProject` model non-serializable and added an input filter so the deserializer only accepts the snapshot types we expect.
+
+---
+
+## Set 53 — Status: 53/387+
+
+### ⭐ Since your project imports, exports and fetches data, didn't you serialize data while fetching or saving it?
+
+Yes, but in GeoOps the serialization mechanism depends on the boundary. Spring/Jackson handles REST JSON, Apache Commons CSV handles our bounded CSV exchange, and the trusted internal catalog snapshot uses Java-native object streams.
+
+I would not call a normal in-memory catalog lookup serialization, and I would not describe Commons CSV parsing as `ObjectInputStream` deserialization. Keeping those boundaries explicit makes the implementation and interview explanation accurate.
+
+---
+
+## Set 54 — Status: 54/387+
+
+### ⭐ Did you face any error or challenge while Serialization and Deserialization?
+
+Yes. In the GeoOps snapshot path I treated serialization/deserialization failures as different problems instead of one generic catch block. A corrupt stream, disallowed class, unsupported schema, incompatible serialized class and missing runtime class have different causes and fixes.
+
+I added a typed failure model and regression tests for those cases. We also keep explicit `serialVersionUID` values and an `ObjectInputFilter` allowlist, so compatibility and security are part of the snapshot design.
+
+---
+
+## Set 55 — Status: 55/387+
+
+### ⭐ Have you ever seen ClassNotFoundException in your project, and if yes, how can we resolve it?
+
+Yes, I handled `ClassNotFoundException` in the GeoOps internal snapshot deserialization path. I added a regression test that changes the serialized snapshot's class descriptor to a nonexistent class and verifies that the real `ObjectInputStream` failure is classified as `MISSING_CLASS`.
+
+My resolution approach is to identify which class cannot be resolved, verify the producer and consumer artifacts are aligned, and confirm the expected snapshot class or dependency is present on the runtime classpath. If the class was intentionally renamed or removed, I would migrate or recreate the old snapshot rather than swallowing the exception or adding an arbitrary JAR.
