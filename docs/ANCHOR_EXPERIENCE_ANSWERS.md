@@ -442,3 +442,14 @@ I handled that incrementally. I introduced a one-method @FunctionalInterface cal
 Yes. In GeoOps I use Stream API in the delivery-preparation reporting flow. When operations requests projects for a specific coordinate reference system, I start from the current project collection, filter it by CRS, map the matching GeoProject objects to project codes, sort those codes for deterministic output, and finish with toList().
 
 I use Streams where the requirement is naturally a read-only transformation pipeline, but I do not replace every loop. For example, the collection-summary service still uses a plain loop because it updates a List, Set, and Map together in one pass, and that is clearer than multiple Stream traversals or side effects inside a Stream. So the choice is based on readability and the shape of the processing, not just using Streams everywhere.
+
+
+---
+
+## Set 41 — Status: 41/387+
+
+### ⭐ Have you used Optional personally?
+
+Yes. In GeoOps I use Optional personally in the project lookup flow. ProjectService.findByProjectCode() and the intake-position lookup return Optional<GeoProject> because not finding a project is a normal outcome, not an exceptional failure. At the REST boundary I pass that Optional to ResponseEntity.of(), so a present project becomes HTTP 200 and an empty Optional becomes HTTP 404.
+
+I avoid calling Optional.get() in production code. When I need to transform a present value I use operations such as map(), and for fallback behavior I choose between orElse() and the lazy orElseGet() deliberately. I also keep invalid input separate from normal absence—for example, a null project code is rejected, while an unknown valid code returns Optional.empty().
