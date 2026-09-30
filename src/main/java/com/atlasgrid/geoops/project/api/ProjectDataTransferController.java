@@ -2,6 +2,7 @@ package com.atlasgrid.geoops.project.api;
 
 import com.atlasgrid.geoops.project.application.ProjectCsvTransferService;
 import com.atlasgrid.geoops.project.application.ProjectDataTransferException;
+import com.atlasgrid.geoops.project.application.ProjectDataTransferIoException;
 import com.atlasgrid.geoops.project.application.ProjectImportResult;
 import org.springframework.http.ContentDisposition;
 import org.springframework.http.HttpHeaders;
@@ -50,7 +51,7 @@ public class ProjectDataTransferController {
         try (InputStream inputStream = file.getInputStream()) {
             return transferService.importCsv(inputStream);
         } catch (IOException exception) {
-            throw new ProjectDataTransferException(
+            throw new ProjectDataTransferIoException(
                     "Unable to open uploaded CSV file",
                     exception
             );
