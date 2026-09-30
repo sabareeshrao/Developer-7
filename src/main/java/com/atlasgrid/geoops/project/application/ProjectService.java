@@ -7,6 +7,7 @@ import com.atlasgrid.geoops.project.validation.ProjectValidationReport;
 import com.atlasgrid.geoops.project.validation.ProjectValidationService;
 import com.atlasgrid.geoops.project.validation.ProjectValidationStandards;
 import com.atlasgrid.geoops.review.ProjectReviewQueue;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +42,10 @@ public class ProjectService {
     private final ProjectCatalog projectCatalog;
     private final ProjectReviewQueue projectReviewQueue;
 
+    @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP2",
+            justification = "Spring-managed mutable collaborators are intentionally referenced, not exposed."
+    )
     public ProjectService(
             ProjectValidationService projectValidationService,
             ProjectCatalog projectCatalog,
