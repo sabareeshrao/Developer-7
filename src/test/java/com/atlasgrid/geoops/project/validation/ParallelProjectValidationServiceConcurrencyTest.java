@@ -34,12 +34,25 @@ class ParallelProjectValidationServiceConcurrencyTest {
         CountDownLatch releaseWorkers =
                 new CountDownLatch(1);
 
-        ProjectValidationRule observingRule = request -> {
-            workerThreads.add(Thread.currentThread().getName());
-            fourWorkersEntered.countDown();
-            await(releaseWorkers);
-            return List.of();
-        };
+        ProjectValidationRule observingRule =
+                new ProjectValidationRule() {
+                    @Override
+                    public String code() {
+                        return "OBSERVE_THREADS";
+                    }
+
+                    @Override
+                    public List<ValidationIssue> validate(
+                            CreateProjectRequest request
+                    ) {
+                        workerThreads.add(
+                                Thread.currentThread().getName()
+                        );
+                        fourWorkersEntered.countDown();
+                        await(releaseWorkers);
+                        return List.of();
+                    }
+                };
 
         ParallelProjectValidationService service =
                 new ParallelProjectValidationService(
