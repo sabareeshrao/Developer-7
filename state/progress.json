@@ -4,27 +4,27 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "49/387+",
+  "status": "50/387+",
   "completed": {
-    "sets": 49,
-    "jobExperienceAnchors": 49,
-    "uniqueMasterTechnicalQuestions": 205,
-    "syntheticTechnicalQuestions": 12
+    "sets": 50,
+    "jobExperienceAnchors": 50,
+    "uniqueMasterTechnicalQuestions": 210,
+    "syntheticTechnicalQuestions": 13
   },
   "current": {
-    "set": 49,
-    "anchorMasterQuestion": 661,
-    "anchor": "Why did you choose Java 17 if you are not using many Java 17-specific features?",
-    "anchorType": "original",
-    "covered": true,
-    "evidence": "docs/sets/SET-049-WHY-JAVA-17.md"
-  },
-  "next": {
     "set": 50,
     "anchorMasterQuestion": 663,
-    "anchor": "How are you importing and exporting data? Can you tell me the technical part of that?"
+    "anchor": "How are you importing and exporting data? Can you tell me the technical part of that?",
+    "anchorType": "original",
+    "covered": true,
+    "evidence": "docs/sets/SET-050-DATA-IMPORT-EXPORT.md"
   },
-  "nextAction": "derive Set 50 around exactly one import/export experience anchor; inspect current GeoOps file/data flow before adding implementation; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
+  "next": {
+    "set": 51,
+    "anchorMasterQuestion": 681,
+    "anchor": "What challenge did you face while deserializing data?"
+  },
+  "nextAction": "derive Set 51 around exactly one deserialization-challenge experience anchor; inspect Set 50 CSV transfer and serialization source-bank questions; reuse covered questions with ✅; keep Master IDs internal only; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
