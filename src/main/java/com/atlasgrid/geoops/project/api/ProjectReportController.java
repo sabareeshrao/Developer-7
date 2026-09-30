@@ -4,6 +4,8 @@ import com.atlasgrid.geoops.project.application.ProjectCollectionSummary;
 import com.atlasgrid.geoops.project.application.ProjectCollectionSummaryService;
 import com.atlasgrid.geoops.project.application.ProjectCrsCatalogService;
 import com.atlasgrid.geoops.project.application.ProjectManifestFormatter;
+import com.atlasgrid.geoops.project.application.ProjectDeliverySelection;
+import com.atlasgrid.geoops.project.application.ProjectDeliverySelectionService;
 import com.atlasgrid.geoops.project.application.ProjectService;
 import com.atlasgrid.geoops.project.application.ProjectSortingService;
 import com.atlasgrid.geoops.project.application.ProjectSortingView;
@@ -21,6 +23,7 @@ public class ProjectReportController {
 
     private final ProjectService projectService;
     private final ProjectManifestFormatter projectManifestFormatter;
+    private final ProjectDeliverySelectionService projectDeliverySelectionService;
     private final ProjectCollectionSummaryService projectCollectionSummaryService;
     private final ProjectCrsCatalogService projectCrsCatalogService;
     private final ProjectSortingService projectSortingService;
@@ -28,12 +31,14 @@ public class ProjectReportController {
     public ProjectReportController(
             ProjectService projectService,
             ProjectManifestFormatter projectManifestFormatter,
+            ProjectDeliverySelectionService projectDeliverySelectionService,
             ProjectCollectionSummaryService projectCollectionSummaryService,
             ProjectCrsCatalogService projectCrsCatalogService,
             ProjectSortingService projectSortingService
     ) {
         this.projectService = projectService;
         this.projectManifestFormatter = projectManifestFormatter;
+        this.projectDeliverySelectionService = projectDeliverySelectionService;
         this.projectCollectionSummaryService = projectCollectionSummaryService;
         this.projectCrsCatalogService = projectCrsCatalogService;
         this.projectSortingService = projectSortingService;
@@ -48,6 +53,16 @@ public class ProjectReportController {
     @GetMapping("/delivery-order")
     public ProjectSortingView getProjectDeliveryOrder() {
         return projectSortingService.sort(projectService.findAll());
+    }
+
+    @GetMapping("/delivery-selection")
+    public ProjectDeliverySelection getDeliverySelection(
+            @RequestParam("crs") String coordinateReferenceSystem
+    ) {
+        return projectDeliverySelectionService.select(
+                projectService.findAll(),
+                coordinateReferenceSystem
+        );
     }
 
     @GetMapping("/crs-catalog")
