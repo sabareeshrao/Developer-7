@@ -862,3 +862,20 @@ Established rules:
 - Optional is not introduced as a domain field merely for interview coverage.
 - Set 41 adds seven new master technical questions.
 - Sprint 004 continues the Modern Java sequence.
+
+
+## Set 42 established facts — practical Optional intake-position lookup
+
+GeoOps now has focused regression evidence for a second real Optional usage path.
+
+Established rules:
+- ProjectCatalog.findByIntakePosition(int) returns Optional<GeoProject>.
+- Valid one-based positions return Optional.of(project).
+- Position values below 1 or beyond the catalog return Optional.empty().
+- ProjectQueryController continues to map the Optional through ResponseEntity.of(...).
+- Optional.filter(...), map(...), and orElseThrow() can compose a caller path that explicitly requires a matching value.
+- orElseThrow() is not used for normal REST absence; HTTP 404 remains the expected missing-result response.
+- GeoProject required fields/getters are not wrapped in Optional.
+- No new REST endpoint was introduced for Set 42 because the existing intake-position endpoint already provides the practical Optional behavior.
+- Set 42 adds two new master technical questions and reuses five completed questions with ✅.
+- Sprint 004 continues the Modern Java sequence.
