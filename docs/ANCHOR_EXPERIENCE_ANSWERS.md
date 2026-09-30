@@ -485,3 +485,13 @@ At the REST boundary we pass those Optional values to ResponseEntity.of(), so pr
 Yes. One particular scenario in GeoOps is looking up a GIS project by its project code. A caller can provide a valid code that simply does not exist in the current catalog, so I treat that as normal absence rather than throwing an exception or returning null.
 
 `ProjectCatalog.findByProjectCode()` returns `Optional<GeoProject>`, the service preserves that contract, and the REST controller uses `ResponseEntity.of()`. If the project exists the API returns HTTP 200; if it does not, the Optional is empty and the API returns HTTP 404. That keeps the lookup contract explicit and avoids unsafe calls to `Optional.get()`.
+
+---
+
+## Set 45 — Status: 45/387+
+
+### ⭐ Which Java 8 features do you use most of the time?
+
+Yes. The Java 8 features I use most often in GeoOps are lambda expressions and Functional Interfaces, Stream API, Optional, the `java.time` API, and method references. For example, we use a lambda-backed Functional Interface for one of the project validation rules, Streams for filtering and transforming project collections, and Optional for project lookups where a missing project is a normal outcome.
+
+We also use `Instant` from the Java Time API for project creation timestamps, and method references such as `GeoProject::projectCode` inside Stream pipelines. I use these features where they make the code clearer; I do not convert every loop or class into a functional style just because Java 8 supports it.
