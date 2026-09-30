@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 48 — Status: 48/387+ — COMPLETE**
+**Set 49 — Status: 49/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -57,6 +57,7 @@ Set 45: consolidated Java 8 feature usage across validation, Streams, Optional a
 Set 46: Java 17 build/runtime baseline enforced across Maven, CI and tests
 Set 47: current Java 17 version confirmation using the same enforced baseline
 Set 48: Java 17 version-used confirmation with zero duplicate implementation
+Set 49: Java 17 selection rationale grounded in Spring Boot 3 compatibility and LTS
 ```
 
 ## Current project workflow
@@ -154,10 +155,10 @@ The project is a fictional interview-simulation environment and should not be pr
 
 ## Latest learning checkpoint
 
-Set 48 confirms that the Java version used by GeoOps is Java 17. It intentionally reuses the enforceable version baseline from Sets 46–47 instead of adding duplicate version code.
+Set 49 explains why GeoOps uses Java 17 even without heavy use of Java-17-specific syntax: the project is on Spring Boot 3.3.x, Java 17 is the minimum framework baseline for that generation, Java 17 is an LTS release, and the project enforces one consistent toolchain across local builds and CI.
 
-Evidence: `docs/sets/SET-048-JAVA-VERSION-USED.md`
+Evidence: `docs/sets/SET-049-WHY-JAVA-17.md`
 
-Baseline ADR: `docs/architecture/ADR-JAVA-17-BASELINE.md`
+Baseline/rationale ADR: `docs/architecture/ADR-JAVA-17-BASELINE.md`
 
-Next anchor: **Why did you choose Java 17 if you are not using many Java 17-specific features?**
+Next anchor: **How are you importing and exporting data? Can you tell me the technical part of that?**
