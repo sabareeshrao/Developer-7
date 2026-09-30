@@ -515,3 +515,13 @@ I also enforce the runtime version through Maven so a build fails early if someo
 Currently, I’m working with **Java 17** in the GeoOps project. We keep that consistent across local development, Maven, and CI: the repository has a `.java-version` file set to 17, Maven compiles for Java 17 and rejects the wrong runtime through the Enforcer plugin, and GitHub Actions runs with Temurin 17.
 
 So when I say Java 17 is the version I’m currently working on, it is not just an IDE setting—the build and test pipeline enforce the same version as well.
+
+---
+
+## Set 48 — Status: 48/387+
+
+### ⭐ What's the Java version you are using?
+
+The Java version we use in GeoOps is **Java 17**. We keep that version consistent across the project: Maven compiles for Java 17, the repository's `.java-version` file is set to 17, GitHub Actions uses Temurin 17, and Maven Enforcer prevents the project from being built with a different Java runtime.
+
+So Java 17 is not just what I select in the IDE; it is the enforced Java version for the build and test pipeline as well.
