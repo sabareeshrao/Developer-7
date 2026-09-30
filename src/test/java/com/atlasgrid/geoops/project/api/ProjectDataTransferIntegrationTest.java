@@ -31,7 +31,7 @@ class ProjectDataTransferIntegrationTest {
                 "text/csv",
                 """
                 projectCode,name,coordinateReferenceSystem
-                TX-AUS-052,"Austin, Transfer Survey",EPSG:4326
+                TX-AUS-052,"Austin, Transfer Survey",epsg:4326
                 TX-DAL-052,Dallas Transfer Survey,EPSG:3857
                 """.getBytes(StandardCharsets.UTF_8)
         );
@@ -56,7 +56,7 @@ class ProjectDataTransferIntegrationTest {
                 ))
                 .andExpect(content().string(
                         containsString(
-                                "TX-AUS-052,\"Austin, Transfer Survey\",EPSG:4326"
+                                "TX-AUS-052,"Austin, Transfer Survey",EPSG:4326"
                         )
                 ))
                 .andExpect(content().string(
