@@ -61,6 +61,25 @@ Set 49: Java 17 selection rationale grounded in Spring Boot 3 compatibility and 
 Set 50: bounded CSV import/export through Spring multipart upload and CSV download
 ```
 
+
+## Current maintained baseline
+
+After the Set 50 codebase audit, the current implementation baseline is:
+
+```text
+Java 17
+Spring Boot 4.1.1
+Apache Commons CSV 1.14.1
+Maven + SpotBugs
+GitHub Actions
+```
+
+Historical Sets may describe Spring Boot 3.3.5 because that was the project state when those Sets were completed. Current code and the post-Set-50 maintenance report are authoritative for future work.
+
+The CSV import path is now all-or-nothing in the current in-memory model, uses application-level required-field validation, canonicalizes CRS values, uses RFC-4180 CSV parsing, and includes concurrency/CSV/error regression tests.
+
+Maintenance report: `docs/maintenance/POST-SET-050-CODEBASE-AUDIT.md`
+
 ## Current project workflow
 
 ```text
