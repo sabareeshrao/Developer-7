@@ -5,10 +5,6 @@ import java.util.Locale;
 
 /**
  * Supported inbound dataset formats for the GeoOps preflight process.
- *
- * <p>An enum is appropriate because the supported formats are a fixed,
- * well-known set. Each constant owns its extension and the enum can provide
- * shared behavior without scattering string literals through the validator.</p>
  */
 public enum DatasetFormat {
 
@@ -27,7 +23,13 @@ public enum DatasetFormat {
     }
 
     public boolean matches(Path dataset) {
-        String fileName = dataset.getFileName()
+        Path fileNamePath = dataset.getFileName();
+
+        if (fileNamePath == null) {
+            return false;
+        }
+
+        String fileName = fileNamePath
                 .toString()
                 .toLowerCase(Locale.ROOT);
 
