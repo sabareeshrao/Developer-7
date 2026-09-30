@@ -800,3 +800,44 @@ Evidence:
 - ProjectDeliverySelectionServiceTest.java
 - ProjectDeliverySelectionIntegrationTest.java
 - Set 40 evidence document
+
+---
+
+### Story GEO-41 — Consolidate Optional lookup contracts
+
+**Outcome:** GeoOps explicitly documents and tests Optional as the return contract for normal lookup absence, while null inputs and programming errors remain separate concerns.
+
+Acceptance criteria:
+- Keep ProjectService.findByProjectCode(...) and findByIntakePosition(...) returning Optional<GeoProject>.
+- Keep missing project results as Optional.empty(), not null and not exceptions for normal absence.
+- Require a non-null projectCode input before lookup.
+- Continue mapping Optional directly to HTTP 200/404 through ResponseEntity.of(...).
+- Avoid production Optional.get().
+- Prove Optional.map(...) transformation without get().
+- Prove orElse(...) eager fallback evaluation.
+- Prove orElseGet(...) lazy fallback evaluation.
+- Prove Optional.of(...) versus Optional.ofNullable(...).
+- Prove Optional.get() throws on an empty Optional.
+- Do not add a duplicate lookup endpoint solely for interview coverage.
+
+~~~text
+lookup input
+   ↓ non-null contract
+ProjectCatalog lookup
+   ↓
+Optional<GeoProject>
+   ├── present → project
+   └── empty   → normal absence
+              ↓
+       ResponseEntity.of
+       200 / 404
+~~~
+
+Evidence:
+- ProjectCatalog.java
+- ProjectService.java
+- ProjectQueryController.java
+- ProjectServiceLookupStrategyTest.java
+- ProjectOptionalSemanticsTest.java
+- ProjectControllerLookupIntegrationTest.java
+- Set 41 evidence document
