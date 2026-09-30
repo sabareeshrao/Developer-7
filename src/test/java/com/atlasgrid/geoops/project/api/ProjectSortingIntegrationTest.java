@@ -22,13 +22,13 @@ class ProjectSortingIntegrationTest {
     private MockMvc mockMvc;
 
     @Test
-    void exposesArrayAndCollectionSortedViewsWithoutChangingCatalogOrder()
+    void exposesDeliveryOrderWithoutChangingCatalogIntakeOrder()
             throws Exception {
         createProject("TX-HOU-029", "EPSG:4326");
         createProject("TX-AUS-029", "EPSG:3857");
         createProject("TX-DAL-029", "EPSG:4326");
 
-        mockMvc.perform(get("/api/projects/sorting-preview"))
+        mockMvc.perform(get("/api/projects/delivery-order"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.projectCodesAlphabetically[0]")
                         .value("TX-AUS-029"))
