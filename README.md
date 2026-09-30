@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 39 — Status: 39/387+ — COMPLETE**
+**Set 40 — Status: 40/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -48,6 +48,7 @@ Set 36: WeakHashMap evaluated and deliberately rejected for authoritative busine
 Set 37: ConcurrentHashMap-backed claimed review state with same-key transition safety
 Set 38: custom Comparator delivery-order report with deterministic CRS/project-code sorting
 Set 39: incremental Functional Interface migration through a legacy validation adapter
+Set 40: Stream-based CRS delivery selection with filter/map/sorted/toList
 ```
 
 ## Current project workflow
@@ -82,6 +83,7 @@ Useful endpoints:
 - `GET /api/projects`
 - `GET /api/projects/collection-summary`
 - `GET /api/projects/delivery-order`
+- `GET /api/projects/delivery-selection?crs=...`
 - `GET /api/projects/crs-catalog`
 - `GET /api/projects/recent?limit=N`
 - `POST /api/projects`
