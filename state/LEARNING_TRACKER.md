@@ -1330,8 +1330,38 @@ Set 44 learning items completed: 8 / 8
 
 ---
 
-Completed job-experience anchors: 44
+# Set 45
+
+**Status: 45/387+**
+
+- [x] ⭐ [Master 654] Which Java 8 features do you use most of the time?
+
+## Part A
+- [x] [Master 650] Why was Java 8 introduced? Why was there a requirement to upgrade from Java 7 to Java 8?
+- [x] [Master 651] From Java 8 onwards, what were the major changes introduced in Java 8?
+- [x] [Master 580] Why were Lambda Expressions introduced in Java 8?
+- [x] ✅ [Master 588] How is Lambda expression related to Functional Interfaces?
+- [x] ✅ [Master 606] Can you explain how Java 8 Stream API enhances collection processing?
+- [x] ✅ [Master 626] What problem does the Optional class solve in Java 8?
+- [x] [Master 642] What changes were introduced to the Date and Time API in Java 8?
+
+## Set 45 completion evidence
+- docs/sets/SET-045-JAVA-8-FEATURES.md
+- docs/process/SPRINT-004.md
+- src/main/java/com/atlasgrid/geoops/project/validation/ProjectValidationRuleConfiguration.java
+- src/main/java/com/atlasgrid/geoops/project/validation/ProjectValidationCheck.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectDeliverySelectionService.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectCatalog.java
+- src/main/java/com/atlasgrid/geoops/project/domain/GeoProject.java
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectJava8FeatureUsageIntegrationTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 45 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 45
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 197
+Unique master technical questions covered: 201
 Synthetic technical questions covered: 10
 Current denominator: 387+
