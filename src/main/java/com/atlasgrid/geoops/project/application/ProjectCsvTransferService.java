@@ -2,31 +2,54 @@ package com.atlasgrid.geoops.project.application;
 
 import com.atlasgrid.geoops.project.api.CreateProjectRequest;
 import com.atlasgrid.geoops.project.domain.GeoProject;
+import org.apache.commons.csv.CSVException;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVPrinter;
+import org.apache.commons.csv.CSVRecord;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /**
- * Imports and exports the small synchronous CSV exchange format used by GeoOps.
+ * Imports and exports the bounded CSV exchange format used by GeoOps.
  *
- * <p>The import path is deliberately bounded and blocking. It is intended for
- * modest project-metadata files accepted by the REST endpoint, not very large
- * batch processing. Every imported row still goes through ProjectService so
- * existing validation, duplicate detection, catalog insertion and review-queue
- * behavior remain authoritative.</p>
+ * <p>Parsing and printing use Apache Commons CSV instead of a hand-written
+ * parser so quoted commas, escaped quotes and multiline quoted values follow a
+ * mature RFC-4180 implementation.</p>
+ *
+ * <p>Import is two-phase: the entire CSV document is parsed into requests
+ * first, then ProjectService validates and publishes the whole batch
+ * atomically. A bad later row therefore cannot leave earlier rows committed.</p>
  */
 @Service
 public class ProjectCsvTransferService {
 
-    static final String HEADER =
-            "projectCode,name,coordinateReferenceSystem";
+    static final List<String> HEADERS = List.of(
+            "projectCode",
+            "name",
+            "coordinateReferenceSystem"
+    );
+
+    private static final CSVFormat IMPORT_FORMAT =
+            CSVFormat.RFC4180.builder()
+                    .setHeader()
+                    .setSkipHeaderRecord(true)
+                    .setIgnoreEmptyLines(true)
+                    .get();
+
+    private static final CSVFormat EXPORT_FORMAT =
+            CSVFormat.RFC4180.builder()
+                    .setHeader(HEADERS.toArray(String[]::new))
+                    .get();
 
     private final ProjectService projectService;
 
@@ -40,139 +63,171 @@ public class ProjectCsvTransferService {
     public ProjectImportResult importCsv(InputStream inputStream) {
         Objects.requireNonNull(inputStream, "inputStream");
 
-        List<String> importedCodes = new ArrayList<>();
-
-        try (BufferedReader reader = new BufferedReader(
-                new InputStreamReader(inputStream, StandardCharsets.UTF_8)
-        )) {
-            String header = reader.readLine();
-
-            if (header == null || !HEADER.equals(stripBom(header).trim())) {
-                throw new ProjectDataTransferException(
-                        "CSV header must be: " + HEADER
-                );
-            }
-
-            String line;
-            int lineNumber = 1;
-
-            while ((line = reader.readLine()) != null) {
-                lineNumber++;
-
-                if (line.isBlank()) {
-                    continue;
-                }
-
-                List<String> fields = parseCsvLine(line, lineNumber);
-
-                if (fields.size() != 3) {
-                    throw new ProjectDataTransferException(
-                            "CSV line " + lineNumber
-                                    + " must contain exactly 3 columns"
-                    );
-                }
-
-                CreateProjectRequest request = new CreateProjectRequest(
-                        fields.get(0).trim(),
-                        fields.get(1).trim(),
-                        fields.get(2).trim()
-                );
-
-                GeoProject project = projectService.create(request);
-                importedCodes.add(project.projectCode());
-            }
-        } catch (IOException exception) {
-            throw new ProjectDataTransferException(
-                    "Unable to read CSV import data",
-                    exception
-            );
-        }
+        List<CreateProjectRequest> requests = parseRequests(inputStream);
+        List<GeoProject> projects =
+                projectService.createAllAtomically(requests);
 
         return new ProjectImportResult(
-                importedCodes.size(),
-                importedCodes
+                projects.size(),
+                projects.stream()
+                        .map(GeoProject::projectCode)
+                        .toList()
         );
     }
 
     public String exportCsv() {
-        StringBuilder csv = new StringBuilder();
-        csv.append(HEADER).append(System.lineSeparator());
+        try {
+            StringWriter writer = new StringWriter();
 
-        for (GeoProject project : projectService.findAll()) {
-            csv.append(escape(project.projectCode())).append(',')
-                    .append(escape(project.name())).append(',')
-                    .append(escape(project.coordinateReferenceSystem()))
-                    .append(System.lineSeparator());
-        }
-
-        return csv.toString();
-    }
-
-    private static List<String> parseCsvLine(
-            String line,
-            int lineNumber
-    ) {
-        List<String> fields = new ArrayList<>();
-        StringBuilder current = new StringBuilder();
-        boolean quoted = false;
-
-        for (int index = 0; index < line.length(); index++) {
-            char character = line.charAt(index);
-
-            if (quoted) {
-                if (character == '"') {
-                    if (index + 1 < line.length()
-                            && line.charAt(index + 1) == '"') {
-                        current.append('"');
-                        index++;
-                    } else {
-                        quoted = false;
-                    }
-                } else {
-                    current.append(character);
-                }
-            } else if (character == ',') {
-                fields.add(current.toString());
-                current.setLength(0);
-            } else if (character == '"') {
-                if (!current.isEmpty()) {
-                    throw new ProjectDataTransferException(
-                            "Unexpected quote in CSV line " + lineNumber
+            try (CSVPrinter printer =
+                         new CSVPrinter(writer, EXPORT_FORMAT)) {
+                for (GeoProject project : projectService.findAll()) {
+                    printer.printRecord(
+                            safeForSpreadsheet(project.projectCode()),
+                            safeForSpreadsheet(project.name()),
+                            safeForSpreadsheet(
+                                    project.coordinateReferenceSystem()
+                            )
                     );
                 }
-                quoted = true;
-            } else {
-                current.append(character);
             }
-        }
 
-        if (quoted) {
-            throw new ProjectDataTransferException(
-                    "Unclosed quoted field in CSV line " + lineNumber
+            return writer.toString();
+        } catch (IOException exception) {
+            throw new ProjectDataTransferIoException(
+                    "Unable to generate CSV export data",
+                    exception
             );
         }
-
-        fields.add(current.toString());
-        return fields;
     }
 
-    private static String escape(String value) {
+    private List<CreateProjectRequest> parseRequests(
+            InputStream inputStream
+    ) {
+        try (BufferedReader reader = new BufferedReader(
+                new InputStreamReader(
+                        inputStream,
+                        StandardCharsets.UTF_8
+                )
+        )) {
+            skipOptionalBom(reader);
+
+            try (CSVParser parser = IMPORT_FORMAT.parse(reader)) {
+                if (!HEADERS.equals(parser.getHeaderNames())) {
+                    throw new ProjectDataTransferException(
+                            "CSV header must be: "
+                                    + String.join(",", HEADERS)
+                    );
+                }
+
+                List<CreateProjectRequest> requests =
+                        new ArrayList<>();
+
+                for (CSVRecord record : parser) {
+                    if (record.size() != HEADERS.size()) {
+                        throw new ProjectDataTransferException(
+                                "CSV record "
+                                        + record.getRecordNumber()
+                                        + " must contain exactly "
+                                        + HEADERS.size()
+                                        + " columns"
+                        );
+                    }
+
+                    requests.add(new CreateProjectRequest(
+                            restoreSpreadsheetEscape(
+                                    record.get(HEADERS.get(0))
+                            ).trim(),
+                            restoreSpreadsheetEscape(
+                                    record.get(HEADERS.get(1))
+                            ).trim(),
+                            restoreSpreadsheetEscape(
+                                    record.get(HEADERS.get(2))
+                            ).trim()
+                    ));
+                }
+
+                return List.copyOf(requests);
+            } catch (CSVException exception) {
+                throw new ProjectDataTransferException(
+                        "CSV content is malformed",
+                        exception
+                );
+            }
+        } catch (ProjectDataTransferException exception) {
+            throw exception;
+        } catch (IOException exception) {
+            throw new ProjectDataTransferIoException(
+                    "Unable to read CSV import data",
+                    exception
+            );
+        }
+    }
+
+    private static void skipOptionalBom(BufferedReader reader)
+            throws IOException {
+        reader.mark(1);
+        int firstCharacter = reader.read();
+
+        if (firstCharacter != 0xFEFF && firstCharacter != -1) {
+            reader.reset();
+        }
+    }
+
+    /**
+     * Prevents spreadsheet applications from executing user-controlled CSV
+     * cells as formulas. The import path understands and reverses this transport
+     * escape so an export→import round trip preserves the logical value.
+     */
+    private static String safeForSpreadsheet(String value) {
         String safeValue = Objects.requireNonNull(value, "CSV value");
 
-        if (safeValue.indexOf(',') >= 0
-                || safeValue.indexOf('"') >= 0
-                || safeValue.indexOf('\n') >= 0
-                || safeValue.indexOf('\r') >= 0) {
-            return "\"" + safeValue.replace("\"", "\"\"") + "\"";
+        int firstNonWhitespace = 0;
+        while (firstNonWhitespace < safeValue.length()
+                && Character.isWhitespace(
+                        safeValue.charAt(firstNonWhitespace)
+                )) {
+            firstNonWhitespace++;
+        }
+
+        if (firstNonWhitespace < safeValue.length()
+                && isFormulaPrefix(
+                        safeValue.charAt(firstNonWhitespace)
+                )) {
+            return "'"
+                    + safeValue.substring(0, firstNonWhitespace)
+                    + safeValue.substring(firstNonWhitespace);
         }
 
         return safeValue;
     }
 
-    private static String stripBom(String value) {
-        if (!value.isEmpty() && value.charAt(0) == '\uFEFF') {
-            return value.substring(1);
+    private static String restoreSpreadsheetEscape(String value) {
+        if (value.length() >= 2 && value.charAt(0) == ''') {
+            int firstNonWhitespace = 1;
+
+            while (firstNonWhitespace < value.length()
+                    && Character.isWhitespace(
+                            value.charAt(firstNonWhitespace)
+                    )) {
+                firstNonWhitespace++;
+            }
+
+            if (firstNonWhitespace < value.length()
+                    && isFormulaPrefix(
+                            value.charAt(firstNonWhitespace)
+                    )) {
+                return value.substring(1);
+            }
         }
+
         return value;
+    }
+
+    private static boolean isFormulaPrefix(char value) {
+        return value == '='
+                || value == '+'
+                || value == '-'
+                || value == '@';
     }
 }
