@@ -4,27 +4,27 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "45/387+",
+  "status": "46/387+",
   "completed": {
-    "sets": 45,
-    "jobExperienceAnchors": 45,
-    "uniqueMasterTechnicalQuestions": 201,
+    "sets": 46,
+    "jobExperienceAnchors": 46,
+    "uniqueMasterTechnicalQuestions": 203,
     "syntheticTechnicalQuestions": 10
   },
   "current": {
-    "set": 45,
-    "anchorMasterQuestion": 654,
-    "anchor": "Which Java 8 features do you use most of the time?",
-    "anchorType": "original",
-    "covered": true,
-    "evidence": "docs/sets/SET-045-JAVA-8-FEATURES.md"
-  },
-  "next": {
     "set": 46,
     "anchorMasterQuestion": 655,
-    "anchor": "Which Java version do you use in your current project?"
+    "anchor": "Which Java version do you use in your current project?",
+    "anchorType": "original",
+    "covered": true,
+    "evidence": "docs/sets/SET-046-JAVA-17-BASELINE.md"
   },
-  "nextAction": "derive Set 46 around exactly one Java-version experience anchor; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
+  "next": {
+    "set": 47,
+    "anchorMasterQuestion": 656,
+    "anchor": "Currently, which Java version are you working on?"
+  },
+  "nextAction": "derive Set 47 around exactly one current-Java-version experience anchor; reuse Set 46 version-baseline concepts with ✅; keep Master IDs internal only; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
