@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "37/387+",
+  "status": "38/387+",
   "completed": {
-    "sets": 37,
-    "jobExperienceAnchors": 37,
-    "uniqueMasterTechnicalQuestions": 170,
+    "sets": 38,
+    "jobExperienceAnchors": 38,
+    "uniqueMasterTechnicalQuestions": 173,
     "syntheticTechnicalQuestions": 10
   },
   "current": {
-    "set": 37,
-    "anchorMasterQuestion": 531,
-    "anchor": "Did you get a chance to work on ConcurrentHashMap in your project?",
+    "set": 38,
+    "anchorMasterQuestion": 550,
+    "anchor": "Have you customized sorting before? If yes, for what purpose?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-037-CONCURRENTHASHMAP.md"
+    "evidence": "docs/sets/SET-038-CUSTOM-SORTING.md"
   },
-  "nextAction": "derive Set 38 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
+  "nextAction": "derive Set 39 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
