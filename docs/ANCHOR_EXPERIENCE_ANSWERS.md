@@ -495,3 +495,13 @@ Yes. One particular scenario in GeoOps is looking up a GIS project by its projec
 Yes. The Java 8 features I use most often in GeoOps are lambda expressions and Functional Interfaces, Stream API, Optional, the `java.time` API, and method references. For example, we use a lambda-backed Functional Interface for one of the project validation rules, Streams for filtering and transforming project collections, and Optional for project lookups where a missing project is a normal outcome.
 
 We also use `Instant` from the Java Time API for project creation timestamps, and method references such as `GeoProject::projectCode` inside Stream pipelines. I use these features where they make the code clearer; I do not convert every loop or class into a functional style just because Java 8 supports it.
+
+---
+
+## Set 46 — Status: 46/387+
+
+### ⭐ Which Java version do you use in your current project?
+
+In the current GeoOps project, we use **Java 17**. The version is defined in Maven, the repository has a `.java-version` file set to 17, and our GitHub Actions pipeline also runs the build with Java 17.
+
+I also enforce the runtime version through Maven so a build fails early if someone uses the wrong JDK. In the codebase we already use modern Java constructs available on that baseline, such as the `GeoProject` record, while keeping the version choice itself separate from whether every Java 17 feature is used.
