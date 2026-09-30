@@ -1687,3 +1687,64 @@ Current process sprint:
 Next exact original experience anchor:
 
 ⭐ **What challenge did you face while deserializing data?**
+
+## Post-Set-50 maintenance checkpoint — CURRENT IMPLEMENTATION
+
+This maintenance checkpoint is newer than Sets 1–50 and is authoritative for current code.
+
+Current runtime/toolchain:
+
+```text
+Java 17
+Spring Boot 4.1.1
+Apache Commons CSV 1.14.1
+Maven + SpotBugs
+GitHub Actions
+```
+
+Do not treat historical references to Spring Boot 3.3.5 in earlier Set documents as the current framework version.
+
+Current intake/data-transfer flow:
+
+```text
+multipart CSV
+→ Apache Commons CSV / RFC 4180
+→ parse entire document
+→ CreateProjectRequest batch
+→ RequiredProjectFieldsValidationRule + domain rules
+→ canonical CRS
+→ reject batch/catalog duplicates
+→ atomic in-memory ProjectCatalog publication
+→ batch enqueue ProjectReviewQueue
+```
+
+Current guarantees:
+- bad later CSV rows do not partially import earlier rows;
+- blank required fields cannot bypass validation through CSV;
+- ProjectCatalog state access is synchronized;
+- CRS is stored canonically;
+- malformed CSV is a client error;
+- transfer I/O failures are server errors;
+- oversized multipart upload maps to HTTP 413;
+- multiline quoted CSV and formula-safe export are regression-tested;
+- review queue compound state transitions are lock-coordinated;
+- full tests + SpotBugs pass at maintenance code checkpoint `7e154b98e9496969b3e5bf5a04748b62367b51aa`.
+
+Question counters are unchanged:
+
+```text
+Status: 50/387+
+Completed anchors: 50
+Unique master technical questions: 210
+Synthetic technical questions: 13
+Synthetic ⭐⭐ anchors: 0
+```
+
+Maintenance report:
+
+`docs/maintenance/POST-SET-050-CODEBASE-AUDIT.md`
+
+Next exact anchor remains:
+
+⭐ **What challenge did you face while deserializing data?**
+
