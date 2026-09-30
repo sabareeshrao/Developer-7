@@ -409,3 +409,14 @@ That lifecycle is useful for auxiliary cache or metadata scenarios, but it is no
 Yes. In GeoOps I use ConcurrentHashMap for claimed quality-review tasks. We initially used HashMap once we introduced claimed-state tracking, but because Spring Boot can process multiple requests concurrently, I later hardened that state with ConcurrentHashMap keyed by projectCode.
 
 A practical example is a retry and a completion request arriving at nearly the same time for the same claimed project. Both operations use ConcurrentHashMap.remove(projectCode), so only one request can obtain the task and succeed; the other sees no mapping. I also kept the existing LinkedList-backed review queue but protected its operations with a narrow internal lock, because ConcurrentHashMap only makes the map concurrent—it does not automatically make the rest of the workflow thread-safe.
+
+
+---
+
+## Set 38 — Status: 38/387+
+
+### ⭐ Have you customized sorting before? If yes, for what purpose?
+
+Yes. In GeoOps I customized sorting for the delivery-preparation view. The project catalog itself preserves intake order, but downstream delivery work needs a deterministic order that groups projects by coordinate reference system and then sorts projects within the same CRS by project code.
+
+I implemented that as an external Comparator rather than making GeoProject implement Comparable, because GeoProject does not have one universal natural order. The comparator chains coordinateReferenceSystem first and projectCode as the tie-breaker. That keeps the sorting rule specific to the delivery use case, produces predictable output, and leaves the original catalog order unchanged.
