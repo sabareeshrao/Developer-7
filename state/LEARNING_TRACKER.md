@@ -1302,7 +1302,35 @@ Set 43 learning items completed: 8 / 8
 
 ---
 
-Completed job-experience anchors: 43
+# Set 44
+
+**Status: 44/387+**
+
+- [x] ⭐ [Master 640] Can you tell me a particular scenario where you used Optional?
+
+## Part A
+- [x] ✅ [Master 626] What problem does the Optional class solve in Java 8?
+- [x] ✅ [Master 629] Why was the Optional class introduced in Java?
+- [x] ✅ [Master 630] Besides Null Handling, what other advantages does the Optional class provide?
+- [x] ✅ [Master 631] How is Optional intended to be used, and how is it commonly misused?
+- [x] ✅ [Master 632] What is the difference between orElse() and orElseGet()?
+- [x] ✅ [Master 633] Why can calling Optional.get() be dangerous?
+- [x] ✅ [Master 635] What is the difference between Optional.of() and Optional.ofNullable()?
+
+## Set 44 completion evidence
+- docs/sets/SET-044-OPTIONAL-SCENARIO.md
+- docs/process/SPRINT-004.md
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectCatalog.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectService.java
+- src/main/java/com/atlasgrid/geoops/project/api/ProjectQueryController.java
+- src/test/java/com/atlasgrid/geoops/project/api/ProjectOptionalBoundaryIntegrationTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 44 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 44
 Synthetic job-experience anchors created so far: 0
 Unique master technical questions covered: 197
 Synthetic technical questions covered: 10
