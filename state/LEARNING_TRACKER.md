@@ -1147,10 +1147,43 @@ Set 37 learning items completed: 8 / 8
 
 Set 38 learning items completed: 8 / 8
 
+
 ---
 
-Completed job-experience anchors: 38
+# Set 39
+
+**Status: 39/387+**
+
+- [x] ⭐ [Master 592] What challenges did you face while implementing Functional Interfaces in legacy code?
+
+## Part A
+- [x] [Master 564] Can you explain what functional interfaces are?
+- [x] [Master 570] Can you please explain the functional interfaces like Predicate, Function and Consumer, and give a real-world use case for each?
+- [x] [Master 571] What will happen if you create your own functional interface with two abstract methods?
+- [x] [Master 581] How do Lambda Expressions differ from Anonymous Classes?
+- [x] [Master 582] Can Lambda Expressions access Non-Final Local Variables, and what happens if you try to modify such a Variable inside the Lambda?
+- [x] [Master 588] How is Lambda expression related to Functional Interfaces?
+- [x] [Master 590] Can a Lambda Expression throw a Checked Exception?
+
+## Set 39 completion evidence
+- docs/sets/SET-039-FUNCTIONAL-INTERFACES-LEGACY.md
+- docs/process/SPRINT-004.md
+- src/main/java/com/atlasgrid/geoops/project/validation/ProjectValidationCheck.java
+- src/main/java/com/atlasgrid/geoops/project/validation/FunctionalProjectValidationRuleAdapter.java
+- src/main/java/com/atlasgrid/geoops/project/validation/ProjectValidationRuleConfiguration.java
+- src/main/java/com/atlasgrid/geoops/project/validation/ProjectValidationRule.java
+- src/main/java/com/atlasgrid/geoops/project/validation/CoordinateReferenceSystemValidationRule.java
+- src/test/java/com/atlasgrid/geoops/project/validation/ProjectValidationServiceTest.java
+- src/test/java/com/atlasgrid/geoops/project/validation/FunctionalProjectValidationRuleAdapterTest.java
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectServiceTestFactory.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 39 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 39
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 173
+Unique master technical questions covered: 180
 Synthetic technical questions covered: 10
 Current denominator: 387+
