@@ -822,3 +822,22 @@ Established rules:
 - A legacy ProjectService test factory had a hidden direct dependency on ProjectCodeValidationRule and was migrated after CI exposed it.
 - Set 39 adds seven new master technical questions.
 - Existing validation behavior remains unchanged.
+
+
+## Set 40 established facts — Stream API delivery selection
+
+GeoOps now has an explicit Stream API business use case in delivery preparation.
+
+Established rules:
+- ProjectDeliverySelectionService accepts the current project Collection plus one requested CRS.
+- It uses a sequential Stream pipeline.
+- filter(...) keeps only projects whose coordinateReferenceSystem matches the requested CRS.
+- map(GeoProject::projectCode) transforms matching projects into project-code Strings.
+- sorted() makes returned codes deterministic.
+- toList() is the terminal operation and returns the Stream result.
+- ProjectDeliverySelection makes a defensive List.copyOf(...) copy.
+- GET /api/projects/delivery-selection?crs=... exposes the report.
+- The Stream pipeline never mutates ProjectCatalog intake order.
+- ProjectCollectionSummaryService intentionally remains an imperative for-loop because one pass updates three related accumulators and that is clearer than multiple Stream passes or mutation hidden inside a Stream pipeline.
+- Set 40 adds seven new master technical questions.
+- Sprint 004 continues the Modern Java / collection-processing sequence.
