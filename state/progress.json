@@ -35,5 +35,16 @@
     "experienceAnswerRequiredAtEnd": true,
     "masterIdsVisibleToUser": false
   },
-  "tracker": "state/LEARNING_TRACKER.md"
+  "tracker": "state/LEARNING_TRACKER.md",
+  "maintenance": {
+    "checkpoint": "post-set-050-codebase-audit",
+    "learningStatusUnchanged": true,
+    "currentFramework": "Spring Boot 4.1.1",
+    "javaVersion": 17,
+    "csvLibrary": "Apache Commons CSV 1.14.1",
+    "qualityGate": "mvn clean verify + SpotBugs",
+    "firstGreenCodeCommit": "7e154b98e9496969b3e5bf5a04748b62367b51aa",
+    "report": "docs/maintenance/POST-SET-050-CODEBASE-AUDIT.md",
+    "nextLearningSet": 51
+  }
 }
