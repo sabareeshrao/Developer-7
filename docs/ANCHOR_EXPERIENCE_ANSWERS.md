@@ -505,3 +505,13 @@ We also use `Instant` from the Java Time API for project creation timestamps, an
 In the current GeoOps project, we use **Java 17**. The version is defined in Maven, the repository has a `.java-version` file set to 17, and our GitHub Actions pipeline also runs the build with Java 17.
 
 I also enforce the runtime version through Maven so a build fails early if someone uses the wrong JDK. In the codebase we already use modern Java constructs available on that baseline, such as the `GeoProject` record, while keeping the version choice itself separate from whether every Java 17 feature is used.
+
+---
+
+## Set 47 — Status: 47/387+
+
+### ⭐ Currently, which Java version are you working on?
+
+Currently, I’m working with **Java 17** in the GeoOps project. We keep that consistent across local development, Maven, and CI: the repository has a `.java-version` file set to 17, Maven compiles for Java 17 and rejects the wrong runtime through the Enforcer plugin, and GitHub Actions runs with Temurin 17.
+
+So when I say Java 17 is the version I’m currently working on, it is not just an IDE setting—the build and test pipeline enforce the same version as well.
