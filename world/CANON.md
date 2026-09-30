@@ -1174,3 +1174,78 @@ Status: 49/387+
 ~~~
 
 The next original source anchor asks: How are you importing and exporting data? Can you tell me the technical part of that?
+
+## Set 50 established facts — CSV project data import/export
+
+Anchor:
+
+⭐ **How are you importing and exporting data? Can you tell me the technical part of that?**
+
+GeoOps now has a concrete file-based project-metadata exchange path.
+
+### Import
+
+```text
+POST /api/projects/imports/csv
+→ MultipartFile
+→ InputStream
+→ ProjectCsvTransferService
+→ BufferedReader UTF-8 parsing
+→ CreateProjectRequest
+→ ProjectService.create(...)
+→ existing validation / duplicate checks / catalog / review queue
+```
+
+### Export
+
+```text
+GET /api/projects/exports/csv
+→ current project catalog
+→ CSV escaping
+→ text/csv
+→ Content-Disposition attachment
+→ geoops-projects.csv
+```
+
+Established CSV schema:
+
+```text
+projectCode,name,coordinateReferenceSystem
+```
+
+Established rules:
+- UTF-8 is the exchange encoding.
+- The header is required.
+- Empty lines are skipped.
+- Quoted fields can contain commas.
+- Doubled quotes are decoded/escaped.
+- The current line-oriented parser does not support multiline field values.
+- Imported rows never bypass ProjectService business rules.
+- Transfer failures use PROJECT_DATA_TRANSFER_FAILED.
+- Multipart uploads are capped at 5MB with a 6MB request limit.
+- The current import is intentionally synchronous and bounded.
+- A 50,000-row long-running import should be redesigned as an asynchronous job rather than kept in one HTTP request.
+- Native Java object serialization is not used for the external CSV contract.
+- Earlier DatasetPreflightValidator support for .csv/.json/.geojson remains intact.
+- Earlier ProjectManifestFileExporter remains a separate plain-text file-export example.
+
+Learning-state impact:
+- five new master technical questions covered;
+- one previously completed file-handling exception question reused with ✅;
+- one synthetic CSV-contract question added with 💡;
+- unique master technical-question count increases from 205 to 210;
+- synthetic technical-question count increases from 12 to 13;
+- synthetic ⭐⭐ anchor count remains 0.
+
+Latest learning state:
+
+```text
+Completed Sets: 50
+Completed anchors: 50
+Unique master technical questions: 210
+Synthetic technical questions: 13
+Synthetic ⭐⭐ anchors: 0
+Status: 50/387+
+```
+
+The next original source anchor asks: What challenge did you face while deserializing data?
