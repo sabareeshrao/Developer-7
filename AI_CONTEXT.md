@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 39/387+**
+**Status: 40/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -1198,3 +1198,47 @@ Status: 39/387+
 Set 39 adds seven new master technical questions.
 
 The next original source anchor asks whether Stream APIs have been used.
+
+
+## Set 40 — Latest Completed Set
+
+Anchor:
+
+⭐ **Have you worked on Stream APIs?**
+
+Set 40 adds a delivery-selection Stream pipeline:
+
+~~~text
+Project collection
+→ stream()
+→ filter(requested CRS)
+→ map(projectCode)
+→ sorted()
+→ toList()
+→ immutable delivery selection
+~~~
+
+Endpoint:
+
+~~~text
+GET /api/projects/delivery-selection?crs=EPSG:4326
+~~~
+
+The source ProjectCatalog remains unchanged.
+
+Important design choice: ProjectCollectionSummaryService remains a plain loop because it updates a List, Set and Map together in one pass, and a Stream rewrite would be less clear.
+
+Latest learning state:
+
+~~~text
+Completed Sets: 40
+Completed anchors: 40
+Unique master technical questions covered: 187
+Synthetic technical questions covered: 10
+Synthetic ⭐⭐ anchors: 0
+Status: 40/387+
+~~~
+
+Set 40 adds seven new master technical questions.
+
+The next original source anchor asks: Have you used Optional personally?
