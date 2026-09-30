@@ -47,6 +47,33 @@ public class SnapshotReflectionInspector {
         return inspect(ProjectSnapshotDocument.class);
     }
 
+    public List<SnapshotFieldMetadata> inspectSnapshotFields() {
+        return Arrays.stream(
+                        ProjectSnapshotEntry.class.getRecordComponents()
+                )
+                .filter(component ->
+                        component.isAnnotationPresent(
+                                SnapshotField.class
+                        )
+                )
+                .map(this::toMetadata)
+                .toList();
+    }
+
+    private SnapshotFieldMetadata toMetadata(
+            RecordComponent component
+    ) {
+        SnapshotField annotation =
+                component.getAnnotation(SnapshotField.class);
+
+        return new SnapshotFieldMetadata(
+                component.getName(),
+                component.getType().getSimpleName(),
+                annotation.description(),
+                annotation.required()
+        );
+    }
+
     private String describe(RecordComponent component) {
         return component.getName()
                 + ":"

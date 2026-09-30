@@ -14,10 +14,15 @@ import java.util.Objects;
  * native serialization.</p>
  */
 public record ProjectSnapshotEntry(
+        @SnapshotField(description = "Stable project identifier")
         String projectId,
+        @SnapshotField(description = "Business project code")
         String projectCode,
+        @SnapshotField(description = "Human-readable project name")
         String name,
+        @SnapshotField(description = "Canonical EPSG coordinate system")
         String coordinateReferenceSystem,
+        @SnapshotField(description = "Project creation time in epoch milliseconds")
         long createdAtEpochMilli
 ) implements Serializable {
 

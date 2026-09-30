@@ -39,3 +39,25 @@ Evidence:
 - SnapshotDiagnosticsConfiguration.java
 - SnapshotDiagnosticsConfigurationTest.java
 - application.yml
+
+
+## Story GEO-58 — Add custom snapshot-field metadata
+
+**Outcome:** The snapshot schema carries explicit runtime metadata that the existing Reflection diagnostics can inspect.
+
+Acceptance criteria:
+- Create a custom Java annotation with `@interface`.
+- Restrict it to record components with `@Target`.
+- Retain it at runtime.
+- Annotate the `ProjectSnapshotEntry` record components.
+- Read the metadata through `SnapshotReflectionInspector`.
+- Add tests for meta-annotations and runtime inspection.
+- Keep CI and SpotBugs green.
+
+Evidence:
+- docs/sets/SET-058-CUSTOM-ANNOTATION.md
+- SnapshotField.java
+- SnapshotFieldMetadata.java
+- ProjectSnapshotEntry.java
+- SnapshotReflectionInspector.java
+- SnapshotFieldAnnotationTest.java
