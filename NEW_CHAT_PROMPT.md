@@ -1,4 +1,4 @@
-# Developer-7 / GeoOps — New Chat Handover After Set 47
+# Developer-7 / GeoOps — New Chat Handover After Set 48
 
 Continue my existing GitHub project:
 
@@ -12,37 +12,46 @@ Do not rely on previous chat memory and do not ask me to re-paste earlier Sets. 
 
 ## Current verified checkpoint
 
-Set 47 is complete and pushed.
+Set 48 is complete and pushed.
 
 Current learning state:
 
 ~~~text
-Completed Sets: 47
-Completed original experience anchors: 47
+Completed Sets: 48
+Completed original experience anchors: 48
 Synthetic experience anchors: 0
 
 Unique master technical questions: 203
 Synthetic technical questions: 10
 
-Status: 47/387+
+Status: 48/387+
 ~~~
 
-Set 47 is a deliberate reuse/confirmation Set. It does not add duplicate Java-version production code.
+Sets 46–48 all confirm the same Java 17 baseline. Do not add duplicate Java-version infrastructure.
 
-The established Java 17 baseline remains:
-- `.java-version = 17`
-- Maven `java.version = 17`
-- Maven `maven.compiler.release = 17`
-- Maven Enforcer requires `[17,18)`
-- GitHub Actions uses Temurin 17
-- `Java17BaselineTest` verifies runtime feature version 17
-- `GeoProject` remains a Java record
+Established proof:
+
+~~~text
+.java-version = 17
+
+pom.xml
+├── java.version = 17
+├── maven.compiler.release = 17
+└── Maven Enforcer requires [17,18)
+
+GitHub Actions
+└── Temurin Java 17
+
+Java17BaselineTest
+├── Runtime.version().feature() == 17
+└── GeoProject.class.isRecord() == true
+~~~
 
 If GitHub contains anything newer than this handover, GitHub wins.
 
 ## Mandatory startup
 
-Before doing Set 48:
+Before doing Set 49:
 
 1. Inspect the latest 10–20 commits.
 2. Read `CONTINUATION_PROTOCOL.md`.
@@ -50,13 +59,13 @@ Before doing Set 48:
 4. Read `state/LEARNING_TRACKER.md`.
 5. Read `world/CANON.md`.
 6. Read `AI_CONTEXT.md`.
-7. Read `docs/sets/SET-047-CURRENT-JAVA-VERSION.md`.
+7. Read `docs/sets/SET-048-JAVA-VERSION-USED.md`.
 8. Read `docs/sets/SET-046-JAVA-17-BASELINE.md`.
 9. Read `docs/architecture/ADR-JAVA-17-BASELINE.md`.
 10. Read `docs/process/SPRINT-004.md`.
 11. Check the latest GitHub Actions state.
 
-If partial Set-48 work already exists, reconcile it instead of starting duplicate work.
+If partial Set-49 work already exists, reconcile it instead of starting duplicate work.
 
 ## Core Set rule
 
@@ -95,37 +104,25 @@ Current denominator: `387+`
 - Maximum 7 technical questions per Part.
 - Reuse completed technical questions with ✅.
 - Do not reteach completed questions unless review is explicitly requested.
-- Do not add duplicate code simply because two original experience questions have similar wording.
+- Do not add duplicate production code just because similar source anchors exist.
 
-## Set 48 — required next anchor
+## Set 49 — required next anchor
 
 The next exact original experience question is:
 
-⭐ **What's the Java version you are using?**
+⭐ **Why did you choose Java 17 if you are not using many Java 17-specific features?**
 
-This must be the Set 48 anchor.
+This must be the Set 49 anchor.
 
-It is semantically very close to Sets 46 and 47.
+Unlike Sets 46–48, this question asks for **rationale**, not merely the current version.
 
-Therefore:
-- reuse the established Java 17 evidence;
-- use ✅ for already-covered version questions;
-- do not create another Java-version plugin/test/endpoint merely for coverage;
-- do not skip the anchor because it is similar—the original source bank contains it as a separate experience question;
-- preserve the later separate anchor:
-  ⭐ **Why did you choose Java 17 if you are not using many Java 17-specific features?**
-
-## Java-version baseline
-
-~~~text
-Java 17
-├── .java-version
-├── Maven compiler release
-├── Maven Enforcer
-├── GitHub Actions
-├── Java17BaselineTest
-└── GeoProject record
-~~~
+Before answering:
+- search the master bank for Java 11/17/version-evolution questions;
+- reuse already-covered Java 17 feature questions with ✅;
+- add new technical questions only when they explain the version choice;
+- distinguish "features introduced specifically in Java 17" from "modern Java features available on the Java 17 baseline";
+- do not invent an unsupported migration story, corporate mandate, performance metric, customer requirement, or production incident;
+- ground the answer in the repository's actual Java 17 + Spring Boot baseline and long-term-support/tooling consistency where the source/repository supports it.
 
 ## Fiction boundary
 
@@ -150,14 +147,14 @@ Historical answers are stored in:
 
 ## Completion gate
 
-Do not declare Set 48 complete until applicable items are complete:
+Do not declare Set 49 complete until applicable items are complete:
 
 ~~~text
 evidence
 +
-CI green
+tests/CI
 +
-docs/sets/SET-048-*.md
+docs/sets/SET-049-*.md
 +
 Sprint/process docs
 +
@@ -178,6 +175,6 @@ Experience Answer shown LAST
 
 After recovering repository state, proceed directly with:
 
-**Set 48**
+**Set 49**
 
 Do not ask me to repeat prior Sets or explain the workflow again.
