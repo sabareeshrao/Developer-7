@@ -2,6 +2,7 @@ package com.atlasgrid.geoops.project.validation;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 
 import java.util.List;
 
@@ -17,13 +18,20 @@ import java.util.List;
 public class ProjectValidationRuleConfiguration {
 
     @Bean
+    @Order(10)
     public ProjectValidationRule projectCodeValidationRule() {
         String ruleCode = "PROJECT_CODE_FORMAT";
         String example = ProjectValidationStandards.PROJECT_CODE_EXAMPLE;
 
         ProjectValidationCheck check = request -> {
+            String projectCode = request.projectCode();
+
+            if (projectCode == null || projectCode.isBlank()) {
+                return List.of();
+            }
+
             if (ProjectValidationStandards
-                    .isValidProjectCode(request.projectCode())) {
+                    .isValidProjectCode(projectCode)) {
                 return List.of();
             }
 
