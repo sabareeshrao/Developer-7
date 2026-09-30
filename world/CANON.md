@@ -1249,3 +1249,82 @@ Status: 50/387+
 ```
 
 The next original source anchor asks: What challenge did you face while deserializing data?
+
+## Post-Set-50 maintenance evolution — current codebase baseline
+
+This section records maintenance performed after Set 50. It does **not** create Set 51 and does not change any question counters.
+
+### Current framework/toolchain
+
+The current repository baseline is now:
+
+```text
+Java 17
+Spring Boot 4.1.1
+Apache Commons CSV 1.14.1
+Maven
+SpotBugs
+GitHub Actions
+```
+
+Historical Set documents may still mention Spring Boot 3.3.5 because that was the codebase state when those Sets were completed. Current implementation state supersedes that version for future work.
+
+Java 17 remains enforced by `.java-version`, Maven compiler release, Maven Enforcer and CI.
+
+### Current project-intake invariants
+
+- Required project fields are validated below MVC by `RequiredProjectFieldsValidationRule`, so CSV/programmatic intake cannot bypass REST Bean Validation.
+- Accepted CRS identifiers are canonicalized before storage, for example ` epsg:4326 ` becomes `EPSG:4326`.
+- `ProjectCatalog` owns synchronized ArrayList/HashSet state.
+- `ProjectService` coordinates intake publication through its in-memory intake lock.
+- CSV batch import validates the whole batch before publishing it.
+- Duplicate project codes inside the batch or against the catalog fail before catalog mutation.
+- Batch publication updates the in-memory catalog as one operation and enqueues the accepted review tasks as one queue operation.
+- This is an in-memory atomicity guarantee, not a database transaction claim.
+
+### Current CSV transfer invariants
+
+- CSV parsing/printing uses Apache Commons CSV with RFC 4180 behavior.
+- UTF-8 remains the transfer encoding.
+- The exact header remains `projectCode,name,coordinateReferenceSystem`.
+- Quoted commas, escaped quotes and multiline quoted values are supported.
+- Malformed CSV is rejected without partially importing earlier rows.
+- Export neutralizes spreadsheet formula prefixes and import reverses the GeoOps transport escape.
+- The multipart endpoint remains bounded to 5MB per file / 6MB per request.
+- Oversized uploads map to HTTP 413 / `REQUEST_TOO_LARGE`.
+- Malformed client transfer data remains HTTP 400.
+- Server-side transfer I/O failures map to HTTP 500 / `PROJECT_DATA_TRANSFER_IO_FAILED`.
+
+### Current review concurrency invariant
+
+Queued↔claimed review workflow transitions now use one state lock so claim, retry and completion transitions do not expose an intermediate state where a task is in neither workflow collection.
+
+### CI quality gate
+
+`mvn clean verify` now runs the full tests and SpotBugs.
+
+Pull requests also use GitHub dependency review.
+
+First fully green maintenance code checkpoint:
+
+`7e154b98e9496969b3e5bf5a04748b62367b51aa`
+
+### Intentionally deferred
+
+Authentication/authorization, database persistence/transactions, PostgreSQL/PostGIS, asynchronous persistent large-file import jobs, Kafka/Redis/cloud storage, Docker and Kubernetes remain deferred until future anchors justify them.
+
+### Learning status remains unchanged
+
+```text
+Completed Sets: 50
+Completed original anchors: 50
+Synthetic ⭐⭐ anchors: 0
+Unique master technical questions: 210
+Synthetic 💡 technical questions: 13
+Status: 50/387+
+```
+
+Next source anchor remains:
+
+⭐ **What challenge did you face while deserializing data?**
+
