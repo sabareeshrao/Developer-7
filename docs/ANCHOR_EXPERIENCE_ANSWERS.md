@@ -453,3 +453,14 @@ I use Streams where the requirement is naturally a read-only transformation pipe
 Yes. In GeoOps I use Optional personally in the project lookup flow. ProjectService.findByProjectCode() and the intake-position lookup return Optional<GeoProject> because not finding a project is a normal outcome, not an exceptional failure. At the REST boundary I pass that Optional to ResponseEntity.of(), so a present project becomes HTTP 200 and an empty Optional becomes HTTP 404.
 
 I avoid calling Optional.get() in production code. When I need to transform a present value I use operations such as map(), and for fallback behavior I choose between orElse() and the lazy orElseGet() deliberately. I also keep invalid input separate from normal absence—for example, a null project code is rejected, while an unknown valid code returns Optional.empty().
+
+
+---
+
+## Set 42 — Status: 42/387+
+
+### ⭐ Do you use Optional practically in your project?
+
+Yes. In GeoOps I use Optional practically in the project lookup layer. Besides looking up by project code, we also support a one-based intake-position lookup. If that position exists, the catalog returns Optional.of(project); if the requested position is outside the catalog, it returns Optional.empty() because that is a normal missing-result case.
+
+I also compose Optional instead of blindly extracting values. For a caller that requires a specific kind of project, I can filter the Optional, map the project to the value I need, and use orElseThrow() only when that caller truly requires presence. I keep Optional at these query boundaries rather than putting it into required GeoProject fields or getters.
