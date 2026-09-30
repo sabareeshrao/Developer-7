@@ -1088,3 +1088,45 @@ Status: 47/387+
 ~~~
 
 The next original source anchor asks: What's the Java version you are using?
+
+## Set 48 established facts — Java version used
+
+Anchor:
+
+⭐ **What's the Java version you are using?**
+
+GeoOps uses Java 17.
+
+Set 48 is another source-bank formulation of the Java-version experience question, so it deliberately reuses the same enforceable baseline rather than creating new version infrastructure.
+
+Established evidence remains:
+- `.java-version` is 17;
+- Maven `java.version` is 17;
+- Maven `maven.compiler.release` is 17;
+- Maven Enforcer requires `[17,18)`;
+- GitHub Actions uses Temurin 17;
+- `Java17BaselineTest` verifies runtime feature version 17;
+- `GeoProject` remains a Java record.
+
+No Java migration occurs in Set 48.
+
+Learning-state impact:
+- four technical questions reused with ✅;
+- no new master technical question;
+- no new synthetic technical question;
+- unique master technical-question count remains 203;
+- synthetic technical-question count remains 10;
+- synthetic ⭐⭐ anchor count remains 0.
+
+Latest learning state:
+
+~~~text
+Completed Sets: 48
+Completed anchors: 48
+Unique master technical questions: 203
+Synthetic technical questions: 10
+Synthetic ⭐⭐ anchors: 0
+Status: 48/387+
+~~~
+
+The next original source anchor asks: Why did you choose Java 17 if you are not using many Java 17-specific features?
