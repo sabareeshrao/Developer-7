@@ -83,3 +83,26 @@ Evidence:
 - JvmMemorySnapshot.java
 - JvmMemoryDiagnosticsService.java
 - JvmMemoryDiagnosticsServiceTest.java
+
+
+## Story GEO-60 — Debug and remove diagnostic-history retention
+
+**Outcome:** The JVM diagnostics feature cannot retain an unlimited number of memory samples, and the repository documents the JDK tools used to investigate a retention problem.
+
+Acceptance criteria:
+- Add a bounded memory-snapshot history.
+- Retain only the newest 120 samples.
+- Record captured JVM samples into the bounded history.
+- Add a regression test that writes 1,000 samples and proves only 120 remain.
+- Document `jcmd` heap info, class histogram and heap-dump commands.
+- Document Java Flight Recorder usage.
+- Do not claim VisualVM usage yet.
+- Keep CI and SpotBugs green.
+
+Evidence:
+- docs/sets/SET-060-DEBUG-MEMORY-LEAK.md
+- docs/operations/JVM-MEMORY-LEAK-DEBUGGING.md
+- docs/architecture/ADR-BOUNDED-MEMORY-DIAGNOSTIC-HISTORY.md
+- MemorySnapshotHistory.java
+- JvmMemoryDiagnosticsService.java
+- MemorySnapshotHistoryTest.java

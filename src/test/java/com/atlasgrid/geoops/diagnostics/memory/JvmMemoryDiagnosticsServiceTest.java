@@ -6,11 +6,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class JvmMemoryDiagnosticsServiceTest {
 
+    private final MemorySnapshotHistory history =
+            new MemorySnapshotHistory();
     private final JvmMemoryDiagnosticsService diagnostics =
-            new JvmMemoryDiagnosticsService();
+            new JvmMemoryDiagnosticsService(history);
 
     @Test
-    void capturesSaneJvmMemoryEvidence() {
+    void capturesSaneJvmMemoryEvidenceAndRecordsIt() {
         JvmMemorySnapshot snapshot = diagnostics.capture();
 
         assertThat(snapshot.capturedAt()).isNotNull();
@@ -33,5 +35,8 @@ class JvmMemoryDiagnosticsServiceTest {
                 );
         assertThat(snapshot.pendingFinalizationCount())
                 .isGreaterThanOrEqualTo(0);
+
+        assertThat(history.snapshot())
+                .containsExactly(snapshot);
     }
 }

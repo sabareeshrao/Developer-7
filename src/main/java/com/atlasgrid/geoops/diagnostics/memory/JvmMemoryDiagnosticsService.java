@@ -16,12 +16,19 @@ public class JvmMemoryDiagnosticsService {
 
     private final MemoryMXBean memoryMXBean =
             ManagementFactory.getMemoryMXBean();
+    private final MemorySnapshotHistory history;
+
+    public JvmMemoryDiagnosticsService(
+            MemorySnapshotHistory history
+    ) {
+        this.history = history;
+    }
 
     public JvmMemorySnapshot capture() {
         MemoryUsage heap = memoryMXBean.getHeapMemoryUsage();
         MemoryUsage nonHeap = memoryMXBean.getNonHeapMemoryUsage();
 
-        return new JvmMemorySnapshot(
+        JvmMemorySnapshot snapshot = new JvmMemorySnapshot(
                 Instant.now(),
                 heap.getUsed(),
                 heap.getCommitted(),
@@ -30,5 +37,8 @@ public class JvmMemoryDiagnosticsService {
                 nonHeap.getCommitted(),
                 memoryMXBean.getObjectPendingFinalizationCount()
         );
+
+        history.record(snapshot);
+        return snapshot;
     }
 }
