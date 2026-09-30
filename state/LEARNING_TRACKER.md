@@ -1467,8 +1467,40 @@ Set 49 learning items completed: 8 / 8
 
 ---
 
-Completed job-experience anchors: 49
+# Set 50
+
+**Status: 50/387+**
+
+- [x] ⭐ [Master 663] How are you importing and exporting data? Can you tell me the technical part of that?
+
+## Part A
+- [x] ✅ [Master 356] While designing a File Handling module, how would you decide which Exceptions should be Checked and which should be Unchecked?
+- [x] [Master 1935] What is the difference between Blocking and Non-Blocking I/O in Spring Boot?
+- [x] [Master 1936] Your REST API allows file uploads, but users complain about large files failing silently. How would you fix this issue?
+- [x] [Master 1959] How does Spring MVC handle file uploads, and what configurations are required?
+- [x] [Master 1981] You need to expose a REST API that accepts a CSV file upload and processes 50,000 rows, but the HTTP request times out. How would you redesign the flow?
+- [x] [Master 664] Have you heard about Java serialization?
+- [x] 💡 How do you make a CSV import/export contract safe and predictable?
+
+## Set 50 completion evidence
+- docs/sets/SET-050-DATA-IMPORT-EXPORT.md
+- docs/process/SPRINT-005.md
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectCsvTransferService.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectImportResult.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectDataTransferException.java
+- src/main/java/com/atlasgrid/geoops/project/api/ProjectDataTransferController.java
+- src/main/java/com/atlasgrid/geoops/error/GeoOpsErrorCode.java
+- src/main/resources/application.yml
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectCsvTransferServiceTest.java
+- src/test/java/com/atlasgrid/geoops/project/api/ProjectDataTransferIntegrationTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 50 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 50
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 205
-Synthetic technical questions covered: 12
+Unique master technical questions covered: 210
+Synthetic technical questions covered: 13
 Current denominator: 387+
