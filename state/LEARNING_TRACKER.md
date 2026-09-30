@@ -1117,10 +1117,40 @@ Set 36 learning items completed: 6 / 6
 
 Set 37 learning items completed: 8 / 8
 
+
 ---
 
-Completed job-experience anchors: 37
+# Set 38
+
+**Status: 38/387+**
+
+- [x] ⭐ [Master 550] Have you customized sorting before? If yes, for what purpose?
+
+## Part A
+- [x] [Master 392] What is the difference between a Sorted Collection and an Ordered Collection?
+- [x] ✅ [Master 536] What are Comparator and Comparable used for?
+- [x] ✅ [Master 537] If a Class implements Comparable but a Custom Comparator is supplied while sorting, which ordering takes precedence?
+- [x] ✅ [Master 541] Do you know about the Comparable Interface?
+- [x] [Master 544] Can you tell me the difference between Comparable and Comparator, and which would you use to sort a list of employees by salary?
+- [x] ✅ [Master 546] Give me a scenario where we should use Comparator.
+- [x] [Master 547] You use a custom Comparator for a TreeMap, but some elements are not getting inserted. What might be wrong?
+
+## Set 38 completion evidence
+- docs/sets/SET-038-CUSTOM-SORTING.md
+- docs/process/SPRINT-004.md
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectSortingService.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectSortingView.java
+- src/main/java/com/atlasgrid/geoops/project/api/ProjectReportController.java
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectSortingServiceTest.java
+- src/test/java/com/atlasgrid/geoops/project/api/ProjectSortingIntegrationTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 38 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 38
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 170
+Unique master technical questions covered: 173
 Synthetic technical questions covered: 10
 Current denominator: 387+
