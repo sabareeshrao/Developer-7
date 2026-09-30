@@ -163,7 +163,7 @@ public class ProjectCsvTransferService {
                 || safeValue.indexOf('"') >= 0
                 || safeValue.indexOf('\n') >= 0
                 || safeValue.indexOf('\r') >= 0) {
-            return '"' + safeValue.replace(""", """") + '"';
+            return "\"" + safeValue.replace("\"", "\"\"") + "\"";
         }
 
         return safeValue;
