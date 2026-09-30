@@ -5,7 +5,10 @@ import com.atlasgrid.geoops.project.domain.GeoProject;
 import java.util.List;
 
 /**
- * Read-only demonstration of the two sorting APIs used by GeoOps.
+ * Read-only delivery-preparation sorting result.
+ *
+ * <p>Project codes are available as an alphabetic index while full projects
+ * use the business-specific CRS-then-project-code delivery order.</p>
  */
 public record ProjectSortingView(
         List<String> projectCodesAlphabetically,
