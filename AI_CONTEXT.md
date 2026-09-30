@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 41/387+**
+**Status: 42/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -1281,3 +1281,46 @@ Status: 41/387+
 Set 41 adds seven new master technical questions.
 
 The next original source anchor asks: Do you use Optional practically in your project?
+
+
+## Set 42 — Latest Completed Set
+
+Anchor:
+
+⭐ **Do you use Optional practically in your project?**
+
+Set 42 proves a second existing Optional workflow rather than adding a duplicate API:
+
+~~~text
+one-based intake position
+→ ProjectCatalog.findByIntakePosition(...)
+→ Optional<GeoProject>
+   ├── valid position   → present
+   └── invalid position → empty
+~~~
+
+A new regression test also demonstrates:
+
+~~~text
+Optional
+→ filter(CRS)
+→ map(projectCode)
+→ orElseThrow() only when the caller requires presence
+~~~
+
+GeoProject required fields remain plain required values; Optional stays at query boundaries.
+
+Latest learning state:
+
+~~~text
+Completed Sets: 42
+Completed anchors: 42
+Unique master technical questions covered: 196
+Synthetic technical questions covered: 10
+Synthetic ⭐⭐ anchors: 0
+Status: 42/387+
+~~~
+
+Set 42 adds two new master technical questions and reuses five with ✅.
+
+The next original source anchor asks: Did you guys leverage the Optional class?
