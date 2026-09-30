@@ -55,10 +55,7 @@ public class ProjectCsvTransferService {
     private final ProjectService projectService;
 
     public ProjectCsvTransferService(ProjectService projectService) {
-        this.projectService = Objects.requireNonNull(
-                projectService,
-                "projectService"
-        );
+        this.projectService = projectService;
     }
 
     public ProjectImportResult importCsv(InputStream inputStream) {
