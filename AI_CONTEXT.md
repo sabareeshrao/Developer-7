@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 46/387+**
+**Status: 47/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -1504,3 +1504,42 @@ Architecture decision:
 Next exact original experience anchor:
 
 ⭐ **Currently, which Java version are you working on?**
+
+## Set 47 — Latest Completed Set
+
+Anchor:
+
+⭐ **Currently, which Java version are you working on?**
+
+Current GeoOps answer:
+
+~~~text
+Java 17
+→ local version marker
+→ Maven compiler/enforcer
+→ GitHub Actions
+→ runtime regression test
+~~~
+
+Set 47 adds no duplicate production code. It reuses the Java 17 build/runtime contract already established in Set 46.
+
+All four supporting technical questions are reused with ✅.
+
+Current counters:
+
+~~~text
+Completed Sets: 47
+Completed anchors: 47
+Unique master technical questions: 203
+Synthetic technical questions: 10
+Synthetic ⭐⭐ anchors: 0
+Status: 47/387+
+~~~
+
+Set-47 evidence:
+
+`docs/sets/SET-047-CURRENT-JAVA-VERSION.md`
+
+Next exact original experience anchor:
+
+⭐ **What's the Java version you are using?**
