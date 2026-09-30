@@ -11,7 +11,8 @@ class ProjectValidationServiceTest {
 
     private final ProjectValidationService service = new ProjectValidationService(
             List.of(
-                    new ProjectCodeValidationRule(),
+                    new ProjectValidationRuleConfiguration()
+                            .projectCodeValidationRule(),
                     new CoordinateReferenceSystemValidationRule()
             )
     );
@@ -31,7 +32,7 @@ class ProjectValidationServiceTest {
     }
 
     @Test
-    void runsAllRuleImplementationsAndCollectsTheirIssues() {
+    void runsLegacyAndFunctionalRuleStylesTogether() {
         ProjectValidationReport report = service.validate(
                 new CreateProjectRequest(
                         "bad-code",
