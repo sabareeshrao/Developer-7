@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 47/387+**
+**Status: 48/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -1543,3 +1543,44 @@ Set-47 evidence:
 Next exact original experience anchor:
 
 ⭐ **What's the Java version you are using?**
+
+## Set 48 — Latest Completed Set
+
+Anchor:
+
+⭐ **What's the Java version you are using?**
+
+Answer:
+
+~~~text
+Java 17
+~~~
+
+Set 48 intentionally adds no duplicate Java-version code. It reuses the version contract already enforced through:
+- `.java-version`;
+- Maven compiler release 17;
+- Maven Enforcer `[17,18)`;
+- Temurin 17 in GitHub Actions;
+- `Java17BaselineTest`;
+- `GeoProject` record evidence.
+
+All four supporting questions are reused with ✅.
+
+Current counters:
+
+~~~text
+Completed Sets: 48
+Completed anchors: 48
+Unique master technical questions: 203
+Synthetic technical questions: 10
+Synthetic ⭐⭐ anchors: 0
+Status: 48/387+
+~~~
+
+Set-48 evidence:
+
+`docs/sets/SET-048-JAVA-VERSION-USED.md`
+
+Next exact original experience anchor:
+
+⭐ **Why did you choose Java 17 if you are not using many Java 17-specific features?**
