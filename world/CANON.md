@@ -803,3 +803,22 @@ Established rules:
 - ProjectSortingService still returns immutable sorting results and never mutates ProjectCatalog order.
 - Set 38 adds three new master technical questions and reuses four completed questions with ✅.
 - Sprint 004 continues the sorting sequence.
+
+
+## Set 39 established facts — incremental Functional Interface migration
+
+GeoOps now supports incremental lambda-based validation without breaking the legacy validation contract.
+
+Established rules:
+- ProjectValidationRule remains the legacy two-method interface with code() and validate(...).
+- ProjectValidationRule is not a Functional Interface because it has two abstract methods.
+- ProjectValidationCheck is a new @FunctionalInterface with one validate(...) method.
+- FunctionalProjectValidationRuleAdapter bridges ProjectValidationCheck into ProjectValidationRule.
+- Project-code validation is now provided by a lambda-backed Spring bean from ProjectValidationRuleConfiguration.
+- CoordinateReferenceSystemValidationRule remains a class-based Spring component.
+- ProjectValidationService can execute legacy and functional rule styles together.
+- Lambda-captured local variables must remain final or effectively final.
+- Checked exceptions require explicit handling or a compatible Functional Interface signature.
+- A legacy ProjectService test factory had a hidden direct dependency on ProjectCodeValidationRule and was migrated after CI exposed it.
+- Set 39 adds seven new master technical questions.
+- Existing validation behavior remains unchanged.
