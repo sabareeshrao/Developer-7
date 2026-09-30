@@ -1,4 +1,4 @@
-# Developer-7 / GeoOps — New Chat Handover After Set 45
+# Developer-7 / GeoOps — New Chat Handover After Set 46
 
 Continue my existing GitHub project:
 
@@ -12,32 +12,31 @@ Do not rely on previous chat memory and do not ask me to re-paste earlier Sets. 
 
 ## Current verified checkpoint
 
-Set 45 is complete and pushed.
-
-Verified Set-45 completion checkpoint:
-
-`a8b2d0d07a67e5130ab13db1cc3f017a75ea7d5c`
+Set 46 is complete and pushed.
 
 Current learning state:
 
 ~~~text
-Completed Sets: 45
-Completed original experience anchors: 45
+Completed Sets: 46
+Completed original experience anchors: 46
 Synthetic experience anchors: 0
 
-Unique master technical questions: 201
+Unique master technical questions: 203
 Synthetic technical questions: 10
 
-Status: 45/387+
+Status: 46/387+
 ~~~
 
-CI / Maven verification for the Set-45 completion checkpoint is green.
+Executable Java-17 baseline changes have passed CI:
+- Maven Enforcer Java 17 rule
+- Java17BaselineTest
+- Set 46 evidence
 
 If GitHub contains anything newer than this handover, GitHub wins.
 
 ## Mandatory startup
 
-Before doing Set 46:
+Before doing Set 47:
 
 1. Inspect the latest 10–20 commits.
 2. Read `CONTINUATION_PROTOCOL.md`.
@@ -45,12 +44,13 @@ Before doing Set 46:
 4. Read `state/LEARNING_TRACKER.md`.
 5. Read `world/CANON.md`.
 6. Read `AI_CONTEXT.md`.
-7. Read `docs/sets/SET-045-JAVA-8-FEATURES.md`.
-8. Read `docs/process/SPRINT-004.md`.
-9. Inspect implementation/tests relevant to the next Set.
-10. Check the latest GitHub Actions state.
+7. Read `docs/sets/SET-046-JAVA-17-BASELINE.md`.
+8. Read `docs/architecture/ADR-JAVA-17-BASELINE.md`.
+9. Read `docs/process/SPRINT-004.md`.
+10. Inspect implementation/tests relevant to the next Set.
+11. Check the latest GitHub Actions state.
 
-If any partial Set-46 work already exists, reconcile it instead of starting duplicate work.
+If any partial Set-47 work already exists, reconcile it instead of starting duplicate work.
 
 ## Core Set rule
 
@@ -88,7 +88,6 @@ Exactly one ⭐ or ⭐⭐ experience anchor per Set.
 ~~~
 
 A ⭐⭐ anchor increases the denominator permanently.
-
 A 💡 technical question does not increase the denominator.
 
 Current denominator:
@@ -116,46 +115,55 @@ Before selecting a supporting question:
 6. Avoid semantic duplicates.
 7. Keep every supporting question directly related to the current anchor.
 
-## Current Java 8 evidence
+## Java 17 baseline established through Set 46
 
-GeoOps currently uses:
-- lambda expressions;
-- Functional Interfaces;
-- Stream API;
-- Optional;
-- `java.time.Instant`;
-- method references.
+GeoOps currently uses Java 17.
 
-Set 45 cross-feature proof:
+Repository proof:
 
-`src/test/java/com/atlasgrid/geoops/project/application/ProjectJava8FeatureUsageIntegrationTest.java`
+~~~text
+.java-version = 17
 
-Set 45 evidence:
+pom.xml
+├── java.version = 17
+├── maven.compiler.release = 17
+└── Maven Enforcer requires [17,18)
 
-`docs/sets/SET-045-JAVA-8-FEATURES.md`
+GitHub Actions
+└── Temurin Java 17
 
-Do not create duplicate Stream/Optional/lambda features just to answer future Java-version questions.
+Java17BaselineTest
+├── Runtime.version().feature() == 17
+└── GeoProject.class.isRecord() == true
+~~~
 
-## Set 46 — required next anchor
+Modern-Java evidence:
+- `GeoProject` is a record.
+- GeoOps is aware of sealed classes but does not have a sealed hierarchy yet.
+- Do not add a sealed hierarchy merely for interview coverage.
+
+Set 46 deliberately did **not** answer the future anchor asking why Java 17 was chosen.
+
+## Set 47 — required next anchor
 
 The next exact original experience question is:
 
-⭐ **Which Java version do you use in your current project?**
+⭐ **Currently, which Java version are you working on?**
 
-This must be the Set 46 anchor.
+This must be the Set 47 anchor.
 
 Do not skip it and do not combine it with another experience anchor.
 
-The established project baseline is Java 17. Search the master bank and tracker for Java-version/JDK questions before selecting supporting questions.
-
-Reuse completed JVM/JDK/Java 8 concepts with ✅ where appropriate.
-
-Do not claim Java 11/17 features are used unless the repository actually uses them or Set 46 adds genuine evidence.
+Because this is semantically close to Set 46:
+- reuse completed Java-version/JDK concepts with ✅;
+- do not duplicate the Maven Enforcer or runtime test;
+- create new project evidence only if the current-version phrasing requires a genuinely different angle;
+- preserve the separate future anchor: **What's the Java version you are using?**
+- preserve the separate future anchor: **Why did you choose Java 17 if you are not using many Java 17-specific features?**
 
 ## Fiction boundary
 
 Company: `AtlasGrid Geospatial Systems`
-
 Product: `GeoOps`
 
 GeoOps is a fictional interview-simulation world.
@@ -184,7 +192,7 @@ A Set is not complete until its Experience Answer is also added there.
 
 ## Completion gate
 
-Do not declare Set 46 complete until all applicable items are complete:
+Do not declare Set 47 complete until all applicable items are complete:
 
 ~~~text
 implementation/evidence
@@ -193,7 +201,7 @@ tests
 +
 CI green
 +
-docs/sets/SET-046-*.md
+docs/sets/SET-047-*.md
 +
 Sprint/process docs
 +
@@ -216,6 +224,6 @@ If CI fails, fix it before advancing the tracker.
 
 After recovering repository state, proceed directly with:
 
-**Set 46**
+**Set 47**
 
 Do not ask me to repeat prior Sets or explain the workflow again.
