@@ -4,27 +4,27 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "44/387+",
+  "status": "45/387+",
   "completed": {
-    "sets": 44,
-    "jobExperienceAnchors": 44,
-    "uniqueMasterTechnicalQuestions": 197,
+    "sets": 45,
+    "jobExperienceAnchors": 45,
+    "uniqueMasterTechnicalQuestions": 201,
     "syntheticTechnicalQuestions": 10
   },
   "current": {
-    "set": 44,
-    "anchorMasterQuestion": 640,
-    "anchor": "Can you tell me a particular scenario where you used Optional?",
-    "anchorType": "original",
-    "covered": true,
-    "evidence": "docs/sets/SET-044-OPTIONAL-SCENARIO.md"
-  },
-  "next": {
     "set": 45,
     "anchorMasterQuestion": 654,
-    "anchor": "Which Java 8 features do you use most of the time?"
+    "anchor": "Which Java 8 features do you use most of the time?",
+    "anchorType": "original",
+    "covered": true,
+    "evidence": "docs/sets/SET-045-JAVA-8-FEATURES.md"
   },
-  "nextAction": "derive Set 45 around exactly one original Java 8 feature-experience anchor; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
+  "next": {
+    "set": 46,
+    "anchorMasterQuestion": 655,
+    "anchor": "Which Java version do you use in your current project?"
+  },
+  "nextAction": "derive Set 46 around exactly one Java-version experience anchor; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
