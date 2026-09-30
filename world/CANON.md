@@ -1130,3 +1130,47 @@ Status: 48/387+
 ~~~
 
 The next original source anchor asks: Why did you choose Java 17 if you are not using many Java 17-specific features?
+
+## Set 49 established facts — why Java 17 is the GeoOps baseline
+
+Anchor:
+
+⭐ **Why did you choose Java 17 if you are not using many Java 17-specific features?**
+
+GeoOps chooses Java 17 as a project/platform baseline rather than as a requirement to use every Java-17-specific language feature.
+
+Established rationale:
+- GeoOps uses Spring Boot 3.3.5.
+- The Spring Boot 3.3 line requires at least Java 17.
+- Java 17 is an LTS release.
+- Local development, Maven, CI and runtime verification all use the same Java 17 contract.
+- Platform-version choice and individual language-feature choice are separate decisions.
+- GeoOps adopts modern features when they improve the design.
+- `GeoProject` is a record and is legitimate modern-Java usage.
+- No sealed hierarchy is added without a real domain requirement.
+- No Java 8→17 or Java 11→17 migration history is claimed yet.
+
+External verification recorded in the Java-17 ADR:
+- Spring Boot 3.3 system requirements: https://docs.spring.io/spring-boot/3.3/system-requirements.html
+- Oracle Java 17 LTS announcement: https://www.oracle.com/news/announcement/oracle-releases-java-17-2021-09-14/
+
+Learning-state impact:
+- two new master technical questions covered;
+- three previously completed questions reused with ✅;
+- two synthetic technical questions added with 💡;
+- unique master technical-question count increases from 203 to 205;
+- synthetic technical-question count increases from 10 to 12;
+- synthetic ⭐⭐ anchor count remains 0.
+
+Latest learning state:
+
+~~~text
+Completed Sets: 49
+Completed anchors: 49
+Unique master technical questions: 205
+Synthetic technical questions: 12
+Synthetic ⭐⭐ anchors: 0
+Status: 49/387+
+~~~
+
+The next original source anchor asks: How are you importing and exporting data? Can you tell me the technical part of that?
