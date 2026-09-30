@@ -475,3 +475,13 @@ I also compose Optional instead of blindly extracting values. For a caller that 
 Yes. In GeoOps we leverage Optional consistently in the project lookup layer. Both lookup by project code and lookup by one-based intake position return Optional<GeoProject>, because a missing project is a normal query result rather than an exceptional failure.
 
 At the REST boundary we pass those Optional values to ResponseEntity.of(), so present results become HTTP 200 and empty results become HTTP 404. I avoid blindly calling Optional.get(); instead I use Optional composition or let the boundary handle the empty state directly. That makes Optional part of the application's lookup contract rather than just a standalone Java feature.
+
+---
+
+## Set 44 — Status: 44/387+
+
+### ⭐ Can you tell me a particular scenario where you used Optional?
+
+Yes. One particular scenario in GeoOps is looking up a GIS project by its project code. A caller can provide a valid code that simply does not exist in the current catalog, so I treat that as normal absence rather than throwing an exception or returning null.
+
+`ProjectCatalog.findByProjectCode()` returns `Optional<GeoProject>`, the service preserves that contract, and the REST controller uses `ResponseEntity.of()`. If the project exists the API returns HTTP 200; if it does not, the Optional is empty and the API returns HTTP 404. That keeps the lookup contract explicit and avoids unsafe calls to `Optional.get()`.
