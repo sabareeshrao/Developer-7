@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 40/387+**
+**Status: 41/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -1242,3 +1242,42 @@ Status: 40/387+
 Set 40 adds seven new master technical questions.
 
 The next original source anchor asks: Have you used Optional personally?
+
+
+## Set 41 — Latest Completed Set
+
+Anchor:
+
+⭐ **Have you used Optional personally?**
+
+Set 41 strengthens the existing Optional-based lookup contract rather than adding a duplicate endpoint.
+
+~~~text
+non-null projectCode
+→ ProjectCatalog lookup
+→ Optional<GeoProject>
+   ├── present → ResponseEntity.of → HTTP 200
+   └── empty   → ResponseEntity.of → HTTP 404
+~~~
+
+Set 41 tests:
+- map(...) without get()
+- orElse(...) eager fallback evaluation
+- orElseGet(...) lazy fallback evaluation
+- of(...) vs ofNullable(...)
+- get() failure on Optional.empty()
+
+Latest learning state:
+
+~~~text
+Completed Sets: 41
+Completed anchors: 41
+Unique master technical questions covered: 194
+Synthetic technical questions covered: 10
+Synthetic ⭐⭐ anchors: 0
+Status: 41/387+
+~~~
+
+Set 41 adds seven new master technical questions.
+
+The next original source anchor asks: Do you use Optional practically in your project?
