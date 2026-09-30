@@ -1000,3 +1000,49 @@ Status: 45/387+
 ~~~
 
 The next original source anchor asks: Which Java version do you use in your current project?
+
+## Set 46 established facts — Java 17 build/runtime baseline
+
+Anchor:
+
+⭐ **Which Java version do you use in your current project?**
+
+GeoOps uses Java 17 as its current development, build, test, CI, and runtime baseline.
+
+Repository enforcement:
+- `.java-version` contains 17.
+- `pom.xml` sets `java.version` to 17.
+- `pom.xml` sets `maven.compiler.release` to 17.
+- Maven Enforcer requires runtime version `[17,18)`.
+- GitHub Actions installs Temurin Java 17.
+- `Java17BaselineTest` asserts `Runtime.version().feature() == 17`.
+- `Java17BaselineTest` also verifies `GeoProject` is a Java record.
+
+Modern-Java evidence:
+- `GeoProject` remains a record.
+- GeoOps is aware of sealed classes/interfaces but does not introduce a sealed hierarchy without a real domain requirement.
+
+Boundary:
+- Set 46 establishes the current version and enforcement only.
+- The separate source anchor asking why Java 17 was chosen remains for its own future Set.
+- No Java-version migration history is invented here.
+
+Learning-state impact:
+- two new master technical questions covered;
+- two previously covered JDK/JRE/JVM questions reused with ✅;
+- unique master technical-question count increases from 201 to 203;
+- synthetic technical-question count remains 10;
+- synthetic ⭐⭐ anchor count remains 0.
+
+Latest learning state:
+
+~~~text
+Completed Sets: 46
+Completed anchors: 46
+Unique master technical questions: 203
+Synthetic technical questions: 10
+Synthetic ⭐⭐ anchors: 0
+Status: 46/387+
+~~~
+
+The next original source anchor asks: Currently, which Java version are you working on?
