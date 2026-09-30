@@ -1180,10 +1180,40 @@ Set 38 learning items completed: 8 / 8
 
 Set 39 learning items completed: 8 / 8
 
+
 ---
 
-Completed job-experience anchors: 39
+# Set 40
+
+**Status: 40/387+**
+
+- [x] ⭐ [Master 624] Have you worked on Stream APIs?
+
+## Part A
+- [x] [Master 595] What are Java Streams?
+- [x] [Master 600] What is the difference between filter and map functions of Stream API?
+- [x] [Master 601] Do you know about intermediate and terminal operations in Streams?
+- [x] [Master 605] How would you use Streams to filter and map a collection of objects?
+- [x] [Master 606] Can you explain how Java 8 Stream API enhances collection processing?
+- [x] [Master 611] What's the difference between writing code with traditional loops and with Stream API?
+- [x] [Master 613] In which scenarios would you avoid Streams and prefer a plain for loop?
+
+## Set 40 completion evidence
+- docs/sets/SET-040-STREAM-API.md
+- docs/process/SPRINT-004.md
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectDeliverySelection.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectDeliverySelectionService.java
+- src/main/java/com/atlasgrid/geoops/project/api/ProjectReportController.java
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectDeliverySelectionServiceTest.java
+- src/test/java/com/atlasgrid/geoops/project/api/ProjectDeliverySelectionIntegrationTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 40 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 40
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 180
+Unique master technical questions covered: 187
 Synthetic technical questions covered: 10
 Current denominator: 387+
