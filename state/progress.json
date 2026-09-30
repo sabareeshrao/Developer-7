@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "38/387+",
+  "status": "39/387+",
   "completed": {
-    "sets": 38,
-    "jobExperienceAnchors": 38,
-    "uniqueMasterTechnicalQuestions": 173,
+    "sets": 39,
+    "jobExperienceAnchors": 39,
+    "uniqueMasterTechnicalQuestions": 180,
     "syntheticTechnicalQuestions": 10
   },
   "current": {
-    "set": 38,
-    "anchorMasterQuestion": 550,
-    "anchor": "Have you customized sorting before? If yes, for what purpose?",
+    "set": 39,
+    "anchorMasterQuestion": 592,
+    "anchor": "What challenges did you face while implementing Functional Interfaces in legacy code?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-038-CUSTOM-SORTING.md"
+    "evidence": "docs/sets/SET-039-FUNCTIONAL-INTERFACES-LEGACY.md"
   },
-  "nextAction": "derive Set 39 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
+  "nextAction": "derive Set 40 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
