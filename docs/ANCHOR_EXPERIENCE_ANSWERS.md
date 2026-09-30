@@ -431,3 +431,14 @@ I implemented that as an external Comparator rather than making GeoProject imple
 Yes. One challenge I faced in GeoOps was that the existing validation interface was not lambda-compatible. It exposed both code() and validate(), so it had two abstract methods and could not simply be marked as a Functional Interface without breaking the existing Spring validation design.
 
 I handled that incrementally. I introduced a one-method @FunctionalInterface called ProjectValidationCheck and an adapter that converts the lambda-compatible check back into the existing ProjectValidationRule contract. I migrated only the project-code rule to a lambda-backed Spring bean while the CRS rule stayed as the legacy class. We also found an older test factory that directly instantiated the removed concrete rule, which showed the hidden coupling you often uncover during legacy refactoring. I also had to account for effectively-final variable capture and checked-exception compatibility when choosing the functional method signature.
+
+
+---
+
+## Set 40 — Status: 40/387+
+
+### ⭐ Have you worked on Stream APIs?
+
+Yes. In GeoOps I use Stream API in the delivery-preparation reporting flow. When operations requests projects for a specific coordinate reference system, I start from the current project collection, filter it by CRS, map the matching GeoProject objects to project codes, sort those codes for deterministic output, and finish with toList().
+
+I use Streams where the requirement is naturally a read-only transformation pipeline, but I do not replace every loop. For example, the collection-summary service still uses a plain loop because it updates a List, Set, and Map together in one pass, and that is clearer than multiple Stream traversals or side effects inside a Stream. So the choice is based on readability and the shape of the processing, not just using Streams everywhere.
