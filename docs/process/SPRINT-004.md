@@ -950,3 +950,31 @@ Evidence:
 - ProjectCatalog.java
 - GeoProject.java
 - ProjectJava8FeatureUsageIntegrationTest.java
+
+---
+
+### Story GEO-46 — Make the Java 17 project baseline enforceable
+
+**Outcome:** GeoOps no longer merely documents Java 17; local builds and CI have executable checks that reject an inconsistent JDK.
+
+Acceptance criteria:
+- Keep `.java-version` at 17.
+- Keep Maven `java.version` at 17.
+- Set Maven compiler release to 17.
+- Add Maven Enforcer requiring runtime version `[17,18)`.
+- Keep GitHub Actions on Temurin Java 17.
+- Add `Java17BaselineTest`.
+- Verify `Runtime.version().feature()` is 17.
+- Verify the existing `GeoProject` type is a Java record.
+- Do not create a sealed hierarchy solely for interview coverage.
+- Do not answer the separate "why Java 17?" experience anchor prematurely.
+- Keep CI green.
+
+Evidence:
+- docs/sets/SET-046-JAVA-17-BASELINE.md
+- docs/architecture/ADR-JAVA-17-BASELINE.md
+- pom.xml
+- .java-version
+- .github/workflows/ci.yml
+- GeoProject.java
+- Java17BaselineTest.java
