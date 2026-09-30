@@ -56,7 +56,7 @@ class ProjectDataTransferIntegrationTest {
                 ))
                 .andExpect(content().string(
                         containsString(
-                                "TX-AUS-052,"Austin, Transfer Survey",EPSG:4326"
+                                "TX-AUS-052,\"Austin, Transfer Survey\",EPSG:4326"
                         )
                 ))
                 .andExpect(content().string(
