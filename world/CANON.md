@@ -879,3 +879,20 @@ Established rules:
 - No new REST endpoint was introduced for Set 42 because the existing intake-position endpoint already provides the practical Optional behavior.
 - Set 42 adds two new master technical questions and reuses five completed questions with ✅.
 - Sprint 004 continues the Modern Java sequence.
+
+
+## Set 43 established facts — Optional across lookup boundaries
+
+GeoOps now has cross-boundary evidence that Optional is leveraged consistently rather than in one isolated method.
+
+Established rules:
+- Project-code lookup returns Optional<GeoProject>.
+- One-based intake-position lookup returns Optional<GeoProject>.
+- ProjectQueryController maps both through ResponseEntity.of(...).
+- Present Optional values produce HTTP 200.
+- Empty Optional values produce HTTP 404.
+- Production lookup code does not use blind Optional.get().
+- No new production endpoint was added for Set 43 because both Optional-backed lookup paths already exist.
+- ProjectOptionalBoundaryIntegrationTest proves both boundaries together.
+- Set 43 adds one new master technical question and reuses six completed questions with ✅.
+- Sprint 004 continues the Modern Java sequence.
