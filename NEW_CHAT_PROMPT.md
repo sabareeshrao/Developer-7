@@ -1,176 +1,90 @@
-# Developer-7 / GeoOps — New Chat Handover After Set 49
+# Developer-7 / GeoOps — New Chat Handover After Set 50
 
 Continue my existing GitHub project:
 
 `https://github.com/sabareeshrao/Developer-7`
 
-Default branch:
+Default branch: `main`
 
-`main`
+Do not rely on previous chat memory. GitHub is the source of truth.
 
-Do not rely on previous chat memory and do not ask me to re-paste earlier Sets. GitHub is the source of truth.
+## Current checkpoint
 
-## Current verified checkpoint
-
-Set 49 is complete and pushed.
-
-Current learning state:
-
-~~~text
-Completed Sets: 49
-Completed original experience anchors: 49
+```text
+Completed Sets: 50
+Completed original anchors: 50
 Synthetic experience anchors: 0
 
-Unique master technical questions: 205
-Synthetic technical questions: 12
+Unique master technical questions: 210
+Synthetic technical questions: 13
 
-Status: 49/387+
-~~~
-
-Set 49 establishes the Java 17 choice rationale:
-
-~~~text
-Spring Boot 3.3.x
-→ Java 17 minimum compatibility baseline
-
-Java 17 LTS
-→ conservative enterprise runtime baseline
-
-local + Maven + CI + runtime
-→ one consistent Java 17 toolchain
-
-modern language features
-→ adopt only when they improve the design
-~~~
-
-Do not invent a Java 8→17 migration story. None is established yet.
-
-External references recorded in the ADR:
-- https://docs.spring.io/spring-boot/3.3/system-requirements.html
-- https://www.oracle.com/news/announcement/oracle-releases-java-17-2021-09-14/
-
-If GitHub contains anything newer than this handover, GitHub wins.
+Status: 50/387+
+```
 
 ## Mandatory startup
 
-Before doing Set 50:
+Before Set 51:
+1. inspect the latest 10–20 commits;
+2. read `CONTINUATION_PROTOCOL.md`;
+3. read `state/progress.json`;
+4. read `state/LEARNING_TRACKER.md`;
+5. read `world/CANON.md`;
+6. read `AI_CONTEXT.md`;
+7. read `docs/sets/SET-050-DATA-IMPORT-EXPORT.md`;
+8. read `docs/process/SPRINT-005.md`;
+9. inspect the CSV transfer implementation and tests;
+10. check GitHub Actions.
 
-1. Inspect the latest 10–20 commits.
-2. Read `CONTINUATION_PROTOCOL.md`.
-3. Read `state/progress.json`.
-4. Read `state/LEARNING_TRACKER.md`.
-5. Read `world/CANON.md`.
-6. Read `AI_CONTEXT.md`.
-7. Read `docs/sets/SET-049-WHY-JAVA-17.md`.
-8. Read `docs/architecture/ADR-JAVA-17-BASELINE.md`.
-9. Read `docs/process/SPRINT-004.md`.
-10. Inspect current GeoOps file/data-processing code.
-11. Check the latest GitHub Actions state.
+## Set 50 data-transfer baseline
 
-If partial Set-50 work already exists, reconcile it instead of starting duplicate work.
+```text
+POST /api/projects/imports/csv
+→ MultipartFile
+→ UTF-8 BufferedReader
+→ ProjectCsvTransferService
+→ CreateProjectRequest
+→ ProjectService.create(...)
 
-## Core Set rule
+GET /api/projects/exports/csv
+→ current catalog
+→ escaped CSV
+→ attachment response
+```
 
-Every Set contains exactly one ⭐ or ⭐⭐ job-experience anchor.
+Current synchronous upload limits:
+- max file: 5MB
+- max request: 6MB
 
-Flow:
+Do not claim the current synchronous endpoint is designed for 50,000-row long-running processing. The established design answer for that scenario is an asynchronous import job with status tracking.
 
-~~~text
-ONE experience anchor
-→ directly related technical questions
-→ real GeoOps implementation/evidence
-→ tests
-→ CI
-→ tracker/canon/progress/AI-context
-→ Experience Answer LAST
-~~~
+Do not claim native Java object serialization is used for the CSV exchange contract.
+
+## Set 51 — required next anchor
+
+⭐ **What challenge did you face while deserializing data?**
+
+Before building Set 51:
+- inspect the serialization/deserialization questions immediately after the Set 50 anchor in the master bank;
+- distinguish native Java serialization from CSV/JSON data parsing;
+- do not retroactively claim Set 50 used ObjectInputStream/ObjectOutputStream;
+- create a real challenge only if it can be grounded in code/evidence;
+- reuse completed Set 50 file-transfer concepts with ✅ where appropriate;
+- maximum 7 technical questions per Part;
+- end with `## Experience Answer`.
 
 ## Markers
 
-~~~text
+```text
 ⭐  original experience anchor
 ⭐⭐ synthetic GIS experience anchor
 💡 synthetic technical question
 ✅ previously completed technical question
 [x] completed
 [ ] not completed
-~~~
+```
 
-A ⭐⭐ anchor increases the denominator permanently.
-A 💡 technical question does not increase the denominator.
-
-Current denominator: `387+`
-
-## Set 50 — required next anchor
-
-The next exact original experience question is:
-
-⭐ **How are you importing and exporting data? Can you tell me the technical part of that?**
-
-This must be the Set 50 anchor.
-
-Before building Set 50:
-- inspect existing file/data-processing code, especially the GeoOps preflight tool;
-- inspect the 2,308-question bank for I/O, Files/NIO, serialization, CSV/JSON/XML, REST/file-transfer, and import/export questions;
-- reuse completed questions with ✅;
-- add 💡 only if the source bank genuinely lacks a required technical concept;
-- extend the SAME GeoOps workflow rather than creating an unrelated demo;
-- introduce only formats/technologies supported by the repository/world;
-- do not invent database import/export, SFTP, cloud storage, Kafka, or batch frameworks unless Set 50 evidence genuinely establishes them.
-
-The current preflight utility already recognizes:
-- .csv
-- .json
-- .geojson
-
-Use that as existing world context, but inspect the code before deciding the final import/export design.
-
-## Visible response rules
-
-- Never show internal `[Master N]` IDs to the user.
-- Maximum 7 technical questions per Part.
-- Reuse completed questions with ✅.
-- End with `## Experience Answer`.
-
-## Fiction boundary
-
-Company: `AtlasGrid Geospatial Systems`
-Product: `GeoOps`
-
-GeoOps is a fictional interview-simulation world.
-
-Do not invent customers, incidents, scale, metrics, or unsupported technologies as factual employment history.
+A ⭐⭐ anchor increases the denominator. A 💡 technical question does not.
 
 ## Completion gate
 
-Do not declare Set 50 complete until applicable items are complete:
-
-~~~text
-working import/export implementation
-+
-tests
-+
-CI green
-+
-docs/sets/SET-050-*.md
-+
-Sprint/process docs
-+
-state/LEARNING_TRACKER.md
-+
-state/progress.json
-+
-world/CANON.md
-+
-AI_CONTEXT.md
-+
-README if relevant
-+
-docs/ANCHOR_EXPERIENCE_ANSWERS.md
-+
-Experience Answer shown LAST
-~~~
-
-After recovering repository state, proceed directly with:
-
-**Set 50**
+Do not declare Set 51 complete until applicable code/evidence, tests, CI, tracker, canon, progress, AI context, Sprint docs, Set evidence, and anchor experience history are updated.
