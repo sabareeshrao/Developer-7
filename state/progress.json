@@ -4,27 +4,27 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "47/387+",
+  "status": "48/387+",
   "completed": {
-    "sets": 47,
-    "jobExperienceAnchors": 47,
+    "sets": 48,
+    "jobExperienceAnchors": 48,
     "uniqueMasterTechnicalQuestions": 203,
     "syntheticTechnicalQuestions": 10
   },
   "current": {
-    "set": 47,
-    "anchorMasterQuestion": 656,
-    "anchor": "Currently, which Java version are you working on?",
-    "anchorType": "original",
-    "covered": true,
-    "evidence": "docs/sets/SET-047-CURRENT-JAVA-VERSION.md"
-  },
-  "next": {
     "set": 48,
     "anchorMasterQuestion": 657,
-    "anchor": "What's the Java version you are using?"
+    "anchor": "What's the Java version you are using?",
+    "anchorType": "original",
+    "covered": true,
+    "evidence": "docs/sets/SET-048-JAVA-VERSION-USED.md"
   },
-  "nextAction": "derive Set 48 around exactly one Java-version experience anchor; reuse completed Java 17 concepts with ✅; keep Master IDs internal only; end with Experience Answer",
+  "next": {
+    "set": 49,
+    "anchorMasterQuestion": 661,
+    "anchor": "Why did you choose Java 17 if you are not using many Java 17-specific features?"
+  },
+  "nextAction": "derive Set 49 around exactly one Java-17-choice experience anchor; compare version rationale using source-bank technical questions; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
