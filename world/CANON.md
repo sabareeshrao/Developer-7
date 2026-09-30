@@ -946,3 +946,57 @@ Status: 44/387+
 ~~~
 
 The next original source anchor asks: Which Java 8 features do you use most of the time?
+
+## Set 45 established facts — Java 8 features used most often
+
+Anchor:
+
+⭐ **Which Java 8 features do you use most of the time?**
+
+GeoOps now has one cross-feature regression test that ties together the Java 8 features already present in the running project.
+
+Established frequently used features:
+
+1. Lambda Expressions and Functional Interfaces
+   - `ProjectValidationCheck` is a Functional Interface.
+   - `ProjectValidationRuleConfiguration` provides a lambda-backed project-code validation rule.
+
+2. Stream API
+   - `ProjectDeliverySelectionService` uses filter → map → sorted → toList.
+   - `ProjectCatalog.findByProjectCode(...)` uses stream().filter(...).findFirst().
+
+3. Optional
+   - project-code and intake-position lookups return `Optional<GeoProject>`.
+   - normal absence remains `Optional.empty()`.
+
+4. Java Time API
+   - `GeoProject.createdAt` is an `Instant`.
+   - `ProjectService.create(...)` records `Instant.now()`.
+   - catalog snapshots also use `Instant`.
+
+5. Method References
+   - delivery selection uses `GeoProject::projectCode`.
+
+Set 45 adds `ProjectJava8FeatureUsageIntegrationTest`, which creates a project through the real validation flow, verifies its `Instant` timestamp, verifies Optional lookup, and verifies Stream-based delivery selection.
+
+No new production endpoint is added because the anchor asks which Java 8 features are used, and the existing application already contains legitimate implementations.
+
+Learning-state impact:
+- four new master technical questions covered;
+- three previously covered questions reused with ✅;
+- unique master technical-question count increases from 197 to 201;
+- synthetic technical-question count remains 10;
+- synthetic ⭐⭐ anchor count remains 0.
+
+Latest learning state:
+
+~~~text
+Completed Sets: 45
+Completed anchors: 45
+Unique master technical questions: 201
+Synthetic technical questions: 10
+Synthetic ⭐⭐ anchors: 0
+Status: 45/387+
+~~~
+
+The next original source anchor asks: Which Java version do you use in your current project?
