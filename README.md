@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 47 — Status: 47/387+ — COMPLETE**
+**Set 48 — Status: 48/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -56,6 +56,7 @@ Set 44: concrete Optional project-code lookup scenario
 Set 45: consolidated Java 8 feature usage across validation, Streams, Optional and java.time
 Set 46: Java 17 build/runtime baseline enforced across Maven, CI and tests
 Set 47: current Java 17 version confirmation using the same enforced baseline
+Set 48: Java 17 version-used confirmation with zero duplicate implementation
 ```
 
 ## Current project workflow
@@ -153,10 +154,10 @@ The project is a fictional interview-simulation environment and should not be pr
 
 ## Latest learning checkpoint
 
-Set 47 confirms that Java 17 is the version currently used for day-to-day GeoOps development. It deliberately reuses the enforceable Set 46 baseline rather than creating duplicate build/version infrastructure.
+Set 48 confirms that the Java version used by GeoOps is Java 17. It intentionally reuses the enforceable version baseline from Sets 46–47 instead of adding duplicate version code.
 
-Evidence: `docs/sets/SET-047-CURRENT-JAVA-VERSION.md`
+Evidence: `docs/sets/SET-048-JAVA-VERSION-USED.md`
 
 Baseline ADR: `docs/architecture/ADR-JAVA-17-BASELINE.md`
 
-Next anchor: **What's the Java version you are using?**
+Next anchor: **Why did you choose Java 17 if you are not using many Java 17-specific features?**
