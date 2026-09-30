@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 43/387+**
+**Status: 44/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -1360,3 +1360,48 @@ Status: 43/387+
 Set 43 adds one new master technical question and reuses six with ✅.
 
 The next original source anchor asks: Can you tell me a particular scenario where you used Optional?
+
+## Set 44 — Latest Completed Set
+
+Anchor:
+
+⭐ **Can you tell me a particular scenario where you used Optional?**
+
+Concrete GeoOps scenario:
+
+~~~text
+project-code lookup
+→ ProjectCatalog.findByProjectCode(...)
+→ Optional<GeoProject>
+→ ResponseEntity.of(...)
+→ HTTP 200 / 404
+~~~
+
+Why Optional fits:
+- a valid code can legitimately have no matching project;
+- absence is normal query behavior;
+- Optional makes that possibility explicit in the return type;
+- no null convention is exposed;
+- no exception is used for ordinary "not found";
+- no blind Optional.get() is used in production lookup code.
+
+Set 44 adds no new production endpoint and no new technical question. All seven supporting Optional questions are reused with ✅.
+
+Current counters:
+
+~~~text
+Completed Sets: 44
+Completed anchors: 44
+Unique master technical questions: 197
+Synthetic technical questions: 10
+Synthetic ⭐⭐ anchors: 0
+Status: 44/387+
+~~~
+
+Set-44 evidence:
+
+`docs/sets/SET-044-OPTIONAL-SCENARIO.md`
+
+Next exact original experience anchor:
+
+⭐ **Which Java 8 features do you use most of the time?**
