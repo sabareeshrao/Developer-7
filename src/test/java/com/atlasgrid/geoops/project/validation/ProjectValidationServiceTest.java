@@ -9,13 +9,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class ProjectValidationServiceTest {
 
-    private final ProjectValidationService service = new ProjectValidationService(
-            List.of(
-                    new ProjectValidationRuleConfiguration()
-                            .projectCodeValidationRule(),
-                    new CoordinateReferenceSystemValidationRule()
-            )
-    );
+    private final ProjectValidationService service =
+            new ProjectValidationService(
+                    List.of(
+                            new RequiredProjectFieldsValidationRule(),
+                            new ProjectValidationRuleConfiguration()
+                                    .projectCodeValidationRule(),
+                            new CoordinateReferenceSystemValidationRule()
+                    )
+            );
 
     @Test
     void acceptsAValidGeoOpsProjectRequest() {
@@ -48,5 +50,21 @@ class ProjectValidationServiceTest {
                         "PROJECT_CODE_FORMAT",
                         "CRS_FORMAT"
                 );
+    }
+
+    @Test
+    void rejectsBlankNameBelowTheMvcBoundary() {
+        ProjectValidationReport report = service.validate(
+                new CreateProjectRequest(
+                        "TX-AUS-504",
+                        "   ",
+                        "EPSG:4326"
+                )
+        );
+
+        assertThat(report.valid()).isFalse();
+        assertThat(report.issues())
+                .extracting(ValidationIssue::message)
+                .contains("name must not be blank");
     }
 }
