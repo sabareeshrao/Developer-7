@@ -420,3 +420,14 @@ A practical example is a retry and a completion request arriving at nearly the s
 Yes. In GeoOps I customized sorting for the delivery-preparation view. The project catalog itself preserves intake order, but downstream delivery work needs a deterministic order that groups projects by coordinate reference system and then sorts projects within the same CRS by project code.
 
 I implemented that as an external Comparator rather than making GeoProject implement Comparable, because GeoProject does not have one universal natural order. The comparator chains coordinateReferenceSystem first and projectCode as the tie-breaker. That keeps the sorting rule specific to the delivery use case, produces predictable output, and leaves the original catalog order unchanged.
+
+
+---
+
+## Set 39 — Status: 39/387+
+
+### ⭐ What challenges did you face while implementing Functional Interfaces in legacy code?
+
+Yes. One challenge I faced in GeoOps was that the existing validation interface was not lambda-compatible. It exposed both code() and validate(), so it had two abstract methods and could not simply be marked as a Functional Interface without breaking the existing Spring validation design.
+
+I handled that incrementally. I introduced a one-method @FunctionalInterface called ProjectValidationCheck and an adapter that converts the lambda-compatible check back into the existing ProjectValidationRule contract. I migrated only the project-code rule to a lambda-backed Spring bean while the CRS rule stayed as the legacy class. We also found an older test factory that directly instantiated the removed concrete rule, which showed the hidden coupling you often uncover during legacy refactoring. I also had to account for effectively-final variable capture and checked-exception compatibility when choosing the functional method signature.
