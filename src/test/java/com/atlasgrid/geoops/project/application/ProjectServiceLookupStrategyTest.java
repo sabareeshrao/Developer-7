@@ -47,6 +47,24 @@ class ProjectServiceLookupStrategyTest {
     }
 
     @Test
+    void orElseEvaluatesFallbackEvenWhenOptionalContainsValue() {
+        AtomicInteger fallbackCalls = new AtomicInteger();
+
+        service.create(new CreateProjectRequest(
+                "TX-SAT-641",
+                "Optional Eager Fallback Project",
+                "EPSG:4326"
+        ));
+
+        String present = service.findByProjectCode("TX-SAT-641")
+                .map(project -> project.projectCode())
+                .orElse(fallbackCode(fallbackCalls));
+
+        assertThat(present).isEqualTo("TX-SAT-641");
+        assertThat(fallbackCalls).hasValue(1);
+    }
+
+    @Test
     void orElseGetCreatesFallbackOnlyWhenLookupIsEmpty() {
         AtomicInteger fallbackCalls = new AtomicInteger();
 
