@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 42/387+**
+**Status: 43/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -1324,3 +1324,39 @@ Status: 42/387+
 Set 42 adds two new master technical questions and reuses five with ✅.
 
 The next original source anchor asks: Did you guys leverage the Optional class?
+
+
+## Set 43 — Latest Completed Set
+
+Anchor:
+
+⭐ **Did you guys leverage the Optional class?**
+
+Set 43 proves Optional is an application-level lookup convention:
+
+~~~text
+lookup by project code
+→ Optional<GeoProject>
+→ HTTP 200 / 404
+
+lookup by intake position
+→ Optional<GeoProject>
+→ HTTP 200 / 404
+~~~
+
+A cross-boundary integration test verifies both paths together. No duplicate production endpoint was added.
+
+Latest learning state:
+
+~~~text
+Completed Sets: 43
+Completed anchors: 43
+Unique master technical questions covered: 197
+Synthetic technical questions covered: 10
+Synthetic ⭐⭐ anchors: 0
+Status: 43/387+
+~~~
+
+Set 43 adds one new master technical question and reuses six with ✅.
+
+The next original source anchor asks: Can you tell me a particular scenario where you used Optional?
