@@ -1510,3 +1510,75 @@ The current single-JVM GeoOps intake path is regression-tested under concurrent 
 - `ProjectReviewQueue` uses `ConcurrentHashMap` for claimed-task lookup, but queue↔map compound transitions still use `stateLock`.
 - JVM synchronization is explicitly not represented as a distributed/multi-instance guarantee.
 - future database/multi-instance deployment must add persistent uniqueness/transaction guarantees.
+
+
+## Source traceability correction after Set 70
+
+The uploaded 2,308-question workbook was rechecked during Sets 66–70.
+
+Two Set-63 technical mappings were corrected:
+- "How would you handle a scenario where two threads need to update the same data structure?" = Master 797.
+- "Where should we use Multithreading? Give me a few scenarios where Multithreading is a good choice." = Master 798.
+
+No learning behavior changed; only source IDs were corrected.
+
+## Set 66 established facts — synchronized keyword boundaries
+
+GeoOps uses Java `synchronized` only around JVM-local shared mutable state.
+
+- `ProjectCatalog` uses synchronized owner methods for its list/set state.
+- `ProjectService` uses a narrow `synchronized (intakeLock)` block for catalog + review-queue publication.
+- `ProjectReviewQueue` uses `stateLock` for compound queue↔claimed transitions.
+- stateless `ProjectValidationService.validate(...)` remains non-synchronized.
+- these locks are single-JVM guarantees only.
+
+## Set 67 established facts — explicit worker-thread usage
+
+The validation executor owns four reusable Java worker threads named:
+
+```text
+geoops-project-validation-1
+geoops-project-validation-2
+geoops-project-validation-3
+geoops-project-validation-4
+```
+
+A Spring integration test holds all four workers concurrently and verifies their actual names.
+
+## Set 68 established facts — bounded validation backlog
+
+The validation executor is now an explicit `ThreadPoolExecutor`:
+
+```text
+core/max workers = 4
+queue capacity = 64
+rejection policy = CallerRunsPolicy
+```
+
+When the four workers and 64-slot queue are saturated, the submitting caller executes the task. This creates backpressure instead of allowing an unbounded task queue to grow.
+
+## Set 69 established facts — interruption and cancellation
+
+`ParallelProjectValidationService` now cancels outstanding futures when:
+- the caller waiting on results is interrupted; or
+- one submitted worker task fails.
+
+On caller interruption it restores the caller thread's interrupt flag before propagating failure.
+
+`Future.cancel(true)` is used for cooperative worker interruption.
+
+## Set 70 established facts — JVM thread diagnostics
+
+GeoOps now has `JvmThreadDiagnosticsService` backed by the JDK `ThreadMXBean`.
+
+It captures:
+- live thread count;
+- daemon thread count;
+- peak thread count;
+- total-started thread count;
+- JVM-detected deadlock count;
+- visible `geoops-project-validation-*` worker names/count.
+
+The operational runbook uses `jcmd <pid> Thread.print` and the existing VisualVM Threads view for deeper thread-state analysis.
+
+No public thread-diagnostics REST endpoint was added.

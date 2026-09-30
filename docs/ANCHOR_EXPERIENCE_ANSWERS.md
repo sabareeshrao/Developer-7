@@ -706,3 +706,64 @@ For concurrent users in GeoOps, the web server handles requests on concurrent re
 `ProjectCatalog` synchronizes its list/set state, and `ProjectService` uses a narrow intake lock around catalog-plus-review-queue publication. The review workflow also uses `ConcurrentHashMap` for claimed-task lookup, but compound queue-to-map transitions still use a separate state lock.
 
 I verified the design with concurrent tests: 50 simultaneous unique requests all publish correctly, while 20 callers racing on the same project code result in exactly one accepted project and one review task.
+
+
+---
+
+## Set 66 — Status: 66/387+
+
+### ⭐ Have you used the synchronized keyword anywhere?
+
+Yes. In GeoOps I use the `synchronized` keyword where one JVM owns shared mutable state.
+
+The clearest example is `ProjectCatalog`, where synchronized methods protect an `ArrayList` and `HashSet` that together represent the project catalog. I also use a narrower `synchronized (intakeLock)` block in `ProjectService` around the compound step that publishes a project and queues its review task.
+
+I do not synchronize every service method. Stateless validation remains non-synchronized because it works with immutable configuration and invocation-local data. My rule is to lock the smallest state boundary that actually needs mutual exclusion.
+
+---
+
+## Set 67 — Status: 67/387+
+
+### ⭐ Have you used threads in any of your projects?
+
+Yes. In GeoOps I use Java threads through a Spring-managed `ExecutorService` for parallel GIS project validation.
+
+The executor owns four reusable worker threads created by a custom `ThreadFactory`. I submit independent validation tasks and keep the returned `Future` objects because I need each validation result back in request order. I do not create one thread per item.
+
+I also added a worker test that holds all four workers concurrently and verifies the actual `geoops-project-validation-*` thread names.
+
+---
+
+## Set 68 — Status: 68/387+
+
+### ⭐ How did multithreading come into the picture in your project? What was the requirement?
+
+Multithreading came into GeoOps because bulk GIS intake can require validating many independent project requests. Doing those validations strictly one after another adds avoidable waiting time, but creating one new thread per row would be unsafe under a large batch.
+
+I introduced a bounded executor with four reusable worker threads. I later made the task queue finite—64 waiting tasks—and use `CallerRunsPolicy` when both the workers and queue are saturated. That creates backpressure on the submitting request instead of letting an unbounded queue grow in memory.
+
+I still keep shared catalog publication serialized behind the existing intake lock. The requirement was parallelize independent validation work, not make every part of the workflow concurrent.
+
+---
+
+## Set 69 — Status: 69/387+
+
+### ⭐ Do you have experience with threads?
+
+Yes. In GeoOps my thread experience includes worker-pool configuration, Future result handling, interruption, cancellation, synchronization, and concurrency testing.
+
+If the caller is interrupted while waiting on a validation `Future`, I cancel unfinished futures with `cancel(true)`, restore the caller's interrupt flag, and terminate that validation operation. I also cancel outstanding work when a worker fails.
+
+A deterministic test starts a blocking worker, interrupts the caller, and proves both that the caller preserves its interrupted status and that the worker receives the cancellation interrupt.
+
+---
+
+## Set 70 — Status: 70/387+
+
+### ⭐ Are you using Threads in your process?
+
+Yes. Threads are actively used inside the GeoOps process.
+
+Besides Spring Boot and JVM infrastructure threads, GeoOps has a dedicated validation pool with four named worker threads. I added a `ThreadMXBean` diagnostics service so we can capture live, daemon, peak and total-started thread counts, see which GeoOps validation workers are currently alive, and check whether the JVM has detected a deadlock.
+
+For deeper debugging I use `jcmd <pid> Thread.print` or the VisualVM Threads view. Because request and worker threads share the same process heap, shared application state still follows the synchronization rules established earlier.

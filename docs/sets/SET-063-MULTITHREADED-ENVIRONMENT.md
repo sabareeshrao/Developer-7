@@ -9,8 +9,8 @@
 - [x] [Master 786] Can you brief on what multithreaded applications do and why we use a multithreaded environment?
 - [x] [Master 789] Do you know the difference between a process and a thread?
 - [x] [Master 793] What's the difference between Runnable and Callable?
-- [x] [Master 798] How would you handle a scenario where two threads need to update the same data structure?
-- [x] [Master 800] Where should we use Multithreading? Give me a few scenarios where Multithreading is a good choice.
+- [x] [Master 797] How would you handle a scenario where two threads need to update the same data structure?
+- [x] [Master 798] Where should we use Multithreading? Give me a few scenarios where Multithreading is a good choice.
 - [x] [Master 913] Why is ExecutorService required?
 
 ## GeoOps implementation

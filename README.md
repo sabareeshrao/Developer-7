@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 65 — Status: 65/387+ — COMPLETE**
+**Set 70 — Status: 70/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -74,6 +74,11 @@ Set 62: controlled memory-retention incident and RCA
 Set 63: bounded four-thread parallel project validation
 Set 64: synchronized-method/block placement contract
 Set 65: concurrent-user intake race regression
+Set 66: synchronized keyword boundaries across catalog/intake/review state
+Set 67: real named validation-worker thread evidence
+Set 68: bounded validation queue with CallerRunsPolicy backpressure
+Set 69: interruption propagation and outstanding Future cancellation
+Set 70: JVM ThreadMXBean diagnostics and thread-dump workflow
 ```
 
 

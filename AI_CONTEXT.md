@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 65/387+**
+**Status: 70/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -1847,3 +1847,45 @@ Latest verified executable checkpoint:
 Next exact original anchor:
 
 ⭐ **Have you used the synchronized keyword anywhere?**
+
+
+## Sets 66–70 — Latest Completed Batch
+
+**Status: 70/387+**
+
+- Set 66: exact synchronized-keyword boundaries documented against existing catalog/intake/review state.
+- Set 67: Spring-managed validation workers proven as four real named Java threads.
+- Set 68: validation executor hardened to 4 workers + 64 queued tasks + CallerRunsPolicy backpressure.
+- Set 69: caller interruption preserves interrupt status and cancels outstanding futures.
+- Set 70: ThreadMXBean diagnostics capture process thread counts, validation worker names and deadlock count.
+
+Current validation-thread architecture:
+
+```text
+batch validation request
+→ ParallelProjectValidationService
+→ ThreadPoolExecutor
+   workers = 4
+   queue = 64
+   CallerRunsPolicy
+→ ordered Future results
+→ interruption/failure cancels unfinished work
+```
+
+Current process diagnostics:
+
+```text
+ThreadMXBean
+→ JvmThreadSnapshot
+→ live/daemon/peak/started counts
+→ validation-worker names
+→ deadlock count
+```
+
+Source correction:
+- Set 63 shared-data-structure question is Master 797.
+- Set 63 multithreading-use-scenarios question is Master 798.
+
+Next exact original anchor:
+
+⭐ **What feature have you implemented using Multithreading in your current project?**
