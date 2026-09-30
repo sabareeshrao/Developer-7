@@ -1046,3 +1046,45 @@ Status: 46/387+
 ~~~
 
 The next original source anchor asks: Currently, which Java version are you working on?
+
+## Set 47 established facts — current Java version confirmation
+
+Anchor:
+
+⭐ **Currently, which Java version are you working on?**
+
+The current day-to-day GeoOps Java version is Java 17.
+
+Set 47 deliberately reuses the enforceable baseline from Set 46 instead of creating duplicate version infrastructure.
+
+Established current-version evidence:
+- `.java-version` remains 17;
+- Maven `java.version` remains 17;
+- Maven `maven.compiler.release` remains 17;
+- Maven Enforcer continues to require `[17,18)`;
+- GitHub Actions continues to install Temurin 17;
+- `Java17BaselineTest` continues to verify runtime feature version 17;
+- `GeoProject` remains a record.
+
+No Java migration occurred between Sets 46 and 47.
+
+Set 47 adds no new production code and no new master technical question because all four supporting Java-version concepts were already completed.
+
+Learning-state impact:
+- four technical questions reused with ✅;
+- unique master technical-question count remains 203;
+- synthetic technical-question count remains 10;
+- synthetic ⭐⭐ anchor count remains 0.
+
+Latest learning state:
+
+~~~text
+Completed Sets: 47
+Completed anchors: 47
+Unique master technical questions: 203
+Synthetic technical questions: 10
+Synthetic ⭐⭐ anchors: 0
+Status: 47/387+
+~~~
+
+The next original source anchor asks: What's the Java version you are using?
