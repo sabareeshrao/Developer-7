@@ -1,7 +1,5 @@
 package com.atlasgrid.geoops.project.snapshot;
 
-import java.util.Objects;
-
 /**
  * Application exception for the trusted internal snapshot format.
  */
@@ -14,7 +12,7 @@ public class ProjectSnapshotException extends RuntimeException {
             String message
     ) {
         super(message);
-        this.failure = Objects.requireNonNull(failure, "failure");
+        this.failure = failure;
     }
 
     public ProjectSnapshotException(
@@ -23,7 +21,7 @@ public class ProjectSnapshotException extends RuntimeException {
             Throwable cause
     ) {
         super(message, cause);
-        this.failure = Objects.requireNonNull(failure, "failure");
+        this.failure = failure;
     }
 
     public ProjectSnapshotFailure failure() {
