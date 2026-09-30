@@ -67,3 +67,25 @@ Evidence:
 - docs/sets/SET-069-THREAD-EXPERIENCE.md
 - ParallelProjectValidationService.java
 - ParallelProjectValidationInterruptionTest.java
+
+
+## Story GEO-70 — Capture JVM thread-process evidence
+
+**Outcome:** GeoOps can prove its explicit validation workers are alive inside the current JVM and capture basic thread/deadlock metrics without exposing a public diagnostics endpoint.
+
+Acceptance criteria:
+- Use the standard JDK `ThreadMXBean`.
+- Capture live, daemon, peak and total-started thread counts.
+- Count active `geoops-project-validation-*` workers.
+- Record validation worker names.
+- Count JVM-detected deadlocked threads.
+- Add a test that keeps a validation worker alive while taking the snapshot.
+- Document `jcmd <pid> Thread.print` and VisualVM thread investigation.
+- Keep CI and SpotBugs green.
+
+Evidence:
+- docs/sets/SET-070-THREADS-IN-PROCESS.md
+- docs/operations/JVM-THREAD-DIAGNOSTICS.md
+- JvmThreadSnapshot.java
+- JvmThreadDiagnosticsService.java
+- JvmThreadDiagnosticsServiceTest.java
