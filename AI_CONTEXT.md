@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 49/387+**
+**Status: 50/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -1635,3 +1635,55 @@ Java-version rationale:
 Next exact original experience anchor:
 
 ⭐ **How are you importing and exporting data? Can you tell me the technical part of that?**
+
+## Set 50 — Latest Completed Set
+
+Anchor:
+
+⭐ **How are you importing and exporting data? Can you tell me the technical part of that?**
+
+GeoOps now has a working CSV transfer slice:
+
+```text
+CSV upload
+→ POST /api/projects/imports/csv
+→ MultipartFile / UTF-8 BufferedReader
+→ CreateProjectRequest
+→ ProjectService.create(...)
+→ validation + duplicate guard + catalog + review queue
+
+catalog
+→ GET /api/projects/exports/csv
+→ escaped CSV
+→ attachment response
+```
+
+Boundaries:
+- multipart import max file size = 5MB;
+- max request size = 6MB;
+- current processing is synchronous and blocking for modest metadata batches;
+- very large imports should become asynchronous jobs;
+- native Java object serialization is not used for the external CSV exchange format.
+
+Current counters:
+
+```text
+Completed Sets: 50
+Completed anchors: 50
+Unique master technical questions: 210
+Synthetic technical questions: 13
+Synthetic ⭐⭐ anchors: 0
+Status: 50/387+
+```
+
+Set-50 evidence:
+
+`docs/sets/SET-050-DATA-IMPORT-EXPORT.md`
+
+Current process sprint:
+
+`docs/process/SPRINT-005.md`
+
+Next exact original experience anchor:
+
+⭐ **What challenge did you face while deserializing data?**
