@@ -841,3 +841,37 @@ Evidence:
 - ProjectOptionalSemanticsTest.java
 - ProjectControllerLookupIntegrationTest.java
 - Set 41 evidence document
+
+---
+
+### Story GEO-42 — Prove practical Optional use through intake-position lookup
+
+**Outcome:** GeoOps demonstrates a second real Optional workflow using the existing one-based intake-position lookup, without adding another endpoint or storing Optional in domain fields.
+
+Acceptance criteria:
+- Keep findByIntakePosition(int) returning Optional<GeoProject>.
+- A valid intake position returns a present Optional.
+- Position 0, negative positions, and positions beyond the catalog remain normal absence via Optional.empty().
+- Demonstrate safe Optional.filter(...), map(...), and orElseThrow() composition when a caller requires a matching value.
+- Keep normal REST absence mapped to HTTP 404 through ResponseEntity.of(...).
+- Do not add Optional fields/getters to GeoProject merely for coverage.
+- Do not introduce another lookup endpoint solely for the anchor.
+- Preserve existing catalog behavior.
+
+~~~text
+one-based intake position
+        ↓
+ProjectCatalog.findByIntakePosition
+        ↓
+Optional<GeoProject>
+        ├── valid position   → present
+        └── invalid position → empty
+~~~
+
+Evidence:
+- ProjectCatalog.java
+- ProjectService.java
+- ProjectQueryController.java
+- ProjectOptionalPracticalUsageTest.java
+- ProjectIntakePositionIntegrationTest.java
+- Set 42 evidence document
