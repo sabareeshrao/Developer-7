@@ -1004,3 +1004,26 @@ Evidence:
 - .github/workflows/ci.yml
 - GeoProject.java
 - Java17BaselineTest.java
+
+---
+
+### Story GEO-48 — Reuse the established Java-version baseline for repeated source wording
+
+**Outcome:** GeoOps answers the source-bank question "What's the Java version you are using?" consistently without creating duplicate Java-version implementation.
+
+Acceptance criteria:
+- Keep Java 17 as the project version.
+- Keep `.java-version`, Maven compiler release, Maven Enforcer, CI and runtime test unchanged.
+- Reuse all supporting Java-version technical questions with ✅.
+- Do not create another version plugin, endpoint, script or regression test merely because the source wording is repeated.
+- Preserve the next separate anchor about why Java 17 was chosen.
+- Keep CI green.
+
+Evidence:
+- docs/sets/SET-048-JAVA-VERSION-USED.md
+- docs/architecture/ADR-JAVA-17-BASELINE.md
+- pom.xml
+- .java-version
+- .github/workflows/ci.yml
+- GeoProject.java
+- Java17BaselineTest.java
