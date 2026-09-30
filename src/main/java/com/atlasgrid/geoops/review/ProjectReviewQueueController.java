@@ -1,5 +1,6 @@
 package com.atlasgrid.geoops.review;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +15,10 @@ public class ProjectReviewQueueController {
 
     private final ProjectReviewQueue projectReviewQueue;
 
+    @SuppressFBWarnings(
+            value = "EI_EXPOSE_REP2",
+            justification = "Spring-managed queue bean is intentionally referenced by its REST controller."
+    )
     public ProjectReviewQueueController(ProjectReviewQueue projectReviewQueue) {
         this.projectReviewQueue = projectReviewQueue;
     }
