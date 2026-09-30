@@ -21,3 +21,21 @@ Evidence:
 - SnapshotReflectionInspector.java
 - SnapshotTypeReport.java
 - SnapshotReflectionInspectorTest.java
+
+
+## Story GEO-57 — Make snapshot diagnostics conditional
+
+**Outcome:** Reflection diagnostics are optional and disabled unless explicitly enabled by configuration.
+
+Acceptance criteria:
+- Use Spring Boot `@ConditionalOnProperty`.
+- Create `SnapshotReflectionInspector` only when `geoops.snapshot.diagnostics.enabled=true`.
+- Keep the default configuration disabled.
+- Verify enabled, disabled and property-absent cases with application-context tests.
+- Keep CI and SpotBugs green.
+
+Evidence:
+- docs/sets/SET-057-CONDITIONAL-ANNOTATIONS.md
+- SnapshotDiagnosticsConfiguration.java
+- SnapshotDiagnosticsConfigurationTest.java
+- application.yml

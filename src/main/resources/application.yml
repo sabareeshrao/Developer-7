@@ -26,3 +26,9 @@ info:
     name: GeoOps
     domain: GIS operations
     company: AtlasGrid Geospatial Systems
+
+
+geoops:
+  snapshot:
+    diagnostics:
+      enabled: false
