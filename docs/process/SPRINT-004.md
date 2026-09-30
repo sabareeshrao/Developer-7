@@ -899,3 +899,28 @@ Evidence:
 - ProjectService.java
 - ProjectQueryController.java
 - Set 43 evidence document
+
+---
+
+### Story GEO-44 — Explain Optional through one concrete project-code lookup scenario
+
+**Outcome:** GeoOps has one repository-grounded scenario that can be used to answer where Optional was used, without creating a duplicate endpoint solely for interview coverage.
+
+Acceptance criteria:
+- Use the existing project-code lookup as the concrete Optional scenario.
+- Keep `ProjectCatalog.findByProjectCode(...)` returning `Optional<GeoProject>`.
+- Preserve the service Optional contract.
+- Preserve `ResponseEntity.of(...)` at the REST boundary.
+- Explain present → HTTP 200 and empty → HTTP 404.
+- Keep null project-code input separate from ordinary lookup absence.
+- Do not add a third Optional lookup endpoint.
+- Reuse completed Optional theory questions with ✅.
+- Preserve the existing Optional integration test as executable evidence.
+- Keep CI green.
+
+Evidence:
+- docs/sets/SET-044-OPTIONAL-SCENARIO.md
+- ProjectCatalog.java
+- ProjectService.java
+- ProjectQueryController.java
+- ProjectOptionalBoundaryIntegrationTest.java
