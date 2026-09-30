@@ -14,3 +14,21 @@ Evidence:
 - ProjectService.java
 - ProjectReviewQueue.java
 - ProjectSynchronizationContractTest.java
+
+
+## Story GEO-67 — Prove project worker-thread usage
+
+**Outcome:** The repository proves that GeoOps uses a Spring-managed worker pool with four named Java threads for parallel project validation.
+
+Acceptance criteria:
+- Use the existing project-validation ExecutorService.
+- Execute work concurrently on all four workers.
+- Verify worker names begin with `geoops-project-validation-`.
+- Keep worker creation bounded to the configured pool.
+- Keep CI and SpotBugs green.
+
+Evidence:
+- docs/sets/SET-067-THREADS-IN-PROJECT.md
+- ProjectValidationWorkerThreadTest.java
+- ProjectValidationExecutorConfiguration.java
+- ParallelProjectValidationService.java
