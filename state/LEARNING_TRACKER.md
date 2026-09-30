@@ -1438,8 +1438,37 @@ Set 48 learning items completed: 5 / 5
 
 ---
 
-Completed job-experience anchors: 48
+# Set 49
+
+**Status: 49/387+**
+
+- [x] ⭐ [Master 661] Why did you choose Java 17 if you are not using many Java 17-specific features?
+
+## Part A
+- [x] ✅ [Master 650] Why was Java 8 introduced? Why was there a requirement to upgrade from Java 7 to Java 8?
+- [x] [Master 645] Can you tell me some new features of Java 11 which are not there in older versions?
+- [x] ✅ [Master 647] Can you tell me some new features that were introduced in Java 17?
+- [x] ✅ [Master 652] Are you aware of recent Java updates such as Records and Sealed Classes?
+- [x] [Master 1730] Is Spring Boot 3.x compatible with Java 8?
+- [x] 💡 What is an LTS Java release, and why does it matter when choosing an enterprise project baseline?
+- [x] 💡 If a project does not use many Java-17-specific language features, what benefits still come from choosing Java 17 as the baseline?
+
+## Set 49 completion evidence
+- docs/sets/SET-049-WHY-JAVA-17.md
+- docs/architecture/ADR-JAVA-17-BASELINE.md
+- pom.xml
+- .java-version
+- .github/workflows/ci.yml
+- src/main/java/com/atlasgrid/geoops/project/domain/GeoProject.java
+- src/test/java/com/atlasgrid/geoops/Java17BaselineTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 49 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 49
 Synthetic job-experience anchors created so far: 0
-Unique master technical questions covered: 203
-Synthetic technical questions covered: 10
+Unique master technical questions covered: 205
+Synthetic technical questions covered: 12
 Current denominator: 387+
