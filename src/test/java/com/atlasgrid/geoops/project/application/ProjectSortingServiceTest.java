@@ -16,7 +16,7 @@ class ProjectSortingServiceTest {
             new ProjectSortingService();
 
     @Test
-    void usesArrayAndCollectionSortingWithoutMutatingSourceOrder() {
+    void producesDeterministicDeliveryOrderWithoutMutatingIntakeOrder() {
         List<GeoProject> source = new ArrayList<>(List.of(
                 project("TX-HOU-029", "EPSG:4326"),
                 project("TX-AUS-029", "EPSG:3857"),
@@ -46,6 +46,23 @@ class ProjectSortingServiceTest {
                         "TX-HOU-029",
                         "TX-AUS-029",
                         "TX-DAL-029"
+                );
+    }
+
+    @Test
+    void customComparatorUsesProjectCodeAsTieBreakerWithinSameCrs() {
+        ProjectSortingView view = service.sort(List.of(
+                project("TX-HOU-038", "EPSG:4326"),
+                project("TX-AUS-038", "EPSG:4326"),
+                project("TX-DAL-038", "EPSG:4326")
+        ));
+
+        assertThat(view.projectsByCrsThenCode())
+                .extracting(GeoProject::projectCode)
+                .containsExactly(
+                        "TX-AUS-038",
+                        "TX-DAL-038",
+                        "TX-HOU-038"
                 );
     }
 
