@@ -14,75 +14,78 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * In-memory quality-review workflow for GIS projects.
  *
- * <p>Queued work remains a Deque backed by LinkedList because earlier Sets
- * established the head/tail worklist behavior. Access to that LinkedList is
- * protected by one internal queue lock so concurrent HTTP requests do not
- * mutate the non-thread-safe deque at the same time.</p>
- *
- * <p>Claimed work is stored in ConcurrentHashMap keyed by immutable String
- * projectCode. retry(...) and complete(...) both use atomic remove(key), so
- * concurrent transitions for the same claimed project have a single winner.</p>
- *
- * <p>This is a targeted in-memory concurrency hardening step, not a claim that
- * the whole GeoOps application is production-ready. ProjectCatalog concurrency
- * and transactional persistence remain separate future concerns.</p>
+ * <p>One state lock protects compound transitions between queued and claimed
+ * states. ConcurrentHashMap remains the claimed-task store established by the
+ * earlier concurrency Set, while the lock makes queue↔claimed transitions
+ * atomic from the workflow's point of view.</p>
  */
 @Component
 public class ProjectReviewQueue {
 
-    private final Object queueLock = new Object();
+    private final Object stateLock = new Object();
     private final Deque<ProjectReviewTask> reviewTasks = new LinkedList<>();
     private final Map<String, ProjectReviewTask> claimedTasksByProjectCode =
             new ConcurrentHashMap<>();
 
     public void enqueue(String projectCode) {
-        synchronized (queueLock) {
-            reviewTasks.addLast(new ProjectReviewTask(projectCode));
+        enqueueAll(List.of(projectCode));
+    }
+
+    public void enqueueAll(List<String> projectCodes) {
+        Objects.requireNonNull(projectCodes, "projectCodes");
+
+        List<ProjectReviewTask> tasks = projectCodes.stream()
+                .map(ProjectReviewTask::new)
+                .toList();
+
+        synchronized (stateLock) {
+            for (ProjectReviewTask task : tasks) {
+                reviewTasks.addLast(task);
+            }
         }
     }
 
     public Optional<ProjectReviewTask> claimNext() {
-        ProjectReviewTask task;
+        synchronized (stateLock) {
+            ProjectReviewTask task = reviewTasks.pollFirst();
 
-        synchronized (queueLock) {
-            task = reviewTasks.pollFirst();
+            if (task == null) {
+                return Optional.empty();
+            }
+
+            claimedTasksByProjectCode.put(task.projectCode(), task);
+            return Optional.of(task);
         }
-
-        if (task == null) {
-            return Optional.empty();
-        }
-
-        claimedTasksByProjectCode.put(task.projectCode(), task);
-        return Optional.of(task);
     }
 
     public boolean retry(String projectCode) {
         Objects.requireNonNull(projectCode, "projectCode");
 
-        ProjectReviewTask task =
-                claimedTasksByProjectCode.remove(projectCode);
+        synchronized (stateLock) {
+            ProjectReviewTask task =
+                    claimedTasksByProjectCode.remove(projectCode);
 
-        if (task == null) {
-            return false;
-        }
+            if (task == null) {
+                return false;
+            }
 
-        synchronized (queueLock) {
             reviewTasks.addFirst(task);
+            return true;
         }
-
-        return true;
     }
 
     public boolean complete(String projectCode) {
         Objects.requireNonNull(projectCode, "projectCode");
 
-        return claimedTasksByProjectCode.remove(projectCode) != null;
+        synchronized (stateLock) {
+            return claimedTasksByProjectCode.remove(projectCode) != null;
+        }
     }
 
     public boolean expedite(String projectCode) {
         Objects.requireNonNull(projectCode, "projectCode");
 
-        synchronized (queueLock) {
+        synchronized (stateLock) {
             Iterator<ProjectReviewTask> iterator = reviewTasks.iterator();
 
             while (iterator.hasNext()) {
@@ -102,7 +105,7 @@ public class ProjectReviewQueue {
     public boolean defer(String projectCode) {
         Objects.requireNonNull(projectCode, "projectCode");
 
-        synchronized (queueLock) {
+        synchronized (stateLock) {
             Iterator<ProjectReviewTask> iterator = reviewTasks.iterator();
 
             while (iterator.hasNext()) {
@@ -122,7 +125,7 @@ public class ProjectReviewQueue {
     public boolean cancel(String projectCode) {
         Objects.requireNonNull(projectCode, "projectCode");
 
-        synchronized (queueLock) {
+        synchronized (stateLock) {
             Iterator<ProjectReviewTask> iterator = reviewTasks.iterator();
 
             while (iterator.hasNext()) {
@@ -139,18 +142,20 @@ public class ProjectReviewQueue {
     }
 
     public List<ProjectReviewTask> snapshot() {
-        synchronized (queueLock) {
+        synchronized (stateLock) {
             return List.copyOf(reviewTasks);
         }
     }
 
     public int size() {
-        synchronized (queueLock) {
+        synchronized (stateLock) {
             return reviewTasks.size();
         }
     }
 
     public int claimedTaskCount() {
-        return claimedTasksByProjectCode.size();
+        synchronized (stateLock) {
+            return claimedTasksByProjectCode.size();
+        }
     }
 }
