@@ -2,8 +2,6 @@ package com.atlasgrid.geoops.project.application;
 
 import com.atlasgrid.geoops.error.GeoOpsErrorCode;
 
-import java.util.Objects;
-
 /**
  * Base type for GeoOps project-intake application exceptions.
  *
@@ -19,7 +17,7 @@ public abstract class GeoOpsProjectException extends RuntimeException {
             String message
     ) {
         super(message);
-        this.errorCode = Objects.requireNonNull(errorCode, "errorCode");
+        this.errorCode = errorCode;
     }
 
     protected GeoOpsProjectException(
@@ -28,7 +26,7 @@ public abstract class GeoOpsProjectException extends RuntimeException {
             Throwable cause
     ) {
         super(message, cause);
-        this.errorCode = Objects.requireNonNull(errorCode, "errorCode");
+        this.errorCode = errorCode;
     }
 
     public GeoOpsErrorCode errorCode() {
