@@ -4,22 +4,22 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "42/387+",
+  "status": "43/387+",
   "completed": {
-    "sets": 42,
-    "jobExperienceAnchors": 42,
-    "uniqueMasterTechnicalQuestions": 196,
+    "sets": 43,
+    "jobExperienceAnchors": 43,
+    "uniqueMasterTechnicalQuestions": 197,
     "syntheticTechnicalQuestions": 10
   },
   "current": {
-    "set": 42,
-    "anchorMasterQuestion": 638,
-    "anchor": "Do you use Optional practically in your project?",
+    "set": 43,
+    "anchorMasterQuestion": 639,
+    "anchor": "Did you guys leverage the Optional class?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-042-OPTIONAL-PRACTICAL-USAGE.md"
+    "evidence": "docs/sets/SET-043-OPTIONAL-BOUNDARIES.md"
   },
-  "nextAction": "derive Set 43 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
+  "nextAction": "derive Set 44 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
