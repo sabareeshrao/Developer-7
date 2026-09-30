@@ -647,3 +647,62 @@ I take a baseline, repeat the same type of processing, observe whether the JVM s
 In GeoOps I debugged a controlled memory-retention issue in the JVM diagnostics work. The risky design was keeping every `JvmMemorySnapshot` in an unbounded history, which would keep all of those samples strongly reachable for the lifetime of the application.
 
 I used repeated JVM memory samples to confirm the retention trend. For deeper analysis my JDK-tool workflow uses `jcmd GC.class_histogram` to identify growing live classes, `jcmd GC.heap_dump` for retained-path and GC-root analysis, and Java Flight Recorder to correlate allocation activity with the workload. The fix was a bounded `ArrayDeque` that retains only the newest 120 samples, with a regression test proving that 1,000 writes cannot grow the history past that limit.
+
+
+---
+
+## Set 61 — Status: 61/387+
+
+### ⭐ Have you worked with VisualVM?
+
+Yes. In the fictional GeoOps development/performance workflow I use VisualVM to attach to the running Spring Boot JVM and correlate what the application is doing with heap, GC, allocation and thread behavior.
+
+For memory investigations I compare the heap trend under a repeatable workload, use the memory sampler to identify classes whose live instances keep growing, inspect the Threads view, and capture a heap dump when I need retained-object and GC-root evidence. I use VisualVM together with `jcmd` and JFR rather than treating one profiler as the only source of evidence.
+
+---
+
+## Set 62 — Status: 62/387+
+
+### ⭐ Did you face any memory leak in your career?
+
+In the fictional GeoOps project we found a memory-retention problem during pre-release performance testing of the JVM diagnostics feature.
+
+The issue was an unbounded history of `JvmMemorySnapshot` objects. Every new sample stayed strongly reachable from the history collection, so Garbage Collection could not reclaim it. I reproduced the growth under a repeatable workload, identified the retaining collection, and fixed it by changing the history to a bounded `ArrayDeque` that keeps only the newest 120 samples. A regression test records 1,000 samples and proves the history remains bounded.
+
+This is a simulated development/performance-test incident, not a claim about a real customer production incident.
+
+---
+
+## Set 63 — Status: 63/387+
+
+### ⭐ Have you worked in a multithreaded environment?
+
+Yes. In GeoOps I worked in a multithreaded environment for bulk GIS request preflight validation.
+
+The requests in a validation batch are independent, so I run them through a bounded four-thread `ExecutorService` instead of validating every item serially or creating an unbounded number of threads. Each worker uses the same stateless validation service, and I collect the `Future` results in original request order.
+
+The parallel path is read-only. Actual catalog publication still uses the synchronized intake path, so parallel preprocessing does not weaken the shared catalog's consistency guarantees.
+
+---
+
+## Set 64 — Status: 64/387+
+
+### ⭐ Have you used any synchronized or non-synchronized method in your Spring Boot application or project?
+
+Yes. In GeoOps I use both based on who owns shared mutable state.
+
+`ProjectCatalog` owns an `ArrayList` and `HashSet`, so its state methods are synchronized. `ProjectService.create()` is not method-synchronized; instead it uses a narrower `synchronized (intakeLock)` block only around catalog and review-queue publication.
+
+`ProjectValidationService.validate()` is intentionally non-synchronized because the rules are stateless, the rule list is immutable, and each call builds local result state. That avoids unnecessary contention.
+
+---
+
+## Set 65 — Status: 65/387+
+
+### ⭐ What did you use for handling concurrent users in this project?
+
+For concurrent users in GeoOps, the web server handles requests on concurrent request threads, and the application protects shared in-memory state at the ownership boundary.
+
+`ProjectCatalog` synchronizes its list/set state, and `ProjectService` uses a narrow intake lock around catalog-plus-review-queue publication. The review workflow also uses `ConcurrentHashMap` for claimed-task lookup, but compound queue-to-map transitions still use a separate state lock.
+
+I verified the design with concurrent tests: 50 simultaneous unique requests all publish correctly, while 20 callers racing on the same project code result in exactly one accepted project and one review task.

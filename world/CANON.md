@@ -1452,3 +1452,61 @@ The documented JDK debugging workflow uses:
 This is a controlled development retention scenario, not a claimed production customer incident.
 
 VisualVM remains intentionally deferred to Set 61.
+
+
+## Set 61 established facts — VisualVM workflow
+
+GeoOps has a reproducible local VisualVM investigation lab.
+
+- `scripts/run-visualvm-lab.sh` packages and runs the real application with a bounded 128–256MB heap.
+- VisualVM is used for heap/GC monitoring, memory sampling, thread inspection and heap-dump analysis.
+- VisualVM complements `jcmd`, heap dumps and JFR rather than replacing them.
+- this is a fictional development/performance-analysis workflow, not a claimed real employer incident.
+
+## Set 62 established facts — controlled memory-retention incident
+
+The fictional GeoOps world records a pre-release performance-test incident around an unbounded diagnostic-history design risk.
+
+- the retaining object was the memory-snapshot history collection;
+- `JvmMemorySnapshot` values stayed strongly reachable;
+- Garbage Collection was functioning correctly;
+- the fix is the bounded 120-entry `MemorySnapshotHistory`;
+- regression coverage proves 1,000 writes retain only the newest 120 samples;
+- the incident is explicitly not represented as a customer production outage.
+
+## Set 63 established facts — bounded multithreaded validation
+
+GeoOps now has a read-only parallel validation path:
+
+```text
+POST /api/projects/validation/batch
+→ ParallelProjectValidationService
+→ fixed four-thread ExecutorService
+→ ProjectValidationService
+→ ordered ProjectBatchValidationResult list
+```
+
+- the validation pool is bounded to four worker threads;
+- input result order is preserved;
+- the endpoint does not mutate `ProjectCatalog`;
+- worker-pool shutdown is managed by the Spring bean lifecycle;
+- an initial test implementation incorrectly treated the two-method `ProjectValidationRule` as a functional interface; CI caught the compile error and the test was corrected with an explicit anonymous implementation.
+
+## Set 64 established facts — synchronization placement
+
+GeoOps deliberately uses different synchronization scopes:
+
+- `ProjectCatalog` uses synchronized owner methods for its mutable list/set state.
+- `ProjectService.create(...)` is not method-synchronized; it uses a narrower `synchronized (intakeLock)` block around catalog + review-queue publication.
+- `ProjectValidationService.validate(...)` is non-synchronized because it uses an immutable rule list, stateless rules, and invocation-local result state.
+- regression tests assert this synchronization contract.
+
+## Set 65 established facts — concurrent-user intake
+
+The current single-JVM GeoOps intake path is regression-tested under concurrent callers.
+
+- 50 simultaneous unique project requests produce 50 unique catalog projects and 50 queued review tasks.
+- 20 simultaneous callers racing on the same project code produce exactly one success, 19 duplicate rejections, one catalog project and one review task.
+- `ProjectReviewQueue` uses `ConcurrentHashMap` for claimed-task lookup, but queue↔map compound transitions still use `stateLock`.
+- JVM synchronization is explicitly not represented as a distributed/multi-instance guarantee.
+- future database/multi-instance deployment must add persistent uniqueness/transaction guarantees.

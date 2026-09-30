@@ -1772,3 +1772,139 @@ Synthetic job-experience anchors created so far: 0
 Unique master technical questions covered: 231
 Synthetic technical questions covered: 32
 Current denominator: 387+
+
+
+---
+
+# Set 61
+
+**Status: 61/387+**
+
+- [x] ⭐ [Master 774] Have you worked with VisualVM?
+
+## Part A
+- [x] [Master 717] Have you heard about JProfiler, VisualVM, or Eclipse Memory Analyzer?
+- [x] ✅ [Master 730] Do you know about Heap Dump?
+- [x] ✅ [Master 765] Are there any techniques other than Garbage Collection to identify and fix memory leaks?
+- [x] ✅ [Master 767] Let's say you are tasked with analyzing memory leaks in a long-running application. What tools and techniques would you use?
+- [x] ✅ [Master 769] How would you analyze and debug memory leaks in a Java or Spring Boot application?
+
+## Set 61 completion evidence
+- docs/sets/SET-061-VISUALVM.md
+- docs/operations/VISUALVM-MEMORY-INVESTIGATION.md
+- scripts/run-visualvm-lab.sh
+
+Set 61 learning items completed: 6 / 6
+
+---
+
+# Set 62
+
+**Status: 62/387+**
+
+- [x] ⭐ [Master 775] Did you face any memory leak in your career?
+
+## Part A
+- [x] ✅ [Master 738] What is a memory leak in Java?
+- [x] ✅ [Master 734] How can memory leaks occur in Java even though we have automatic garbage collection?
+- [x] ✅ [Master 766] Let's say you suspect a memory leak in a long-running Java application. Describe the steps you would take to investigate and resolve it.
+- [x] ✅ [Master 770] How would you investigate and fix a memory leak in Java? What steps would you take?
+- [x] ✅ [Master 771] How does JVM handle memory leaks, and what tools or techniques would you use to identify and fix a memory leak in your application?
+
+## Set 62 completion evidence
+- docs/sets/SET-062-MEMORY-LEAK-EXPERIENCE.md
+- docs/incidents/INC-001-MEMORY-DIAGNOSTIC-HISTORY-RETENTION.md
+- src/main/java/com/atlasgrid/geoops/diagnostics/memory/MemorySnapshotHistory.java
+- src/test/java/com/atlasgrid/geoops/diagnostics/memory/MemorySnapshotHistoryTest.java
+
+Set 62 learning items completed: 6 / 6
+
+---
+
+# Set 63
+
+**Status: 63/387+**
+
+- [x] ⭐ [Master 830] Have you worked in a multithreaded environment?
+
+## Part A
+- [x] [Master 776] What is a Thread in Java, and how can we create one?
+- [x] [Master 786] Can you brief on what multithreaded applications do and why we use a multithreaded environment?
+- [x] [Master 789] Do you know the difference between a process and a thread?
+- [x] [Master 793] What's the difference between Runnable and Callable?
+- [x] [Master 798] How would you handle a scenario where two threads need to update the same data structure?
+- [x] [Master 800] Where should we use Multithreading? Give me a few scenarios where Multithreading is a good choice.
+- [x] [Master 913] Why is ExecutorService required?
+
+## Set 63 completion evidence
+- docs/sets/SET-063-MULTITHREADED-ENVIRONMENT.md
+- src/main/java/com/atlasgrid/geoops/project/validation/ProjectBatchValidationResult.java
+- src/main/java/com/atlasgrid/geoops/project/validation/ProjectValidationExecutorConfiguration.java
+- src/main/java/com/atlasgrid/geoops/project/validation/ParallelProjectValidationService.java
+- src/main/java/com/atlasgrid/geoops/project/api/ProjectBatchValidationController.java
+- src/test/java/com/atlasgrid/geoops/project/validation/ParallelProjectValidationServiceConcurrencyTest.java
+- src/test/java/com/atlasgrid/geoops/project/api/ProjectBatchValidationIntegrationTest.java
+
+Set 63 learning items completed: 8 / 8
+
+---
+
+# Set 64
+
+**Status: 64/387+**
+
+- [x] ⭐ [Master 831] Have you used any synchronized or non-synchronized method in your Spring Boot application or project?
+
+## Part A
+- [x] [Master 849] What are the limitations of using the synchronized keyword?
+- [x] [Master 863] Can you explain the concept of synchronized keyword in Java?
+- [x] [Master 864] Can you describe a scenario where not using synchronized could cause an issue?
+- [x] [Master 869] Why do we need synchronization?
+- [x] [Master 871] How can we synchronize methods and blocks?
+- [x] [Master 877] What's the difference between a Synchronized Method and a Synchronized Block?
+- [x] [Master 878] When would you choose a Synchronized Method over a Synchronized Block, or vice versa?
+
+## Set 64 completion evidence
+- docs/sets/SET-064-SYNCHRONIZED-NON-SYNCHRONIZED.md
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectCatalog.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectService.java
+- src/main/java/com/atlasgrid/geoops/project/validation/ProjectValidationService.java
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectSynchronizationContractTest.java
+- src/test/java/com/atlasgrid/geoops/project/application/ProjectCatalogConcurrencyTest.java
+
+Set 64 learning items completed: 8 / 8
+
+---
+
+# Set 65
+
+**Status: 65/387+**
+
+- [x] ⭐ [Master 832] What did you use for handling concurrent users in this project?
+
+## Part A
+- [x] [Master 850] What is a thread-safe class? Can you name a few from Java?
+- [x] [Master 880] Do you know about Thread Safety?
+- [x] [Master 881] How can you ensure a method is thread-safe in Java?
+- [x] [Master 882] How would you handle a situation where multiple Threads need to access a shared resource without using the synchronized keyword?
+- [x] [Master 883] How would you make a class or a Collection thread-safe?
+- [x] [Master 505] Can you please brief on ConcurrentHashMap?
+- [x] [Master 517] Is ConcurrentHashMap 100% Thread-Safe for every kind of operation?
+
+## Set 65 completion evidence
+- docs/sets/SET-065-CONCURRENT-USERS.md
+- docs/architecture/ADR-CONCURRENT-INMEMORY-INTAKE.md
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectCatalog.java
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectService.java
+- src/main/java/com/atlasgrid/geoops/review/ProjectReviewQueue.java
+- src/test/java/com/atlasgrid/geoops/project/application/ConcurrentProjectIntakeIntegrationTest.java
+
+Set 65 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 65
+Synthetic job-experience anchors created so far: 0
+Unique master technical questions covered: 262
+Synthetic technical questions covered: 32
+Current denominator: 387+

@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 60 — Status: 60/387+ — COMPLETE**
+**Set 65 — Status: 65/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -69,6 +69,11 @@ Set 57: conditional Spring bean for optional snapshot diagnostics
 Set 58: custom runtime @SnapshotField annotation consumed through Reflection
 Set 59: JVM memory-leak detection evidence with MemoryMXBean
 Set 60: bounded diagnostic history and jcmd/JFR memory debugging workflow
+Set 61: VisualVM profiling and heap/thread investigation lab
+Set 62: controlled memory-retention incident and RCA
+Set 63: bounded four-thread parallel project validation
+Set 64: synchronized-method/block placement contract
+Set 65: concurrent-user intake race regression
 ```
 
 

@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 60/387+**
+**Status: 65/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -1809,3 +1809,41 @@ Source-bank traceability note:
 Next exact original anchor:
 
 ⭐ **Have you worked with VisualVM?**
+
+
+## Sets 61–65 — Latest Completed Batch
+
+**Status: 65/387+**
+
+- Set 61: reproducible VisualVM memory/thread investigation lab.
+- Set 62: controlled pre-release memory-retention incident and RCA.
+- Set 63: bounded four-thread parallel GIS request validation.
+- Set 64: explicit synchronized-method vs synchronized-block vs non-synchronized design contract.
+- Set 65: concurrent-user intake regression with unique and duplicate races.
+
+Current concurrency architecture:
+
+```text
+batch validation
+→ fixed 4-thread ExecutorService
+→ stateless validation
+→ no catalog mutation
+
+project creation
+→ validate outside lock
+→ synchronized intake publication
+→ synchronized ProjectCatalog
+→ ProjectReviewQueue
+
+claimed review lookup
+→ ConcurrentHashMap
+→ stateLock for compound queue↔map transitions
+```
+
+Latest verified executable checkpoint:
+
+`984e163e85622934923c4fccfcb73dcaa054cca8`
+
+Next exact original anchor:
+
+⭐ **Have you used the synchronized keyword anywhere?**

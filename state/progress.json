@@ -4,27 +4,27 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "60/387+",
+  "status": "65/387+",
   "completed": {
-    "sets": 60,
-    "jobExperienceAnchors": 60,
-    "uniqueMasterTechnicalQuestions": 231,
+    "sets": 65,
+    "jobExperienceAnchors": 65,
+    "uniqueMasterTechnicalQuestions": 262,
     "syntheticTechnicalQuestions": 32
   },
   "current": {
-    "set": 60,
-    "anchorSourceQuestion": 69,
-    "anchor": "How did you debug a Memory Leak in your project, and what tools specifically did you use?",
+    "set": 65,
+    "anchorMasterQuestion": 832,
+    "anchor": "What did you use for handling concurrent users in this project?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-060-DEBUG-MEMORY-LEAK.md"
+    "evidence": "docs/sets/SET-065-CONCURRENT-USERS.md"
   },
   "next": {
-    "set": 61,
-    "anchorSourceQuestion": 70,
-    "anchor": "Have you worked with VisualVM?"
+    "set": 66,
+    "anchorMasterQuestion": 833,
+    "anchor": "Have you used the synchronized keyword anywhere?"
   },
-  "nextAction": "derive Set 61 around exactly one VisualVM experience anchor; inspect the Set 59-60 JVM memory diagnostics and runbooks; search the 2,308 technical bank again before creating synthetic questions; reuse covered memory-leak questions with ✅; end with Experience Answer",
+  "nextAction": "derive Set 66 around exactly one synchronized-keyword experience anchor; reuse Set 64 synchronization questions with ✅; inspect concurrent intake and review queue code; search the 2,308 bank for any remaining directly related synchronization questions; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
@@ -45,9 +45,9 @@
     "qualityGate": "mvn clean verify + SpotBugs",
     "firstGreenCodeCommit": "7e154b98e9496969b3e5bf5a04748b62367b51aa",
     "report": "docs/maintenance/POST-SET-050-CODEBASE-AUDIT.md",
-    "nextLearningSet": 61,
-    "latestLearningCheckpoint": "set-060",
-    "latestVerifiedCodeCommit": "7a3649f96d2e9fe94b516d28850cb380cf62a7e4",
+    "nextLearningSet": 66,
+    "latestLearningCheckpoint": "set-065",
+    "latestVerifiedCodeCommit": "984e163e85622934923c4fccfcb73dcaa054cca8",
     "latestVerifiedCodeCi": "green"
   }
 }
