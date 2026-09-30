@@ -1,81 +1,67 @@
-# Developer-7 / GeoOps — New Chat Handover After Set 43
+# Developer-7 / GeoOps — New Chat Handover After Set 44
 
-Use this as the **first message in a new ChatGPT chat**, then say **"Set 44"**.
+Continue my existing GitHub project:
 
----
-
-Continue my **Developer-7 / GeoOps** project from GitHub:
-
-```text
-https://github.com/sabareeshrao/Developer-7
-```
+`https://github.com/sabareeshrao/Developer-7`
 
 Default branch:
 
-```text
-main
-```
+`main`
 
-The repository is the source of truth. Do **not** rely on old chat memory and do **not** ask me to re-paste previous Sets.
+Do not rely on previous chat memory and do not ask me to re-paste earlier Sets. GitHub is the source of truth.
 
 ## Current verified checkpoint
 
-Set 43 is fully completed and pushed.
+Set 44 is complete and pushed.
 
-Verified Set-43 completion checkpoint:
+Verified Set-44 completion checkpoint:
 
-```text
-8714463489083a65c6801251725af5161e707cb6
-```
+`7e057d1ba2dcac963289bec3f8eb6b5418445905`
 
-Current learning state recorded in `state/progress.json`:
+Current learning state:
 
-```text
-Completed Sets: 43
-Completed original job-experience anchors: 43
-Synthetic job-experience anchors: 0
-Unique master technical questions covered: 197
-Synthetic technical questions covered: 10
-Status: 43/387+
-```
+~~~text
+Completed Sets: 44
+Completed original experience anchors: 44
+Synthetic experience anchors: 0
 
-The latest Set-43 GitHub Actions run is green.
+Unique master technical questions: 197
+Synthetic technical questions: 10
 
-If GitHub contains commits newer than this handover, GitHub wins. Reconcile them before starting new work.
+Status: 44/387+
+~~~
 
----
+CI / Maven verification for the Set-44 completion checkpoint is green.
 
-# Mandatory startup protocol
+If GitHub contains anything newer than this handover, GitHub wins.
 
-Before modifying anything:
+## Mandatory startup
 
-1. Read `CONTINUATION_PROTOCOL.md`.
-2. Inspect the latest 10–20 Git commits.
+Before doing Set 45:
+
+1. Inspect the latest 10–20 commits.
+2. Read `CONTINUATION_PROTOCOL.md`.
 3. Read `state/progress.json`.
 4. Read `state/LEARNING_TRACKER.md`.
 5. Read `world/CANON.md`.
 6. Read `AI_CONTEXT.md`.
-7. Read `docs/sets/SET-043-OPTIONAL-BOUNDARIES.md`.
+7. Read `docs/sets/SET-044-OPTIONAL-SCENARIO.md`.
 8. Read `docs/process/SPRINT-004.md`.
-9. Inspect implementation/tests relevant to Set 44.
+9. Inspect implementation/tests relevant to the next Set.
 10. Check the latest GitHub Actions state.
 
-**GitHub state wins over chat memory.**
+If any partial Set-45 work already exists, reconcile it instead of starting duplicate work.
 
-If partially completed Set-44 code already exists, reconcile it before doing anything else.
-
----
-
-# Core Set workflow
+## Core Set rule
 
 Every Set follows:
 
-```text
+~~~text
 ONE job-experience anchor
         ↓
 directly related technical questions
         ↓
-learning in natural prerequisite order
+learning in natural order
         ↓
 real GeoOps implementation/evidence
         ↓
@@ -83,134 +69,69 @@ tests
         ↓
 CI
         ↓
-docs / Sprint / tracker / canon / progress / AI context
+Sprint/docs/tracker/canon/progress/AI-context updates
         ↓
 Experience Answer LAST
-```
+~~~
 
-Exactly **one ⭐ or ⭐⭐ job-experience anchor per Set**.
+Exactly one ⭐ or ⭐⭐ experience anchor per Set.
 
-Do not combine multiple original experience anchors into one Set.
+## Markers
 
----
+~~~text
+⭐  original experience anchor
+⭐⭐ synthetic GIS experience anchor
+💡 synthetic technical question
+✅ previously completed technical question
+[x] completed
+[ ] not completed
+~~~
 
-# Symbols and counters
+A ⭐⭐ anchor increases the denominator permanently.
 
-- ⭐ = original job-experience anchor from the 387-question source.
-- ⭐⭐ = synthetic GIS job-experience anchor, created only when the evolving project genuinely exposes an important missing experience topic.
-- 💡 = synthetic supporting technical question only when the 2,308-question bank has no suitable question.
-- ✅ = technical question already completed in an earlier Set.
-- `[x]` = completed.
-- `[ ]` = not completed.
-- Current denominator = `387+`.
-- A ⭐⭐ anchor permanently increments the denominator.
-- A 💡 technical question does not change the denominator.
+A 💡 technical question does not increase the denominator.
 
-Current status:
+Current denominator:
 
-```text
-43/387+
-```
+`387+`
 
----
+## Visible response rule
 
-# Critical visible-format rule
+Never show internal `[Master N]` IDs in the user-facing Set.
 
-Do **not** show `[Master N]` IDs in the user-facing Set response.
+Master IDs may remain inside `state/LEARNING_TRACKER.md`.
 
-Master IDs are internal bookkeeping only and may remain in:
+Maximum 7 technical questions per Part.
 
-```text
-state/LEARNING_TRACKER.md
-```
+## Question selection
 
-Visible Set format should look like:
+Use the 2,308-question master bank whenever possible.
 
-```text
-## Set 44 — Status: 44/387+
-
-- [x] ⭐ Experience anchor
-
-### Part A
-
-- [x] ✅ Previously covered technical question
-- [x] New technical question
-...
-```
-
-Maximum **7 technical questions per Part**.
-
-Use Part A / Part B / Part C only if needed.
-
----
-
-# Question-selection rules
-
-Use the 2,308-question master bank for supporting technical questions.
-
-Before adding any technical question:
+Before selecting a supporting question:
 
 1. Search the master bank.
 2. Check `state/LEARNING_TRACKER.md`.
-3. If already completed, mark it ✅ and do not reteach it.
-4. Create 💡 only when no suitable master-bank question exists.
-5. Avoid semantic duplicates.
-6. Keep questions directly related to the current single experience anchor.
-7. Arrange them in natural ground-zero → project-use order.
+3. Mark previously completed questions ✅.
+4. Do not reteach completed questions unnecessarily.
+5. Use 💡 only if no appropriate master question exists.
+6. Avoid semantic duplicates.
+7. Keep every supporting question directly related to the current anchor.
 
----
+## Fiction boundary
 
-# Fiction boundary
+Company: `AtlasGrid Geospatial Systems`
 
-Company:
+Product: `GeoOps`
 
-```text
-AtlasGrid Geospatial Systems
-```
+Domain: GIS/geospatial project intake, validation, processing, quality review and delivery.
 
-Product:
+GeoOps is a fictional interview-simulation world.
 
-```text
-GeoOps
-```
+Never invent customers, production incidents, team size, scale, metrics, or technologies and represent them as real employment facts.
 
-Domain:
+## Current technology baseline
 
-```text
-GIS / geospatial project intake, validation, processing, quality review and delivery
-```
-
-GeoOps is a **fictional interview-simulation world**.
-
-Do not present fictional GeoOps incidents, scale, metrics, customers, teams, or features as the user's real employment history.
-
-Experience answers must use only facts actually established in the repository.
-
----
-
-# Current GeoOps architecture through Set 43
-
-High-level workflow:
-
-```text
-Client / Survey Data
-        ↓
-Project Intake
-        ↓
-Validation
-        ↓
-Geospatial Processing Workflow
-        ↓
-Quality Review
-        ↓
-Delivery Preparation
-        ↓
-Downstream / Customer Systems
-```
-
-Current technology baseline:
-
-```text
+~~~text
 Java 17
 Maven
 Spring Boot
@@ -220,143 +141,29 @@ Actuator
 Lombok
 JUnit 5
 GitHub Actions
-```
+~~~
 
-Persistence remains intentionally in-memory.
+Persistence is still intentionally in-memory.
 
-Do not introduce PostgreSQL/PostGIS, security, Kafka, Redis, Docker, Kubernetes, production monitoring, etc. until the learning sequence naturally reaches those topics.
+Do not prematurely add PostgreSQL/PostGIS, security, Kafka, Redis, Docker, Kubernetes, monitoring, etc. They should enter only when the learning sequence reaches them.
 
----
+## Optional evolution through Set 44
 
-# Major established project evolution
-
-## Project catalog and collections
-
-```text
-ProjectCatalog
-├── ArrayList<GeoProject>
-│   → intake ordering / indexed position
-└── HashSet<ProjectIdentity>
-    → uniqueness / existence lookup
-```
-
-Other established collection use:
-
-```text
-LinkedList-backed Deque
-→ quality-review worklist
-
-LinkedHashMap
-→ CRS count summaries
-→ batch reconciliation with first-seen order
-
-TreeSet
-→ sorted unique CRS catalog
-
-ConcurrentHashMap
-→ claimed quality-review task state
-```
-
-WeakHashMap was evaluated and deliberately rejected for authoritative business state.
-
-## Review concurrency
-
-```text
-queued review work
-→ LinkedList
-→ protected by private queueLock
-
-claimed review work
-→ ConcurrentHashMap<projectCode, ProjectReviewTask>
-```
-
-Concurrent retry and complete for the same project compete through `remove(projectCode)`, so only one succeeds.
-
-Do not claim the entire application is fully thread-safe.
-
-ProjectCatalog concurrency and cross-component transactionality remain future concerns.
-
-## Custom sorting
-
-Delivery preparation uses an external Comparator:
-
-```text
-coordinateReferenceSystem ASC
-        ↓
-projectCode ASC
-```
-
-Endpoint:
-
-```text
-GET /api/projects/delivery-order
-```
-
-GeoProject does not implement one global Comparable natural order.
-
-## Functional Interface migration
-
-Legacy contract:
-
-```text
-ProjectValidationRule
-├── code()
-└── validate(...)
-```
-
-Because it has two abstract methods, it is not lambda-compatible.
-
-Set 39 introduced:
-
-```text
-ProjectValidationCheck @FunctionalInterface
-        ↓
-lambda-backed project-code validation
-        ↓
-FunctionalProjectValidationRuleAdapter
-        ↓
-legacy ProjectValidationRule
-```
-
-CoordinateReferenceSystemValidationRule remains class-based.
-
-## Stream API
-
-Delivery CRS selection uses:
-
-```text
-project collection
-→ stream()
-→ filter(requested CRS)
-→ map(projectCode)
-→ sorted()
-→ toList()
-```
-
-Endpoint:
-
-```text
-GET /api/projects/delivery-selection?crs=...
-```
-
-ProjectCollectionSummaryService intentionally remains an imperative loop because one pass updates multiple related accumulators and is clearer that way.
-
----
-
-# Optional evolution — Sets 41, 42 and 43
-
-Optional is now an established **query-boundary convention**, not an isolated Java example.
+Optional is an established GeoOps query-boundary convention.
 
 Current contracts:
 
-```java
+~~~java
 Optional<GeoProject> findByProjectCode(String projectCode);
-Optional<GeoProject> findByIntakePosition(int intakePosition);
-```
+
+Optional<GeoProject> findByIntakePosition(
+        int intakePosition
+);
+~~~
 
 REST behavior:
 
-```text
+~~~text
 Optional present
 → ResponseEntity.of(...)
 → HTTP 200
@@ -364,144 +171,72 @@ Optional present
 Optional empty
 → ResponseEntity.of(...)
 → HTTP 404
-```
+~~~
 
-Established rules:
+Set 44's concrete scenario is:
 
-- normal lookup absence returns `Optional.empty()`;
-- production lookup code does not blindly call `Optional.get()`;
-- `map(...)`, `filter(...)`, `orElseGet(...)`, and `orElseThrow(...)` are used according to caller intent;
-- `orElse(...)` evaluates its fallback eagerly;
-- `orElseGet(...)` evaluates its supplier lazily;
-- `Optional.of(...)` requires non-null input;
-- `Optional.ofNullable(...)` converts null to empty;
-- null project-code input is rejected rather than hidden as normal absence;
-- required GeoProject fields/getters are not wrapped in Optional;
-- no duplicate Optional endpoint was added merely for interview coverage.
+~~~text
+valid projectCode
+→ ProjectCatalog.findByProjectCode(...)
+→ Optional<GeoProject>
+   ├── present → HTTP 200
+   └── empty   → HTTP 404
+~~~
 
-Set 43 added cross-boundary integration evidence proving both:
+Normal lookup absence is not an exception.
 
-```text
-GET /api/projects/by-code/{projectCode}
-GET /api/projects/by-position/{intakePosition}
-```
+Null project-code input remains separate from ordinary absence.
 
-follow the same present → 200 / empty → 404 contract.
+Do not create a third Optional endpoint merely to demonstrate Optional.
 
-Set-43 evidence:
-
-```text
-docs/sets/SET-043-OPTIONAL-BOUNDARIES.md
-src/test/java/com/atlasgrid/geoops/project/api/ProjectOptionalBoundaryIntegrationTest.java
-```
-
----
-
-# Latest completed Set
-
-## Set 43 — Status: 43/387+
-
-Anchor:
-
-⭐ **Did you guys leverage the Optional class?**
-
-Set 43:
-- added no artificial production endpoint;
-- proved Optional is used consistently across both existing lookup boundaries;
-- added one new master technical question;
-- reused six completed technical questions with ✅;
-- ended with a repository-grounded Experience Answer;
-- updated tracker, progress, canon, AI context, README, Sprint 004, Set evidence, and consolidated experience answers;
-- passed final GitHub Actions / Maven verification.
-
-Current counters:
-
-```text
-Completed Sets: 43
-Completed anchors: 43
-Unique master technical questions: 197
-Synthetic technical questions: 10
-Synthetic ⭐⭐ anchors: 0
-Status: 43/387+
-```
-
----
-
-# Set 44 — Required next original anchor
+## Set 45 — required next anchor
 
 The next exact original experience question is:
 
-⭐ **Can you tell me a particular scenario where you used Optional?**
+⭐ **Which Java 8 features do you use most of the time?**
 
-This is the required Set-44 anchor.
+This must be the Set 45 anchor.
 
-Do not skip it.
+Do not skip it and do not combine it with another experience anchor.
 
-Internal master-bank bookkeeping identifies it as the next Optional job-experience question, but do not expose Master IDs in the visible lesson.
+First search the master question bank and tracker.
 
-Set 44 should build on the already-established Optional lookup design rather than create a fake third lookup simply to say Optional was used.
+Reuse previously completed Java 8 concepts with ✅ where appropriate.
 
-Likely direction:
+Build only genuine new GeoOps evidence if needed; do not duplicate existing Stream, Optional, lambda, collection, or comparator features merely for coverage.
 
-```text
-existing real Optional lookup
-        ↓
-choose one concrete GeoOps scenario
-        ↓
-explain why absence is normal
-        ↓
-show safe handling at service / REST boundary
-        ↓
-add code/tests only if they add genuine evidence
-```
-
-First inspect the master bank and tracker for directly related technical questions.
-
-Reuse prior Optional questions with ✅ rather than reteaching them.
-
-Do not create another production endpoint unless a genuine Set-44 requirement needs it.
-
-After Set 44, the original source sequence moves into Java 8 feature/version experience questions.
-
----
-
-# Experience Answer rule
+## Experience Answer rule
 
 Every Set must end with:
 
-```text
-## Experience Answer
-```
+`## Experience Answer`
 
-It must:
-- be first-person and interview-ready;
-- use only repository-established fictional GeoOps facts;
+The Experience Answer must:
+- be first-person;
+- be interview-ready;
+- use only repository-established GeoOps facts;
 - normally be 1–3 short paragraphs;
-- say what was done and why;
-- avoid invented production claims, metrics, customers, incidents, or scale.
+- explain what was done and why;
+- avoid invented scale, customers, metrics, incidents, or technologies.
 
-Historical answers live in:
+Historical answers are stored in:
 
-```text
-docs/ANCHOR_EXPERIENCE_ANSWERS.md
-```
+`docs/ANCHOR_EXPERIENCE_ANSWERS.md`
 
-A Set is not complete until its Experience Answer is also consolidated there.
+A Set is not complete until its Experience Answer is also added there.
 
----
+## Completion gate
 
-# Completion gate for Set 44 and later
+Do not declare Set 45 complete until all applicable items are complete:
 
-Do not mark a Set complete until all applicable work is done:
-
-```text
+~~~text
 implementation/evidence
 +
 tests
 +
 CI green
 +
-docs/sets/SET-044-*.md
+docs/sets/SET-045-*.md
 +
 Sprint/process docs
 +
@@ -518,16 +253,12 @@ README if relevant
 docs/ANCHOR_EXPERIENCE_ANSWERS.md
 +
 Experience Answer shown LAST
-```
+~~~
 
 If CI fails, fix it before advancing the tracker.
 
----
+After recovering repository state, proceed directly with:
 
-# New-chat instruction
-
-After recovering the repository state above, proceed directly with:
-
-**Set 44**
+**Set 45**
 
 Do not ask me to repeat prior Sets or explain the workflow again.
