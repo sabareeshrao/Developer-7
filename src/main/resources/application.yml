@@ -1,6 +1,9 @@
 spring:
   application:
     name: geoops
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
   lifecycle:
     timeout-per-shutdown-phase: 20s
   servlet:
