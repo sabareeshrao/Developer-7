@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 38/387+**
+**Status: 39/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -1159,3 +1159,42 @@ Status: 38/387+
 Set 38 adds three new master technical questions and reuses four questions with ✅.
 
 The next original source anchor asks about challenges implementing Functional Interfaces in legacy code.
+
+
+## Set 39 — Latest Completed Set
+
+Anchor:
+
+⭐ **What challenges did you face while implementing Functional Interfaces in legacy code?**
+
+Set 39 incrementally migrates validation behavior:
+
+~~~text
+legacy ProjectValidationRule
+(code + validate)
+        ↑
+FunctionalProjectValidationRuleAdapter
+        ↑
+ProjectValidationCheck @FunctionalInterface
+        ↑
+lambda-backed project-code rule
+~~~
+
+The CRS rule remains class-based, so old and new styles coexist in the same ProjectValidationService.
+
+CI also exposed one hidden legacy coupling: ProjectServiceTestFactory still directly instantiated the removed ProjectCodeValidationRule and had to be migrated to the new configuration seam.
+
+Latest learning state:
+
+~~~text
+Completed Sets: 39
+Completed anchors: 39
+Unique master technical questions covered: 180
+Synthetic technical questions covered: 10
+Synthetic ⭐⭐ anchors: 0
+Status: 39/387+
+~~~
+
+Set 39 adds seven new master technical questions.
+
+The next original source anchor asks whether Stream APIs have been used.
