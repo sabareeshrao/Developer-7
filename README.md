@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 43 — Status: 43/387+ — COMPLETE**
+**Set 44 — Status: 44/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -51,7 +51,7 @@ Set 39: incremental Functional Interface migration through a legacy validation a
 Set 40: Stream-based CRS delivery selection with filter/map/sorted/toList
 Set 41: Optional lookup contract with safe mapping and fallback semantics
 Set 42: practical Optional intake-position lookup with safe composition
-Set 43: Optional contract verified across project-code and intake-position boundaries
+Set 44: Optional contract verified across project-code and intake-position boundaries
 ```
 
 ## Current project workflow
@@ -146,3 +146,11 @@ PostgreSQL/PostGIS, persistence, security, messaging, Docker, Kubernetes, monito
 **Domain:** GIS / geospatial operations
 
 The project is a fictional interview-simulation environment and should not be presented as factual employment history.
+
+## Latest learning checkpoint
+
+Set 44 establishes the concrete Optional scenario used in GeoOps: project lookup by project code, where normal absence is represented by `Optional.empty()` and mapped to HTTP 404 through `ResponseEntity.of(...)`.
+
+Evidence: `docs/sets/SET-044-OPTIONAL-SCENARIO.md`
+
+Next anchor: **Which Java 8 features do you use most of the time?**
