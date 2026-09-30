@@ -841,3 +841,24 @@ Established rules:
 - ProjectCollectionSummaryService intentionally remains an imperative for-loop because one pass updates three related accumulators and that is clearer than multiple Stream passes or mutation hidden inside a Stream pipeline.
 - Set 40 adds seven new master technical questions.
 - Sprint 004 continues the Modern Java / collection-processing sequence.
+
+
+## Set 41 established facts — Optional lookup contract
+
+GeoOps now has explicit tests and documentation for its Optional lookup design.
+
+Established rules:
+- ProjectService.findByProjectCode(...) returns Optional<GeoProject>.
+- ProjectService.findByIntakePosition(...) returns Optional<GeoProject>.
+- ProjectCatalog.findByProjectCode(...) rejects a null projectCode input explicitly.
+- Unknown non-null project codes return Optional.empty() as normal absence.
+- ProjectQueryController maps Optional lookup results with ResponseEntity.of(...), producing HTTP 200 for present values and HTTP 404 for empty values.
+- Production lookup code does not call Optional.get().
+- Optional.map(...) is used/tested as the preferred transformation style for present values.
+- orElse(...) evaluates its fallback eagerly.
+- orElseGet(...) invokes its fallback supplier only when the Optional is empty.
+- Optional.of(...) requires non-null input.
+- Optional.ofNullable(...) converts null to Optional.empty().
+- Optional is not introduced as a domain field merely for interview coverage.
+- Set 41 adds seven new master technical questions.
+- Sprint 004 continues the Modern Java sequence.
