@@ -4,22 +4,27 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "43/387+",
+  "status": "44/387+",
   "completed": {
-    "sets": 43,
-    "jobExperienceAnchors": 43,
+    "sets": 44,
+    "jobExperienceAnchors": 44,
     "uniqueMasterTechnicalQuestions": 197,
     "syntheticTechnicalQuestions": 10
   },
   "current": {
-    "set": 43,
-    "anchorMasterQuestion": 639,
-    "anchor": "Did you guys leverage the Optional class?",
+    "set": 44,
+    "anchorMasterQuestion": 640,
+    "anchor": "Can you tell me a particular scenario where you used Optional?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-043-OPTIONAL-BOUNDARIES.md"
+    "evidence": "docs/sets/SET-044-OPTIONAL-SCENARIO.md"
   },
-  "nextAction": "derive Set 44 around exactly one next logical original job-experience anchor; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
+  "next": {
+    "set": 45,
+    "anchorMasterQuestion": 654,
+    "anchor": "Which Java 8 features do you use most of the time?"
+  },
+  "nextAction": "derive Set 45 around exactly one original Java 8 feature-experience anchor; reuse completed concepts with ✅; keep Master IDs internal only; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
