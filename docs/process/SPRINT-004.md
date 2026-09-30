@@ -1027,3 +1027,31 @@ Evidence:
 - .github/workflows/ci.yml
 - GeoProject.java
 - Java17BaselineTest.java
+
+---
+
+### Story GEO-49 — Explain the Java 17 baseline as a platform decision
+
+**Outcome:** GeoOps can explain why Java 17 is used even though the codebase does not force heavy use of Java-17-specific syntax.
+
+Acceptance criteria:
+- Keep Java 17 as the established runtime/build baseline.
+- Ground the rationale in the actual Spring Boot 3.3.x project generation.
+- Record that Spring Boot 3.3 requires Java 17 or newer.
+- Record Java 17 as an LTS baseline.
+- Keep local/Maven/CI/runtime version consistency as part of the rationale.
+- Keep `GeoProject` record as genuine modern-Java evidence.
+- Do not introduce sealed classes solely for coverage.
+- Do not invent a Java 8→17 migration story.
+- Add the Java-17-choice rationale to the existing ADR.
+- Reuse completed Java-version questions with ✅.
+- Keep CI green.
+
+Evidence:
+- docs/sets/SET-049-WHY-JAVA-17.md
+- docs/architecture/ADR-JAVA-17-BASELINE.md
+- pom.xml
+- .java-version
+- .github/workflows/ci.yml
+- GeoProject.java
+- Java17BaselineTest.java
