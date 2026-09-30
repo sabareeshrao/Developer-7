@@ -20,7 +20,7 @@ The fictional company is **AtlasGrid Geospatial Systems**. The product is **GeoO
 
 ## Current build state
 
-**Status: 45/387+**
+**Status: 46/387+**
 
 Completed:
 1. Set 1 — development environment / Spring Boot bootstrap.
@@ -1457,3 +1457,50 @@ Set-45 evidence:
 Next exact original experience anchor:
 
 ⭐ **Which Java version do you use in your current project?**
+
+## Set 46 — Latest Completed Set
+
+Anchor:
+
+⭐ **Which Java version do you use in your current project?**
+
+Established GeoOps baseline:
+
+~~~text
+Java 17
+├── .java-version = 17
+├── Maven java.version = 17
+├── maven.compiler.release = 17
+├── Maven Enforcer requires [17,18)
+├── GitHub Actions = Temurin 17
+└── Java17BaselineTest verifies Runtime.version().feature() == 17
+~~~
+
+Modern-Java evidence:
+- `GeoProject` is a Java record.
+- No sealed hierarchy is added artificially.
+
+Set 46 intentionally does not answer the later "why Java 17?" experience anchor.
+
+Current counters:
+
+~~~text
+Completed Sets: 46
+Completed anchors: 46
+Unique master technical questions: 203
+Synthetic technical questions: 10
+Synthetic ⭐⭐ anchors: 0
+Status: 46/387+
+~~~
+
+Set-46 evidence:
+
+`docs/sets/SET-046-JAVA-17-BASELINE.md`
+
+Architecture decision:
+
+`docs/architecture/ADR-JAVA-17-BASELINE.md`
+
+Next exact original experience anchor:
+
+⭐ **Currently, which Java version are you working on?**
