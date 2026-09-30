@@ -203,7 +203,7 @@ public class ProjectCsvTransferService {
     }
 
     private static String restoreSpreadsheetEscape(String value) {
-        if (value.length() >= 2 && value.charAt(0) == ''') {
+        if (value.length() >= 2 && value.charAt(0) == '\\'') {
             int firstNonWhitespace = 1;
 
             while (firstNonWhitespace < value.length()
