@@ -535,3 +535,13 @@ So Java 17 is not just what I select in the IDE; it is the enforced Java version
 We chose **Java 17** for GeoOps mainly as a project and platform baseline, not because we needed to use every Java 17 language feature. Our application is on Spring Boot 3.3.x, and that Spring Boot generation requires Java 17 or newer. Java 17 is also an LTS release, so it gives us a stable baseline for development, builds, CI, and runtime.
 
 I separate the JDK-version decision from the feature-level coding decision. We already use a record where it fits the `GeoProject` data model, but I would not introduce sealed classes or rewrite working code just to say we are using Java 17 features. The main value is having a supported, consistent modern platform and then adopting individual features only where they improve the design.
+
+---
+
+## Set 50 — Status: 50/387+
+
+### ⭐ How are you importing and exporting data? Can you tell me the technical part of that?
+
+In GeoOps, I implemented project-metadata import and export through CSV. For import, the REST API accepts a multipart CSV file, opens its input stream, reads it as UTF-8 with a buffered reader, validates the expected header, parses each row into a `CreateProjectRequest`, and then delegates to the existing `ProjectService.create()` path. That means imported projects still go through the same validation, duplicate checks, catalog insertion, and quality-review queue as normal API-created projects.
+
+For export, we read the current project catalog and generate a UTF-8 CSV response with proper escaping and a `Content-Disposition` attachment header. The current upload is intentionally bounded and synchronous for modest metadata batches. For something like 50,000 rows, I would redesign it as an asynchronous import job with a job ID and status tracking instead of holding one HTTP request open.
