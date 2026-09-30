@@ -85,6 +85,8 @@ public class ProjectCatalog {
     }
 
     public Optional<GeoProject> findByProjectCode(String projectCode) {
+        Objects.requireNonNull(projectCode, "projectCode");
+
         return projects.stream()
                 .filter(project -> project.projectCode().equals(projectCode))
                 .findFirst();
