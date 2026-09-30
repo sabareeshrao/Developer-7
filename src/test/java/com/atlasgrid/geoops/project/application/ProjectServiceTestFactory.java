@@ -3,6 +3,7 @@ package com.atlasgrid.geoops.project.application;
 import com.atlasgrid.geoops.project.validation.CoordinateReferenceSystemValidationRule;
 import com.atlasgrid.geoops.project.validation.ProjectValidationRuleConfiguration;
 import com.atlasgrid.geoops.project.validation.ProjectValidationService;
+import com.atlasgrid.geoops.project.validation.RequiredProjectFieldsValidationRule;
 import com.atlasgrid.geoops.review.ProjectReviewQueue;
 
 import java.util.List;
@@ -16,7 +17,9 @@ final class ProjectServiceTestFactory {
         ProjectValidationService validationService =
                 new ProjectValidationService(
                         List.of(
-                                new ProjectValidationRuleConfiguration().projectCodeValidationRule(),
+                                new RequiredProjectFieldsValidationRule(),
+                                new ProjectValidationRuleConfiguration()
+                                        .projectCodeValidationRule(),
                                 new CoordinateReferenceSystemValidationRule()
                         )
                 );
