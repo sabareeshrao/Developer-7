@@ -875,3 +875,27 @@ Evidence:
 - ProjectOptionalPracticalUsageTest.java
 - ProjectIntakePositionIntegrationTest.java
 - Set 42 evidence document
+
+---
+
+### Story GEO-43 — Prove Optional is leveraged consistently across lookup boundaries
+
+**Outcome:** GeoOps has cross-boundary regression evidence that both project-code and intake-position lookup APIs use the same Optional present/empty contract.
+
+Acceptance criteria:
+- Do not add another production lookup endpoint.
+- Keep findByProjectCode(...) returning Optional<GeoProject>.
+- Keep findByIntakePosition(...) returning Optional<GeoProject>.
+- Verify present project-code lookup maps to HTTP 200.
+- Verify missing project-code lookup maps to HTTP 404.
+- Verify present intake-position lookup maps to HTTP 200.
+- Verify missing intake-position lookup maps to HTTP 404.
+- Keep production code free of blind Optional.get().
+- Preserve current Optional composition and null-input rules.
+
+Evidence:
+- ProjectOptionalBoundaryIntegrationTest.java
+- ProjectCatalog.java
+- ProjectService.java
+- ProjectQueryController.java
+- Set 43 evidence document
