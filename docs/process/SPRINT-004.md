@@ -723,3 +723,37 @@ Evidence:
 - docs/architecture/ADR-CONCURRENT-REVIEW-STATE.md
 - Set 37 evidence document
 \n---\n\n### Story GEO-38 — Give custom sorting a delivery-preparation purpose\n\n**Outcome:** GeoOps now exposes its existing business-specific Comparator as a real delivery-order report instead of an interview-oriented sorting preview.\n\nAcceptance criteria:\n- Preserve ProjectCatalog intake order.\n- Keep GeoProject without one global Comparable natural order.\n- Keep the explicit Comparator ordering full projects by coordinateReferenceSystem and then projectCode.\n- Use projectCode as a deterministic tie-breaker when projects share the same CRS.\n- Rename the reporting endpoint from /sorting-preview to /delivery-order.\n- Keep the alphabetic project-code index alongside the full custom-sorted project view.\n- Add a regression test for same-CRS tie breaking.\n- Preserve immutable result Lists.\n\n~~~text\nProjectCatalog intake order\n        ↓ copy\ncustom Comparator\n        ↓\nCRS ascending\n        ↓\nprojectCode ascending tie-break\n        ↓\ndelivery-preparation order\n~~~\n\nEvidence:\n- ProjectSortingService.java\n- ProjectSortingView.java\n- ProjectReportController.java\n- ProjectSortingServiceTest.java\n- ProjectSortingIntegrationTest.java\n- Set 38 evidence document\n
+---
+
+### Story GEO-39 — Introduce Functional Interfaces without breaking legacy validation
+
+**Outcome:** GeoOps incrementally migrates one legacy validation rule to a lambda-compatible functional seam while existing validation components continue to work.
+
+Acceptance criteria:
+- Keep the existing ProjectValidationRule contract available for legacy components.
+- Do not annotate ProjectValidationRule as @FunctionalInterface because it has two abstract methods.
+- Add @FunctionalInterface ProjectValidationCheck with one abstract validate(...) method.
+- Add FunctionalProjectValidationRuleAdapter to bridge the new lambda seam to the old rule contract.
+- Migrate only the project-code rule to a lambda-backed Spring bean.
+- Keep CoordinateReferenceSystemValidationRule as the existing class-based component.
+- Verify legacy and functional rule styles execute together in ProjectValidationService.
+- Capture only effectively-final local values from the lambda.
+- Document checked-exception limitations for functional-interface migration.
+- Preserve existing validation behavior.
+
+~~~text
+legacy service
+→ List<ProjectValidationRule>
+        ↑
+        │ adapter
+ProjectValidationCheck lambda
+~~~
+
+Evidence:
+- ProjectValidationCheck.java
+- FunctionalProjectValidationRuleAdapter.java
+- ProjectValidationRuleConfiguration.java
+- ProjectValidationServiceTest.java
+- FunctionalProjectValidationRuleAdapterTest.java
+- ProjectServiceTestFactory.java
+- Set 39 evidence document
