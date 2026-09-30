@@ -1412,7 +1412,33 @@ Set 47 learning items completed: 5 / 5
 
 ---
 
-Completed job-experience anchors: 47
+# Set 48
+
+**Status: 48/387+**
+
+- [x] ⭐ [Master 657] What's the Java version you are using?
+
+## Part A
+- [x] ✅ [Master 14] Can a machine have multiple versions of JDK or JRE installed?
+- [x] ✅ [Master 17] Can you tell me the difference between JDK, JRE and JVM?
+- [x] ✅ [Master 647] Can you tell me some new features that were introduced in Java 17?
+- [x] ✅ [Master 652] Are you aware of recent Java updates such as Records and Sealed Classes?
+
+## Set 48 completion evidence
+- docs/sets/SET-048-JAVA-VERSION-USED.md
+- docs/architecture/ADR-JAVA-17-BASELINE.md
+- pom.xml
+- .java-version
+- .github/workflows/ci.yml
+- src/main/java/com/atlasgrid/geoops/project/domain/GeoProject.java
+- src/test/java/com/atlasgrid/geoops/Java17BaselineTest.java
+- docs/ANCHOR_EXPERIENCE_ANSWERS.md
+
+Set 48 learning items completed: 5 / 5
+
+---
+
+Completed job-experience anchors: 48
 Synthetic job-experience anchors created so far: 0
 Unique master technical questions covered: 203
 Synthetic technical questions covered: 10
