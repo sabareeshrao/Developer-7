@@ -4,7 +4,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -20,7 +19,7 @@ public class ProjectValidationExecutorConfiguration {
     static final int VALIDATION_QUEUE_CAPACITY = 64;
 
     @Bean(name = "projectValidationExecutor", destroyMethod = "shutdown")
-    ExecutorService projectValidationExecutor() {
+    ThreadPoolExecutor projectValidationExecutor() {
         AtomicInteger sequence = new AtomicInteger();
 
         ThreadFactory threadFactory = task -> {

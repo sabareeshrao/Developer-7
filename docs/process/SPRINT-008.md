@@ -89,3 +89,23 @@ Evidence:
 - JvmThreadSnapshot.java
 - JvmThreadDiagnosticsService.java
 - JvmThreadDiagnosticsServiceTest.java
+
+
+## Story GEO-73 — Observe multithreaded validation usage
+
+**Outcome:** GeoOps can inspect its bounded validation executor at runtime without exposing another public API.
+
+Acceptance criteria:
+- Capture pool size and active worker count.
+- Capture largest observed pool size.
+- Capture queued tasks and remaining queue capacity.
+- Capture completed and submitted task counts.
+- Keep the monitor internal to the application.
+- Add a test that holds all workers busy, queues another task, and verifies the snapshot.
+- Keep CI and SpotBugs green.
+
+Evidence:
+- docs/sets/SET-073-USING-MULTITHREADING.md
+- ProjectValidationExecutorSnapshot.java
+- ProjectValidationExecutorMonitor.java
+- ProjectValidationExecutorMonitorTest.java
