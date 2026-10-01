@@ -4,27 +4,27 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "70/387+",
+  "status": "75/387+",
   "completed": {
-    "sets": 70,
-    "jobExperienceAnchors": 70,
-    "uniqueMasterTechnicalQuestions": 288,
+    "sets": 75,
+    "jobExperienceAnchors": 75,
+    "uniqueMasterTechnicalQuestions": 311,
     "syntheticTechnicalQuestions": 32
   },
   "current": {
-    "set": 70,
-    "anchorMasterQuestion": 838,
-    "anchor": "Are you using Threads in your process?",
+    "set": 75,
+    "anchorMasterQuestion": 844,
+    "anchor": "Have you used Locks, especially ReentrantLock, to make things thread-safe?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-070-THREADS-IN-PROCESS.md"
+    "evidence": "docs/sets/SET-075-REENTRANTLOCK.md"
   },
   "next": {
-    "set": 71,
-    "anchorMasterQuestion": 839,
-    "anchor": "What feature have you implemented using Multithreading in your current project?"
+    "set": 76,
+    "anchorMasterQuestion": 845,
+    "anchor": "In your current project, did you write any Multithreaded code?"
   },
-  "nextAction": "derive Set 71 around exactly one multithreading-feature experience anchor; inspect the bounded parallel validation executor, interruption handling and thread diagnostics; reuse covered thread-pool questions with ✅; search the master bank for any directly related uncompleted questions; end with Experience Answer",
+  "nextAction": "derive Set 76 around exactly one multithreaded-code experience anchor; inspect Sets 71-75 and current executor/review-lock code; reuse covered concurrency questions with ✅; search the 2,308 bank for remaining directly related technical questions; end with Experience Answer",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
@@ -45,10 +45,11 @@
     "qualityGate": "mvn clean verify + SpotBugs",
     "firstGreenCodeCommit": "7e154b98e9496969b3e5bf5a04748b62367b51aa",
     "report": "docs/maintenance/POST-SET-050-CODEBASE-AUDIT.md",
-    "nextLearningSet": 71,
-    "latestLearningCheckpoint": "set-070",
-    "latestVerifiedCodeCommit": "676e5995c9a8cea31b79bcc1ebd65aae92805e92",
+    "nextLearningSet": 76,
+    "latestLearningCheckpoint": "set-075",
+    "latestVerifiedCodeCommit": "79fb2088c2776da8067632857e2ed7be9ce64ade",
     "latestVerifiedCodeCi": "green",
-    "sourceCorrection": "Set 63 corrected: shared-data-structure question Master 797; multithreading-use-scenarios question Master 798"
+    "sourceCorrection": "Set 63 corrected: shared-data-structure question Master 797; multithreading-use-scenarios question Master 798",
+    "latestSprint": "docs/process/SPRINT-009.md"
   }
 }
