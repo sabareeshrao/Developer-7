@@ -767,3 +767,64 @@ Yes. Threads are actively used inside the GeoOps process.
 Besides Spring Boot and JVM infrastructure threads, GeoOps has a dedicated validation pool with four named worker threads. I added a `ThreadMXBean` diagnostics service so we can capture live, daemon, peak and total-started thread counts, see which GeoOps validation workers are currently alive, and check whether the JVM has detected a deadlock.
 
 For deeper debugging I use `jcmd <pid> Thread.print` or the VisualVM Threads view. Because request and worker threads share the same process heap, shared application state still follows the synchronization rules established earlier.
+
+
+---
+
+## Set 71 — Status: 71/387+
+
+### ⭐ What feature have you implemented using Multithreading in your current project?
+
+The multithreaded feature I implemented in GeoOps is bulk GIS project preflight validation.
+
+A batch can contain many independent intake requests, so I submit validation work to a bounded ThreadPoolExecutor with four reusable workers and a 64-task queue. When both are saturated, CallerRunsPolicy applies backpressure rather than allowing an unlimited backlog.
+
+The service keeps validation results in original request order and does not mutate the project catalog. I added a feature-level integration test with 100 mixed requests to prove the batch returns all results correctly while leaving project state untouched.
+
+---
+
+## Set 72 — Status: 72/387+
+
+### ⭐ In your project, don't you have any synchronization issues?
+
+Yes. In GeoOps the synchronization issue I actively guard against is concurrent publication of shared project state.
+
+Two request threads can reach project creation at the same time, so I keep validation outside the lock and protect only the compound publication step with a narrow intake lock. Inside that section the project is added to the catalog and the corresponding review task is queued.
+
+I also keep a consistent nested-lock order and use thread-dump/ThreadMXBean diagnostics for deadlock investigation. The duplicate-race regression proves that 20 simultaneous callers using the same project code result in exactly one accepted project and one review task.
+
+---
+
+## Set 73 — Status: 73/387+
+
+### ⭐ Can you tell me how you guys are using Multithreading in your project?
+
+GeoOps uses multithreading specifically for bulk GIS project validation.
+
+I configured a bounded ThreadPoolExecutor with four reusable workers and a 64-task queue. Each independent request is submitted as a task, I keep the resulting Futures, and I return the validation results in the same order as the input. When the pool and queue are saturated, CallerRunsPolicy applies backpressure.
+
+I also added internal executor diagnostics so I can see active workers, queued work, queue capacity and completed task counts. I chose explicit ExecutorService/Future handling instead of hiding the concurrency behind @Async because GeoOps needs ordered aggregation, cancellation control and a visible concurrency policy.
+
+---
+
+## Set 74 — Status: 74/387+
+
+### ⭐ Have you worked with Threads or in a Concurrency environment?
+
+Yes. GeoOps is a concurrent Spring Boot application inside one JVM.
+
+HTTP requests run concurrently, bulk validation uses a bounded four-thread executor, the project catalog protects compound list/set state with synchronization, and the review workflow combines a ConcurrentHashMap with an explicit state lock for multi-collection transitions.
+
+I also added one internal concurrency snapshot that combines ThreadMXBean information with executor metrics so I can see JVM thread state and the application worker-pool state together. I keep the boundary clear: Java locks protect threads in this JVM, not multiple application processes.
+
+---
+
+## Set 75 — Status: 75/387+
+
+### ⭐ Have you used Locks, especially ReentrantLock, to make things thread-safe?
+
+Yes. In GeoOps I use ReentrantLock in the quality-review workflow.
+
+The review queue has compound state transitions between a FIFO queue and a claimed-task map. Earlier that boundary used an intrinsic synchronized monitor. I migrated it to a ReentrantLock and use explicit lock() plus unlock() in a finally block so every exit path releases the lock.
+
+I use the default non-fair mode because the protected transitions are short and throughput is more important than strict waiter ordering. I still use synchronized in other GeoOps components where its simpler monitor semantics are a better fit; I don't replace every synchronization mechanism with ReentrantLock.
