@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 75 — Status: 75/387+ — COMPLETE**
+**Set 80 — Status: 80/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -84,6 +84,11 @@ Set 72: synchronization risk, duplicate-intake race and lock ordering
 Set 73: validation executor metrics and runtime observability
 Set 74: combined JVM/executor concurrency environment snapshot
 Set 75: ProjectReviewQueue migration to ReentrantLock
+Set 76: actual multithreaded validation code with deterministic worker-order regression
+Set 77: concurrent preflight and publication workflow integration test
+Set 78: explicit shutdown rejection and cancellation of earlier submitted work
+Set 79: volatile visibility for a JVM-local batch-validation switch (HTTP 503/200)
+Set 80: 4-worker/64-queue thread-pool saturation and clean-drain regression
 ```
 
 
@@ -209,3 +214,14 @@ Evidence: `docs/sets/SET-050-DATA-IMPORT-EXPORT.md`
 Current Sprint: `docs/process/SPRINT-005.md`
 
 Next anchor: **What challenge did you face while deserializing data?**
+
+
+## Latest question tracker and handover
+
+- Sets 76–80 all 40 original and technical questions: [tracker supplement](state/LEARNING_TRACKER_SETS_076_080.md)
+- Sets 76–80 interview experience answers: [answer supplement](docs/ANCHOR_EXPERIENCE_ANSWERS_076_080.md)
+- Canon continuation: [Sets 76–80 canon](world/CANON-SETS-076-080.md)
+- Sprint: [Sprint 010](docs/process/SPRINT-010.md)
+- Latest canonical progress: [state/progress.json](state/progress.json)
+
+Next original anchor: **Set 81 — Have you ever faced a Deadlock situation in your project?**
