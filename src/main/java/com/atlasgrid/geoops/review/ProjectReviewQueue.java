@@ -10,20 +10,23 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * In-memory quality-review workflow for GIS projects.
  *
- * <p>One state lock protects compound transitions between queued and claimed
- * states. ConcurrentHashMap remains the claimed-task store established by the
- * earlier concurrency Set, while the lock makes queue↔claimed transitions
- * atomic from the workflow's point of view.</p>
+ * <p>One ReentrantLock protects compound transitions between queued and
+ * claimed states. ConcurrentHashMap remains the claimed-task store established
+ * by the earlier concurrency Set, while the lock makes queue↔claimed
+ * transitions atomic from the workflow's point of view.</p>
  */
 @Component
 public class ProjectReviewQueue {
 
-    private final Object stateLock = new Object();
-    private final Deque<ProjectReviewTask> reviewTasks = new LinkedList<>();
+    private final ReentrantLock stateLock =
+            new ReentrantLock();
+    private final Deque<ProjectReviewTask> reviewTasks =
+            new LinkedList<>();
     private final Map<String, ProjectReviewTask> claimedTasksByProjectCode =
             new ConcurrentHashMap<>();
 
@@ -38,15 +41,21 @@ public class ProjectReviewQueue {
                 .map(ProjectReviewTask::new)
                 .toList();
 
-        synchronized (stateLock) {
+        stateLock.lock();
+
+        try {
             for (ProjectReviewTask task : tasks) {
                 reviewTasks.addLast(task);
             }
+        } finally {
+            stateLock.unlock();
         }
     }
 
     public Optional<ProjectReviewTask> claimNext() {
-        synchronized (stateLock) {
+        stateLock.lock();
+
+        try {
             ProjectReviewTask task = reviewTasks.pollFirst();
 
             if (task == null) {
@@ -55,13 +64,17 @@ public class ProjectReviewQueue {
 
             claimedTasksByProjectCode.put(task.projectCode(), task);
             return Optional.of(task);
+        } finally {
+            stateLock.unlock();
         }
     }
 
     public boolean retry(String projectCode) {
         Objects.requireNonNull(projectCode, "projectCode");
 
-        synchronized (stateLock) {
+        stateLock.lock();
+
+        try {
             ProjectReviewTask task =
                     claimedTasksByProjectCode.remove(projectCode);
 
@@ -71,22 +84,31 @@ public class ProjectReviewQueue {
 
             reviewTasks.addFirst(task);
             return true;
+        } finally {
+            stateLock.unlock();
         }
     }
 
     public boolean complete(String projectCode) {
         Objects.requireNonNull(projectCode, "projectCode");
 
-        synchronized (stateLock) {
+        stateLock.lock();
+
+        try {
             return claimedTasksByProjectCode.remove(projectCode) != null;
+        } finally {
+            stateLock.unlock();
         }
     }
 
     public boolean expedite(String projectCode) {
         Objects.requireNonNull(projectCode, "projectCode");
 
-        synchronized (stateLock) {
-            Iterator<ProjectReviewTask> iterator = reviewTasks.iterator();
+        stateLock.lock();
+
+        try {
+            Iterator<ProjectReviewTask> iterator =
+                    reviewTasks.iterator();
 
             while (iterator.hasNext()) {
                 ProjectReviewTask task = iterator.next();
@@ -97,16 +119,21 @@ public class ProjectReviewQueue {
                     return true;
                 }
             }
-        }
 
-        return false;
+            return false;
+        } finally {
+            stateLock.unlock();
+        }
     }
 
     public boolean defer(String projectCode) {
         Objects.requireNonNull(projectCode, "projectCode");
 
-        synchronized (stateLock) {
-            Iterator<ProjectReviewTask> iterator = reviewTasks.iterator();
+        stateLock.lock();
+
+        try {
+            Iterator<ProjectReviewTask> iterator =
+                    reviewTasks.iterator();
 
             while (iterator.hasNext()) {
                 ProjectReviewTask task = iterator.next();
@@ -117,16 +144,21 @@ public class ProjectReviewQueue {
                     return true;
                 }
             }
-        }
 
-        return false;
+            return false;
+        } finally {
+            stateLock.unlock();
+        }
     }
 
     public boolean cancel(String projectCode) {
         Objects.requireNonNull(projectCode, "projectCode");
 
-        synchronized (stateLock) {
-            Iterator<ProjectReviewTask> iterator = reviewTasks.iterator();
+        stateLock.lock();
+
+        try {
+            Iterator<ProjectReviewTask> iterator =
+                    reviewTasks.iterator();
 
             while (iterator.hasNext()) {
                 ProjectReviewTask task = iterator.next();
@@ -136,26 +168,40 @@ public class ProjectReviewQueue {
                     return true;
                 }
             }
-        }
 
-        return false;
+            return false;
+        } finally {
+            stateLock.unlock();
+        }
     }
 
     public List<ProjectReviewTask> snapshot() {
-        synchronized (stateLock) {
+        stateLock.lock();
+
+        try {
             return List.copyOf(reviewTasks);
+        } finally {
+            stateLock.unlock();
         }
     }
 
     public int size() {
-        synchronized (stateLock) {
+        stateLock.lock();
+
+        try {
             return reviewTasks.size();
+        } finally {
+            stateLock.unlock();
         }
     }
 
     public int claimedTaskCount() {
-        synchronized (stateLock) {
+        stateLock.lock();
+
+        try {
             return claimedTasksByProjectCode.size();
+        } finally {
+            stateLock.unlock();
         }
     }
 }
