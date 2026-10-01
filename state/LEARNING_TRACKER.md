@@ -2042,3 +2042,138 @@ Synthetic job-experience anchors created so far: 0
 Unique master technical questions covered: 288
 Synthetic technical questions covered: 32
 Current denominator: 387+
+
+
+---
+
+# Set 71
+
+**Status: 71/387+**
+
+- [x] ⭐ [Master 839] What feature have you implemented using Multithreading in your current project?
+
+## Part A
+- [x] ✅ [Master 786] Can you brief on what multithreaded applications do and why we use a multithreaded environment?
+- [x] ✅ [Master 913] Why is ExecutorService required?
+- [x] ✅ [Master 915] You need to execute 1,000 tasks in parallel but don't want to create 1,000 Threads. How would you design this?
+- [x] ✅ [Master 920] Your Service uses a fixed Thread Pool of size 10. Traffic suddenly spikes and requests queue heavily. How would you tune the Thread Pool?
+- [x] [Master 921] What different types of Thread Pools are available, such as Fixed, Cached and Scheduled Thread Pools?
+- [x] [Master 922] What is the difference between ThreadPoolExecutor and ForkJoinPool?
+- [x] [Master 923] You need to process 10,000 independent tasks but want to limit execution to 20 concurrent tasks at a time. How would you implement this?
+
+## Set 71 completion evidence
+- docs/sets/SET-071-MULTITHREADED-FEATURE.md
+- src/test/java/com/atlasgrid/geoops/project/api/ParallelValidationFeatureIntegrationTest.java
+- src/main/java/com/atlasgrid/geoops/project/validation/ParallelProjectValidationService.java
+- src/main/java/com/atlasgrid/geoops/project/validation/ProjectValidationExecutorConfiguration.java
+
+Set 71 learning items completed: 8 / 8
+
+---
+
+# Set 72
+
+**Status: 72/387+**
+
+- [x] ⭐ [Master 841] In your project, don't you have any synchronization issues?
+
+## Part A
+- [x] ✅ [Master 864] Can you describe a scenario where not using synchronized could cause an issue?
+- [x] [Master 811] Your Threads are experiencing high contention. How would you optimize Synchronization?
+- [x] [Master 823] What's the difference between BLOCKED and WAITING Thread states?
+- [x] [Master 940] Do you know about Deadlock in Multithreading?
+- [x] [Master 942] How can we get rid of a Deadlock?
+- [x] [Master 944] How would you design code to prevent Deadlock when acquiring two Locks?
+- [x] [Master 946] You have a Deadlock in Production. How would you detect and resolve it without restarting the JVM?
+
+## Set 72 completion evidence
+- docs/sets/SET-072-SYNCHRONIZATION-ISSUES.md
+- docs/incidents/INC-002-CONCURRENT-DUPLICATE-INTAKE-RACE.md
+- src/main/java/com/atlasgrid/geoops/project/application/ProjectService.java
+- src/test/java/com/atlasgrid/geoops/project/application/ConcurrentProjectIntakeIntegrationTest.java
+- src/main/java/com/atlasgrid/geoops/diagnostics/thread/JvmThreadDiagnosticsService.java
+
+Set 72 learning items completed: 8 / 8
+
+---
+
+# Set 73
+
+**Status: 73/387+**
+
+- [x] ⭐ [Master 842] Can you tell me how you guys are using Multithreading in your project?
+
+## Part A
+- [x] ✅ [Master 913] Why is ExecutorService required?
+- [x] ✅ [Master 914] What is the difference between submit() and execute() in ExecutorService?
+- [x] ✅ [Master 916] How would you cancel a long-running Callable?
+- [x] ✅ [Master 920] Your Service uses a fixed Thread Pool of size 10. Traffic suddenly spikes and requests queue heavily. How would you tune the Thread Pool?
+- [x] [Master 928] What is the meaning of asynchronous here? How does asynchronous work?
+- [x] [Master 929] How do you handle asynchronous operations in a Spring Boot application?
+- [x] [Master 934] What is the difference between Future and CompletableFuture, and how does CompletableFuture improve Asynchronous Programming?
+
+## Set 73 completion evidence
+- docs/sets/SET-073-USING-MULTITHREADING.md
+- src/main/java/com/atlasgrid/geoops/project/validation/ProjectValidationExecutorSnapshot.java
+- src/main/java/com/atlasgrid/geoops/project/validation/ProjectValidationExecutorMonitor.java
+- src/test/java/com/atlasgrid/geoops/project/validation/ProjectValidationExecutorMonitorTest.java
+
+Set 73 learning items completed: 8 / 8
+
+---
+
+# Set 74
+
+**Status: 74/387+**
+
+- [x] ⭐ [Master 843] Have you worked with Threads or in a Concurrency environment?
+
+## Part A
+- [x] [Master 851] What's the drawback of using Collections.synchronizedMap(), synchronizedSet() or synchronizedList()?
+- [x] [Master 852] Why would you use synchronizedMap()?
+- [x] [Master 853] Suppose you are storing user session data in a HashMap. How would you ensure thread safety?
+- [x] [Master 855] You have a shared cache used by multiple threads. You use a HashMap but the data is getting corrupted. What could be the issue and how would you fix it?
+- [x] [Master 857] If we use ConcurrentHashMap for concurrency issues in HashMap, what would you use when there are concurrency issues in HashSet?
+- [x] [Master 858] Is an Immutable Class always Thread-Safe?
+- [x] [Master 859] How can you synchronize two Java processes?
+
+## Set 74 completion evidence
+- docs/sets/SET-074-CONCURRENCY-ENVIRONMENT.md
+- src/main/java/com/atlasgrid/geoops/diagnostics/concurrency/ConcurrencyEnvironmentSnapshot.java
+- src/main/java/com/atlasgrid/geoops/diagnostics/concurrency/ConcurrencyEnvironmentDiagnosticsService.java
+- src/test/java/com/atlasgrid/geoops/diagnostics/concurrency/ConcurrencyEnvironmentDiagnosticsServiceTest.java
+
+Set 74 learning items completed: 8 / 8
+
+---
+
+# Set 75
+
+**Status: 75/387+**
+
+- [x] ⭐ [Master 844] Have you used Locks, especially ReentrantLock, to make things thread-safe?
+
+## Part A
+- [x] ✅ [Master 849] What are the limitations of using the synchronized keyword?
+- [x] [Master 860] What methods does the Java Lock API provide, such as lock(), unlock() and tryLock()?
+- [x] [Master 861] What's the difference between synchronized and the Lock APIs?
+- [x] [Master 862] What does Fair Ordering mean in ReentrantLock?
+- [x] ✅ [Master 882] How would you handle a situation where multiple Threads need to access a shared resource without using the synchronized keyword?
+- [x] ✅ [Master 944] How would you design code to prevent Deadlock when acquiring two Locks?
+- [x] [Master 879] Can we call wait() outside a synchronized block, and what happens if we do?
+
+## Set 75 completion evidence
+- docs/sets/SET-075-REENTRANTLOCK.md
+- src/main/java/com/atlasgrid/geoops/review/ProjectReviewQueue.java
+- src/test/java/com/atlasgrid/geoops/review/ProjectReviewQueueTest.java
+- src/test/java/com/atlasgrid/geoops/review/ProjectReviewQueueReentrantLockTest.java
+
+Set 75 learning items completed: 8 / 8
+
+---
+
+Completed job-experience anchors: 75
+Synthetic job-experience anchors created so far: 0
+Unique master technical questions covered: 311
+Synthetic technical questions covered: 32
+Current denominator: 387+
