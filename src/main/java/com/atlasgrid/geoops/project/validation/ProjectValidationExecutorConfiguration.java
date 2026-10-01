@@ -7,6 +7,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -41,7 +42,20 @@ public class ProjectValidationExecutorConfiguration {
                         VALIDATION_QUEUE_CAPACITY
                 ),
                 threadFactory,
-                new ThreadPoolExecutor.CallerRunsPolicy()
+                new ThreadPoolExecutor.CallerRunsPolicy() {
+                    @Override
+                    public void rejectedExecution(
+                            Runnable task,
+                            ThreadPoolExecutor executor
+                    ) {
+                        if (executor.isShutdown()) {
+                            throw new RejectedExecutionException(
+                                    "GeoOps validation executor is shut down"
+                            );
+                        }
+                        super.rejectedExecution(task, executor);
+                    }
+                }
         );
     }
 }
