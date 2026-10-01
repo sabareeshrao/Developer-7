@@ -1,13 +1,13 @@
 package com.atlasgrid.geoops.project.api;
 
 import com.atlasgrid.geoops.project.validation.ParallelProjectValidationService;
-import com.atlasgrid.geoops.project.validation.ProjectBatchValidationResult;
 import com.atlasgrid.geoops.project.validation.ValidationIntakeSwitch;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/projects/validation")
@@ -25,15 +25,16 @@ public class ProjectBatchValidationController {
     }
 
     @PostMapping("/batch")
-    public List<ProjectBatchValidationResult> validateBatch(
+    public ResponseEntity<?> validateBatch(
             @RequestBody List<CreateProjectRequest> requests
     ) {
         if (!intakeSwitch.isOpen()) {
-            throw new ResponseStatusException(
-                    HttpStatus.SERVICE_UNAVAILABLE,
-                    "New validation requests are paused"
-            );
+            return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE)
+                    .body(Map.of(
+                            "code", "VALIDATION_UNAVAILABLE",
+                            "message", "New validation requests are paused"
+                    ));
         }
-        return validationService.validateAll(requests);
+        return ResponseEntity.ok(validationService.validateAll(requests));
     }
 }
