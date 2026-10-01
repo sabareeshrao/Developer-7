@@ -10,6 +10,7 @@ import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
+import java.util.concurrent.RejectedExecutionException;
 
 /**
  * Runs independent project-request validation on a bounded worker pool.
@@ -41,11 +42,17 @@ public class ParallelProjectValidationService {
         List<Future<ProjectBatchValidationResult>> futures =
                 new ArrayList<>(copy.size());
 
-        for (CreateProjectRequest request : copy) {
-            futures.add(
-                    executorService.submit(
-                            () -> validateOne(request)
-                    )
+        try {
+            for (CreateProjectRequest request : copy) {
+                futures.add(executorService.submit(
+                        () -> validateOne(request)
+                ));
+            }
+        } catch (RejectedExecutionException exception) {
+            cancelOutstanding(futures);
+            throw new IllegalStateException(
+                    "Parallel project validation rejected new work",
+                    exception
             );
         }
 
