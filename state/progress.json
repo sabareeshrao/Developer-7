@@ -4,27 +4,27 @@
   "originalAnchorCount": 387,
   "syntheticAnchorCount": 0,
   "totalAnchorCount": 387,
-  "status": "75/387+",
+  "status": "80/387+",
   "completed": {
-    "sets": 75,
-    "jobExperienceAnchors": 75,
-    "uniqueMasterTechnicalQuestions": 311,
+    "sets": 80,
+    "jobExperienceAnchors": 80,
+    "uniqueMasterTechnicalQuestions": 329,
     "syntheticTechnicalQuestions": 32
   },
   "current": {
-    "set": 75,
-    "anchorMasterQuestion": 844,
-    "anchor": "Have you used Locks, especially ReentrantLock, to make things thread-safe?",
+    "set": 80,
+    "anchorMasterQuestion": 926,
+    "anchor": "Can you tell me about Thread Pool? Why do we use it, and have you used Thread Pool concepts in any personal or professional project?",
     "anchorType": "original",
     "covered": true,
-    "evidence": "docs/sets/SET-075-REENTRANTLOCK.md"
+    "evidence": "docs/sets/SET-080-THREAD-POOL.md"
   },
   "next": {
-    "set": 76,
-    "anchorMasterQuestion": 845,
-    "anchor": "In your current project, did you write any Multithreaded code?"
+    "set": 81,
+    "anchorMasterQuestion": 945,
+    "anchor": "Have you ever faced a Deadlock situation in your project?"
   },
-  "nextAction": "derive Set 76 around exactly one multithreaded-code experience anchor; inspect Sets 71-75 and current executor/review-lock code; reuse covered concurrency questions with ✅; search the 2,308 bank for remaining directly related technical questions; end with Experience Answer",
+  "nextAction": "Resume at Set 81 on the exact deadlock experience anchor. Read the tracker supplement for Sets 76-80, inspect prior concurrency code, preserve all source-bank question markers, and verify CI.",
   "rules": {
     "exactlyOneJobExperienceAnchorPerSet": true,
     "maxRelatedQuestionsPerPart": 7,
@@ -45,11 +45,12 @@
     "qualityGate": "mvn clean verify + SpotBugs",
     "firstGreenCodeCommit": "7e154b98e9496969b3e5bf5a04748b62367b51aa",
     "report": "docs/maintenance/POST-SET-050-CODEBASE-AUDIT.md",
-    "nextLearningSet": 76,
-    "latestLearningCheckpoint": "set-075",
-    "latestVerifiedCodeCommit": "79fb2088c2776da8067632857e2ed7be9ce64ade",
+    "nextLearningSet": 81,
+    "latestLearningCheckpoint": "set-080",
+    "latestVerifiedCodeCommit": "f00001d865439d1f8c89769b2fbe250f635c1304",
     "latestVerifiedCodeCi": "green",
     "sourceCorrection": "Set 63 corrected: shared-data-structure question Master 797; multithreading-use-scenarios question Master 798",
-    "latestSprint": "docs/process/SPRINT-009.md"
+    "latestSprint": "docs/process/SPRINT-010.md",
+    "newQuestionTrackerSupplement": "state/LEARNING_TRACKER_SETS_076_080.md"
   }
 }
