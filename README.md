@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 70 — Status: 70/387+ — COMPLETE**
+**Set 75 — Status: 75/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -79,6 +79,11 @@ Set 67: real named validation-worker thread evidence
 Set 68: bounded validation queue with CallerRunsPolicy backpressure
 Set 69: interruption propagation and outstanding Future cancellation
 Set 70: JVM ThreadMXBean diagnostics and thread-dump workflow
+Set 71: bulk GIS validation as the concrete multithreaded feature
+Set 72: synchronization risk, duplicate-intake race and lock ordering
+Set 73: validation executor metrics and runtime observability
+Set 74: combined JVM/executor concurrency environment snapshot
+Set 75: ProjectReviewQueue migration to ReentrantLock
 ```
 
 
