@@ -1582,3 +1582,70 @@ It captures:
 The operational runbook uses `jcmd <pid> Thread.print` and the existing VisualVM Threads view for deeper thread-state analysis.
 
 No public thread-diagnostics REST endpoint was added.
+
+
+## Set 71 established facts — multithreaded feature
+
+The concrete GeoOps multithreaded feature is bulk GIS project preflight validation.
+
+- requests are validated concurrently through the bounded validation executor;
+- result ordering follows input ordering;
+- the feature is read-only and does not publish projects into the catalog;
+- a feature-level integration test submits 100 mixed requests and verifies the catalog remains unchanged.
+
+## Set 72 established facts — synchronization issue and lock ordering
+
+The primary current synchronization risk is concurrent project publication.
+
+GeoOps protects the compound catalog + review-queue publication step with the narrow ProjectService intake lock.
+
+Current intake lock order:
+
+```text
+ProjectService intakeLock
+→ ProjectCatalog monitor
+→ ProjectReviewQueue state lock
+```
+
+The project records this as a controlled pre-release concurrency scenario, not a real employer production incident.
+
+ThreadMXBean, jcmd thread dumps and VisualVM remain the investigation tools for blocked/deadlocked thread analysis.
+
+## Set 73 established facts — executor observability
+
+GeoOps now has internal validation-executor metrics.
+
+`ProjectValidationExecutorMonitor` captures:
+- current pool size;
+- active worker count;
+- largest observed pool size;
+- queued task count;
+- remaining queue capacity;
+- completed task count;
+- submitted task count.
+
+The monitor remains internal and does not create a new public REST endpoint.
+
+SpotBugs initially flagged direct storage of the injected mutable ThreadPoolExecutor reference. The design was changed so the monitor stores only a snapshot-producing function; the quality gate then passed without suppression.
+
+## Set 74 established facts — combined concurrency environment
+
+`ConcurrencyEnvironmentDiagnosticsService` combines:
+- JVM thread diagnostics from ThreadMXBean;
+- validation-executor metrics.
+
+This provides one internal snapshot of the current single-JVM concurrency environment.
+
+Java locks and concurrent collections remain explicitly limited to one JVM; cross-process coordination is still deferred to future persistence/distributed-system anchors.
+
+## Set 75 established facts — ReentrantLock review-state migration
+
+`ProjectReviewQueue` now uses a `ReentrantLock` for compound queued↔claimed state transitions.
+
+- lock acquisition uses `lock()`;
+- every acquisition is paired with `unlock()` in `finally`;
+- the lock uses the default non-fair policy;
+- `ConcurrentHashMap` remains the claimed-task lookup store;
+- existing queue behavior and concurrency tests remain valid.
+
+GeoOps intentionally keeps synchronized monitors in other components where they remain simpler and appropriate; the project does not replace every synchronized block with ReentrantLock.
