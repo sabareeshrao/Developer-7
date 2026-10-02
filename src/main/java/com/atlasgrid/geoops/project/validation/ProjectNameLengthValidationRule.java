@@ -14,7 +14,8 @@ import java.util.List;
 public final class ProjectNameLengthValidationRule
         implements ProjectValidationRule {
 
-    public static final int MAX_NAME_LENGTH = 120;
+    public static final int MAX_NAME_LENGTH =
+            ProjectNameLengthPolicy.MAX_NAME_LENGTH;
 
     @Override
     public String code() {
@@ -25,7 +26,7 @@ public final class ProjectNameLengthValidationRule
     public List<ValidationIssue> validate(CreateProjectRequest request) {
         String name = request.name();
 
-        if (name == null || name.length() <= MAX_NAME_LENGTH) {
+        if (!ProjectNameLengthPolicy.exceedsLimit(name)) {
             return List.of();
         }
 
