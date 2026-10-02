@@ -14,7 +14,7 @@
 
 **Source classification:** 389 workbook records carry a `Job Experience` category; 1,919 are theory/coding/production without that category. The original roadmap retains 378 ⭐ source experience anchors in the numbered Sets, nine more original ⭐ prompts in the appendix, and 12 optional ⭐⭐ synthetic practice anchors. The two newly found Additional-sheet job-experience questions are explicitly **experience follow-ups**, not a second ⭐ anchor in any Set.
 
-**Emoji policy:** Existing ⭐, ⭐⭐, 🆕, ✅, and 💡 designations remain untouched. Every newly inserted workbook question has **✨**. Newly inserted technical questions use **✨ 🆕**; subsequent reuse may use ✅. A Set's historical "completed" label does **not** mean its new ✨ questions were already taught or implemented.
+**Emoji policy:** Existing ⭐, ⭐⭐, 🆕, ✅, and 💡 designations remain untouched. Every newly inserted workbook question has **✨**. Newly inserted Excel questions use **✨ only**; previously existing questions retain their original 🆕/✅/💡 markers. A Set's historical "completed" label does **not** mean its new ✨ questions were already taught or implemented.
 
 **Navigation:** [Read all Sets 1–390](ALL_SETS_001_390.md) · [All 2,308 source-ID locations (CSV)](EXCEL_QUESTION_COVERAGE.csv) · [Question library index](README.md).
 

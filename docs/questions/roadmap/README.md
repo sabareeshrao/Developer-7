@@ -13,6 +13,6 @@
 
 **Coverage and reconciliation:** [Excel audit report](EXCEL_QUESTION_COVERAGE.md) · [Source-ID index (CSV)](EXCEL_QUESTION_COVERAGE.csv) · [Nine original prompts held in the appendix](ORIGINAL_ANCHORS_NOT_ASSIGNED_SETS.md) · [Prior full-roadmap audit](QUESTION_AUDIT_001_390.md).
 
-**Emoji legend:** ⭐ original experience anchor · ⭐⭐ optional synthetic experience anchor · 🆕 technical question first seen · ✅ previously covered technical question reused · 💡 supplementary non-bank question · **✨ newly added from Excel**. New technical questions are shown as ✨ 🆕. The two Additional-sheet experience questions use an explicitly labeled ✨ follow-up subsection.
+**Emoji legend:** ⭐ original experience anchor · ⭐⭐ optional synthetic experience anchor · 🆕 technical question first seen · ✅ previously covered technical question reused · 💡 supplementary non-bank question · **✨ newly added from Excel**. Newly inserted Excel questions use ✨ alone (without 🆕). Existing non-Excel question markers stay unchanged. The two Additional-sheet experience questions use an explicitly labeled ✨ follow-up subsection.
 
 **Actual completed-project checkpoint: 85/387+.** The new question previews and ✨ extensions do not modify `state/progress.json`, evidence files, or test status.
