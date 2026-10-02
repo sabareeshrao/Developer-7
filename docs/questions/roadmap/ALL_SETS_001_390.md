@@ -2786,6 +2786,7 @@ This document does not change progress from **85/387+**.
 # Batch 3 — Sets 106–115
 
 ## Set 106 — Unit Tests vs Integration Tests
+
 ⭐ **Have you implemented Integration Tests or Unit Tests?**
 
 ### Part A
@@ -2801,6 +2802,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 107 — Code Coverage Requirements
+
 ⭐ **What's the code coverage rule in your project?**
 
 ### Part A
@@ -2815,6 +2817,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 108 — Measuring Test Coverage
+
 ⭐ **What is the test coverage in your project?**
 
 ### Part A
@@ -2830,6 +2833,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 109 — Regression Prevention After Code Changes
+
 ⭐ **How do you ensure your code changes do not break existing functionality? What steps do you usually take?**
 
 ### Part A
@@ -2845,6 +2849,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 110 — Spring Boot Unit Testing
+
 ⭐ **Do you test Spring Boot applications by writing unit test cases in your project?**
 
 ### Part A
@@ -2860,6 +2865,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 111 — Testing Static Methods
+
 ⭐ **Have you ever tested a static method?**
 
 ### Part A
@@ -2874,6 +2880,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 112 — Day-to-Day Unit Testing
+
 ⭐ **Do you guys write unit test cases?**
 
 ### Part A
@@ -2889,6 +2896,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 113 — Writing JUnit Tests vs AI Assistance
+
 ⭐ **Do you guys write JUnit test cases yourself, or do you ask AI to write them?**
 
 ### Part A
@@ -2904,6 +2912,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 114 — Designing Effective Test Cases
+
 ⭐ **What's your approach to writing a test case?**
 
 ### Part A
@@ -2918,6 +2927,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 115 — Testing Asynchronous Methods
+
 ⭐ **Did you get a chance to write a test case for an async method?**
 
 ### Part A
@@ -2935,6 +2945,7 @@ This document does not change progress from **85/387+**.
 # Batch 4 — Sets 116–125
 
 ## Set 116 — Gradle Build Fundamentals
+
 ⭐ **Have you worked with Gradle?**
 
 ### Part A
@@ -2950,6 +2961,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 117 — Maven Dependency Conflicts
+
 ⭐ **Have you faced any dependency conflicts in your Maven project?**
 
 ### Part A
@@ -2965,6 +2977,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 118 — Choosing Maven or Gradle
+
 ⭐ **Are you using Maven or Gradle?**
 
 ### Part A
@@ -2980,6 +2993,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 119 — Building Executable JAR Files
+
 ⭐ **Have you created a JAR file before?**
 
 ### Part A
@@ -2995,6 +3009,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 120 — Advanced Maven Build Configuration
+
 ⭐ **Can you explain a complex build process you have configured using Maven?**
 
 ### Part A
@@ -3026,6 +3041,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 121 — Multi-Module Maven Projects
+
 ⭐ **Have you worked with a Multi-Module Maven project?**
 
 ### Part A
@@ -3041,6 +3057,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 122 — Spring Boot Dependency Version Conflicts
+
 ⭐ **Have you faced any Dependency Version-related issues in your Spring Boot project?**
 
 ### Part A
@@ -3056,6 +3073,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 123 — Git Collaboration Tools
+
 ⭐ **Which Git collaboration tool are you guys using?**
 
 ### Part A
@@ -3071,6 +3089,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 124 — GitHub vs GitLab Version Control
+
 ⭐ **Which version control do you use, GitHub or GitLab?**
 
 ### Part A
@@ -3086,6 +3105,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 125 — Managing Merge Conflicts
+
 ⭐ **How do you manage merge conflicts?**
 
 ### Part A
@@ -3103,6 +3123,7 @@ This document does not change progress from **85/387+**.
 # Batch 5 — Sets 126–135
 
 ## Set 126 — Resolving Commit-Time Conflicts
+
 ⭐ **While committing code you may encounter conflicts. How do you manage merge conflicts?**
 
 ### Part A
@@ -3118,6 +3139,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 127 — Git in the Development Workflow
+
 ⭐ **How are you guys utilizing Git in your project?**
 
 ### Part A
@@ -3133,6 +3155,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 128 — Git Branching Strategy
+
 ⭐ **What's the branching strategy in your project?**
 
 ### Part A
@@ -3148,6 +3171,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 129 — Working with Git Commands
+
 ⭐ **Do you work with Git commands?**
 
 ### Part A
@@ -3163,6 +3187,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 130 — Practical Git Conflict Experience
+
 ⭐ **Have you faced Git conflicts?**
 
 ### Part A
@@ -3178,6 +3203,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 131 — Manual vs Tool-Assisted Merge Resolution
+
 ⭐ **What's your approach to resolving Git conflicts? Do you use a tool or resolve them manually?**
 
 ### Part A
@@ -3193,6 +3219,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 132 — Git Branch Management
+
 ⭐ **Can you share your strategy for managing Branches in Git? What do you guys do in your project?**
 
 ### Part A
@@ -3208,6 +3235,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 133 — Resolving Git Conflicts
+
 ⭐ **How do you resolve conflicts?**
 
 ### Part A
@@ -3223,6 +3251,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 134 — TortoiseGit Usage
+
 ⭐ **Have you used TortoiseGit?**
 
 ### Part A
@@ -3238,6 +3267,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 135 — Choosing a Git Hosting Platform
+
 ⭐ **Are you using GitHub, GitLab, or another Git platform?**
 
 ### Part A
@@ -3255,6 +3285,7 @@ This document does not change progress from **85/387+**.
 # Batch 6 — Sets 136–145
 
 ## Set 136 — Coding Principles and Practices
+
 ⭐ **What are the best coding principles and practices you have applied in your project?**
 
 ### Part A
@@ -3270,6 +3301,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 137 — Measuring Code Quality
+
 ⭐ **How do you measure code quality?**
 
 ### Part A
@@ -3285,6 +3317,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 138 — Daily Java and Spring Boot Coding Practices
+
 ⭐ **Tell me four or five coding best practices that you follow in your day-to-day Java Spring Boot project.**
 
 ### Part A
@@ -3300,6 +3333,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 139 — Improving Legacy Code Safely
+
 ⭐ **You join a project whose existing code is poorly optimized and not professional. What approach would you take to improve it without breaking behavior?**
 
 ### Part A
@@ -3315,6 +3349,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 140 — Code Quality and Maintainability
+
 ⭐ **How do you ensure the quality and maintainability of your code in your project?**
 
 ### Part A
@@ -3330,6 +3365,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 141 — Preventing Regression from Code Changes
+
 ⭐ **How do you ensure your code changes do not break existing functionality?**
 
 ### Part A
@@ -3344,6 +3380,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 142 — SonarQube Code Quality Improvements
+
 ⭐ **How did you use Sonar for maintaining code quality, and can you give an example of a code quality issue that helped you resolve something?**
 
 ### Part A
@@ -3359,6 +3396,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 143 — Logging Frameworks and Tools
+
 ⭐ **Which logging tools are you using?**
 
 ### Part A
@@ -3374,6 +3412,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 144 — Integrating a Logging Framework
+
 ⭐ **How did you integrate that logging tool?**
 
 ### Part A
@@ -3388,6 +3427,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 145 — Practical Application Logging
+
 ⭐ **How are you guys using logging in your project?**
 
 ### Part A
@@ -3405,6 +3445,7 @@ This document does not change progress from **85/387+**.
 # Batch 7 — Sets 146–155
 
 ## Set 146 — Designing an Application Logging Mechanism
+
 ⭐ **How have you implemented the logging mechanism in your project? Which logging framework are you using?**
 
 ### Part A
@@ -3420,6 +3461,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 147 — Debugging Defects Through Logs
+
 ⭐ **How do you debug a defect by looking through logs?**
 
 ### Part A
@@ -3435,6 +3477,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 148 — Selecting a Log Analysis Tool
+
 ⭐ **Which log analysis tool do you prefer?**
 
 ### Part A
@@ -3449,6 +3492,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 149 — Log Analysis Beyond Kibana
+
 ⭐ **Have you used any other tool other than Kibana?**
 
 ### Part A
@@ -3463,6 +3507,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 150 — Choosing Kibana or Splunk
+
 ⭐ **If the client asks you to implement log analysis and you can choose Kibana, Splunk, or any other tool, which would you prefer?**
 
 ### Part A
@@ -3478,6 +3523,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 151 — Log Visualization Tool Selection
+
 ⭐ **Which logging visualization tool would you prefer?**
 
 ### Part A
@@ -3493,6 +3539,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 152 — Visualizing Application Logs
+
 ⭐ **How are you guys visualizing logs?**
 
 ### Part A
@@ -3508,6 +3555,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 153 — Database Experience
+
 ⭐ **Which database have you used?**
 
 ### Part A
@@ -3530,6 +3578,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 154 — Database Connectivity and Configuration
+
 ⭐ **Which database are you using, and how did you connect that database in your project?**
 
 ### Part A
@@ -3568,6 +3617,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 155 — SQL vs NoSQL Databases
+
 ⭐ **Do you have experience with both NoSQL and SQL databases?**
 
 ### Part A
@@ -3585,6 +3635,7 @@ This document does not change progress from **85/387+**.
 # Batch 8 — Sets 156–165
 
 ## Set 156 — Using Multiple Databases in Spring Boot
+
 ⭐ **Can you tell me a scenario where using multiple databases in a Spring Boot application is necessary?**
 
 ### Part A
@@ -3600,6 +3651,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 157 — Storing Images in MySQL
+
 ⭐ **How is an image being stored using MySQL in your project?**
 
 ### Part A
@@ -3615,6 +3667,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 158 — Production Database Connection Troubleshooting
+
 ⭐ **Your application works locally but fails to connect to the database in production. What steps would you take to analyze the issue and fix it?**
 
 ### Part A
@@ -3630,6 +3683,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 159 — Flyway and Liquibase Migration Tools
+
 ⭐ **Have you worked with database migration tools like Flyway or Liquibase?**
 
 ### Part A
@@ -3649,6 +3703,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 160 — Database Migration Workflow
+
 ⭐ **How have you done database migration?**
 
 ### Part A
@@ -3664,6 +3719,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 161 — Database-to-Database Migration
+
 ⭐ **Migration from which database to which database?**
 
 ### Part A
@@ -3678,6 +3734,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 162 — Writing SQL Queries
+
 ⭐ **Have you written any query recently? Can you tell me that query?**
 
 ### Part A
@@ -3703,6 +3760,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 163 — Working with NoSQL
+
 ⭐ **Have you worked with NoSQL?**
 
 ### Part A
@@ -3718,6 +3776,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 164 — Integrating NoSQL into Applications
+
 ⭐ **Have you integrated your application with any NoSQL database?**
 
 ### Part A
@@ -3733,6 +3792,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 165 — SQL Index Fundamentals
+
 ⭐ **Are you comfortable with indexes in SQL?**
 
 ### Part A
@@ -3750,6 +3810,7 @@ This document does not change progress from **85/387+**.
 # Batch 9 — Sets 166–175
 
 ## Set 166 — Database Query Optimization
+
 ⭐ **Have you optimized any database query before?**
 
 ### Part A
@@ -3783,6 +3844,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 167 — Implementing Database Indexes
+
 ⭐ **Have you done indexing in databases?**
 
 ### Part A
@@ -3798,6 +3860,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 168 — Optimizing Database Reads and Writes
+
 ⭐ **How do you optimize queries while fetching data or saving data?**
 
 ### Part A
@@ -3813,6 +3876,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 169 — Dependency Injection Approaches
+
 ⭐ **What type of Dependency Injection are you guys using in your project?**
 
 ### Part A
@@ -3862,6 +3926,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 170 — Setter Injection vs Field Injection
+
 ⭐ **Did you get a chance to use Setter Injection or Field Injection?**
 
 ### Part A
@@ -3877,6 +3942,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 171 — Legacy Spring Application Experience
+
 ⭐ **Have you worked with a legacy Spring application?**
 
 ### Part A
@@ -3891,6 +3957,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 172 — Building with Traditional Spring
+
 ⭐ **Have you created any application using traditional Spring?**
 
 ### Part A
@@ -3906,6 +3973,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 173 — Core Spring Framework Experience
+
 ⭐ **Do you have experience with the pure Spring Framework?**
 
 ### Part A
@@ -3980,6 +4048,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 174 — Spring Framework Annotations
+
 ⭐ **What type of annotations have you used till now in your project?**
 
 ### Part A
@@ -4011,6 +4080,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 175 — Identifying Circular Dependencies
+
 ⭐ **Did you face any circular dependency issue while working on any project?**
 
 ### Part A
@@ -4028,6 +4098,7 @@ This document does not change progress from **85/387+**.
 # Batch 10 — Sets 176–185
 
 ## Set 176 — Resolving Circular Dependencies
+
 ⭐ **How did you resolve that circular dependency?**
 
 ### Part A
@@ -4043,6 +4114,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 177 — Circular Dependency Incidents
+
 ⭐ **In your career, have you encountered any Circular Dependency?**
 
 ### Part A
@@ -4058,6 +4130,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 178 — Spring AOP Implementation
+
 ⭐ **Have you worked with Spring AOP?**
 
 ### Part A
@@ -4073,6 +4146,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 179 — Using @Transactional
+
 ⭐ **Have you added @Transactional annotation anywhere?**
 
 ### Part A
@@ -4107,6 +4181,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 180 — Writing Cron Jobs
+
 ⭐ **Have you written Cron jobs?**
 
 ### Part A
@@ -4127,6 +4202,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 181 — Cron Job Workflows
+
 ⭐ **Have you worked on Cron jobs?**
 
 ### Part A
@@ -4142,6 +4218,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 182 — Asynchronous Methods with @Async
+
 ⭐ **Have you worked with the @Async annotation?**
 
 ### Part A
@@ -4157,6 +4234,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 183 — Task Scheduling with @Scheduled
+
 ⭐ **Have you heard about or used the @Scheduled annotation?**
 
 ### Part A
@@ -4172,6 +4250,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 184 — Spring Boot Caching Implementation
+
 ⭐ **How have you implemented caching in a Spring Boot application?**
 
 ### Part A
@@ -4187,6 +4266,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 185 — Spring Session Management
+
 ⭐ **Have you used Spring Session?**
 
 ### Part A
@@ -4204,6 +4284,7 @@ This document does not change progress from **85/387+**.
 # Batch 11 — Sets 186–195
 
 ## Set 186 — Spring Profiles
+
 ⭐ **Have you worked with Spring Profiles?**
 
 ### Part A
@@ -4226,6 +4307,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 187 — Complex Validation Challenges
+
 ⭐ **What was the toughest validation you have done so far?**
 
 ### Part A
@@ -4241,6 +4323,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 188 — Validation Annotations and Libraries
+
 ⭐ **What validation annotations have you used most frequently, and have you used any third-party validation libraries?**
 
 ### Part A
@@ -4259,6 +4342,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 189 — Spring Boot Features for Complex Problems
+
 ⭐ **Can you discuss a specific Spring Boot feature that you used to solve a complex problem in your last project?**
 
 ### Part A
@@ -4274,6 +4358,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 190 — Project Dependency Selection
+
 ⭐ **Can you name some dependencies that you have used in your project?**
 
 ### Part A
@@ -4289,6 +4374,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 191 — Spring Boot 2-to-3 Migration
+
 ⭐ **Did you get a chance to migrate Spring Boot version from 2 to 3?**
 
 ### Part A
@@ -4304,6 +4390,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 192 — Planning a Spring Boot Migration
+
 ⭐ **Are you going to migrate Spring Boot?**
 
 ### Part A
@@ -4319,6 +4406,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 193 — Spring Boot Starter Dependencies
+
 ⭐ **What are some common Spring Boot Starters that you have used in your projects?**
 
 ### Part A
@@ -4354,6 +4442,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 194 — Choosing a Spring Boot Version
+
 ⭐ **Which Spring Boot version are you currently using in your project?**
 
 ### Part A
@@ -4389,6 +4478,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 195 — Conditional Spring Boot Annotations
+
 ⭐ **Have you used Conditional annotations in Spring Boot?**
 
 ### Part A
@@ -4406,6 +4496,7 @@ This document does not change progress from **85/387+**.
 # Batch 12 — Sets 196–205
 
 ## Set 196 — Application Configuration File Structure
+
 ⭐ **In your current project, how are these configuration files structured?**
 
 ### Part A
@@ -4431,6 +4522,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 197 — Properties vs YAML Configuration
+
 ⭐ **Are you using properties or YAML file?**
 
 ### Part A
@@ -4446,6 +4538,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 198 — Migrating Configuration to YAML
+
 ⭐ **Are you guys planning to migrate to YAML or not?**
 
 ### Part A
@@ -4461,6 +4554,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 199 — YAML vs Properties Trade-offs
+
 ⭐ **Would you prefer YAML or Properties?**
 
 ### Part A
@@ -4476,6 +4570,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 200 — Choosing Properties or YAML
+
 ⭐ **Which one do you use, Properties or YAML, and why?**
 
 ### Part A
@@ -4491,6 +4586,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 201 — Reasons for Keeping Properties Files
+
 ⭐ **Why did you not use YAML if you prefer it?**
 
 ### Part A
@@ -4506,6 +4602,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 202 — Production Configuration Mistakes
+
 ⭐ **Have you ever misconfigured any property and caused an issue in Production?**
 
 ### Part A
@@ -4521,6 +4618,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 203 — Spring Boot Health Endpoints
+
 ⭐ **Have you used the health endpoint?**
 
 ### Part A
@@ -4536,6 +4634,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 204 — Spring Boot Actuator Overview
+
 ⭐ **Have you worked with Actuators?**
 
 ### Part A
@@ -4556,6 +4655,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 205 — Actuator Health Checks
+
 ⭐ **Are you guys using Actuator for health checks?**
 
 ### Part A
@@ -4592,6 +4692,7 @@ This document does not change progress from **85/387+**.
 # Batch 13 — Sets 206–215
 
 ## Set 206 — Spring Boot DevTools
+
 ⭐ **Have you worked with Spring Boot DevTools?**
 
 ### Part A
@@ -4605,6 +4706,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 207 — Embedded and External Servers
+
 ⭐ **Have you used different servers? Which server have you used in your project?**
 
 ### Part A
@@ -4644,6 +4746,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 208 — Shared Repositories and Libraries
+
 ⭐ **Have you created any common repository or shared library?**
 
 ### Part A
@@ -4659,6 +4762,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 209 — Third-Party Service Integration
+
 ⭐ **Can you discuss your experience with integrating third-party services in any of the projects?**
 
 ### Part A
@@ -4674,6 +4778,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 210 — Selecting Third-Party Services
+
 ⭐ **What third-party service do you use?**
 
 ### Part A
@@ -4689,6 +4794,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 211 — @RequestMapping vs @GetMapping
+
 ⭐ **Where should we use @RequestMapping and @GetMapping? Can you share an example of a real API?**
 
 ### Part A
@@ -4704,6 +4810,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 212 — Spring MVC in Practice
+
 ⭐ **Have you worked with Spring MVC?**
 
 ### Part A
@@ -4728,6 +4835,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 213 — REST API Design Best Practices
+
 ⭐ **What REST API best practices do you follow in your project?**
 
 ### Part A
@@ -4757,6 +4865,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 214 — REST APIs, Business Logic, and Persistence
+
 ⭐ **Are you involved in writing REST APIs, creating business logic, and database interactions?**
 
 ### Part A
@@ -4772,6 +4881,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 215 — Writing Maintainable REST APIs
+
 ⭐ **What's the best practice while writing REST APIs?**
 
 ### Part A
@@ -4793,6 +4903,7 @@ This document does not change progress from **85/387+**.
 # Batch 14 — Sets 216–225
 
 ## Set 216 — Designing Patient Registration and Appointment APIs
+
 ⭐ **How did you design and develop the RESTful API for patient registrations and appointment scheduling?**
 
 ### Part A
@@ -4808,6 +4919,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 217 — API Design Considerations
+
 ⭐ **What's your approach to designing an API? What considerations do you take first?**
 
 ### Part A
@@ -4823,6 +4935,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 218 — Building REST APIs
+
 ⭐ **Do you create APIs in your project?**
 
 ### Part A
@@ -4838,6 +4951,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 219 — Recently Developed APIs
+
 ⭐ **Can you tell me a few APIs that you have created recently?**
 
 ### Part A
@@ -4853,6 +4967,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 220 — Designing a Complex API
+
 ⭐ **Can you describe a complex API you designed?**
 
 ### Part A
@@ -4896,6 +5011,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 221 — HTTP Request and Response Headers
+
 ⭐ **What information do you store or pass in Request and Response Headers in your current project?**
 
 ### Part A
@@ -4911,6 +5027,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 222 — PATCH Request Handling
+
 ⭐ **Have you worked with the PATCH method?**
 
 ### Part A
@@ -4926,6 +5043,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 223 — Returning XML from REST APIs
+
 ⭐ **Did you get a chance to return XML responses through your REST API?**
 
 ### Part A
@@ -4949,6 +5067,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 224 — REST API Versioning
+
 ⭐ **Did you get a chance to create or upgrade existing REST APIs to newer versions?**
 
 ### Part A
@@ -4964,6 +5083,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 225 — Inventory DTO Design
+
 ⭐ **What fields would you include in an Inventory DTO?**
 
 ### Part A
@@ -4981,6 +5101,7 @@ This document does not change progress from **85/387+**.
 # Batch 15 — Sets 226–235
 
 ## Set 226 — SOAP Service Integration
+
 ⭐ **Have you worked with SOAP?**
 
 ### Part A
@@ -4996,6 +5117,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 227 — Reactive Programming Fundamentals
+
 ⭐ **Have you worked on reactive programming?**
 
 ### Part A
@@ -5011,6 +5133,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 228 — Spring WebFlux
+
 ⭐ **Have you worked with Spring WebFlux?**
 
 ### Part A
@@ -5026,6 +5149,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 229 — Data Exchange Formats
+
 ⭐ **What data format do you use while exchanging information between different systems?**
 
 ### Part A
@@ -5041,6 +5165,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 230 — Entity-to-DTO Mapping
+
 ⭐ **In your project, how do you convert Entity to DTO and DTO to Entity?**
 
 ### Part A
@@ -5056,6 +5181,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 231 — Hibernate ORM
+
 ⭐ **Have you worked with Hibernate ORM?**
 
 ### Part A
@@ -5071,6 +5197,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 232 — Spring Data JPA
+
 ⭐ **Have you worked with Spring Boot Data JPA?**
 
 ### Part A
@@ -5115,6 +5242,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 233 — Custom Repository Queries
+
 ⭐ **Have you written custom queries inside Repository classes?**
 
 ### Part A
@@ -5135,6 +5263,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 234 — Lazy vs Eager Fetching
+
 ⭐ **Have you worked with Lazy Fetching and Eager Fetching?**
 
 ### Part A
@@ -5150,6 +5279,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 235 — Fixing the N+1 Query Problem
+
 ⭐ **Have you ever encountered the N+1 Query Problem?**
 
 ### Part A
@@ -5167,6 +5297,7 @@ This document does not change progress from **85/387+**.
 # Batch 16 — Sets 236–245
 
 ## Set 236 — Production vs Development API Performance
+
 ⭐ **Your Spring Boot application is significantly slower in Production than in Development. How would you fix the problem?**
 
 ### Part A
@@ -5207,6 +5338,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 237 — Connecting Spring Boot to a Database
+
 ⭐ **Have you connected any database to the Spring Boot application by your own?**
 
 ### Part A
@@ -5222,6 +5354,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 238 — Spring Boot Application Security
+
 ⭐ **How do you ensure security in your Java application or Spring Boot application?**
 
 ### Part A
@@ -5237,6 +5370,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 239 — Implementing Security from Scratch
+
 ⭐ **If you get a new project and are asked to implement security from scratch, how will you do it?**
 
 ### Part A
@@ -5251,6 +5385,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 240 — Securing REST Endpoints
+
 ⭐ **What approach do you take for securing REST endpoints?**
 
 ### Part A
@@ -5266,6 +5401,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 241 — REST API Security in Practice
+
 ⭐ **How are you guys securing REST APIs?**
 
 ### Part A
@@ -5281,6 +5417,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 242 — Security Without JWT or OAuth2
+
 ⭐ **If you don't use JWT, OAuth2 or Bearer Tokens, how are you securing your application?**
 
 ### Part A
@@ -5300,6 +5437,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 243 — Creating Authorization Tokens
+
 ⭐ **Have you created an Authorization Token in your project?**
 
 ### Part A
@@ -5315,6 +5453,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 244 — Implementing Application Security
+
 ⭐ **How is Security implemented in your recent project?**
 
 ### Part A
@@ -5330,6 +5469,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 245 — Spring Security Filter Chains
+
 ⭐ **Have you used Security Filters in your Spring Boot application?**
 
 ### Part A
@@ -5355,6 +5495,7 @@ This document does not change progress from **85/387+**.
 # Batch 17 — Sets 246–255
 
 ## Set 246 — Practical Spring Security Components
+
 ⭐ **Can you explain the real things you have built on top of Spring Security and how someone should leverage Spring Security?**
 
 ### Part A
@@ -5370,6 +5511,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 247 — Authentication Systems
+
 ⭐ **Have you worked with any authentication system?**
 
 ### Part A
@@ -5385,6 +5527,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 248 — Bearer Tokens in Postman
+
 ⭐ **When hitting APIs through Postman, do you pass Bearer Tokens?**
 
 ### Part A
@@ -5400,6 +5543,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 249 — OAuth2 Implementation
+
 ⭐ **Have you implemented OAuth2 in your application?**
 
 ### Part A
@@ -5415,6 +5559,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 250 — OAuth2 Implementation Challenges
+
 ⭐ **What challenges did you face during its implementation?**
 
 ### Part A
@@ -5430,6 +5575,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 251 — Encryption and Decryption
+
 ⭐ **Have you implemented any encryption or decryption algorithm?**
 
 ### Part A
@@ -5445,6 +5591,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 252 — Protecting Sensitive Application Data
+
 ⭐ **What specific security measures did you implement in Health Connect to ensure data privacy?**
 
 ### Part A
@@ -5459,6 +5606,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 253 — Security Breach Response
+
 ⭐ **If a Security Breach occurs, what steps should be taken to handle it?**
 
 ### Part A
@@ -5474,6 +5622,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 254 — Application Incident Response
+
 ⭐ **If a Security Breach occurs in an application, what steps should be taken?**
 
 ### Part A
@@ -5489,6 +5638,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 255 — Secrets Rotation
+
 ⭐ **In your current project, how are you guys rotating secrets?**
 
 ### Part A
@@ -5505,6 +5655,7 @@ This document does not change progress from **85/387+**.
 # Batch 18 — Sets 256–265
 
 ## Set 256 — Encryption and PII Protection
+
 ⭐ **Since data is very critical in financial services, how are you guys encrypting and managing secrets and PII?**
 
 ### Part A
@@ -5520,6 +5671,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 257 — Kafka Messaging
+
 ⭐ **Do you know about Kafka? Is Kafka used in your project?**
 
 ### Part A
@@ -5535,6 +5687,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 258 — Kafka Topics in Practice
+
 ⭐ **Can you tell me a few Kafka topics that you have implemented or used in your project?**
 
 ### Part A
@@ -5550,6 +5703,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 259 — Asynchronous Kafka Communication
+
 ⭐ **You said Microservices communicate using Kafka. Are those communications asynchronous?**
 
 ### Part A
@@ -5565,6 +5719,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 260 — Messaging System Selection
+
 ⭐ **Are you using any messaging system?**
 
 ### Part A
@@ -5580,6 +5735,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 261 — Choosing RabbitMQ
+
 ⭐ **Why did you choose RabbitMQ instead of another Messaging System?**
 
 ### Part A
@@ -5595,6 +5751,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 262 — RabbitMQ vs Other Messaging Systems
+
 ⭐ **Why did you choose RabbitMQ when other Messaging options were available?**
 
 ### Part A
@@ -5610,6 +5767,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 263 — Microservice Design Challenges
+
 ⭐ **What are the main challenges in designing microservice-based applications?**
 
 ### Part A
@@ -5642,6 +5800,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 264 — Microservice Architecture Fundamentals
+
 ⭐ **Are you familiar with microservice architecture?**
 
 ### Part A
@@ -5657,6 +5816,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 265 — Microservice Inventory and Boundaries
+
 ⭐ **How many microservices do you have in your current project?**
 
 ### Part A
@@ -5674,6 +5834,7 @@ This document does not change progress from **85/387+**.
 # Batch 19 — Sets 266–275
 
 ## Set 266 — Naming and Responsibilities of Microservices
+
 ⭐ **Can you please name those microservices?**
 
 ### Part A
@@ -5689,6 +5850,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 267 — Troubleshooting Microservice Challenges
+
 ⭐ **Have you ever faced any challenges while working on a microservices-based project?**
 
 ### Part A
@@ -5704,6 +5866,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 268 — Migrating Monolith Modules into Services
+
 ⭐ **Can you tell me the names of the Microservices that you converted from the Monolithic application?**
 
 ### Part A
@@ -5719,6 +5882,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 269 — Building Microservices from Scratch
+
 ⭐ **What challenges did your Team face while developing a Microservices Project from Scratch?**
 
 ### Part A
@@ -5734,6 +5898,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 270 — Asynchronous Microservice Communication
+
 ⭐ **Are you using any asynchronous communication here?**
 
 ### Part A
@@ -5754,6 +5919,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 271 — Troubleshooting Cross-Service Data Persistence
+
 ⭐ **What was the actual issue or root cause of why the other microservices' data was not being stored when you were using a single database?**
 
 ### Part A
@@ -5769,6 +5935,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 272 — Message Brokers and Asynchronous Patterns
+
 ⭐ **Did you use any asynchronous communication pattern or message broker in your project?**
 
 ### Part A
@@ -5784,6 +5951,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 273 — Monolith-to-Microservices Conversion Challenges
+
 ⭐ **What challenges are you guys facing while converting this monolithic application to microservices?**
 
 ### Part A
@@ -5799,6 +5967,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 274 — Microservices Migration
+
 ⭐ **Did you guys migrate to microservices?**
 
 ### Part A
@@ -5822,6 +5991,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 275 — Participation in Microservices Migration
+
 ⭐ **Were you part of converting a Monolithic application to Microservices?**
 
 ### Part A
@@ -5839,6 +6009,7 @@ This document does not change progress from **85/387+**.
 # Batch 20 — Sets 276–285
 
 ## Set 276 — API Gateway Selection
+
 ⭐ **Which API Gateway are you using?**
 
 ### Part A
@@ -5859,6 +6030,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 277 — API Gateway Implementation
+
 ⭐ **Are you guys using an API Gateway?**
 
 ### Part A
@@ -5874,6 +6046,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 278 — Eureka and Zuul in Microservices
+
 ⭐ **As you mentioned Eureka and Zuul, can you describe how they increase the efficiency of microservice architecture?**
 
 ### Part A
@@ -5889,6 +6062,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 279 — Bulkhead Pattern
+
 ⭐ **Have you worked with the Bulkhead Pattern, and if yes, can you explain it?**
 
 ### Part A
@@ -5904,6 +6078,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 280 — Resilience4j and Hystrix
+
 ⭐ **Have you used Resilience4j or Hystrix?**
 
 ### Part A
@@ -5925,6 +6100,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 281 — Handling Partial Failure Across Transactions
+
 ⭐ **Let's say there is a transaction from A to B. Some amount is deducted from A, but transferring it to B fails. How are you guys managing this?**
 
 ### Part A
@@ -5947,6 +6123,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 282 — Operational Visualization Tools
+
 ⭐ **Are you guys using any visualization tool, or have you used any tool personally?**
 
 ### Part A
@@ -5962,6 +6139,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 283 — Microservice Log Visualization
+
 ⭐ **What log-visualization tools are you guys using or have experience with?**
 
 ### Part A
@@ -5977,6 +6155,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 284 — Monitoring Microservice Performance
+
 ⭐ **How do you guys monitor and detect performance issues in a Microservices environment?**
 
 ### Part A
@@ -5992,6 +6171,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 285 — Application Monitoring Workflow
+
 ⭐ **How are you guys monitoring the application?**
 
 ### Part A
@@ -6009,6 +6189,7 @@ This document does not change progress from **85/387+**.
 # Batch 21 — Sets 286–295
 
 ## Set 286 — Application Monitoring Tools and Practices
+
 ⭐ **Are you familiar with any specific tools or practices for monitoring?**
 
 ### Part A
@@ -6030,6 +6211,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 287 — Dynatrace Integration
+
 ⭐ **How can we integrate Dynatrace into our application?**
 
 ### Part A
@@ -6044,6 +6226,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 288 — Monitoring Spring Boot in Production
+
 ⭐ **How do you monitor and manage a Spring Boot application after deploying it to Production?**
 
 ### Part A
@@ -6058,6 +6241,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 289 — Writing Splunk Queries
+
 ⭐ **Do you know how to write queries in Splunk?**
 
 ### Part A
@@ -6072,6 +6256,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 290 — Splunk Time-Zone Configuration
+
 ⭐ **You said we can modify the time zone in Splunk. How can we do that? Is there any option?**
 
 ### Part A
@@ -6086,6 +6271,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 291 — Splunk Index Configuration
+
 ⭐ **What index name are you guys using in your current project?**
 
 ### Part A
@@ -6099,6 +6285,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 292 — Java Email Integration
+
 ⭐ **Have you worked with Java email?**
 
 ### Part A
@@ -6114,6 +6301,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 293 — Spring Boot Notifications
+
 ⭐ **Have you implemented any notification system in a Spring Boot application?**
 
 ### Part A
@@ -6129,6 +6317,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 294 — Debugging a Failed CI Pipeline
+
 ⭐ **Your project works fine locally without any compilation or runtime error, but after pushing the code the pipeline fails. How would you analyze the issue and find the root cause?**
 
 ### Part A
@@ -6144,6 +6333,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 295 — Monorepo vs Separate Repositories
+
 ⭐ **Same repository or separate one?**
 
 ### Part A
@@ -6160,6 +6350,7 @@ This document does not change progress from **85/387+**.
 # Batch 22 — Sets 296–305
 
 ## Set 296 — CI/CD Pipeline Stages
+
 ⭐ **What's there in your pipeline? There must be a few steps in your pipeline, right?**
 
 ### Part A
@@ -6175,6 +6366,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 297 — Application Deployment Mechanisms
+
 ⭐ **What's the deployment mechanism in your project?**
 
 ### Part A
@@ -6190,6 +6382,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 298 — Choosing a Deployment Strategy
+
 ⭐ **According to you, what would be the best deployment strategy?**
 
 ### Part A
@@ -6205,6 +6398,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 299 — Project Deployment Strategy
+
 ⭐ **What's your deployment strategy in your current project?**
 
 ### Part A
@@ -6220,6 +6414,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 300 — Production Releases During Short Sprints
+
 ⭐ **Since you have a one-week Sprint, are Production releases also frequent?**
 
 ### Part A
@@ -6234,6 +6429,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 301 — Merging and Releasing Code
+
 ⭐ **Are you merging your code yourself and moving those changes into Production?**
 
 ### Part A
@@ -6248,6 +6444,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 302 — Deployment Process Structure
+
 ⭐ **What is the deployment structure or deployment process in your project?**
 
 ### Part A
@@ -6263,6 +6460,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 303 — End-to-End Web Application Deployment
+
 ⭐ **How do you guys do deployments in your web applications? Tell me from scratch.**
 
 ### Part A
@@ -6284,6 +6482,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 304 — Docker for Spring Boot Deployment
+
 ⭐ **Is there any role of Docker in deploying a Spring Boot application?**
 
 ### Part A
@@ -6299,6 +6498,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 305 — Containerizing Spring Boot for Development and Production
+
 ⭐ **How would you containerize a Spring Boot application for development and production environments?\***
 
 ### Part A
@@ -6336,6 +6536,7 @@ This document does not change progress from **85/387+**.
 # Batch 1 — Sets 306–315
 
 ## Set 306 — AWS CloudWatch Monitoring
+
 ⭐ **How does AWS CloudWatch work?**
 
 ### Part A
@@ -6351,6 +6552,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 307 — External Image Storage
+
 ⭐ **Are you storing the images somewhere like AWS or another external storage?**
 
 ### Part A
@@ -6364,6 +6566,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 308 — Managing Competing UAT Releases
+
 ⭐ **Two Features need UAT at the same time, but your project has only one UAT Environment. How would you manage them?**
 
 ### Part A
@@ -6379,6 +6582,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 309 — Development, QA, and Production Environments
+
 ⭐ **How many environments do you currently have, such as Dev, Prod or QA?**
 
 ### Part A
@@ -6394,6 +6598,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 310 — Environment-Specific Configuration
+
 ⭐ **When you push your code, you must add configuration files like application.yml or properties files, right? Is that Dev environment or what? Do you know about environments?**
 
 ### Part A
@@ -6409,6 +6614,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 311 — Project Cache Selection
+
 ⭐ **What cache are you using?**
 
 ### Part A
@@ -6424,6 +6630,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 312 — Practical Caching Use Cases
+
 ⭐ **Have you used caching in your application?**
 
 ### Part A
@@ -6439,6 +6646,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 313 — Caching in Applications
+
 ⭐ **Have you worked with Caching?**
 
 ### Part A
@@ -6454,6 +6662,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 314 — Implementing an LRU Cache
+
 ⭐ **Have you implemented an LRU Cache?**
 
 ### Part A
@@ -6469,6 +6678,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 315 — Diagnosing Production Performance Problems
+
 ⭐ **You observe that a Spring Boot application performs slower in the production environment compared to the development setup. What steps would you take to address this issue?**
 
 ### Part A
@@ -6486,6 +6696,7 @@ This document does not change progress from **85/387+**.
 # Batch 2 — Sets 316–325
 
 ## Set 316 — Improving Spring Boot Application Performance
+
 ⭐ **Describe a Spring Boot project where you significantly improved performance. What techniques did you use?**
 
 ### Part A
@@ -6507,6 +6718,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 317 — Investigating Development vs Production Slowness
+
 ⭐ **Let's say you observe your application is slower in the production environment but it's good in the development environment. How would you fix this issue?**
 
 ### Part A
@@ -6522,6 +6734,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 318 — Production Performance Troubleshooting
+
 ⭐ **A Spring Boot application is significantly slower in production than in the development environment. How would you fix the problem and what steps would you take?**
 
 ### Part A
@@ -6537,6 +6750,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 319 — Project Bug Investigation
+
 ⭐ **How are you approaching resolving bugs in your current project?**
 
 ### Part A
@@ -6552,6 +6766,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 320 — Investigating Production OutOfMemoryError
+
 ⭐ **Have you ever faced an OutOfMemoryError in Production in your career?**
 
 ### Part A
@@ -6567,6 +6782,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 321 — Production Incident Root-Cause Analysis
+
 ⭐ **Tell me about a Production issue you faced. How did you debug and resolve it, and how did you ensure it would not happen again?**
 
 ### Part A
@@ -6582,6 +6798,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 322 — Troubleshooting Post-Release Failures
+
 ⭐ **You successfully tested a feature locally and in the Dev environment, but when you release it to production you face an issue. How do you handle this?**
 
 ### Part A
@@ -6597,6 +6814,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 323 — Handling API Failures
+
 ⭐ **Did you face API failure issues during your career?**
 
 ### Part A
@@ -6612,6 +6830,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 324 — Spring Boot Production Readiness
+
 ⭐ **What are some common Production-level practices in Spring Boot or in a project that we should follow?**
 
 ### Part A
@@ -6627,6 +6846,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 325 — Monolith vs Microservices Architecture
+
 ⭐ **Is this a microservice-based or monolithic application?**
 
 ### Part A
@@ -6644,6 +6864,7 @@ This document does not change progress from **85/387+**.
 # Batch 3 — Sets 326–335
 
 ## Set 326 — Current Application Architecture
+
 ⭐ **Are you currently working on a microservices project or a monolithic project?**
 
 ### Part A
@@ -6659,6 +6880,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 327 — Choosing Monolith or Microservices
+
 ⭐ **Which architecture was used, monolithic or microservices?**
 
 ### Part A
@@ -6674,6 +6896,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 328 — Production Image Storage
+
 ⭐ **Where are you guys saving images in your project?**
 
 ### Part A
@@ -6688,6 +6911,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 329 — Real-Time Insurance Claim Updates
+
 ⭐ **How would a User receive Real-Time Updates about the current status of an Insurance Claim?**
 
 ### Part A
@@ -6702,6 +6926,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 330 — Jakarta Dependency Adoption
+
 ⭐ **Have you worked with Jakarta dependencies?**
 
 ### Part A
@@ -6716,6 +6941,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 331 — Migrating javax to Jakarta
+
 ⭐ **Have you migrated javax to Jakarta, or was it already migrated?**
 
 ### Part A
@@ -6730,6 +6956,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 332 — Jakarta Migration Challenges
+
 ⭐ **Are you facing any challenges during the migration?**
 
 ### Part A
@@ -6744,6 +6971,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 333 — Java 8-to-17 Migration Problems
+
 ⭐ **Did you face any challenges while migrating from Java 8 to Java 17? Tell me one or two specific challenges you faced.**
 
 ### Part A
@@ -6759,6 +6987,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 334 — Planning Java Migration Timelines
+
 ⭐ **How did you handle the time challenge during the Java migration?**
 
 ### Part A
@@ -6773,6 +7002,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 335 — Legacy javax Dependencies
+
 ⭐ **Are you guys using javax dependencies?**
 
 ### Part A
@@ -6789,6 +7019,7 @@ This document does not change progress from **85/387+**.
 # Batch 4 — Sets 336–345
 
 ## Set 336 — AI Tools in Development
+
 ⭐ **Are you using any AI in your project, such as GitHub Copilot, Spring AI, or another tool?**
 
 ### Part A
@@ -6804,6 +7035,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 337 — AI-Assisted Performance Optimization
+
 ⭐ **Are you using AI tools to optimize performance, or how much AI are you guys using?**
 
 ### Part A
@@ -6819,6 +7051,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 338 — Integrating AI into Applications
+
 ⭐ **Do you have any AI integration in your project?**
 
 ### Part A
@@ -6834,6 +7067,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 339 — Leading a Feature
+
 ⭐ **Are you leading any feature as of now?**
 
 ### Part A
@@ -6848,6 +7082,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 340 — Types of Applications Built
+
 ⭐ **What type of application was it?**
 
 ### Part A
@@ -6861,6 +7096,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 341 — Frameworks Used Across Projects
+
 ⭐ **Can you tell me about the projects where you applied these frameworks?**
 
 ### Part A
@@ -6874,6 +7110,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 342 — Describing a Recent Project
+
 ⭐ **Can you tell me about your recent project you have worked on?**
 
 ### Part A
@@ -6888,6 +7125,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 343 — Internal Projects vs Client Projects
+
 ⭐ **Is it for a client or an internal project?**
 
 ### Part A
@@ -6902,6 +7140,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 344 — Explaining a Recent Spring Boot Project
+
 ⭐ **Can you describe the most recent project you worked on using Spring Boot?**
 
 ### Part A
@@ -6916,6 +7155,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 345 — Distinguishing Current and Previous Projects
+
 ⭐ **Is this related to your recent project or some different project?**
 
 ### Part A
@@ -6931,6 +7171,7 @@ This document does not change progress from **85/387+**.
 # Batch 5 — Sets 346–355
 
 ## Set 346 — Project Experience and Responsibilities
+
 ⭐ **Can you please let me know what kind of projects you have worked on and explain the roles that you are dealing with?**
 
 ### Part A
@@ -6945,6 +7186,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 347 — Most Complex Feature Built
+
 ⭐ **What was the complex thing you built in this project, like the complex feature or changes?**
 
 ### Part A
@@ -6959,6 +7201,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 348 — Project Introduction and Self-Introduction
+
 ⭐ **Can you please explain your recent project and also introduce yourself?**
 
 ### Part A
@@ -6972,6 +7215,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 349 — Java Developer Experience Introduction
+
 ⭐ **Could you tell me about yourself and your experience in Java development?**
 
 ### Part A
@@ -6985,6 +7229,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 350 — Recent Project Self-Introduction
+
 ⭐ **Can you please tell me about yourself and your recent project?**
 
 ### Part A
@@ -6998,6 +7243,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 351 — Brief Professional Introduction
+
 ⭐ **Could you please tell me about yourself in brief?**
 
 ### Part A
@@ -7011,6 +7257,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 352 — Spring Boot Project Context
+
 ⭐ **Is your project based on Spring Boot?**
 
 ### Part A
@@ -7024,6 +7271,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 353 — Day-to-Day Development Responsibilities
+
 ⭐ **What's your day-to-day responsibilities there?**
 
 ### Part A
@@ -7037,6 +7285,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 354 — Daily Engineering Tasks
+
 ⭐ **What's your day-to-day task?**
 
 ### Part A
@@ -7050,6 +7299,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 355 — Developer Role and Ownership
+
 ⭐ **What was your role?**
 
 ### Part A
@@ -7065,6 +7315,7 @@ This document does not change progress from **85/387+**.
 # Batch 6 — Sets 356–365
 
 ## Set 356 — Agile vs Waterfall Benefits
+
 ⭐ **What are the benefits of Agile, and why don't we generally use the Waterfall Model nowadays?**
 
 ### Part A
@@ -7078,6 +7329,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 357 — Sprint Estimation
+
 ⭐ **How do you plan Sprint Estimation?**
 
 ### Part A
@@ -7091,6 +7343,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 358 — Waterfall vs Agile Methodologies
+
 ⭐ **What's the difference between Waterfall model and Agile?**
 
 ### Part A
@@ -7104,6 +7357,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 359 — Practical Benefits of Agile
+
 ⭐ **As you said the project is based on Agile methodology, can you tell me its benefits?**
 
 ### Part A
@@ -7117,6 +7371,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 360 — Choosing a Project Delivery Methodology
+
 ⭐ **What was the project model? Were you using Waterfall, Agile, or another model?**
 
 ### Part A
@@ -7130,6 +7385,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 361 — Sprint Planning and Structure
+
 ⭐ **What's the Sprint Planning or Sprint structure in your project?**
 
 ### Part A
@@ -7143,6 +7399,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 362 — Code Review Ownership
+
 ⭐ **Who reviews your code?**
 
 ### Part A
@@ -7156,6 +7413,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 363 — Collaborating in Code Reviews
+
 ⭐ **How do you review their code, how do you collaborate with your junior developers, and how do you work as a team?**
 
 ### Part A
@@ -7170,6 +7428,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 364 — Tracking Team Effort
+
 ⭐ **Where are you guys tracking the team efforts?**
 
 ### Part A
@@ -7183,6 +7442,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 365 — Mentoring Junior Developers
+
 ⭐ **As a five-year experienced Developer, how do you monitor Junior Developers in your team?**
 
 ### Part A
@@ -7198,6 +7458,7 @@ This document does not change progress from **85/387+**.
 # Batch 7 — Sets 366–375
 
 ## Set 366 — Balancing Code Quality and Deadlines
+
 ⭐ **What is more important, perfect code or on-time delivery?**
 
 ### Part A
@@ -7211,6 +7472,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 367 — Handling Team Delivery Delays
+
 ⭐ **Have you ever faced a challenge while working with your team where a deadline was coming but your team was not able to produce the work and you had issues with your client? If yes, how did you overcome it?**
 
 ### Part A
@@ -7224,6 +7486,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 368 — Technical Leadership vs Individual Contribution
+
 ⭐ **Are you a good Team Leader or a good Developer?**
 
 ### Part A
@@ -7237,6 +7500,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 369 — Assessing Java and Spring Boot Skills
+
 ⭐ **How would you rate yourself out of 10 as a Java Spring Boot Developer, and why are you deducting the remaining points?**
 
 ### Part A
@@ -7250,6 +7514,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 370 — Planning Future Technical Learning
+
 ⭐ **What latest technologies do you think you still need to learn?**
 
 ### Part A
@@ -7263,6 +7528,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 371 — Owning a Failing Module or Team Conflict
+
 ⭐ **Tell me about a time when you had to take ownership of a failing module or a conflict in the team.**
 
 ### Part A
@@ -7276,6 +7542,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 372 — Resolving Module and Team Conflicts
+
 ⭐ **How did you tackle that failing module or team conflict, and how did you resolve it?**
 
 ### Part A
@@ -7289,6 +7556,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 373 — First 90 Days in a Senior Role
+
 ⭐ **You join an organization in a Senior role. What value will you add in the next 90 days? Explain what you would do in the first 30 days, next 30 days, and final 30 days.**
 
 ### Part A
@@ -7302,6 +7570,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 374 — Mentorship and Leadership Impact
+
 ⭐ **Can you give an example where your Mentorship or Leadership helped solve a technical or process issue?**
 
 ### Part A
@@ -7315,6 +7584,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 375 — Negotiating Quality vs Deadlines
+
 ⭐ **Your Manager gives you a tight deadline for a feature, but you know it can compromise code quality. How would you approach this situation?**
 
 ### Part A
@@ -7330,6 +7600,7 @@ This document does not change progress from **85/387+**.
 # Batch 8 — Sets 376–378
 
 ## Set 376 — Handling Code Review Disagreements
+
 ⭐ **How do you handle disagreements during Code Reviews when you believe your implementation is correct but the reviewer disagrees?**
 
 ### Part A
@@ -7343,6 +7614,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 377 — Responding to a Junior Developer's P1 Incident
+
 ⭐ **A Junior Developer's feature causes a Priority-1 Production issue that must be fixed within a day. Would you guide the Junior to fix it or take ownership and fix it yourself?**
 
 ### Part A
@@ -7358,6 +7630,7 @@ This document does not change progress from **85/387+**.
 # Batch 8 — Sets 378–378
 
 ## Set 378 — Handling a Pre-Release Junior Developer Mistake
+
 ⭐ **A Fresher makes a mistake just before Production deployment and only 5–10 minutes remain. What would you do, and what advice would you give that Developer afterward?**
 
 ### Part A
@@ -7379,6 +7652,7 @@ This document does not change progress from **85/387+**.
 # Batch 8 — Sets 379–388
 
 ## Set 379 — Resumable GIS Batch Imports
+
 ⭐⭐ **How would you design a persistent, resumable GIS batch-import workflow that does not partially publish an invalid dataset?**
 
 ### Part A
@@ -7394,6 +7668,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 380 — PostGIS Persistence and API Compatibility
+
 ⭐⭐ **How would you introduce PostgreSQL/PostGIS spatial persistence while keeping existing GeoOps project APIs compatible?**
 
 ### Part A
@@ -7409,6 +7684,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 381 — Coordinate Reference Transformation and Geometry Validation
+
 ⭐⭐ **How would you implement safe coordinate-reference transformation and geometry validation for survey datasets?**
 
 ### Part A
@@ -7424,6 +7700,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 382 — Durable Asynchronous GIS Delivery
+
 ⭐⭐ **How would you design durable asynchronous GIS delivery with idempotent retries and a dead-letter policy?**
 
 ### Part A
@@ -7439,6 +7716,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 383 — Role-Based GeoOps API Security
+
 ⭐⭐ **How would you add role-based authentication and authorization to the GeoOps API without leaking survey metadata?**
 
 ### Part A
@@ -7454,6 +7732,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 384 — Migrating to Durable Project Transactions
+
 ⭐⭐ **How would you replace the single-JVM project catalog with durable transactions while preserving data-integrity invariants?**
 
 ### Part A
@@ -7469,6 +7748,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 385 — GeoOps Multi-Replica Container Operations
+
 ⭐⭐ **How would you containerize and operate GeoOps across multiple replicas with safe configuration and rollbacks?**
 
 ### Part A
@@ -7486,6 +7766,7 @@ This document does not change progress from **85/387+**.
 # Batch 9 — Sets 386–390
 
 ## Set 386 — Service-Level Objectives for GIS Workflows
+
 ⭐⭐ **How would you define and measure service-level objectives for GIS intake, review, and delivery workflows?**
 
 ### Part A
@@ -7501,6 +7782,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 387 — Securing Untrusted Geospatial File Ingestion
+
 ⭐⭐ **How would you secure ingestion of untrusted geospatial files against malformed payloads and resource exhaustion?**
 
 ### Part A
@@ -7516,6 +7798,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 388 — Consumer-Driven API Contract Testing
+
 ⭐⭐ **How would you establish consumer-driven API contract tests before splitting GeoOps into independently deployed services?**
 
 ### Part A
@@ -7531,6 +7814,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 389 — Permission-Aware RAG for GIS Documentation
+
 ⭐⭐ **How would you evaluate permission-aware retrieval-augmented AI search across GIS project documentation?**
 
 ### Part A
@@ -7546,6 +7830,7 @@ This document does not change progress from **85/387+**.
 ---
 
 ## Set 390 — GeoOps Fault-Investigation Rehearsal
+
 ⭐⭐ **How would you lead a fault-investigation rehearsal and turn its findings into a verifiable GeoOps reliability plan?**
 
 ### Part A
