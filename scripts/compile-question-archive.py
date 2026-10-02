@@ -24,7 +24,7 @@ SET_HEADING = re.compile(
     re.MULTILINE,
 )
 ANCHOR = re.compile(
-    r"^- \[[ x]\] (⭐{1,2})\s+(?:\[Master \d+\]\s*)?(.+)$"
+    r"^- \[[ x]\] (⭐{1,2})\s+(?:\[(?:Master|Source) \d+\]\s*)?(.+)$"
 )
 QUESTION = re.compile(
     r"^- \[[ x]\]\s*(✅|💡)?\s*(?:\[Master \d+\]\s*)?(.+)$"
