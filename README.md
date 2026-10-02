@@ -241,3 +241,8 @@ Next original anchor: **Set 81 — Have you ever faced a Deadlock situation in y
 - [Current progress](state/progress.json)
 
 **Current next Set 86:** Have you encountered a SOLID Principle violation in your code and fixed it?
+
+
+## Full question roadmap (Sets 1–390)
+
+**[Open the complete interview-question library](docs/questions/roadmap/README.md)** — all questions in one Markdown file, plus four smaller range files. Sets 1–85 are completed; Sets 86–390 are future previews, including 12 optional synthetic practice Sets. The preview files do not change project progress.
