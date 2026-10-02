@@ -93,7 +93,10 @@ public class ParallelProjectValidationService {
             CreateProjectRequest request
     ) {
         ProjectValidationReport report =
-                validationService.validate(request);
+                ValidationTraceContext.withProjectCode(
+                        request.projectCode(),
+                        () -> validationService.validate(request)
+                );
 
         return new ProjectBatchValidationResult(
                 request.projectCode(),
