@@ -12,8 +12,10 @@ TRACKERS = [
     ROOT / "state/LEARNING_TRACKER_SETS_081_085.md",
 ]
 PREVIEWS = [
-    ROOT / "docs/questions/previews/SETS_086_095.md",
-    ROOT / "docs/questions/previews/SETS_096_105.md",
+    ROOT / "docs/questions/previews/SETS_086_090.md",
+    ROOT / "docs/questions/previews/SETS_091_095.md",
+    ROOT / "docs/questions/previews/SETS_096_100.md",
+    ROOT / "docs/questions/previews/SETS_101_105.md",
 ]
 OUTPUT = ROOT / "docs/questions/ALL_QUESTIONS_SETS_001_105.md"
 
@@ -60,8 +62,7 @@ def parse_completed() -> dict[int, tuple[str, str, list[tuple[str, list[str]]]]]
                     marker = found.group(1) or "🆕"
                     question = found.group(2).strip()
                     active[1].append(f"{marker} {question}")
-                if line.startswith("## Set ") or line.startswith(
-                        "## Set ") or line.startswith("### Evidence"):
+                if line.startswith("## Set ") or line.startswith("### Evidence"):
                     active = None
             if anchor is None or not parts or any(not part[1] for part in parts):
                 raise ValueError(f"Missing anchor/questions for Set {number} in {source}")
