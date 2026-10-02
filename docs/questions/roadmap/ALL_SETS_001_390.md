@@ -13,8 +13,7 @@ This document does not change progress from **85/387+**.
 
 # Completed Sets 1–85
 
-## Set 1 — Status: 1/387+
-
+## Set 1 — IntelliJ and Spring Boot Development Environment
 ⭐ **What's your preferred development environment and tool set for Spring Boot application?**
 
 ### Part A
@@ -63,8 +62,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 2 — Status: 2/387+
-
+## Set 2 — System.exit() and Graceful Shutdown
 ⭐ **Did you get a chance to use System.exit() in your project?**
 
 ### Part A
@@ -79,8 +77,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 3 — Status: 3/387+
-
+## Set 3 — Agile vs Waterfall Project Methodology
 ⭐ **Can you tell me your project methodology? Is it based on Agile or Waterfall model?**
 
 ### Part A
@@ -95,8 +92,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 4 — Status: 4/387+
-
+## Set 4 — StringBuilder vs StringBuffer
 ⭐ **Have you worked with StringBuilder and StringBuffer?**
 
 ### Part A
@@ -127,8 +123,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 5 — Status: 5/387+
-
+## Set 5 — Object-Oriented Programming in Enterprise Projects
 ⭐ **What's the use of object-oriented programming in enterprise projects?**
 
 ### Part A
@@ -347,8 +342,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 6 — Status: 6/387+
-
+## Set 6 — Final Keyword Rules and Usage
 ⭐ **Have you used the final keyword in your project ever?**
 
 ### Part A
@@ -362,8 +356,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 7 — Status: 7/387+
-
+## Set 7 — Real-World Uses of the Final Keyword
 ⭐ **Can you tell me a real-world or real-time use case of the final keyword?**
 
 ### Part A
@@ -378,8 +371,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 8 — Status: 8/387+
-
+## Set 8 — Static Methods in Java
 ⭐ **Have you written any static methods?**
 
 ### Part A
@@ -472,8 +464,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 9 — Status: 9/387+
-
+## Set 9 — Implementing equals() and hashCode()
 ⭐ **Have you overridden hashCode() and equals() before?**
 
 ### Part A
@@ -506,8 +497,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 10 — Status: 10/387+
-
+## Set 10 — Reference Equality vs Object Equality
 ⭐ **Have you used == and .equals() operators in your project?**
 
 ### Part A
@@ -542,8 +532,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 11 — Status: 11/387+
-
+## Set 11 — Designing Immutable Java Classes
 ⭐ **Have you ever got a chance to design an immutable class?**
 
 ### Part A
@@ -578,8 +567,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 12 — Status: 12/387+
-
+## Set 12 — Enums in Java
 ⭐ **Have you worked with Enum in your project?**
 
 ### Part A
@@ -600,8 +588,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 13 — Status: 13/387+
-
+## Set 13 — Custom Application Exceptions
 ⭐ **Can you share some custom exception names that you guys are throwing in your current project?**
 
 ### Part A
@@ -616,8 +603,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 14 — Status: 14/387+
-
+## Set 14 — Custom Exception Hierarchies
 ⭐ **Have you ever created a Custom Exception Hierarchy?**
 
 ### Part A
@@ -632,8 +618,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 15 — Status: 15/387+
-
+## Set 15 — Exception Handling in Projects
 ⭐ **How do you handle exceptions in your project?**
 
 ### Part A
@@ -656,8 +641,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 16 — Status: 16/387+
-
+## Set 16 — Exception Handling Strategies
 ⭐ **What strategies do you majorly use for exception handling?**
 
 ### Part A
@@ -672,8 +656,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 17 — Status: 17/387+
-
+## Set 17 — Error Handling Fundamentals
 ⭐ **What were your basic approaches to error handling and what were the basic things that you were doing in error handling?**
 
 ### Part A
@@ -688,8 +671,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 18 — Status: 18/387+
-
+## Set 18 — Centralized Exception Management
 ⭐ **Can you tell me how you guys are maintaining or handling exceptions?**
 
 ### Part A
@@ -704,8 +686,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 19 — Status: 19/387+
-
+## Set 19 — Finally Block Side Effects
 ⭐ **Was there ever a time when the finally block caused unexpected behavior or side effects in your code?**
 
 ### Part A
@@ -720,8 +701,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 20 — Status: 20/387+
-
+## Set 20 — Java Collections in Practice
 ⭐ **Have you worked with collections in Java?**
 
 ### Part A
@@ -789,8 +769,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 21 — Status: 21/387+
-
+## Set 21 — Choosing Collection Types
 ⭐ **What type of collections have you incorporated in your projects?**
 
 ### Part A
@@ -805,8 +784,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 22 — Status: 22/387+
-
+## Set 22 — Collection Selection Best Practices
 ⭐ **Can you tell me a few best practices you consider when applying collections in your project?**
 
 ### Part A
@@ -821,8 +799,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 23 — Status: 23/387+
-
+## Set 23 — ArrayList Internals and Performance
 ⭐ **Have you used ArrayList in your project?**
 
 ### Part A
@@ -837,8 +814,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 24 — Status: 24/387+
-
+## Set 24 — LinkedList and Deque Operations
 ⭐ **Have you used LinkedList in your project?**
 
 ### Part A
@@ -861,8 +837,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 25 — Status: 25/387+
-
+## Set 25 — Solving Complex Problems with Collections
 ⭐ **Can you describe a complex problem you solved using a Java Collection?**
 
 ### Part A
@@ -877,8 +852,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 26 — Status: 26/387+
-
+## Set 26 — Common Java Collection Implementations
 ⭐ **Can you tell me a few Collection names that you are using in your project?**
 
 ### Part A
@@ -893,8 +867,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 27 — Status: 27/387+
-
+## Set 27 — List, LinkedList, and HashSet
 ⭐ **Have you used List, LinkedList and HashSet in your project?**
 
 ### Part A
@@ -909,8 +882,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 28 — Status: 28/387+
-
+## Set 28 — List vs HashSet Use Cases
 ⭐ **Where have you used List and HashSet? Can you tell me the situations?**
 
 ### Part A
@@ -925,8 +897,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 29 — Status: 29/387+
-
+## Set 29 — Arrays.sort() vs Collections.sort()
 ⭐ **Have you used Arrays.sort() and Collections.sort()?**
 
 ### Part A
@@ -979,8 +950,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 30 — Status: 30/387+
-
+## Set 30 — ArrayList Selection and Performance
 ⭐ **Have you used ArrayList in your project?**
 
 ### Part A
@@ -995,8 +965,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 31 — Status: 31/387+
-
+## Set 31 — LinkedList Use Cases and Iterators
 ⭐ **Can you tell me the use case of LinkedList in your project?**
 
 ### Part A
@@ -1011,8 +980,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 32 — Status: 32/387+
-
+## Set 32 — LinkedList Iteration and Concurrent Modification
 ⭐ **Have you used LinkedList in your project?**
 
 ### Part A
@@ -1027,8 +995,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 33 — Status: 33/387+
-
+## Set 33 — TreeSet and Sorted Sets
 ⭐ **Have you used TreeSet in your project?**
 
 ### Part A
@@ -1055,8 +1022,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 34 — Status: 34/387+
-
+## Set 34 — HashMap Internals and Usage
 ⭐ **Have you worked with HashMap?**
 
 ### Part A
@@ -1130,8 +1096,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 35 — Status: 35/387+
-
+## Set 35 — Map Use Cases in Projects
 ⭐ **What's the usage of Map in your project?**
 
 ### Part A
@@ -1146,8 +1111,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 36 — Status: 36/387+
-
+## Set 36 — WeakHashMap and Garbage Collection
 ⭐ **Did you get a chance to work with WeakHashMap?**
 
 ### Part A
@@ -1160,8 +1124,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 37 — Status: 37/387+
-
+## Set 37 — ConcurrentHashMap in Projects
 ⭐ **Did you get a chance to work on ConcurrentHashMap in your project?**
 
 ### Part A
@@ -1176,8 +1139,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 38 — Status: 38/387+
-
+## Set 38 — Custom Sorting with Comparable and Comparator
 ⭐ **Have you customized sorting before? If yes, for what purpose?**
 
 ### Part A
@@ -1201,8 +1163,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 39 — Status: 39/387+
-
+## Set 39 — Functional Interfaces in Legacy Code
 ⭐ **What challenges did you face while implementing Functional Interfaces in legacy code?**
 
 ### Part A
@@ -1240,8 +1201,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 40 — Status: 40/387+
-
+## Set 40 — Java Stream API
 ⭐ **Have you worked on Stream APIs?**
 
 ### Part A
@@ -1337,8 +1297,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 41 — Status: 41/387+
-
+## Set 41 — Optional Fundamentals and Null Safety
 ⭐ **Have you used Optional personally?**
 
 ### Part A
@@ -1353,8 +1312,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 42 — Status: 42/387+
-
+## Set 42 — Optional in Project Code
 ⭐ **Do you use Optional practically in your project?**
 
 ### Part A
@@ -1369,8 +1327,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 43 — Status: 43/387+
-
+## Set 43 — Optional Usage Patterns
 ⭐ **Did you guys leverage the Optional class?**
 
 ### Part A
@@ -1385,8 +1342,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 44 — Status: 44/387+
-
+## Set 44 — Real-World Optional Use Cases
 ⭐ **Can you tell me a particular scenario where you used Optional?**
 
 ### Part A
@@ -1401,8 +1357,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 45 — Status: 45/387+
-
+## Set 45 — Java 8 Features in Practice
 ⭐ **Which Java 8 features do you use most of the time?**
 
 ### Part A
@@ -1445,8 +1400,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 46 — Status: 46/387+
-
+## Set 46 — Java Version and Java 17 Features
 ⭐ **Which Java version do you use in your current project?**
 
 ### Part A
@@ -1458,8 +1412,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 47 — Status: 47/387+
-
+## Set 47 — Java 17 Project Baseline
 ⭐ **Currently, which Java version are you working on?**
 
 ### Part A
@@ -1471,8 +1424,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 48 — Status: 48/387+
-
+## Set 48 — Java Version Configuration
 ⭐ **What's the Java version you are using?**
 
 ### Part A
@@ -1484,8 +1436,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 49 — Status: 49/387+
-
+## Set 49 — Choosing Java 17 for Enterprise Projects
 ⭐ **Why did you choose Java 17 if you are not using many Java 17-specific features?**
 
 ### Part A
@@ -1598,8 +1549,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 50 — Status: 50/387+
-
+## Set 50 — CSV Import and Export Workflows
 ⭐ **How are you importing and exporting data? Can you tell me the technical part of that?**
 
 ### Part A
@@ -1666,8 +1616,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 51 — Status: 51/387+
-
+## Set 51 — Deserialization Challenges
 ⭐ **What challenge did you face while deserializing data?**
 
 ### Part A
@@ -1681,8 +1630,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 52 — Status: 52/387+
-
+## Set 52 — Serialization in Java
 ⭐ **Have you worked with Serialization?**
 
 ### Part A
@@ -1704,8 +1652,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 53 — Status: 53/387+
-
+## Set 53 — Serialization Across Data Exchanges
 ⭐ **Since your project imports, exports and fetches data, didn't you serialize data while fetching or saving it?**
 
 ### Part A
@@ -1719,8 +1666,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 54 — Status: 54/387+
-
+## Set 54 — Serialization and Deserialization Errors
 ⭐ **Did you face any error or challenge while Serialization and Deserialization?**
 
 ### Part A
@@ -1735,8 +1681,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 55 — Status: 55/387+
-
+## Set 55 — Resolving ClassNotFoundException
 ⭐ **Have you ever seen ClassNotFoundException in your project, and if yes, how can we resolve it?**
 
 ### Part A
@@ -1758,8 +1703,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 56 — Status: 56/387+
-
+## Set 56 — Reflection and Runtime Metadata
 ⭐ **Have you used reflection somewhere in your project?**
 
 ### Part A
@@ -1811,8 +1755,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 57 — Status: 57/387+
-
+## Set 57 — Conditional Spring Boot Annotations
 ⭐ **Have you used Conditional annotations in Spring Boot?**
 
 ### Part A
@@ -1825,8 +1768,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 58 — Status: 58/387+
-
+## Set 58 — Creating Custom Java Annotations
 ⭐ **Have you tried creating a custom annotation?**
 
 ### Part A
@@ -1838,8 +1780,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 59 — Status: 59/387+
-
+## Set 59 — Detecting Java Memory Leaks
 ⭐ **How do you find memory leakage in a Java Spring Boot project?**
 
 ### Part A
@@ -1908,8 +1849,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 60 — Status: 60/387+
-
+## Set 60 — Debugging JVM Memory Leaks
 ⭐ **How did you debug a Memory Leak in your project, and what tools specifically did you use?**
 
 ### Part A
@@ -1933,8 +1873,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 61 — Status: 61/387+
-
+## Set 61 — VisualVM and Heap Analysis
 ⭐ **Have you worked with VisualVM?**
 
 ### Part A
@@ -1947,8 +1886,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 62 — Status: 62/387+
-
+## Set 62 — Investigating Memory Leak Incidents
 ⭐ **Did you face any memory leak in your career?**
 
 ### Part A
@@ -1961,8 +1899,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 63 — Status: 63/387+
-
+## Set 63 — Multithreading Fundamentals
 ⭐ **Have you worked in a multithreaded environment?**
 
 ### Part A
@@ -1977,8 +1914,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 64 — Status: 64/387+
-
+## Set 64 — Synchronized vs Unsynchronized Methods
 ⭐ **Have you used any synchronized or non-synchronized method in your Spring Boot application or project?**
 
 ### Part A
@@ -2002,8 +1938,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 65 — Status: 65/387+
-
+## Set 65 — Handling Concurrent Users
 ⭐ **What did you use for handling concurrent users in this project?**
 
 ### Part A
@@ -2018,8 +1953,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 66 — Status: 66/387+
-
+## Set 66 — Synchronized Keyword in Practice
 ⭐ **Have you used the synchronized keyword anywhere?**
 
 ### Part A
@@ -2034,8 +1968,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 67 — Status: 67/387+
-
+## Set 67 — Creating and Managing Threads
 ⭐ **Have you used threads in any of your projects?**
 
 ### Part A
@@ -2050,8 +1983,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 68 — Status: 68/387+
-
+## Set 68 — When and Why to Use Multithreading
 ⭐ **How did multithreading come into the picture in your project? What was the requirement?**
 
 ### Part A
@@ -2066,8 +1998,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 69 — Status: 69/387+
-
+## Set 69 — Thread Lifecycle and Callable
 ⭐ **Do you have experience with threads?**
 
 ### Part A
@@ -2082,8 +2013,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 70 — Status: 70/387+
-
+## Set 70 — Threads and Process-Level Concurrency
 ⭐ **Are you using Threads in your process?**
 
 ### Part A
@@ -2098,8 +2028,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 71 — Status: 71/387+
-
+## Set 71 — Multithreaded Features with ExecutorService
 ⭐ **What feature have you implemented using Multithreading in your current project?**
 
 ### Part A
@@ -2133,8 +2062,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 72 — Status: 72/387+
-
+## Set 72 — Synchronization Issues and Deadlocks
 ⭐ **In your project, don't you have any synchronization issues?**
 
 ### Part A
@@ -2149,8 +2077,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 73 — Status: 73/387+
-
+## Set 73 — Asynchronous Workflows and CompletableFuture
 ⭐ **Can you tell me how you guys are using Multithreading in your project?**
 
 ### Part A
@@ -2165,8 +2092,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 74 — Status: 74/387+
-
+## Set 74 — Thread-Safe Collections
 ⭐ **Have you worked with Threads or in a Concurrency environment?**
 
 ### Part A
@@ -2193,8 +2119,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 75 — Status: 75/387+
-
+## Set 75 — ReentrantLock and Lock APIs
 ⭐ **Have you used Locks, especially ReentrantLock, to make things thread-safe?**
 
 ### Part A
@@ -2262,8 +2187,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 76 — Status: 76/387+
-
+## Set 76 — Writing Multithreaded Project Code
 ⭐ **In your current project, did you write any Multithreaded code?**
 
 ### Part A
@@ -2278,8 +2202,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 77 — Status: 77/387+
-
+## Set 77 — Concurrent Project Workflows
 ⭐ **Do you have any concurrent system in your project?**
 
 ### Part A
@@ -2301,8 +2224,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 78 — Status: 78/387+
-
+## Set 78 — Finding and Fixing Concurrency Bugs
 ⭐ **Have you faced any Concurrency bug, and how did you find and fix it?**
 
 ### Part A
@@ -2317,8 +2239,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 79 — Status: 79/387+
-
+## Set 79 — Volatile Keyword and Memory Visibility
 ⭐ **Have you used the volatile keyword in any of your projects?**
 
 ### Part A
@@ -2346,8 +2267,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 80 — Status: 80/387+
-
+## Set 80 — Thread Pools and Task Execution
 ⭐ **Can you tell me about Thread Pool? Why do we use it, and have you used Thread Pool concepts in any personal or professional project?**
 
 ### Part A
@@ -2362,8 +2282,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 81 — Status: 81/387+
-
+## Set 81 — Deadlock Investigation and Prevention
 ⭐ **Have you ever faced a Deadlock situation in your project?**
 
 ### Part A
@@ -2378,8 +2297,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 82 — Status: 82/387+
-
+## Set 82 — ThreadLocal Context and Cleanup
 ⭐ **Have you worked with ThreadLocal?**
 
 ### Part A
@@ -2394,8 +2312,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 83 — Status: 83/387+
-
+## Set 83 — SOLID Principles in Project Design
 ⭐ **Are you guys following SOLID principles?**
 
 ### Part A
@@ -2410,8 +2327,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 84 — Status: 84/387+
-
+## Set 84 — Applying SOLID Principles to Code
 ⭐ **Can you give me an example where you have applied a SOLID principle in your code?**
 
 ### Part A
@@ -2426,8 +2342,7 @@ This document does not change progress from **85/387+**.
 
 ---
 
-## Set 85 — Status: 85/387+
-
+## Set 85 — Single Responsibility and SOLID Trade-offs
 ⭐ **Which SOLID principle do you use most in your projects?**
 
 ### Part A
