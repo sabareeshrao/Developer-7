@@ -4,7 +4,7 @@ Developer-7 is a progressively built **working Java/Spring Boot GIS project** pl
 
 ## Current status
 
-**Set 80 — Status: 80/387+ — COMPLETE**
+**Set 85 — Status: 85/387+ — COMPLETE**
 
 Completed world growth:
 
@@ -89,6 +89,11 @@ Set 77: concurrent preflight and publication workflow integration test
 Set 78: explicit shutdown rejection and cancellation of earlier submitted work
 Set 79: volatile visibility for a JVM-local batch-validation switch (HTTP 503/200)
 Set 80: 4-worker/64-queue thread-pool saturation and clean-drain regression
+Set 81: isolated deadlock reproduction and JVM ownership investigation
+Set 82: ThreadLocal project-code trace context with guaranteed worker cleanup
+Set 83: SOLID validation-rule injection and extension contract
+Set 84: Spring-discovered 120-character project name rule
+Set 85: Single Responsibility separation of length policy and error mapping
 ```
 
 
@@ -225,3 +230,14 @@ Next anchor: **What challenge did you face while deserializing data?**
 - Latest canonical progress: [state/progress.json](state/progress.json)
 
 Next original anchor: **Set 81 — Have you ever faced a Deadlock situation in your project?**
+
+
+## Latest Sets 81–85
+
+- [Complete questions and reuse markers](state/LEARNING_TRACKER_SETS_081_085.md)
+- [Experience answers](docs/ANCHOR_EXPERIENCE_ANSWERS_081_085.md)
+- [Canonical architecture addendum](world/CANON-SETS-081-085.md)
+- [Sprint 011](docs/process/SPRINT-011.md)
+- [Current progress](state/progress.json)
+
+**Current next Set 86:** Have you encountered a SOLID Principle violation in your code and fixed it?
