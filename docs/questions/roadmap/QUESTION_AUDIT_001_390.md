@@ -1,5 +1,7 @@
 # Developer-7 · Full Question Roadmap Audit (Sets 1–390)
 
+> **Historical audit snapshot (before Excel expansion and the topic-heading update).** The figures and statement that the full Excel bank was not yet incorporated were accurate **at that earlier checkpoint**, but are no longer current. As of the current library, all **2,308 workbook source IDs** are mapped, the roadmap has **3,590 technical-question entries**, and all **390 Set headings** have descriptive titles. For present-day findings, see [Post-title audit](QUESTION_AUDIT_POST_TITLE_UPDATE.md) and [Excel coverage](EXCEL_QUESTION_COVERAGE.md).
+
 **Audit date:** October 2, 2026  
 **Sources:** All four published `docs/questions/roadmap/SETS_*.md` files on Developer-7 `main` (verified byte-for-byte against their Git blob IDs), the original 387-question experience list, the supplied `Java 2000.xlsx` master workbook (`2000 Interview Questions`: 2,008 items; `Additional`: 300 items), and the existing learning trackers.
 

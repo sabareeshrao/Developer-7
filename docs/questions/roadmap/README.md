@@ -11,7 +11,7 @@
 | 206–305 | [Open Sets 206–305](SETS_206_305.md) |
 | 306–390 | [Open Sets 306–390](SETS_306_390.md) |
 
-**Coverage and reconciliation:** [Excel audit report](EXCEL_QUESTION_COVERAGE.md) · [Source-ID index (CSV)](EXCEL_QUESTION_COVERAGE.csv) · [Nine original prompts held in the appendix](ORIGINAL_ANCHORS_NOT_ASSIGNED_SETS.md) · [Prior full-roadmap audit](QUESTION_AUDIT_001_390.md).
+**Coverage and reconciliation:** [Excel audit report](EXCEL_QUESTION_COVERAGE.md) · [Source-ID index (CSV)](EXCEL_QUESTION_COVERAGE.csv) · [Nine original prompts held in the appendix](ORIGINAL_ANCHORS_NOT_ASSIGNED_SETS.md) · [Current structural and title audit](QUESTION_AUDIT_POST_TITLE_UPDATE.md) · [Historical pre-expansion audit](QUESTION_AUDIT_001_390.md).
 
 **Emoji legend:** ⭐ original experience anchor · ⭐⭐ optional synthetic experience anchor · 🆕 technical question first seen · ✅ previously covered technical question reused · 💡 supplementary non-bank question · **✨ newly added from Excel**. Newly inserted Excel questions use ✨ alone (without 🆕). Existing non-Excel question markers stay unchanged. The two Additional-sheet experience questions use an explicitly labeled ✨ follow-up subsection.
 
