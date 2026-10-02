@@ -31,3 +31,12 @@ This is a **study roadmap**, not a claim that every Set has been implemented or 
 Sources: the committed question tracker for Sets 1–85 and the previously audited Markdown question-preview files. The combined file above preserves the four source archives as chapters, including their original prefaces.
 
 [Return to the Developer-7 repository](../../../README.md) · [Current progress](../../../state/progress.json)
+
+
+## Source integrity and full audit
+
+**[View the full question/emoji audit for Sets 1–390](QUESTION_AUDIT_001_390.md)** — source cross-check, corrected marker/classification problems, and editorial caveats.
+
+**[View the nine original source prompts without their own numbered Set](ORIGINAL_ANCHORS_NOT_ASSIGNED_SETS.md)** — original experience questions #2–8 and #13–14, retained in their source wording and **not** counted as separately completed Sets.
+
+**Original-bank accounting:** 387 source experience questions = 378 original questions assigned standalone ⭐ Sets + 9 listed in the appendix. The 12 optional ⭐⭐ Sets 379–390 are separate practice proposals, not original bank questions. The complete Markdown now includes the appendix after the numbered Sets.

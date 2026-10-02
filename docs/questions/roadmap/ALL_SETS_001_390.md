@@ -4583,7 +4583,7 @@ This document does not change progress from **85/387+**.
 2. 🆕 The business team wants to know how many payment failures happened per hour and see them on a dashboard. What should we do?
 3. ✅ You have five Microservices. How would you trace a Request across all five Microservices?
 4. ✅ Which tools or Spring features would you use for Observability?
-5. 🆕 How do you monitor and manage a Spring Boot application after deploying it to Production?
+5. ✅ What are the best practices for Actuator endpoints?
 6. ✅ Can we utilize Spring Boot Actuator endpoints while investigating application performance or health issues?
 7. ✅ How would you create a Custom Health Indicator to monitor a Third-Party API?
 
@@ -4601,7 +4601,7 @@ This document does not change progress from **85/387+**.
 2. ✅ What is a Zombie Service in Microservices, and how would you detect one?
 3. ✅ What are Spring Boot Actuator and Micrometer, and how are they used together?
 4. ✅ You have five Microservices. How would you trace a Request across all five Microservices?
-5. ✅ How do you monitor and manage a Spring Boot application after deploying it to Production?
+5. 🆕 How does Spring Boot Actuator enhance application management?
 6. ✅ Can we utilize Spring Boot Actuator endpoints while investigating application performance or health issues?
 
 ---
@@ -4615,7 +4615,7 @@ This document does not change progress from **85/387+**.
 1. ✅ You have five Microservices. How would you trace a Request across all five Microservices?
 2. ✅ Which tools or Spring features would you use for Observability?
 3. ✅ Do you know how Distributed Tracing works in Microservices architecture?
-4. ✅ How do you monitor and manage a Spring Boot application after deploying it to Production?
+4. ✅ How would you use Actuator in a microservice architecture for monitoring?
 5. ✅ Can we utilize Spring Boot Actuator endpoints while investigating application performance or health issues?
 6. 💡 How would you configure service discovery, JVM metrics, and request traces when onboarding a service to Dynatrace?
 
@@ -4642,7 +4642,7 @@ This document does not change progress from **85/387+**.
 
 ### Part A
 
-1. 🆕 If the client asks you to implement log analysis and you can choose Kibana, Splunk, or any other tool, which would you prefer?
+1. 🆕 You want to create a shared logging configuration across multiple microservices. How would you do it in Spring Boot?
 2. ✅ Do you know the different logging levels?
 3. ✅ How would you implement a global Logging System in a Spring Boot application?
 4. ✅ Are you showing DEBUG logs in Production, or only in the Development environment?
@@ -4819,7 +4819,7 @@ This document does not change progress from **85/387+**.
 2. ✅ What deployment strategies are you aware of?
 3. ✅ Your lead asks you to release a new feature to only 5% of users. How would you implement that rollout?
 4. ✅ Your CI/CD Pipeline passes, but the application crashes in Production. How would you investigate and fix it?
-5. 🆕 You successfully tested a feature locally and in the Dev environment, but when you release it to production you face an issue. How do you handle this?
+5. 💡 What conditions would justify releasing or holding a change at the end of a one-week Sprint?
 6. 💡 How would you coordinate a one-week Sprint schedule with staging verification, release freezes, and change approval?
 
 ---
@@ -4879,7 +4879,7 @@ This document does not change progress from **85/387+**.
 
 1. 🆕 Have you heard about Dockerization?
 2. 🆕 How do you Dockerize a Spring Boot application and reduce its image size?
-3. 🆕 How would you containerize a Spring Boot application for development and production environments?*
+3. 🆕 Can a Java application run without the user installing a JRE, for example by bundling a custom Runtime Image?
 4. ✅ How would you package and run a Spring Boot application as a JAR?
 5. ✅ Can you tell me the difference between WAR and embedded containers?
 6. 🆕 How would you create different environments like production, development, and testing environments?
@@ -6230,3 +6230,33 @@ This document does not change progress from **85/387+**.
 ---
 
 **End of the original-question sequence and optional practice extensions. All Sets 306–390 remain previews; current completed status remains 85/387+.**
+
+
+---
+
+# Original experience prompts not assigned standalone Sets
+
+These **nine original experience questions** occur in the 387-question source list but were **not assigned their own numbered Set** when the earlier roadmap consolidated its opening IDE and OOP themes. They must not be counted as nine more completed Sets merely because Set 1 or Set 5 covers related subject matter. This source-preservation appendix prevents them from disappearing from the all-questions library.
+
+**Source:** The originally supplied 387-question experience list. Exact wording is retained except whitespace normalization.
+
+## IDE / development environment (alongside Set 1)
+
+- ⭐ **Original source question 2:** Can you tell me the tools that you are familiar with while working as a Java developer?
+- ⭐ **Original source question 3:** Which editor are you using?
+- ⭐ **Original source question 4:** Which editor do you use for your current project?
+- ⭐ **Original source question 5:** Do you use Eclipse, IntelliJ, or another IDE?
+- ⭐ **Original source question 6:** Can you tell me a few shortcuts of IntelliJ?
+- ⭐ **Original source question 7:** Which IntelliJ IDEA Keyboard Shortcuts do you commonly use?
+- ⭐ **Original source question 8:** Tell me a few shortcuts that you know about STS.
+
+## OOP in a real project (alongside Set 5)
+
+- ⭐ **Original source question 13:** How is OOP playing an important role in your project?
+- ⭐ **Original source question 14:** How are OOP concepts very important in our development projects?
+
+## Status interpretation
+
+- The numbered question roadmap contains **378 original-source anchors** (Sets 1–378) plus **12 proposed synthetic anchors** (Sets 379–390).
+- This reference records **nine original prompts not allocated separate Sets**; it does not renumber history or imply those prompts have been individually taught, implemented, or answered.
+- Actual project completion remains **85/387+**.
