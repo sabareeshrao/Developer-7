@@ -1,0 +1,28 @@
+name: Build Question Archive
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/question-archive-build.yml"
+      - "scripts/compile-question-archive.py"
+      - "docs/questions/previews/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-questions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+      - name: Compile and verify 105 Sets
+        run: python scripts/compile-question-archive.py
+      - name: Attach combined markdown
+        uses: actions/upload-artifact@v4
+        with:
+          name: all-questions-sets-001-105
+          path: docs/questions/ALL_QUESTIONS_SETS_001_105.md
+          if-no-files-found: error
